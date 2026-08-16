@@ -1,0 +1,6 @@
+[Unit]
+Description=UNSB progress monitor heartbeat
+
+[Service]
+Type=oneshot
+ExecStart=/home/yc/unsb_tired/refactor/_runs/monitor_once.sh

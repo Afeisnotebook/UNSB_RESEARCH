@@ -1,0 +1,30 @@
+{
+  "comparison": "dtcov_clean_best_e200 - dtcov_clean_plain_e200",
+  "target": ">= +1.0439 dB PSNR vs plain (original best)",
+  "metrics": {
+    "psnr": {
+      "n": 240,
+      "mean_delta": 0.8875,
+      "ci_low": 0.4992,
+      "ci_high": 1.2923
+    },
+    "ssim": {
+      "n": 240,
+      "mean_delta": -0.0017,
+      "ci_low": -0.0101,
+      "ci_high": 0.0071
+    },
+    "lpips": {
+      "n": 240,
+      "mean_delta": -0.0557,
+      "ci_low": -0.066,
+      "ci_high": -0.0458
+    },
+    "niqe": {
+      "n": 240,
+      "mean_delta": 0.6322,
+      "ci_low": 0.3935,
+      "ci_high": 0.873
+    }
+  }
+}

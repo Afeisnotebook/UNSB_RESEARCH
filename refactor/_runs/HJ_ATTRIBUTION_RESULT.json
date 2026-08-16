@@ -1,0 +1,46 @@
+{
+  "true_vs_plain": {
+    "psnr": {
+      "mean": 2.7533,
+      "ci_low": 1.842,
+      "ci_high": 3.7258
+    },
+    "ssim": {
+      "mean": 0.0286,
+      "ci_low": 0.0084,
+      "ci_high": 0.0501
+    },
+    "lpips": {
+      "mean": -0.0602,
+      "ci_low": -0.0821,
+      "ci_high": -0.0392
+    },
+    "niqe": {
+      "mean": -0.3563,
+      "ci_low": -0.7197,
+      "ci_high": 0.0016
+    }
+  },
+  "true_vs_roll": {
+    "psnr": {
+      "mean": 2.7612,
+      "ci_low": 2.1564,
+      "ci_high": 3.387
+    },
+    "ssim": {
+      "mean": 0.0373,
+      "ci_low": 0.0197,
+      "ci_high": 0.0555
+    },
+    "lpips": {
+      "mean": -0.1225,
+      "ci_low": -0.1377,
+      "ci_high": -0.107
+    },
+    "niqe": {
+      "mean": -1.7708,
+      "ci_low": -2.1136,
+      "ci_high": -1.4317
+    }
+  }
+}

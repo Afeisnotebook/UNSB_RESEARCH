@@ -1,0 +1,23 @@
+{
+  "purpose": "重构后必须保住或超过的已知最好收益（单 seed=2026，不可当稳定性结论）",
+  "dt_covmatch": {
+    "protocol": "six_domain_b16_128_e200",
+    "baseline_plain_psnr": 18.7360,
+    "best_branch": "fin6srv_b16_dtcov_grouped_ramp5hold15decay25_l001_all6_plain_e200_s2026",
+    "best_dpsnr_vs_plain": 1.0439,
+    "best_psnr": 19.7800,
+    "secondary_branch": "fin6srv_b16_dtcov_homog_decay10to20_cos_l001_all6_plain_e200_s2026",
+    "secondary_dpsnr_vs_plain": 0.8080,
+    "caveat": "对 lambda/schedule/estimator/teacher 敏感，存在负向配置"
+  },
+  "hj_patchnce": {
+    "protocol": "six_domain_b16_128_e200_continuous_layer0_hj",
+    "best_branch": "fin6_patchnce_l0h_true_constant_e200_b16_r128_s2026",
+    "valO_psnr_delta_true_vs_plain": 1.4729,
+    "valO_lpips_delta_true_vs_plain": -0.0619,
+    "valN_e200_psnr_delta": 1.33,
+    "attribution_ssim_delta_true_vs_roll": -0.0202,
+    "verdict": "PERFORMANCE_CONFIRMED_ATTRIBUTION_HOLD",
+    "caveat": "性能门 PASS，归因门 FAIL；涨了但机制归因未闭合"
+  }
+}

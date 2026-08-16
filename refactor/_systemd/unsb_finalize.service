@@ -1,0 +1,6 @@
+[Unit]
+Description=Finalize UNSB DT extra ablations once they finish
+
+[Service]
+Type=oneshot
+ExecStart=/home/yc/unsb_tired/refactor/_runs/finalize_dt_abl.sh

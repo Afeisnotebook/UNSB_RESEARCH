@@ -1,0 +1,28 @@
+# Large runtime / generated artifacts
+refactor/_runs/checkpoints/
+refactor/_smoke_ckpt/
+refactor/_runs/results/
+refactor/_runs/results_hj/
+refactor/_runs/results_hj_ms/
+**/results/
+*.pth
+
+# Logs and transient markers
+*.log
+*.done
+logs/HEARTBEAT.log
+logs/MONITOR_LOG.md
+last_heartbeat.json
+STATUS.json
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Runtime locks
+.gpu.lock
+
+# Original legacy references (not part of the clean refactor)
+00_original_UNSB/
+01_DT_CovMatch/
+02_HJ_PatchNCE/
