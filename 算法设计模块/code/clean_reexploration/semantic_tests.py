@@ -207,6 +207,22 @@ def _hj_true_forward_equals_raw() -> dict:
     return {"hj_true_forward_equals_raw": (hj_loss == raw_loss), "hj_loss": hj_loss, "raw_loss": raw_loss}
 
 
+def _dt_teacher_sha_records() -> dict:
+    """DT teacher injection must record the injected netG state SHA."""
+    from clean_reexploration.train_executor import _create_model, _seed_all, _setup_backend
+    from clean_reexploration.full_state import hash_tensors
+
+    _setup_backend("STRICT_CUDNN")
+    _seed_all(2026)
+    dt, _ = _create_model("dtcov", "sem_dt_teacher")
+    gen = dt.netG.module if hasattr(dt.netG, "module") else dt.netG
+    sd = gen.state_dict()
+    expected = hash_tensors(sd)
+    dt.dtcov.inject_teacher(sd)
+    recorded = getattr(dt.dtcov, "_teacher_netG_sha256", None)
+    return {"dt_teacher_sha_records": (recorded == expected), "sha": recorded}
+
+
 def semantic_main() -> int:
     results = {}
     results.update(_hnek_off_equals_plain())
@@ -215,6 +231,7 @@ def semantic_main() -> int:
     results.update(_hnek_on_off_no_param_change())
     results.update(_physical_epoch_gates())
     results.update(_hj_true_forward_equals_raw())
+    results.update(_dt_teacher_sha_records())
     out = RUNTIME_ROOT / "state" / "SEMANTIC_TESTS.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
