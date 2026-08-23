@@ -63,7 +63,13 @@ def _evaluate_all(epochs: list[int], replicates: int) -> dict:
 
     t3 = AUTHORITY_ROOT / "specs/h2c/T3_CONFIRMATORY_MANIFEST.json"
     paired = identity.load_paired_development_manifest(t3)
-    lanes = {"canonical_plain": "sb", "hnek_full": "hnek_search", "dt": "sb", "hj": "sb"}
+    lanes = {
+        "canonical_plain": "sb",
+        "hnek_full": "hnek_search",
+        "dt": "sb",
+        "hj": "sb",
+        "hnek_handoff": "sb",
+    }
     out: dict = {}
     for lane, model_name in lanes.items():
         out[lane] = {}
@@ -139,6 +145,20 @@ def build_evidence(evaluated: dict, *, run_id: str) -> dict:
         evidence[lane] = entry
         if lane == "hnek_full":
             evidence["hnek_full"]["positive_domains_vs_plain"] = delta["positive_domains"]
+
+    # HNEK HANDOFF vs FULL (mechanical handoff-optimization label).
+    if "hnek_handoff" in evaluated and e200 in evaluated["hnek_handoff"] and e200 in plain and e200 in evaluated.get("hnek_full", {}):
+        row_h = evaluated["hnek_handoff"][e200]["rows"]
+        row_f = evaluated["hnek_full"][e200]["rows"]
+        delta_plain = _paired_delta_bootstrap(row_h, plain[e200]["rows"], seed=20260824)
+        delta_full = _paired_delta_bootstrap(row_h, row_f, seed=20260824)
+        evidence["hnek_handoff"] = {
+            "psnr_macro": evaluated["hnek_handoff"][e200]["aggregate"]["psnr_macro"],
+            "ssim_macro": evaluated["hnek_handoff"][e200]["aggregate"]["ssim_macro"],
+            "vs_plain_ci_low": delta_plain["delta_psnr_ci_low"],
+            "vs_full_ci_low": delta_full["delta_psnr_ci_low"],
+            "positive_domains_vs_plain": delta_plain["positive_domains"],
+        }
     return evidence
 
 
@@ -186,7 +206,7 @@ def stage_return(run_id: str, evidence: dict, reports: dict) -> dict:
 
     # Checkpoint hash index.
     lines = []
-    for lane in ("canonical_plain", "hnek_full", "dt", "hj"):
+    for lane in ("canonical_plain", "hnek_full", "dt", "hj", "hnek_handoff"):
         d = RUNS_ROOT / lane
         if not d.is_dir():
             continue
