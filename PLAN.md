@@ -1,8 +1,10 @@
-# 项目总计划（当前权威，2026-08-15）
+# 项目总计划（当前权威，2026-08-24）
 
 ## 目标
 
-把已完成的算法重构升级为“可投稿 ICLR 的、有数理支撑的算法方法”。已停止多 seed（DT/HJ 各 3 seed，方向性为正已足够当前阶段证据）；后续聚焦**介入优化（方法/时机/强度）**，用已有诊断数据找切入点，再做最小、单变量的优化实验。reflection_pad2d 非确定性不修，数字按 mean±CI 报告并在论文写 limitation。
+把已完成的算法重构升级为“可投稿 ICLR 的、有数理支撑的算法方法”。本机确定性修复、核心干净结果与 HNEK 桥原生有界搜索/e200 确认已全部完成；下一步是迁移到更好服务器补多 seed 复现。
+
+确定性已修复：手工确定性反射 pad + CuBLAS workspace + strict deterministic，同 seed GPU smoke 逐位一致。
 
 ## 收益基准
 
@@ -11,11 +13,9 @@
 
 ## 阶段
 
-1. 机制定位：单 seed knock-out 已完成（作方向参考，不再扩多 seed）。
-2. HJ 归因：3 seed 均为 true>plain、true>roll，作当前阶段证据；sub-dB 差异不精确声明。
-3. 数理 grounding：已完成（见 refactor/METHOD_GROUNDING.md）。
-4. 介入优化（当前重点）：从诊断 JSONL 定位切入时机/停止时机，试“DT 延长窗口/plateau 退出”、“SB 熵梯度作时机信号”、“HJ 仅调 gate 阈值”，目标明确优于手调。
-5. novelty 边界 + 投稿级方法描述（已基本完成，后续按优化结果微调）。
+1. 阶段1（已完成）：确定性反射 pad + CPU 单测 + GPU 同 seed 两次逐位复现。
+2. 阶段2（已完成，单 seed 口径）：确定性干净核心只保留 seed=2026（DT plain/best + HJ plain/true/roll + warmup）。跨 seed 稳健性留给更好的服务器，本机不再跑 2027/2028。结果落 `refactor/_runs/metrics_clean_core/CLEAN_CORE_RESULTS.md/json`。
+3. 阶段3（已完成）：围绕“amortized endpoint 条件律的剩余时域归一化”完成 9 变体 e50 搜索与 2 变体 e200 确认；唯一存活候选为 `hnek_g0.25`（e200 macro PSNR delta +0.7884 dB，4/5 域为正，非 confirmatory）。详见 `refactor/_runs/hnek_search/E200_CONFIRMATION.md/json`。
 
 ## 门控与日志
 

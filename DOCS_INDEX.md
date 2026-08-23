@@ -9,6 +9,9 @@
 - `refactor/EXPERIMENT_PLAN.md`：消融与自适应实验计划。
 - `refactor/METHOD_GROUNDING.md`：数理 grounding。
 - `refactor/FINDINGS.md`：必要机制 vs 工程惯性（CPU 阶段结论）。
+- `refactor/_runs/FINAL_REPORT.md`：确定性 → 干净核心 → 阶段3/e200 的收口证据总览。
+- `refactor/_runs/hnek_search/E200_CONFIRMATION.md`：HNEK 阶段3 e200 确认最终结论（唯一存活变体 `hnek_g0.25`）。
+- `refactor/_runs/hnek_search/summary.tsv`：阶段3 9 变体 e50 搜索汇总。
 - `refactor/PATHS.md`：路径速查（只读原件）。
 
 ## 历史 / 已废弃（勿当当前目标）

@@ -1,0 +1,36 @@
+{
+  "design": "single_seed_e200_confirmation",
+  "variants": [
+    {
+      "name": "hnek_coord_y",
+      "label": "Variant A: endpoint coordinate (X_t,Y)",
+      "args": "--gamma 0.5 --coord endpoint --horizon-mode physical --partial all",
+      "e50_delta_db": 3.148084278866042,
+      "e200_delta_db": -1.2164496986817674,
+      "e200_ci95": [
+        -1.417373497331564,
+        -1.0153279330603135
+      ],
+      "e200_positive_domains": 2,
+      "e200_verdict": "DEVELOPMENT_FAIL_SINGLE_SEED",
+      "change_e200_minus_e50_db": -4.36453397754781
+    },
+    {
+      "name": "hnek_g0.25",
+      "label": "Variant B: gamma=0.25 residual coordinate",
+      "args": "--gamma 0.25 --coord residual --horizon-mode physical --partial all",
+      "e50_delta_db": 2.6173155977572833,
+      "e200_delta_db": 0.7883720592327812,
+      "e200_ci95": [
+        0.5916360545222022,
+        0.9932679280915209
+      ],
+      "e200_positive_domains": 4,
+      "e200_verdict": "DEVELOPMENT_PASS_SINGLE_SEED",
+      "change_e200_minus_e50_db": -1.828943538524502
+    }
+  ],
+  "passed": [
+    "hnek_g0.25"
+  ]
+}

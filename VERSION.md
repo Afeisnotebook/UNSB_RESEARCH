@@ -1,4 +1,23 @@
-# v1.0.0 — Clean-room DT-CovMatch / HJ-PatchNCE（阶段性冻结）
+# v1.1.0 — HNEK 阶段3 搜索与 e200 确认收口（当前）
+
+## 相对 v1.0.0 的增量
+
+- 确定性干净核心（单 seed=2026）与 HNEK 阶段3 9 变体搜索、e200 确认全部完成并落盘。
+- e200 最终 verdict：
+  - `hnek_g0.25` = `DEVELOPMENT_PASS_SINGLE_SEED`（macro PSNR delta +0.7884 dB，CI [+0.5916,+0.9933]，positive domains 4/5，SSIM delta +0.0355）。
+  - `hnek_coord_y` = `DEVELOPMENT_FAIL_SINGLE_SEED`（−1.2164 dB，CI [−1.4174,−1.0153]，positive domains 2/5）。
+- 唯一存活候选：`hnek_g0.25`（γ=0.25、residual 坐标、physical horizon、全量应用）。
+- 口径：全部 single seed=2026 paired-development，**非 confirmatory**；多 seed 需迁移更好服务器。
+
+## 关键证据
+
+- `refactor/_runs/hnek_search/E200_CONFIRMATION.md/json`
+- `refactor/_runs/hnek_search/state/hnek_g0.25/E200_ADJUDICATION.json`
+- `refactor/_runs/hnek_search/state/hnek_coord_y/E200_ADJUDICATION.json`
+
+---
+
+# v1.0.0 — Clean-room DT-CovMatch / HJ-PatchNCE（历史）
 
 ## 范围
 
