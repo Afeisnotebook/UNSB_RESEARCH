@@ -112,6 +112,45 @@ def compute_dt_logu(netG, panel_rows: list[dict], *, m: int, ngf: int, num_times
     return {d: [v] for d, v in logu_by_domain.items()}
 
 
+def compute_hj_structure_loss(netG, panel_rows: list[dict], *, ngf: int, num_timesteps: int, tau: float) -> dict:
+    """Compute the HJ joint edge+SSIM structure functional on source-only panels."""
+    import torch.nn.functional as F
+    from clean_reexploration.evaluate import _bridge_schedule, _img_to_tensor
+
+    device = next(netG.parameters()).device
+    times = _bridge_schedule(num_timesteps, device)
+    structure_by_domain: dict[str, list[float]] = {}
+
+    def sobel_mag(x):
+        gray = x[:, 0:1] * 0.2989 + x[:, 1:2] * 0.5870 + x[:, 2:3] * 0.1140
+        kx = x.new_tensor([[-1.0, 0.0, 1.0], [-2.0, 0.0, 2.0], [-1.0, 0.0, 1.0]]).view(1, 1, 3, 3) / 8.0
+        ky = kx.transpose(2, 3)
+        gx = F.conv2d(F.pad(gray, (1, 1, 1, 1), mode="reflect"), kx)
+        gy = F.conv2d(F.pad(gray, (1, 1, 1, 1), mode="reflect"), ky)
+        return torch.sqrt(gx.square() + gy.square() + 1e-8)
+
+    with torch.no_grad():
+        for f in panel_rows:
+            A = _img_to_tensor(f["absolute_path"]).unsqueeze(0).to(device)
+            Xt = A
+            Xt_1 = None
+            for t in range(num_timesteps):
+                if t > 0:
+                    delta = times[t] - times[t - 1]
+                    denom = times[-1] - times[t - 1]
+                    inter = (delta / denom).reshape(-1, 1, 1, 1)
+                    scale = (delta * (1.0 - delta / denom)).reshape(-1, 1, 1, 1)
+                    Xt = (1 - inter) * Xt + inter * Xt_1.detach() + (scale * tau).sqrt() * torch.randn_like(Xt)
+                time_idx = (t * torch.ones(size=[A.shape[0]], device=device)).long()
+                z = torch.randn(size=[A.shape[0], 4 * ngf], device=device)
+                Xt_1 = netG(Xt, time_idx, z)
+            out = Xt_1
+            edge = torch.sqrt((sobel_mag(out) - sobel_mag(A.detach())).square() + 1e-6).mean()
+            structure_by_domain.setdefault(f["domain"], []).append(float(edge.item()))
+
+    return {d: [v] for d, v in structure_by_domain.items()}
+
+
 def audit_main() -> int:
     import argparse
     from clean_reexploration import diagnostics, evaluate, identity

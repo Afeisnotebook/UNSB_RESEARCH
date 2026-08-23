@@ -212,6 +212,10 @@ def _stage_controller_signals(staging: Path) -> None:
                 sig = controller_audits.compute_hnek_c_h(
                     netG, rows, gamma=0.25, num_timesteps=5, tau=0.01, ngf=64
                 )
+            elif lane == "hj":
+                sig = controller_audits.compute_hj_structure_loss(
+                    netG, rows, ngf=64, num_timesteps=5, tau=0.01
+                )
             else:
                 sig = controller_audits.compute_dt_logu(
                     netG, rows, m=4, ngf=64, num_timesteps=5, tau=0.01
