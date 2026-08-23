@@ -40,7 +40,10 @@ def unit_vector(vector: torch.Tensor) -> torch.Tensor:
 
 def cosine_distance(left: torch.Tensor, right: torch.Tensor) -> float:
     left = unit_vector(left)
-    right = unit_vector(right)
+    # Cached AIO centroids live on CPU while the active Single panel is on
+    # CUDA.  The scientific quantity is device-independent; co-locate the
+    # second normalized vector before the dot product.
+    right = unit_vector(right).to(left.device)
     return float(torch.clamp(1.0 - torch.dot(left, right), min=0.0, max=2.0).item())
 
 
