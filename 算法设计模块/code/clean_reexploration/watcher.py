@@ -28,6 +28,11 @@ def _run(args: list[str], timeout: int = 86400) -> int:
     return proc.returncode
 
 
+def _all_lanes_done() -> bool:
+    lanes = ["canonical_plain", "hnek_full", "dt", "hj"]
+    return all((RUNTIME_ROOT / "runs" / lane / "full_state_e200.pt").is_file() for lane in lanes)
+
+
 def main() -> int:
     frozen = RUNTIME_ROOT / "TRAINING_FROZEN.ok"
     done = RUNTIME_ROOT / "FINALIZED.ok"
@@ -35,7 +40,7 @@ def main() -> int:
         if done.exists():
             print(json.dumps({"status": "already_finalized"}))
             return 0
-        if frozen.exists():
+        if frozen.exists() and _all_lanes_done():
             # 1) HNEK HANDOFF determination + fork (if triggered).
             _run(["clean_reexploration/train_executor.py", "--hnek-handoff", "--backend", "STRICT_CUDNN",
                   "--run-id", (RUNTIME_ROOT / "authority" / "RUN_ID.txt").read_text().strip()])
