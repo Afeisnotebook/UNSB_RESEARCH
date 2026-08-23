@@ -335,6 +335,18 @@ def _stage_git_and_logs(staging: Path) -> None:
         (staging / "HEARTBEAT_SUMMARY.json").write_text(hb.read_text(encoding="utf-8"), encoding="utf-8")
 
 
+def _stage_post_e20_identity(staging: Path) -> None:
+    """Record the canonical post-e20 netG SHA for the DT teacher identity."""
+    from clean_reexploration import full_state
+
+    ckpt = RUNS_ROOT / "canonical_plain" / "full_state_e20.pt"
+    if not ckpt.is_file():
+        return
+    state = full_state.load_full_state(ckpt)
+    netg_sha = full_state.hash_tensors(state["networks"]["netG"])
+    (staging / "post_e20_netG_sha256.txt").write_text(netg_sha + "\n", encoding="utf-8")
+
+
 def _final_report_md(run_id: str, reports: dict) -> str:
     m = reports["mechanical"]
     labels = m["mechanical_results"]
@@ -377,6 +389,7 @@ def finalize_main() -> int:
     _stage_per_image_rows(Path(stage["staging"]), evaluated)
     _stage_controller_signals(Path(stage["staging"]))
     _stage_git_and_logs(Path(stage["staging"]))
+    _stage_post_e20_identity(Path(stage["staging"]))
 
     from clean_reexploration import package_return
 
