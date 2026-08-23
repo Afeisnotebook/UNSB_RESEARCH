@@ -259,15 +259,260 @@ def smoke(args) -> int:
     return 0
 
 
+# ---------------------------------------------------------------------------
+# Deterministic two-stream data loading
+# ---------------------------------------------------------------------------
+
+
+class TwoStreamLoader:
+    """Deterministic unpaired A/B loader with two distinct streams per step.
+
+    Stream 1 and stream 2 use a fixed half-cycle offset so ``data`` and
+    ``data2`` are different samples (required by the energy critic) while the
+    whole sequence remains reproducible from the T2 manifest.
+    """
+
+    def __init__(self, pairs: list[tuple[dict, dict]], transform, steps_per_epoch: int | None = None):
+        self.pairs = pairs
+        self.transform = transform
+        self.n = int(steps_per_epoch) if steps_per_epoch else len(pairs)
+        self.offset = self.n // 2
+        self.step = 0
+
+    def reset(self) -> None:
+        self.step = 0
+
+    def next_pair(self) -> tuple[dict, dict]:
+        a1, b1 = self.pairs[self.step % self.n]
+        a2, b2 = self.pairs[(self.step + self.offset) % self.n]
+        self.step += 1
+        return (a1, b1), (a2, b2)
+
+    def load_batch(self, pair: tuple[dict, dict]) -> dict:
+        a, b = pair
+        return {
+            "A": _load_image(a["absolute_path"], self.transform).unsqueeze(0),
+            "B": _load_image(b["absolute_path"], self.transform).unsqueeze(0),
+            "A_paths": [a["absolute_path"]],
+            "B_paths": [b["absolute_path"]],
+        }
+
+
+def _cuda_batch(batch: dict) -> dict:
+    return {
+        "A": batch["A"].cuda(),
+        "B": batch["B"].cuda(),
+        "A_paths": batch["A_paths"],
+        "B_paths": batch["B_paths"],
+    }
+
+
+# ---------------------------------------------------------------------------
+# Full deterministic lane training
+# ---------------------------------------------------------------------------
+
+
+ANCHOR_EPOCHS = [1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100,
+                 120, 140, 160, 180, 200]
+
+
+def _save_full_state(model, *, epoch, global_step, controllers, loader, lane_dir, ident) -> dict:
+    from clean_reexploration import full_state
+
+    state = full_state.capture_full_state(
+        model=model,
+        global_step=global_step,
+        physical_epoch=epoch,
+        controllers=controllers,
+        sampler={"epoch": epoch, "step": loader.step},
+        identity=ident,
+    )
+    path = Path(lane_dir) / f"full_state_e{epoch}.pt"
+    sidecar = full_state.save_full_state(path, state)
+    return sidecar
+
+
+def train_lane(
+    *,
+    model_name: str,
+    lane_name: str,
+    start_epoch: int,
+    end_epoch: int,
+    anchors: list[int],
+    restore_path: Path | None,
+    pairs,
+    transform,
+    run_id: str,
+    spec: dict,
+    code_sha256: str,
+    method: str | None = None,
+    restore_epoch: int = 0,
+    steps_per_epoch: int | None = None,
+) -> dict:
+    """Run one deterministic lane from ``start_epoch`` to ``end_epoch``."""
+    from clean_reexploration import full_state
+
+    lane_dir = RUNS_ROOT / lane_name
+    lane_dir.mkdir(parents=True, exist_ok=True)
+    loader = TwoStreamLoader(pairs, transform, steps_per_epoch)
+
+    model, opt = _create_model(model_name, lane_name)
+    controller = None
+    controllers_map = {}
+    if method:
+        from clean_reexploration.controllers import make_controller
+        controller = make_controller(method, run_id)
+        controllers_map[method] = controller
+
+    ident = {
+        "run_id": run_id,
+        "spec_sha256": spec["_spec_sha256"] if "_spec_sha256" in spec else "",
+        "code_sha256": code_sha256,
+        "lane": lane_name,
+    }
+
+    if restore_path is not None:
+        state = full_state.load_full_state(restore_path)
+        # Initialize netF/data-dependent before restoring optimizers/schedulers.
+        # We perform a fresh data-dependent init so netF exists, then restore.
+        p1, p2 = loader.next_pair()
+        b1 = _cuda_batch(loader.load_batch(p1))
+        b2 = _cuda_batch(loader.load_batch(p2))
+        _data_dependent_init(model, b1)
+        # SBModel.data_dependent_initialize calls setup+parallelize internally via
+        # _data_dependent_init, but it does not restore full state; do it now.
+        full_state.restore_full_state(model=model, state=state)
+        loader.step = int(state["sampler"]["step"])
+        global_step = int(state["global_step"])
+        start_epoch = int(restore_epoch) if restore_epoch else int(state["physical_epoch"]) + 1
+    else:
+        p1, p2 = loader.next_pair()
+        b1 = _cuda_batch(loader.load_batch(p1))
+        b2 = _cuda_batch(loader.load_batch(p2))
+        _data_dependent_init(model, b1)
+        global_step = 0
+
+    # Save pre_e1 anchor (after data-dependent init, before first optimizer step).
+    if restore_path is None and start_epoch == 1:
+        _save_full_state(model, epoch=0, global_step=0, controllers=controllers_map,
+                         loader=loader, lane_dir=lane_dir, ident=ident)
+
+    for epoch in range(start_epoch, end_epoch + 1):
+        model.set_train_epoch(epoch)
+        loader.reset()
+        for _ in range(loader.n):
+            p1, p2 = loader.next_pair()
+            b1 = _cuda_batch(loader.load_batch(p1))
+            b2 = _cuda_batch(loader.load_batch(p2))
+            model.set_input(b1, b2)
+            model.optimize_parameters()
+            global_step += 1
+        model.update_learning_rate()
+        if epoch in anchors:
+            _save_full_state(model, epoch=epoch, global_step=global_step,
+                             controllers=controllers_map, loader=loader,
+                             lane_dir=lane_dir, ident=ident)
+
+    return {
+        "lane": lane_name,
+        "model": model_name,
+        "start_epoch": start_epoch,
+        "end_epoch": end_epoch,
+        "global_step": global_step,
+        "controller_state": controller.state_dict() if controller else None,
+    }
+
+
+def determinism_twin(args) -> int:
+    """Two identical twins + cross-process restore bitwise equality check."""
+    from clean_reexploration import identity
+    t2 = AUTHORITY_ROOT / "specs/h2/T2_MANIFEST.json"
+    files = identity.load_training_manifest(t2)
+    pairs = build_deterministic_pairs(files)
+    transform = _img_transform()
+    _setup_backend(args.backend)
+    _seed_all(2026)
+
+    def run_twin(steps: int):
+        loader = TwoStreamLoader(pairs, transform)
+        model, opt = _create_model("sb", "twin")
+        p1, p2 = loader.next_pair()
+        _data_dependent_init(model, _cuda_batch(loader.load_batch(p1)))
+        hashes = []
+        for _ in range(steps):
+            p1, p2 = loader.next_pair()
+            model.set_input(_cuda_batch(loader.load_batch(p1)), _cuda_batch(loader.load_batch(p2)))
+            model.optimize_parameters()
+            hashes.append(_state_hash(model))
+        return model, hashes
+
+    _seed_all(2026)
+    m1, h1 = run_twin(args.steps)
+    _seed_all(2026)
+    m2, h2 = run_twin(args.steps)
+    equal = h1 == h2
+    print(json.dumps({
+        "twin": "equal" if equal else "NOT_EQUAL",
+        "steps": args.steps,
+        "first_hash": h1[0],
+        "last_hash": h1[-1],
+    }))
+    return 0 if equal else 1
+
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--model", choices=["sb", "hnek_search", "dtcov", "hj"], default="sb")
     p.add_argument("--backend", choices=["STRICT_CUDNN", "STRICT_NATIVE_NO_CUDNN"], default="STRICT_CUDNN")
     p.add_argument("--steps", type=int, default=3)
     p.add_argument("--smoke", action="store_true")
+    p.add_argument("--determinism", action="store_true")
+    p.add_argument("--train", action="store_true")
+    p.add_argument("--lane", type=str, default="canonical_plain")
+    p.add_argument("--start-epoch", type=int, default=1)
+    p.add_argument("--end-epoch", type=int, default=200)
+    p.add_argument("--steps-per-epoch", type=int, default=None)
     args = p.parse_args()
     if args.smoke:
         return smoke(args)
+    if args.determinism:
+        return determinism_twin(args)
+    if args.train:
+        return run_train(args)
+    return 0
+
+
+def run_train(args) -> int:
+    """Run a full deterministic lane (entry point for the long task)."""
+    from clean_reexploration import identity
+
+    t2 = AUTHORITY_ROOT / "specs/h2/T2_MANIFEST.json"
+    files = identity.load_training_manifest(t2)
+    pairs = build_deterministic_pairs(files)
+    transform = _img_transform()
+    _setup_backend(args.backend)
+    _seed_all(2026)
+
+    run_id = "clean-reexploration-s2026-20260824"
+    spec = {"_spec_sha256": ""}
+    code_sha256 = ""
+
+    result = train_lane(
+        model_name=args.model,
+        lane_name=args.lane,
+        start_epoch=args.start_epoch,
+        end_epoch=args.end_epoch,
+        anchors=ANCHOR_EPOCHS,
+        restore_path=None,
+        pairs=pairs,
+        transform=transform,
+        run_id=run_id,
+        spec=spec,
+        code_sha256=code_sha256,
+        method={"sb": None, "hnek_search": "HNEK", "dtcov": "DT", "hj": "HJ"}[args.model],
+        steps_per_epoch=args.steps_per_epoch,
+    )
+    print(json.dumps(result, ensure_ascii=False))
     return 0
 
 
