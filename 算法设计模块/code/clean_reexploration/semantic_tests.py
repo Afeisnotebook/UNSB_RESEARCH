@@ -1,0 +1,164 @@
+"""Effect-blind real-model semantic tests (section 10.2)."""
+
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+
+import torch
+
+
+REPO_ROOT = Path("/home/yc/unsb_tired")
+CODE_ROOT = REPO_ROOT / "算法设计模块/code"
+RUNTIME_ROOT = REPO_ROOT / "runtime_4090/clean_reexploration_20260824"
+RUNS_ROOT = RUNTIME_ROOT / "runs"
+
+sys.path.insert(0, str(CODE_ROOT / "baseline"))
+sys.path.insert(0, str(CODE_ROOT / "dt_covmatch"))
+sys.path.insert(0, str(CODE_ROOT / "hj_patchnce"))
+sys.path.insert(0, str(CODE_ROOT))
+
+
+def _grad_hash(model) -> str:
+    import hashlib
+
+    h = hashlib.sha256()
+    for p in model.netG.parameters():
+        if p.grad is not None:
+            h.update(p.grad.detach().cpu().contiguous().numpy().tobytes())
+    return h.hexdigest()
+
+
+def _make_fixed_batch(device="cuda:0") -> dict:
+    g = torch.Generator().manual_seed(7)
+    A = torch.randn(1, 3, 128, 128, generator=g)
+    B = torch.randn(1, 3, 128, 128, generator=g)
+    return {
+        "A": A.to(device),
+        "B": B.to(device),
+        "A_paths": ["dummy/input/0001.png"],
+        "B_paths": ["dummy/input/0002.png"],
+    }
+
+
+def _run_once(model, batch):
+    model.set_input(batch, batch)
+    model.optimize_parameters()
+    return {
+        "loss_G": float(model.loss_G.item()),
+        "grad_G": _grad_hash(model),
+    }
+
+
+def _hnek_off_equals_plain() -> dict:
+    from clean_reexploration.train_executor import _create_model, _data_dependent_init, _seed_all, _setup_backend
+    from models.hnek.hnek_search import set_hnek_search_active
+
+    _setup_backend("STRICT_CUDNN")
+    batch = _make_fixed_batch()
+
+    _seed_all(2026)
+    plain, _ = _create_model("sb", "sem_plain")
+    _data_dependent_init(plain, batch)
+    p_out = _run_once(plain, batch)
+
+    _seed_all(2026)
+    hnek, _ = _create_model("hnek_search", "sem_hnek")
+    _data_dependent_init(hnek, batch)
+    set_hnek_search_active(hnek, False)  # OFF -> plain
+    h_out = _run_once(hnek, batch)
+
+    equal = (p_out["loss_G"] == h_out["loss_G"]) and (p_out["grad_G"] == h_out["grad_G"])
+    return {"hnek_off_equals_plain": equal, "plain_loss": p_out["loss_G"], "hnek_off_loss": h_out["loss_G"]}
+
+
+def _dt_lambda0_equals_plain() -> dict:
+    from clean_reexploration.train_executor import _create_model, _data_dependent_init, _seed_all, _setup_backend
+
+    _setup_backend("STRICT_CUDNN")
+    batch = _make_fixed_batch()
+
+    _seed_all(2026)
+    plain, _ = _create_model("sb", "sem_plain2")
+    _data_dependent_init(plain, batch)
+    p_out = _run_once(plain, batch)
+
+    _seed_all(2026)
+    dt, opt = _create_model("dtcov", "sem_dt")
+    opt.dtcov_lambda = 0.0  # force lambda 0
+    dt.dtcov.config.lambda_value = 0.0
+    _data_dependent_init(dt, batch)
+    d_out = _run_once(dt, batch)
+
+    equal = (p_out["loss_G"] == d_out["loss_G"]) and (p_out["grad_G"] == d_out["grad_G"])
+    return {"dt_lambda0_equals_plain": equal, "plain_loss": p_out["loss_G"], "dt_loss": d_out["loss_G"]}
+
+
+def _hj_strength0_equals_raw() -> dict:
+    from clean_reexploration.train_executor import _create_model, _data_dependent_init, _seed_all, _setup_backend
+
+    _setup_backend("STRICT_CUDNN")
+    batch = _make_fixed_batch()
+
+    _seed_all(2026)
+    hj, opt = _create_model("hj", "sem_hj")
+    opt.hj_enable = True
+    opt.hj_strength = 0.0
+    hj.hj_config.strength = 0.0
+    hj.set_train_epoch(6)  # force active (>= start_epoch 5)
+    _data_dependent_init(hj, batch)
+    hj.set_train_epoch(6)
+    h_out = _run_once(hj, batch)
+
+    # Raw control: same HJ model but with HJ disabled.
+    _seed_all(2026)
+    raw, opt2 = _create_model("hj", "sem_hj_raw")
+    opt2.hj_enable = False
+    raw.set_train_epoch(6)
+    _data_dependent_init(raw, batch)
+    raw.set_train_epoch(6)
+    r_out = _run_once(raw, batch)
+
+    equal = (h_out["loss_G"] == r_out["loss_G"]) and (h_out["grad_G"] == r_out["grad_G"])
+    return {"hj_strength0_equals_raw": equal, "hj_loss": h_out["loss_G"], "raw_loss": r_out["loss_G"]}
+
+
+def _hnek_on_off_no_param_change() -> dict:
+    from clean_reexploration.train_executor import _create_model, _data_dependent_init, _seed_all, _setup_backend
+    from models.hnek.hnek_search import set_hnek_search_active
+
+    _setup_backend("STRICT_CUDNN")
+    batch = _make_fixed_batch()
+    _seed_all(2026)
+    hnek, _ = _create_model("hnek_search", "sem_hnek_keys")
+    _data_dependent_init(hnek, batch)
+    gen = hnek.netG.module if hasattr(hnek.netG, "module") else hnek.netG
+    before_keys = list(gen.state_dict().keys())
+    before_count = sum(p.numel() for p in gen.parameters())
+    set_hnek_search_active(hnek, False)
+    after_keys = list(gen.state_dict().keys())
+    after_count = sum(p.numel() for p in gen.parameters())
+    set_hnek_search_active(hnek, True)
+    return {
+        "hnek_on_off_no_param_change": (before_keys == after_keys and before_count == after_count),
+        "param_count": before_count,
+    }
+
+
+def semantic_main() -> int:
+    results = {}
+    results.update(_hnek_off_equals_plain())
+    results.update(_dt_lambda0_equals_plain())
+    results.update(_hj_strength0_equals_raw())
+    results.update(_hnek_on_off_no_param_change())
+    out = RUNTIME_ROOT / "state" / "SEMANTIC_TESTS.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(results, ensure_ascii=False, indent=2))
+    all_pass = all(v for v in results.values())
+    return 0 if all_pass else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(semantic_main())

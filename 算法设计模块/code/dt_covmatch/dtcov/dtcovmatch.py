@@ -464,18 +464,6 @@ class DTCovMatch:
         self._teacher_netG_sha256 = _state_dict_sha256(teacher.state_dict())
         return teacher
 
-
-def _state_dict_sha256(state_dict: dict) -> str:
-    import hashlib
-
-    digest = hashlib.sha256()
-    for key in sorted(state_dict.keys()):
-        digest.update(key.encode("utf-8"))
-        digest.update(b"\x00")
-        digest.update(state_dict[key].detach().cpu().contiguous().numpy().tobytes())
-        digest.update(b"\x00")
-    return digest.hexdigest()
-
     def _current_and_teacher_stats(
         self,
         X_g: torch.Tensor,
@@ -585,3 +573,16 @@ def _state_dict_sha256(state_dict: dict) -> str:
             "t_norm": float(t_norm),
         }
         return loss, diag
+
+
+def _state_dict_sha256(state_dict: dict) -> str:
+    """Deterministic SHA-256 over a state dict's parameter/buffer bytes."""
+    import hashlib
+
+    digest = hashlib.sha256()
+    for key in sorted(state_dict.keys()):
+        digest.update(key.encode("utf-8"))
+        digest.update(b"\x00")
+        digest.update(state_dict[key].detach().cpu().contiguous().numpy().tobytes())
+        digest.update(b"\x00")
+    return digest.hexdigest()
