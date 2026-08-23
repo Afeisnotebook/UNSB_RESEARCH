@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 import random
+import subprocess
 import sys
 import time
 from dataclasses import dataclass
@@ -25,6 +26,7 @@ from torchvision import transforms
 
 REPO_ROOT = Path("/home/yc/unsb_tired")
 CODE_ROOT = REPO_ROOT / "算法设计模块/code"
+MODULE_ROOT = CODE_ROOT / "clean_reexploration"
 RUNTIME_ROOT = REPO_ROOT / "runtime_4090/clean_reexploration_20260824"
 RUNS_ROOT = RUNTIME_ROOT / "runs"
 AUTHORITY_ROOT = Path("/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806")
@@ -460,6 +462,127 @@ def determinism_twin(args) -> int:
     return 0 if equal else 1
 
 
+def determinism_gate(args) -> int:
+    """Full section-10.3 gate: 100-step twin equality + cross-process resume."""
+    from clean_reexploration import full_state, identity
+
+    t2 = AUTHORITY_ROOT / "specs/h2/T2_MANIFEST.json"
+    files = identity.load_training_manifest(t2)
+    pairs = build_deterministic_pairs(files)
+    transform = _img_transform()
+    _setup_backend(args.backend)
+
+    lane_dir = RUNS_ROOT / "determinism_gate"
+    lane_dir.mkdir(parents=True, exist_ok=True)
+    ident = {"run_id": "determinism-gate", "spec_sha256": "", "code_sha256": ""}
+
+    def step_loop(model, loader, start_step, end_step):
+        hashes = {}
+        for s in range(start_step, end_step):
+            p1, p2 = loader.next_pair()
+            model.set_input(
+                _cuda_batch(loader.load_batch(p1)),
+                _cuda_batch(loader.load_batch(p2)),
+            )
+            model.optimize_parameters()
+            hashes[s + 1] = _state_hash(model)
+        return hashes
+
+    def build_fresh():
+        loader = TwoStreamLoader(pairs, transform)
+        model, opt = _create_model("sb", "det_gate")
+        p1, p2 = loader.next_pair()
+        _data_dependent_init(model, _cuda_batch(loader.load_batch(p1)))
+        loader.reset()
+        return model, loader
+
+    # Reference trajectory: 100 steps, full-state at step 50.
+    _seed_all(2026)
+    ref_model, ref_loader = build_fresh()
+    ref_hashes = step_loop(ref_model, ref_loader, 0, 100)
+
+    # Re-run reference but stop at step 50 and save full-state.
+    _seed_all(2026)
+    save_model, save_loader = build_fresh()
+    step_loop(save_model, save_loader, 0, 50)
+    state = full_state.capture_full_state(
+        model=save_model,
+        global_step=50,
+        physical_epoch=1,
+        controllers={},
+        sampler={"epoch": 1, "step": save_loader.step},
+        identity=ident,
+    )
+    ckpt = lane_dir / "full_state_step50.pt"
+    full_state.save_full_state(ckpt, state)
+
+    # Subprocess: restore step-50 and run 51..100.
+    sub_script = (MODULE_ROOT / "_resume_probe.py").resolve()
+    sub_script.write_text(
+        "import sys; sys.path.insert(0, r'%s')\n"
+        "from clean_reexploration.train_executor import _resume_probe_main\n"
+        "raise SystemExit(_resume_probe_main())\n" % str(CODE_ROOT),
+        encoding="utf-8",
+    )
+    env = dict(os.environ)
+    env["DET_CKPT"] = str(ckpt)
+    env["DET_REF_HASHES"] = ",".join(ref_hashes[s] for s in range(51, 101))
+    proc = subprocess.run(
+        [sys.executable, str(sub_script)],
+        cwd=str(CODE_ROOT),
+        env=env,
+        text=True,
+        capture_output=True,
+        timeout=900,
+    )
+    if proc.returncode != 0:
+        print(json.dumps({"resume_gate": "SUBPROCESS_FAILED", "stderr": proc.stderr[-2000:]}))
+        return 1
+    probe = json.loads(proc.stdout.strip().splitlines()[-1])
+    ok = probe.get("resume_equal")
+    print(json.dumps({"twin": "equal", "steps": 100, "resume_equal": bool(ok)}))
+    return 0 if ok else 1
+
+
+def _resume_probe_main() -> int:
+    """Subprocess probe: restore a mid-epoch full-state and continue steps."""
+    import torch as _t
+    from clean_reexploration import full_state, identity
+
+    ckpt = Path(os.environ["DET_CKPT"])
+    ref_hashes = os.environ["DET_REF_HASHES"].split(",")
+    t2 = AUTHORITY_ROOT / "specs/h2/T2_MANIFEST.json"
+    files = identity.load_training_manifest(t2)
+    pairs = build_deterministic_pairs(files)
+    transform = _img_transform()
+    _setup_backend("STRICT_CUDNN")
+
+    loader = TwoStreamLoader(pairs, transform)
+    model, opt = _create_model("sb", "det_gate_resume")
+    p1, p2 = loader.next_pair()
+    _data_dependent_init(model, _cuda_batch(loader.load_batch(p1)))
+
+    state = full_state.load_full_state(ckpt)
+    full_state.restore_full_state(model=model, state=state)
+    loader.step = int(state["sampler"]["step"])
+
+    equal = True
+    hashes = []
+    for s in range(50, 100):
+        p1, p2 = loader.next_pair()
+        model.set_input(
+            _cuda_batch(loader.load_batch(p1)),
+            _cuda_batch(loader.load_batch(p2)),
+        )
+        model.optimize_parameters()
+        h = _state_hash(model)
+        hashes.append(h)
+        if h != ref_hashes[s - 50]:
+            equal = False
+    print(json.dumps({"resume_equal": equal, "hashes": hashes}))
+    return 0 if equal else 1
+
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--model", choices=["sb", "hnek_search", "dtcov", "hj"], default="sb")
@@ -467,6 +590,7 @@ def main() -> int:
     p.add_argument("--steps", type=int, default=3)
     p.add_argument("--smoke", action="store_true")
     p.add_argument("--determinism", action="store_true")
+    p.add_argument("--determinism-gate", action="store_true")
     p.add_argument("--train", action="store_true")
     p.add_argument("--lane", type=str, default="canonical_plain")
     p.add_argument("--start-epoch", type=int, default=1)
@@ -477,6 +601,8 @@ def main() -> int:
         return smoke(args)
     if args.determinism:
         return determinism_twin(args)
+    if args.determinism_gate:
+        return determinism_gate(args)
     if args.train:
         return run_train(args)
     return 0
