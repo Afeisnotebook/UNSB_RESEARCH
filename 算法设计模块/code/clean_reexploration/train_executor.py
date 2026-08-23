@@ -666,6 +666,59 @@ def run_all_lanes(args) -> int:
     return 0
 
 
+def run_hnek_handoff_lane(args) -> int:
+    """Fork HNEK_HANDOFF from ``e_star`` (HNEK OFF -> plain) and run to e200."""
+    from clean_reexploration import full_state, identity
+    from clean_reexploration.controller_audits import determine_hnek_handoff
+    from models.hnek.hnek_search import set_hnek_search_active
+
+    t2 = AUTHORITY_ROOT / "specs/h2/T2_MANIFEST.json"
+    files = identity.load_training_manifest(t2)
+    pairs = build_deterministic_pairs(files)
+    transform = _img_transform()
+    _setup_backend(args.backend)
+
+    handoff = determine_hnek_handoff(args.run_id)
+    e_star = handoff["e_star"]
+    if e_star is None:
+        print(json.dumps({"hnek_handoff": "NOT_TRIGGERED", "records": handoff["records"]}, ensure_ascii=False))
+        return 0
+
+    ckpt = RUNS_ROOT / "hnek_full" / f"full_state_e{e_star}.pt"
+    state = full_state.load_full_state(ckpt)
+
+    model, opt = _create_model("hnek_search", "hnek_handoff")
+    loader = TwoStreamLoader(pairs, transform)
+    p1, p2 = loader.next_pair()
+    _data_dependent_init(model, _cuda_batch(loader.load_batch(p1)))
+    full_state.restore_full_state(model=model, state=state)
+    # HNEK OFF -> plain objective for the handoff continuation.
+    set_hnek_search_active(model, False)
+    loader.step = int(state["sampler"]["step"])
+    global_step = int(state["global_step"])
+
+    for epoch in range(e_star + 1, args.epochs + 1):
+        model.set_train_epoch(epoch)
+        loader.reset()
+        for _ in range(loader.n):
+            p1, p2 = loader.next_pair()
+            model.set_input(_cuda_batch(loader.load_batch(p1)), _cuda_batch(loader.load_batch(p2)))
+            model.optimize_parameters()
+            global_step += 1
+        model.update_learning_rate()
+        if epoch in ANCHOR_EPOCHS:
+            from clean_reexploration import full_state as _fs
+            st = _fs.capture_full_state(
+                model=model, global_step=global_step, physical_epoch=epoch,
+                controllers={}, sampler={"epoch": epoch, "step": loader.step},
+                identity={"run_id": args.run_id, "lane": "hnek_handoff"},
+            )
+            _fs.save_full_state(RUNS_ROOT / "hnek_handoff" / f"full_state_e{epoch}.pt", st)
+
+    print(json.dumps({"hnek_handoff": "FORKED", "e_star": e_star}, ensure_ascii=False))
+    return 0
+
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--model", choices=["sb", "hnek_search", "dtcov", "hj"], default="sb")
@@ -676,6 +729,7 @@ def main() -> int:
     p.add_argument("--determinism-gate", action="store_true")
     p.add_argument("--train", action="store_true")
     p.add_argument("--orchestrate", action="store_true")
+    p.add_argument("--hnek-handoff", action="store_true")
     p.add_argument("--lane", type=str, default="canonical_plain")
     p.add_argument("--start-epoch", type=int, default=1)
     p.add_argument("--end-epoch", type=int, default=200)
@@ -695,6 +749,8 @@ def main() -> int:
         return run_train(args)
     if args.orchestrate:
         return run_all_lanes(args)
+    if args.hnek_handoff:
+        return run_hnek_handoff_lane(args)
     return 0
 
 
