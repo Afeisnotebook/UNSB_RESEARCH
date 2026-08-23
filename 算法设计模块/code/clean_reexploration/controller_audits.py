@@ -177,6 +177,56 @@ def audit_main() -> int:
     return 0
 
 
+def determine_hnek_handoff(run_id: str) -> dict:
+    """Compute C_H at each HNEK FULL audit epoch and apply the frozen handoff rule.
+
+    Returns the target-blind handoff epoch ``e_star`` (or None when the signal is
+    never exhausted) together with the raw audit records.
+    """
+    from clean_reexploration import controllers, diagnostics, evaluate, identity
+    from clean_reexploration.controllers import upper_bound
+
+    t2 = Path("/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806/specs/h2/T2_MANIFEST.json")
+    files = identity.load_training_manifest(t2)
+    panel = diagnostics.build_diagnostic_panel(files)
+    rows = _load_panel_rows(panel, files)
+
+    audit_epochs = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160, 180, 200]
+    records = []
+    consecutive = 0
+    e_star = None
+
+    for epoch in audit_epochs:
+        ckpt = RUNS_ROOT / "hnek_full" / f"full_state_e{epoch}.pt"
+        if not ckpt.is_file():
+            continue
+        netG, _ = evaluate._load_netG(ckpt, "hnek_search")
+        netG.eval()
+        sig = compute_hnek_c_h(netG, rows, gamma=0.25, num_timesteps=5, tau=0.01, ngf=64)
+        clusters = sig["raw_clusters"]
+        seed = controllers.controller_bootstrap_seed(run_id, "HNEK", epoch, "C_H")
+        draws = controllers.cluster_bootstrap_draws(clusters, statistic="mean", n_draws=999, seed=seed)
+        point = controllers.point_estimate(clusters, "mean")
+        upper = upper_bound(draws)
+        triggered = upper <= 0.0
+        records.append({
+            "epoch": epoch,
+            "C_H_point": point,
+            "C_H_upper": upper,
+            "triggered": triggered,
+        })
+        if epoch >= 30:
+            if triggered:
+                consecutive += 1
+            else:
+                consecutive = 0
+            if consecutive >= 2:
+                e_star = epoch
+                break
+
+    return {"e_star": e_star, "records": records}
+
+
 if __name__ == "__main__":
     import json
     raise SystemExit(audit_main())
