@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-08-23T12:09:26Z",
+  "single_seed": 2026,
+  "adjudication_policy": "draft_only_until_human_confirmation",
+  "claims": [
+    {
+      "claim_id": "geometry_different_stage_dependent",
+      "text_cn": "Single 与 Plain All-in-One 的条件方向几何不同，且差异具有阶段依赖",
+      "status": "SUPPORTED_SCREEN",
+      "evidence_files": [
+        "raw/*.jsonl",
+        "reports/MOTIVATION_SUMMARY.json",
+        "figures/panel_c.png"
+      ],
+      "needs_human_confirmation": true,
+      "human_confirmation_items": [
+        "确认 panel_c 的跨域加权口径、epoch 对齐口径与 bootstrap CI 是否恰当。",
+        "确认差异方向是否在阶段间反转，以及单 seed 下是否只能写 SUPPORTED_SCREEN。",
+        "不得升级为“AIO 全程更分散”或“U 是校准不确定性”。"
+      ],
+      "evidence_detail": {
+        "status": "SUPPORTED_SCREEN",
+        "sign_changes": true,
+        "ci_separation": true,
+        "detail": {
+          "FoggyCityscapes": {
+            "t1": {
+              "n_common_epochs": 20,
+              "median_diff": -0.7037482422550108,
+              "min_diff": -5.4310180286754886,
+              "max_diff": 4.971466618697285,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t2": {
+              "n_common_epochs": 20,
+              "median_diff": -0.7946269449102354,
+              "min_diff": -5.805051339242805,
+              "max_diff": 4.775239062959217,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t3": {
+              "n_common_epochs": 20,
+              "median_diff": -0.9030047836323893,
+              "min_diff": -6.1582938396533216,
+              "max_diff": 4.583265693787755,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            }
+          },
+          "LowLightTrafficData": {
+            "t1": {
+              "n_common_epochs": 20,
+              "median_diff": 0.7245484637214119,
+              "min_diff": -3.472863728265729,
+              "max_diff": 6.678376435680249,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t2": {
+              "n_common_epochs": 20,
+              "median_diff": 0.13108546295707235,
+              "min_diff": -3.705322084333659,
+              "max_diff": 7.5797890900939,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t3": {
+              "n_common_epochs": 20,
+              "median_diff": -0.36041361887518786,
+              "min_diff": -3.9920338735297882,
+              "max_diff": 8.16004149524949,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            }
+          },
+          "RainCityscapes": {
+            "t1": {
+              "n_common_epochs": 20,
+              "median_diff": -1.1190851331207678,
+              "min_diff": -7.017396279400369,
+              "max_diff": 6.720281800303432,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t2": {
+              "n_common_epochs": 20,
+              "median_diff": -1.161085645767665,
+              "min_diff": -7.510844944952487,
+              "max_diff": 7.727769234181778,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t3": {
+              "n_common_epochs": 20,
+              "median_diff": -1.1343301413127733,
+              "min_diff": -7.838288250462929,
+              "max_diff": 8.548637017022973,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            }
+          },
+          "RSCityscapes": {
+            "t1": {
+              "n_common_epochs": 20,
+              "median_diff": -0.375490896788385,
+              "min_diff": -5.159444900808552,
+              "max_diff": 6.729577338008504,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t2": {
+              "n_common_epochs": 20,
+              "median_diff": -0.627538773044316,
+              "min_diff": -5.314649571773096,
+              "max_diff": 7.740338097470815,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t3": {
+              "n_common_epochs": 20,
+              "median_diff": -1.0829295561209804,
+              "min_diff": -5.618942527560812,
+              "max_diff": 8.569700669016473,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            }
+          },
+          "SnowTrafficData": {
+            "t1": {
+              "n_common_epochs": 20,
+              "median_diff": 0.7896181158212654,
+              "min_diff": -2.634466563933163,
+              "max_diff": 8.623596405842378,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t2": {
+              "n_common_epochs": 20,
+              "median_diff": 0.30962027048295404,
+              "min_diff": -2.7447727478453565,
+              "max_diff": 8.36642516722347,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t3": {
+              "n_common_epochs": 20,
+              "median_diff": 0.08986583390725045,
+              "min_diff": -2.9015838411174784,
+              "max_diff": 8.04455955024018,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "claim_id": "rain_and_multidomain_nonuniform",
+      "text_cn": "Rain/多域下路径几何发生改变，但并非全程同号",
+      "status": "SUPPORTED_SCREEN",
+      "evidence_files": [
+        "raw/*.jsonl",
+        "reports/MOTIVATION_SUMMARY.json",
+        "figures/panel_c.png"
+      ],
+      "needs_human_confirmation": true,
+      "human_confirmation_items": [
+        "分别核对 RainCityscapes 及其他域的 t=1/2/3 轨迹和符号。",
+        "若仅部分域非全程同号，结论应限定到对应域，不做全称断言。"
+      ],
+      "evidence_detail": {
+        "status": "SUPPORTED_SCREEN",
+        "sign_changes": true,
+        "ci_separation": true,
+        "detail": {
+          "FoggyCityscapes": {
+            "t1": {
+              "n_common_epochs": 20,
+              "median_diff": -0.7037482422550108,
+              "min_diff": -5.4310180286754886,
+              "max_diff": 4.971466618697285,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t2": {
+              "n_common_epochs": 20,
+              "median_diff": -0.7946269449102354,
+              "min_diff": -5.805051339242805,
+              "max_diff": 4.775239062959217,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t3": {
+              "n_common_epochs": 20,
+              "median_diff": -0.9030047836323893,
+              "min_diff": -6.1582938396533216,
+              "max_diff": 4.583265693787755,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            }
+          },
+          "LowLightTrafficData": {
+            "t1": {
+              "n_common_epochs": 20,
+              "median_diff": 0.7245484637214119,
+              "min_diff": -3.472863728265729,
+              "max_diff": 6.678376435680249,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t2": {
+              "n_common_epochs": 20,
+              "median_diff": 0.13108546295707235,
+              "min_diff": -3.705322084333659,
+              "max_diff": 7.5797890900939,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t3": {
+              "n_common_epochs": 20,
+              "median_diff": -0.36041361887518786,
+              "min_diff": -3.9920338735297882,
+              "max_diff": 8.16004149524949,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            }
+          },
+          "RainCityscapes": {
+            "t1": {
+              "n_common_epochs": 20,
+              "median_diff": -1.1190851331207678,
+              "min_diff": -7.017396279400369,
+              "max_diff": 6.720281800303432,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t2": {
+              "n_common_epochs": 20,
+              "median_diff": -1.161085645767665,
+              "min_diff": -7.510844944952487,
+              "max_diff": 7.727769234181778,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t3": {
+              "n_common_epochs": 20,
+              "median_diff": -1.1343301413127733,
+              "min_diff": -7.838288250462929,
+              "max_diff": 8.548637017022973,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            }
+          },
+          "RSCityscapes": {
+            "t1": {
+              "n_common_epochs": 20,
+              "median_diff": -0.375490896788385,
+              "min_diff": -5.159444900808552,
+              "max_diff": 6.729577338008504,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t2": {
+              "n_common_epochs": 20,
+              "median_diff": -0.627538773044316,
+              "min_diff": -5.314649571773096,
+              "max_diff": 7.740338097470815,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t3": {
+              "n_common_epochs": 20,
+              "median_diff": -1.0829295561209804,
+              "min_diff": -5.618942527560812,
+              "max_diff": 8.569700669016473,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            }
+          },
+          "SnowTrafficData": {
+            "t1": {
+              "n_common_epochs": 20,
+              "median_diff": 0.7896181158212654,
+              "min_diff": -2.634466563933163,
+              "max_diff": 8.623596405842378,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t2": {
+              "n_common_epochs": 20,
+              "median_diff": 0.30962027048295404,
+              "min_diff": -2.7447727478453565,
+              "max_diff": 8.36642516722347,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            },
+            "t3": {
+              "n_common_epochs": 20,
+              "median_diff": 0.08986583390725045,
+              "min_diff": -2.9015838411174784,
+              "max_diff": 8.04455955024018,
+              "sign_changes": true,
+              "ci_separation_in_any_epoch": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "claim_id": "dt_sanity_lower_U",
+      "text_cn": "DT 作为路径尺度干预 sanity check，相对 Plain AIO 降低 U",
+      "status": "NOT_SUPPORTED",
+      "evidence_files": [
+        "raw/*.jsonl",
+        "reports/MOTIVATION_SUMMARY.json",
+        "figures/panel_c.png"
+      ],
+      "needs_human_confirmation": true,
+      "human_confirmation_items": [
+        "确认 DT 只作为 post-hoc sanity check，不进入主对照。",
+        "确认激活窗口长度、warmup 与 bridge time 对齐是否影响该比较。"
+      ],
+      "evidence_detail": {
+        "status": "NOT_SUPPORTED",
+        "fraction_dt_lower": 0.0,
+        "detail": {
+          "t1": {
+            "n_common_epochs": 5,
+            "median_dt_minus_aio": 3.237359997722592
+          },
+          "t2": {
+            "n_common_epochs": 5,
+            "median_dt_minus_aio": 2.59514304212688
+          },
+          "t3": {
+            "n_common_epochs": 5,
+            "median_dt_minus_aio": 2.3957062887708744
+          }
+        }
+      }
+    },
+    {
+      "claim_id": "single_seed_scope",
+      "text_cn": "本旁路只允许 SUPPORTED / SUPPORTED_SCREEN 级别方向性措辞，禁止全称因果或校准结论",
+      "status": "SUPPORTED",
+      "evidence_files": [
+        "MOTIVATION_FROZEN_SPEC.json",
+        "reports/MOTIVATION_FIGURE_REPORT_CN.md"
+      ],
+      "needs_human_confirmation": false,
+      "human_confirmation_items": [],
+      "evidence_detail": {
+        "seed": 2026,
+        "arms": [
+          "single x5",
+          "aio_plain",
+          "aio_dt sanity"
+        ]
+      }
+    },
+    {
+      "claim_id": "fixed_window_overcompression_final_vote",
+      "text_cn": "固定 Epoch 4–5 过度压缩窗口作为稳定动机对象可复现",
+      "status": "NOT_SUPPORTED",
+      "evidence_files": [
+        "reports/WINDOW_FINAL_VOTE_CN.md",
+        "reports/seed2029_window_audit.json",
+        "reports/seed2030_window_audit.json",
+        "reports/seed2031_window_audit.json",
+        "raw/seed2029/",
+        "raw/seed2030/",
+        "raw/seed2031/"
+      ],
+      "needs_human_confirmation": true,
+      "human_confirmation_items": [
+        "确认 seed=2031 在 Epoch 4–5 为正、seed=2030 仅 3/5 域同号的窗口表。",
+        "确认是否接受“固定窗口不可复现/关闭”，并把动机对象改为阶段依赖的方向几何差异。",
+        "不得把 U 写成校准不确定性或把窗口写成因果机制。"
+      ],
+      "evidence_detail": {
+        "status": "NOT_SUPPORTED",
+        "new_seed_windows": {
+          "2029": {
+            "Epoch1": "+",
+            "Epoch3_6": "-",
+            "Epoch4_5": "- (5/5)",
+            "Epoch20": "+"
+          },
+          "2030": {
+            "Epoch1": "+",
+            "Epoch3_6": "+",
+            "Epoch4_5": "- (3/5)",
+            "Epoch20": "-"
+          },
+          "2031": {
+            "Epoch1": "+",
+            "Epoch3_6": "+",
+            "Epoch4_5": "+ (5/5)",
+            "Epoch20": "+"
+          }
+        },
+        "epoch1_divergence_consistent": true,
+        "fixed_window_reproducible": false
+      }
+    }
+  ]
+}

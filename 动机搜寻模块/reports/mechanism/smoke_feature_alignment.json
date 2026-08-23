@@ -1,0 +1,357 @@
+{
+  "seed": 2026,
+  "method": "aio_plain_s2026",
+  "layers": [
+    "model_res.2.conv_fin.2",
+    "model_res.5.conv_fin.2",
+    "model.4"
+  ],
+  "epochs": {
+    "1": {
+      "model_res.2.conv_fin.2": {
+        "mean_cka": 1.0,
+        "min_cka": 1.0,
+        "max_cka": 1.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            1.0
+          ]
+        ]
+      },
+      "model_res.5.conv_fin.2": {
+        "mean_cka": 1.0,
+        "min_cka": 1.0,
+        "max_cka": 1.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            1.0
+          ]
+        ]
+      },
+      "model.4": {
+        "mean_cka": 0.0,
+        "min_cka": 0.0,
+        "max_cka": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.0
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.0
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.0
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.0
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.0
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.0
+          ]
+        ]
+      }
+    },
+    "4": {
+      "model_res.2.conv_fin.2": {
+        "mean_cka": 1.0,
+        "min_cka": 1.0,
+        "max_cka": 1.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            1.0
+          ]
+        ]
+      },
+      "model_res.5.conv_fin.2": {
+        "mean_cka": 1.0,
+        "min_cka": 1.0,
+        "max_cka": 1.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            1.0
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            1.0
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            1.0
+          ]
+        ]
+      },
+      "model.4": {
+        "mean_cka": 0.0,
+        "min_cka": 0.0,
+        "max_cka": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.0
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.0
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.0
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.0
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.0
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.0
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.0
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.0
+          ]
+        ]
+      }
+    }
+  }
+}

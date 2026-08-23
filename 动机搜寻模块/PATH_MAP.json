@@ -1,0 +1,29 @@
+{
+  "project_root": "/home/yc/UNSB_PASSION/motivation_baseline_restart",
+  "source_root": "/home/yc/unsb_tired/refactor/baseline",
+  "dtcov_source_root": "/home/yc/unsb_tired/refactor/dt_covmatch",
+  "hj_source_root": "/home/yc/unsb_tired/refactor/hj_patchnce",
+  "measurement_reference_root": "/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806",
+  "dataset_root": "/home/yc/UNSB_C21/dataset_all",
+  "run_root": "/home/yc/UNSB_PASSION/motivation_baseline_restart/datasets",
+  "checkpoints_root": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints",
+  "state_root": "/home/yc/UNSB_PASSION/motivation_baseline_restart",
+  "report_root": "/home/yc/UNSB_PASSION/motivation_baseline_restart/reports",
+  "raw_root": "/home/yc/UNSB_PASSION/motivation_baseline_restart/raw",
+  "figures_root": "/home/yc/UNSB_PASSION/motivation_baseline_restart/figures",
+  "python": "/home/yc/anaconda3/envs/unsb_cov/bin/python",
+  "seed": 2026,
+  "domains": [
+    "FoggyCityscapes",
+    "LowLightTrafficData",
+    "RainCityscapes",
+    "RSCityscapes",
+    "SnowTrafficData"
+  ],
+  "split": {
+    "trainA": 100,
+    "trainB": 100,
+    "discovery": 80,
+    "sealed": 20
+  }
+}

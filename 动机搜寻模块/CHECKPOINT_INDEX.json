@@ -1,0 +1,1518 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "path": "aio_plain_s2029/10_net_G.pth",
+      "sha256": "4bb4a65e7e24a012110c0a59b6e6af49ef6e7538dc4e1e97c9f56edf22608ae1"
+    },
+    {
+      "path": "aio_plain_s2029/11_net_G.pth",
+      "sha256": "f79a33e6b9f623fb64a1f3a0fcfe7ab686497547ba0a83d8481eb58b91a74f1f"
+    },
+    {
+      "path": "aio_plain_s2029/12_net_G.pth",
+      "sha256": "efb8f3497262d5bfba83ac9f6b9ecd68ddd4cd6b382cbe1801e4012962646cd5"
+    },
+    {
+      "path": "aio_plain_s2029/13_net_G.pth",
+      "sha256": "9aeb34ad9cbd78b8353c663ad68c2ab36a092ec61d17dc058c685220881577ae"
+    },
+    {
+      "path": "aio_plain_s2029/14_net_G.pth",
+      "sha256": "f87766a6905d843927999911de7845d99e2e6b3f31dd0de5e6eaa90b5c526c4e"
+    },
+    {
+      "path": "aio_plain_s2029/15_net_G.pth",
+      "sha256": "35baef9c47b0cd9fae6543aa3a55c7d6eca0bcff9105b3ce6783a4828cc9f14f"
+    },
+    {
+      "path": "aio_plain_s2029/16_net_G.pth",
+      "sha256": "94d189bf584c750a3a063c99e752b0bf4b1939b31f4408da123f40cbb82de36e"
+    },
+    {
+      "path": "aio_plain_s2029/17_net_G.pth",
+      "sha256": "67464a5cdb5527397d83c4ea9c3f20026a924cf5e7e0f644fd76e49cc2f2dfdb"
+    },
+    {
+      "path": "aio_plain_s2029/18_net_G.pth",
+      "sha256": "49a63a3f2778acec54e62f571ac6ebb09632747f951f87a8de8c92075d97a684"
+    },
+    {
+      "path": "aio_plain_s2029/19_net_G.pth",
+      "sha256": "33de831994e1be3a54298d1b596a91b6adc3471e95304f0bf6adebf56f4db48a"
+    },
+    {
+      "path": "aio_plain_s2029/1_net_G.pth",
+      "sha256": "1ad1cce6189145e6d35a0ebbc80f327d3d9840c787bde75e5774b292bdcf23b8"
+    },
+    {
+      "path": "aio_plain_s2029/20_net_G.pth",
+      "sha256": "3b1cf0b20191f2e52334afb2dabd261feca16a86e0b66d1d89561be7ce7b6ec9"
+    },
+    {
+      "path": "aio_plain_s2029/2_net_G.pth",
+      "sha256": "a29a2350c1d24652d9747a6af9be86adbd02585a4980826c6c891d125be813b7"
+    },
+    {
+      "path": "aio_plain_s2029/3_net_G.pth",
+      "sha256": "88ec7ee90c2cae16ccb7487c2b860b9491e9bbb2e24f8fa7a74da259f5e8467c"
+    },
+    {
+      "path": "aio_plain_s2029/4_net_G.pth",
+      "sha256": "c403f4ffe237b7e55af3f6b4ae15132b75dbe0656de258c120a29e735a17174e"
+    },
+    {
+      "path": "aio_plain_s2029/5_net_G.pth",
+      "sha256": "9e2d1e85cd2ad0105106a6505a8ee61c053513b28c082bb75af505cbf232bbe6"
+    },
+    {
+      "path": "aio_plain_s2029/6_net_G.pth",
+      "sha256": "03bf16ea0357ee9b6fc02da4e9d939b0fbedd8cdcc49f0bc2c3dc4590240fed0"
+    },
+    {
+      "path": "aio_plain_s2029/7_net_G.pth",
+      "sha256": "af840b1df5a53e248bb75caa7c300fb5abd3b8b034e439d333ea72b2a2fec9bc"
+    },
+    {
+      "path": "aio_plain_s2029/8_net_G.pth",
+      "sha256": "83894a4273c99251d358c154c6855f1ebec433a4f6f837b16c29869bb91bce4d"
+    },
+    {
+      "path": "aio_plain_s2029/9_net_G.pth",
+      "sha256": "01e0112d8289795937cfcdcf3bbdbe7d764f6c7af5c6b2a8d8d1f482526e4cf0"
+    },
+    {
+      "path": "aio_plain_s2029/latest_net_G.pth",
+      "sha256": "f3f3be2b57dca5c2f1cad9eb280eda8ccc34884b22a9a321d975416e70babfe8"
+    },
+    {
+      "path": "aio_plain_s2030/10_net_G.pth",
+      "sha256": "a698578280a779bc03a21a76dbe392edc786bf151a85c2fda897c76c0f972472"
+    },
+    {
+      "path": "aio_plain_s2030/11_net_G.pth",
+      "sha256": "8d8966384d8c97e7f0974fd5e92271b190dc894c42163626a045a9395f69e607"
+    },
+    {
+      "path": "aio_plain_s2030/12_net_G.pth",
+      "sha256": "aaac7928ae2c6ee3decb1f1e8659203fa4b6f705ffc21ae35a2c07c2c8e05d1d"
+    },
+    {
+      "path": "aio_plain_s2030/13_net_G.pth",
+      "sha256": "67aeae951f01cebdf7ff8b23e34cdeabe7e997ee8731f1ea9d247f55bd53a501"
+    },
+    {
+      "path": "aio_plain_s2030/14_net_G.pth",
+      "sha256": "cffa1b9c04e8bdd53b6a4d9aea7df4e4e6aade60ecfb5cc1f8bc247ce3785cd1"
+    },
+    {
+      "path": "aio_plain_s2030/15_net_G.pth",
+      "sha256": "1759293e2eb89855eb3d5ffe8008dd74e46e0229448f87a1a88d3da50e060f33"
+    },
+    {
+      "path": "aio_plain_s2030/16_net_G.pth",
+      "sha256": "798a840109a4f7315d589cd666010066846de54fc38900e46eaf191936737466"
+    },
+    {
+      "path": "aio_plain_s2030/17_net_G.pth",
+      "sha256": "725dce80bca7c3fb821fe7326e03e1cc40d8a9efde54f2214d6ae4b6f6bd2267"
+    },
+    {
+      "path": "aio_plain_s2030/18_net_G.pth",
+      "sha256": "f5f707c5333492f02683b6ce9a89c6ddce220ff852319909c116e42e5314f6df"
+    },
+    {
+      "path": "aio_plain_s2030/19_net_G.pth",
+      "sha256": "da14b455d2fb56c1fce33d48bdae9bc30885f581c43b35483771143dd2fdd61b"
+    },
+    {
+      "path": "aio_plain_s2030/1_net_G.pth",
+      "sha256": "1d60c0dd7de4bdf4a8e13b0ac56e6d75965c3f9f20c5704575853b10e10e0fe4"
+    },
+    {
+      "path": "aio_plain_s2030/20_net_G.pth",
+      "sha256": "8cd93eac1de32925488704568dbef708de2e15c19909d08e8c7d89cee763b61a"
+    },
+    {
+      "path": "aio_plain_s2030/2_net_G.pth",
+      "sha256": "bc2cc39fea11ea1e8b7a3ddfcfa7151728938c8f587d286f632479efdff5e646"
+    },
+    {
+      "path": "aio_plain_s2030/3_net_G.pth",
+      "sha256": "43000fac81fc74bad430f25a3d4d222b3cc1a2253bbecc0ba2a2ee2725e48f9c"
+    },
+    {
+      "path": "aio_plain_s2030/4_net_G.pth",
+      "sha256": "d236893dd9609ae2d758464e410c023adce096557827e9187e3113e03395e56b"
+    },
+    {
+      "path": "aio_plain_s2030/5_net_G.pth",
+      "sha256": "cc5be1bbea17b2645435eacd609823f3980932afb9f1a4aec1f1aab8332fd5d4"
+    },
+    {
+      "path": "aio_plain_s2030/6_net_G.pth",
+      "sha256": "aef14611cb101b67ff3d62d98a65b4a6af7b3540012870b8d06c68bebc21c2ba"
+    },
+    {
+      "path": "aio_plain_s2030/7_net_G.pth",
+      "sha256": "1a133b3d187e928e9454352e336853173d309bb2844949274d709b1c03f30519"
+    },
+    {
+      "path": "aio_plain_s2030/8_net_G.pth",
+      "sha256": "d509e2cdc997eef2c0d6a56c55e0f8e94816a3e8b0c0dc211c352be61da8de9b"
+    },
+    {
+      "path": "aio_plain_s2030/9_net_G.pth",
+      "sha256": "2a9785ade8e2006561b30b6a1ac5805cd712dbcb328a57786329a59871b4a7ec"
+    },
+    {
+      "path": "aio_plain_s2030/latest_net_G.pth",
+      "sha256": "7655c6d612e392be4aaeac1fdf2ee4c0f0eaa77cc7dc98d4617279fbe81ba56f"
+    },
+    {
+      "path": "aio_plain_s2031/10_net_G.pth",
+      "sha256": "14e38c588222fe33c8d150b303d38af9544be74a0d0edab8bad3ba279987b1b1"
+    },
+    {
+      "path": "aio_plain_s2031/11_net_G.pth",
+      "sha256": "db51824d2f7b8e13569480ae2e06c5a415d57fd44e8bbe96eaa7e1ec3906b84a"
+    },
+    {
+      "path": "aio_plain_s2031/12_net_G.pth",
+      "sha256": "e3e4d1f2d45f6da79c605f31ad409e5216ed09b357920d9a796ce410289ea614"
+    },
+    {
+      "path": "aio_plain_s2031/13_net_G.pth",
+      "sha256": "adb01eaa56a933ac0303a2497e6d0f14f566ef96b1f66a73653497c0f37aba36"
+    },
+    {
+      "path": "aio_plain_s2031/14_net_G.pth",
+      "sha256": "1a7e1343891a987f669cfae9650af30674425a31073b714e1d3de7310b25e600"
+    },
+    {
+      "path": "aio_plain_s2031/15_net_G.pth",
+      "sha256": "de05cc0d22806dc0e7e7724c96e15370eac36d890a1571de9f200056e9ef0a9c"
+    },
+    {
+      "path": "aio_plain_s2031/16_net_G.pth",
+      "sha256": "b22ef58890f0320432294cb18548c72e6482df409028934f54ff424e0b03d0ce"
+    },
+    {
+      "path": "aio_plain_s2031/17_net_G.pth",
+      "sha256": "7de908201e41ae25436f25f6e70ebb4b396f5579ffca175cac4e411c3b3ba5b3"
+    },
+    {
+      "path": "aio_plain_s2031/18_net_G.pth",
+      "sha256": "e6f286aedcf330838f00f4d5fe328c1eac81aa7234fe244f94562deeffaa5e55"
+    },
+    {
+      "path": "aio_plain_s2031/19_net_G.pth",
+      "sha256": "5e630dac14c9a3534f27b7ea9964626f5179d9f71e6e84f9879259cff875afdd"
+    },
+    {
+      "path": "aio_plain_s2031/1_net_G.pth",
+      "sha256": "52786337116208084a1d6105184f05e891490096e745e6f3bc44cd1b15bf240d"
+    },
+    {
+      "path": "aio_plain_s2031/20_net_G.pth",
+      "sha256": "4a27608763733c7f330510a47c2e43d56313c5b831adbcb756d7909cc7f7563e"
+    },
+    {
+      "path": "aio_plain_s2031/2_net_G.pth",
+      "sha256": "849db934070e5e45e70b9b5d75d9716b8dc529d433a78a13e584104b7c54f34e"
+    },
+    {
+      "path": "aio_plain_s2031/3_net_G.pth",
+      "sha256": "579cc764d5aceff828595bf53b0621ee59f1562c525ef9b0c5f3e584fe956509"
+    },
+    {
+      "path": "aio_plain_s2031/4_net_G.pth",
+      "sha256": "3510bb19f8cc514100f64160f10af6a5ce5180ecdf6c7f9a59e488ab45c6a391"
+    },
+    {
+      "path": "aio_plain_s2031/5_net_G.pth",
+      "sha256": "6642426b1d74602fcdf52942289fd592afe6b8e30b01f38e4df219fcba46e9d9"
+    },
+    {
+      "path": "aio_plain_s2031/6_net_G.pth",
+      "sha256": "1254e61495751b4a907e063ed24c781a0126da66e88e879822cc48c9db2b5711"
+    },
+    {
+      "path": "aio_plain_s2031/7_net_G.pth",
+      "sha256": "25544eb3351462ab767bb98fa7a56d418c9b2fd18ed93dd46be87922164e57ef"
+    },
+    {
+      "path": "aio_plain_s2031/8_net_G.pth",
+      "sha256": "3de73f9f5f58da66dcf22950feb3334e17fd7a5908bf20e16a7376d4432dd45b"
+    },
+    {
+      "path": "aio_plain_s2031/9_net_G.pth",
+      "sha256": "fd023a959d4f883305f60e7848a0ba39acdeae5b3ce57d30d0f792a9cce3fc20"
+    },
+    {
+      "path": "aio_plain_s2031/latest_net_G.pth",
+      "sha256": "67c061ff422e965f7b25f0e79c9d02fcc45ce9b9fec0c3c8c8f07edf7ace6a15"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/10_net_G.pth",
+      "sha256": "2f7c45c5703ab53d83332b82f3fe071e6daaaae3d11c678ac1aec6e0cd872123"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/11_net_G.pth",
+      "sha256": "2e6791f8e29157b49fb6bf20ffca79fb51668f2c8f7fa8649d680bcb2cca1a2e"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/12_net_G.pth",
+      "sha256": "03b565fc4a803dbfc7c761a5253c1ba31aaf8564cb1cb073655b4dc5e855aa05"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/13_net_G.pth",
+      "sha256": "00b5f0f4d489c63baa04ea5998103edcd04ad4d6904e1ae84b869eba85190774"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/14_net_G.pth",
+      "sha256": "5d863553ac38ddfaa4d34a970a1e825b7cfe2d9458f2b2cf80de335c9549f6bb"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/15_net_G.pth",
+      "sha256": "e17e0ed90d9ed5e56c061d9dd16cecaebb022f5924acad831ea534264d620bc9"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/16_net_G.pth",
+      "sha256": "24c92dc190066832e2ed9082c92665eebe5968bb970061206e34a9685a2bce5c"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/17_net_G.pth",
+      "sha256": "04adfb787b1a4272346c687a3716c45f0d10e29074ff29e7c92ac187aee4e942"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/18_net_G.pth",
+      "sha256": "69899f31c1f7dc69f0d837dd3c68ec777424599e9becb21a202cf466ec9165a3"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/19_net_G.pth",
+      "sha256": "ef6e0a09b3a4f240eaaca281e8737fafe88269ec5804804be74aa846075edd35"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/1_net_G.pth",
+      "sha256": "6f39b3a9df63089dc45cd7089bbe86620b027280706966c495e623c29ab8ac90"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/20_net_G.pth",
+      "sha256": "df84c440013701d39d4df8b6185d44c877c898fb14d9d5f43ca372f51c7eaf38"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/2_net_G.pth",
+      "sha256": "4bd33790adc997975ac79fda0efc6f7847990dd4ceacd35f72a27ff1a0f29f8e"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/3_net_G.pth",
+      "sha256": "c4077c180903a5e4665d72f1b8e7e8c3fe6efd8c0b5fd0859a9442e989c7c140"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/4_net_G.pth",
+      "sha256": "b1fad9462efc6e312f6021aad4cff07cd41867c58f8590a5e9f39927e512bbb5"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/5_net_G.pth",
+      "sha256": "7248a4a08dee52c5d6d73d82166dafd0936e3c96398accae424895d77ebf53e6"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/6_net_G.pth",
+      "sha256": "f4fc832e95394e2ee13425522f3a09ea6cc66fab113672618628ddb49c6cbb3b"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/7_net_G.pth",
+      "sha256": "b92b68b84f89b770115e27e08d30afb6ce510a4e735fb75ac61dd41cd2b6fdfb"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/8_net_G.pth",
+      "sha256": "74e15e805a8ebda83548a39012d1bcdbf4221e2d22c182bfdb5784ff4ac481cf"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/9_net_G.pth",
+      "sha256": "96a51eb6ac3ad247ab99ca92ed58b286deae5a869e6cec4e1afac94390d32611"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2029/latest_net_G.pth",
+      "sha256": "195fbcc29d698516a4dd098e3dd0fb69221b1aa9dd2754a5b4b12025ce8ba244"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/10_net_G.pth",
+      "sha256": "e840466c8f8d8020c555beda7cd917ebf2c8922ac47de320900f613c0f9849c3"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/11_net_G.pth",
+      "sha256": "77c3d6bc0053fa900dfd4bf18b882b5b58167bc6f9bd0c6ec75af9efa84616d9"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/12_net_G.pth",
+      "sha256": "2d989a75f52602e09a0cfca73ad777d95694c8b810d3e4e87d26696622edeb0c"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/13_net_G.pth",
+      "sha256": "1b09780510765b34554d722e2315443f16606987532ba7ea8183728c7300316b"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/14_net_G.pth",
+      "sha256": "aca7cc859afe1bb708e3f8ac42de1d52dccd7318ba68071cc9ac024b2951e53b"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/15_net_G.pth",
+      "sha256": "193a012dd38f6a69cd1299251ebc85875e3a28518f5d287cc5e2608ecc97af03"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/16_net_G.pth",
+      "sha256": "9701bc38add31dc13cf7d586f04fcdb89e3eaeacbacc3638ff67abef1e4edea5"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/17_net_G.pth",
+      "sha256": "41ffc66a804708007707957ec6a919008e4930d49f64d0883fe7c87420a50487"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/18_net_G.pth",
+      "sha256": "0b11f15521633bd6a02fb34839aa8d6167b4946446e4533eb60ce23a2938e035"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/19_net_G.pth",
+      "sha256": "c1aeeb10af559a0774a704c49543165402837ee0729955fd323096011a6dfd6d"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/1_net_G.pth",
+      "sha256": "83960f3335a9e8279dd6fe0b092b5e897d9b808207be002e4b24001dc02cbdda"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/20_net_G.pth",
+      "sha256": "dd7b0a26551a2434073a785fb537cce85a9464f0df702fbd3007c634ce72ac5f"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/2_net_G.pth",
+      "sha256": "b5052104b690f52d4cc4d0962a3886310e7f5455a03a863593643335d62e145d"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/3_net_G.pth",
+      "sha256": "3f55ceaae4dfd50f2c95cfa1a03c22cbfd36b7220a9913d103cf3eacabd051ac"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/4_net_G.pth",
+      "sha256": "fe94c38d0feba3927095190bbff1539acc8a38392744dfd1c94c2d276d4e0eac"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/5_net_G.pth",
+      "sha256": "9c140a8226a81573d28b7e1e0622d3e1b4aa6cae896cf2e60fe820ea055d2400"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/6_net_G.pth",
+      "sha256": "2385d9837f761d1202cca80382a02b17ac2c64a56fe2def8aaa32c9371bf71ae"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/7_net_G.pth",
+      "sha256": "9535341adabc7864c91965a83e48c055c3d402b0791e24184434d109e0f02fc9"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/8_net_G.pth",
+      "sha256": "e4ded9ebdaf2a24e6c5be974f2e514f6e36b4aa9bca17fe10b9d2f91e81623f3"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/9_net_G.pth",
+      "sha256": "898781155b28d77bef3eb7867c40c0a944dcaf2b64a5a594621f198a190cf1d4"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2030/latest_net_G.pth",
+      "sha256": "9c4bc43c48b636aad5742392378fe62cbd5108356b9a5190d0abea2aaf34c870"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/10_net_G.pth",
+      "sha256": "41a329b7807352b6d043911366b577cd63bd165e437f345d5cf265d5011d58f1"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/11_net_G.pth",
+      "sha256": "07b44b09b63991ee8e767ba570d8fe5e1626e0de9b256b352d4dc53ea8ab8391"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/12_net_G.pth",
+      "sha256": "cf19acfb3ea6111bc0835bac9a5062168261210014b86c12e83d950c09679dce"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/13_net_G.pth",
+      "sha256": "486553b6c09e2d2f361498f83409ba382aaea82e625ef002ba2082a760f0e227"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/14_net_G.pth",
+      "sha256": "1cf58ae6f55da9b65e73cfe0d92cac6e5d4124e5f48e34ee0ecdcbcc102af968"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/15_net_G.pth",
+      "sha256": "98a6732b29c0b5b67f2d4a67cb2900aae78320638b33fce5ed601c2a81bbddf3"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/16_net_G.pth",
+      "sha256": "11b6c89d51aae39482a4a317b1e23d59b01e0ddd54365f94b18d3053ab1ea755"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/17_net_G.pth",
+      "sha256": "96cbea95372390ee6dad09b30249365fe36205fba0db866cf5e3e144da30aa9c"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/18_net_G.pth",
+      "sha256": "5cb99fae937f511f2975c497b81d507576dcc3d5ec270273a468888b98818a8b"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/19_net_G.pth",
+      "sha256": "ed70d08ca7c0a362482ecd74c5870de14c02ba182c016a888202e39d4d8dfdc9"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/1_net_G.pth",
+      "sha256": "eb83ddfabfa9fc8fa35a4176cd8ed3f091e307a2aa85ed7ab280f47d198d4e43"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/20_net_G.pth",
+      "sha256": "61c8679b1936656cde81ccc131c1066d18425955366457cecbbc9fcb746a3811"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/2_net_G.pth",
+      "sha256": "34a4fbe24b7e29baf28086d761d87febbebe900523993d13dbeedb1e1dc94325"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/3_net_G.pth",
+      "sha256": "760a58ce3764dcf658559afccbbb218145224e18d761283d6f4b85e0e6cdb2bf"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/4_net_G.pth",
+      "sha256": "2015428e129675c4c222a370b370cc96f0810b74ec86fc122e17e8ebbd530697"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/5_net_G.pth",
+      "sha256": "accc407f73c030dca3b614a38609c6d1bd5c3b881f4819c4af8751ed86814b65"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/6_net_G.pth",
+      "sha256": "2a7520f83186ef49004216f8eeb6a92b5b3f75491543ba93f1c123d78e551d1d"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/7_net_G.pth",
+      "sha256": "2b216e90767480a06d447729051310d018b5e1263bd2edcb039c06f7afa4a187"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/8_net_G.pth",
+      "sha256": "0c985ee51aec43502dffb55e7f8a6be704bce3e4a5c48b28c2a90e495ba2bf8b"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/9_net_G.pth",
+      "sha256": "6beb1dd1a96c28ebbdf62adcfee942401f98895f5ebd5efc662b97935f2495f8"
+    },
+    {
+      "path": "single_FoggyCityscapes_s2031/latest_net_G.pth",
+      "sha256": "4ac8e688ec09df4a752d4a7b4fc5e92b423a8c9aa254642e17f0447d85dff59f"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/10_net_G.pth",
+      "sha256": "3b62925b5aea50002663014390e3f1b1f46078174b3ed16a6ffe0b08155bd958"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/11_net_G.pth",
+      "sha256": "0e33fe2743be5cc517340fb0e6635fd87789b2c3a3573f585333a4fa36dc7212"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/12_net_G.pth",
+      "sha256": "6bdf99a1d653caf4602323baf384a6600f6bcdf705c37c00311286960b84d881"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/13_net_G.pth",
+      "sha256": "804ae02741e64f7f2c8c77e800471cfa076d98873c89351d8faf334989315fbe"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/14_net_G.pth",
+      "sha256": "3dfceb61b98bf0ff934637803fc4ee160cc7ad56af84743e68b9a703ce93881e"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/15_net_G.pth",
+      "sha256": "b710a2166bbe858165717ce12da0dfc1a0c21e2a66aa03c6ce57ccdfccc41f35"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/16_net_G.pth",
+      "sha256": "b60c5ce22598ea80dfc7356c8a26060628593f440b3d65e7dba40deee8e34890"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/17_net_G.pth",
+      "sha256": "aa6116867db528bb1f59d6834e9d2d02da00c6879a68bb4b927c3e890a9b472f"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/18_net_G.pth",
+      "sha256": "ea445e873d90438937848b1cdae4a51aff763b0192072d17da80d3510e82fa0a"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/19_net_G.pth",
+      "sha256": "aa7f404b1685ce7ec44cf4e0d2200b1fcbbe67f1610559cc2c81a5d0703996bf"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/1_net_G.pth",
+      "sha256": "2f97f823a13bb9a36a9fef3f213d01b9fef7ac57fc7e963826c447bcfe7883e2"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/20_net_G.pth",
+      "sha256": "c22994993270352aaf2cb61146170f67a8042af1157ab438494a79ce82bba659"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/2_net_G.pth",
+      "sha256": "c1195e08d3491bf5ce856830294044b673a28e27cf15e70bc950ec37f7c336bf"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/3_net_G.pth",
+      "sha256": "7c6bed89d22be5176fcdfb26080e2ff681303b73433e51d1ab41f5009637a917"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/4_net_G.pth",
+      "sha256": "0bfa81358f522d6ed4b263ca96b03847b4901ccf92af2c7792af9fff12ed06aa"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/5_net_G.pth",
+      "sha256": "94bbb139097ce3cffb0f3ad11be6c8530bb2f958d8d1f2e1841b817ce7340a9b"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/6_net_G.pth",
+      "sha256": "44f14723f5e9a42e75518c39acc2405d86da0fb8a4831d46c161399371072037"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/7_net_G.pth",
+      "sha256": "28bdf14059df36c4647b8b87c333cdf946d41d9e96f1a3c8e3455f2f814bf203"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/8_net_G.pth",
+      "sha256": "9a916cff7b2e8efc414d8289a1d898b1627587f8a8da499d233b5532fd6f3f05"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/9_net_G.pth",
+      "sha256": "60dc55837874774885c3e98dc9198edb152828927571230c9558384d765cd902"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2029/latest_net_G.pth",
+      "sha256": "44555d5f9594ade428ebde1f2c3fd52946c4ab219e0e06a0a538c4fc4509cd59"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/10_net_G.pth",
+      "sha256": "1a8c6e8ce380d3dcf3805705506994a51c4185f32d8f58c502a807367a8595f4"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/11_net_G.pth",
+      "sha256": "5351bf8f3ec193133306f812bca10bbfffda0e379cb663a5a23ceca54fa552ca"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/12_net_G.pth",
+      "sha256": "1d097172aeefe59d0bd907b075fedf4eb314e5992bce8d675931738cca827f11"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/13_net_G.pth",
+      "sha256": "24abe8367c04ff423826fa18f591e87045848b5dca0d869a0c4e579133232a3f"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/14_net_G.pth",
+      "sha256": "f3cd6e099b655905418e5f2998d09281b5f90d6981d1aee62f8a77652be84d14"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/15_net_G.pth",
+      "sha256": "fcd13980aaf4b9f2b6de37dc4b4079dcbe2b698c9721c57cf5442953e873e42e"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/16_net_G.pth",
+      "sha256": "975f6c11a92ccd00fa4ef0ffc61345c57840846fefa3799bac25b0e1edbabde5"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/17_net_G.pth",
+      "sha256": "0b267df3f9d03a2c210c2543462b6bbcbe55b57de96bb7901cfa21eedf3f32d5"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/18_net_G.pth",
+      "sha256": "4648edd5139e9bf6e68cbafa73c7adb3a4a27b27eecb4cda4a95c175ad9a2e77"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/19_net_G.pth",
+      "sha256": "370c6590f3cee5c357f44317db0de0c8da6aca47066ac8ec36fb15b052b22709"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/1_net_G.pth",
+      "sha256": "04353a43e59f7231bb19a54bed54cc613df5951f6abdffdc7dc920e72059de9c"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/20_net_G.pth",
+      "sha256": "54b9c060b49efeeeb06feef65b7f5d78011b691aadb8cf0e46d28857818d65da"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/2_net_G.pth",
+      "sha256": "625b6689332f969349a2201a55e4c612ab44b52e3b7edfe3cc5fce2f69ee0168"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/3_net_G.pth",
+      "sha256": "0f3f40f11b7f3271f6a165bc458793b2d7b0b3cbab5730e88dc1493b23c88353"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/4_net_G.pth",
+      "sha256": "3abad53670c81920632575fa6ca8792b7e419cce181daae4fc114beb94ce93b5"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/5_net_G.pth",
+      "sha256": "3aa4babc0201aa8fa2b84625c7eb6282835b9616f446fa3c17df65564dc6023f"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/6_net_G.pth",
+      "sha256": "8ea7bfc44a62969f80d7efbf0e84fe1c3b7ec437470474bdbbc4f724a7679384"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/7_net_G.pth",
+      "sha256": "54b6f9abca50cf28d75161f56b58e9a8cca1e0faf535222d943550a1f12e166e"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/8_net_G.pth",
+      "sha256": "35737e6c9f37a9ee88202e677ae8ac02806c93aeaf03bff1764180cabde01538"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/9_net_G.pth",
+      "sha256": "e0e8fd1f1ba80515e2ae921a40fd225b63cadb717fb55943aa80e64a0cd01ddd"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2030/latest_net_G.pth",
+      "sha256": "9de3fde6c2c6b4a7b04d4ae9450c43721e1d49531255db0e439f3314d2689b01"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/10_net_G.pth",
+      "sha256": "c455b728dc5c9f5aef721f764422b32b127554ba515d0f992c36a50a2f2f9ee3"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/11_net_G.pth",
+      "sha256": "2f1840488490488da89b9aab4ceb45a7977e42e0f0680b10813fd39a2c2f7e28"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/12_net_G.pth",
+      "sha256": "48a0851a21af7cfab07782412922c6616a3760e2a9d5e773f2d88941ccc74e59"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/13_net_G.pth",
+      "sha256": "7ac115f7c290e312dd377853735349539c5aaeaef63af5178cbef5318bf22554"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/14_net_G.pth",
+      "sha256": "0c838d470ddeffa0d00f578e8b8d7c61cbd514c6e15d696a1a726bd49a837cc9"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/15_net_G.pth",
+      "sha256": "64c1f63ecbea0c2624a2a104c564c164faa31c3fa4fbdcef2d3e267239f8c3dc"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/16_net_G.pth",
+      "sha256": "de58a7d4ec18cbe69cebffddd29274e549edd0d4bd4b8fe5542e6f5c3508b945"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/17_net_G.pth",
+      "sha256": "b7f56d57756ba24637c4eb2ec056c6052de5703e6b65da648ed70a1554fa9107"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/18_net_G.pth",
+      "sha256": "eef745cdaa96d87b1f50ad24f48c5f0317feb83ac1c427b94de5ac9670363dfa"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/19_net_G.pth",
+      "sha256": "8944a18cf9dd3decff0c391e7d1f101033d167a070bdce669cdf6c195c34078f"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/1_net_G.pth",
+      "sha256": "cea039cb59ac2e37554a307ab2389b263703d82a222f26ff1f6ceb990527754c"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/20_net_G.pth",
+      "sha256": "768d26895aed61226e165d073fcf9c616e82fd0d2de9d10e2737d8f108d14471"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/2_net_G.pth",
+      "sha256": "5d1ca8d3f56b07fda595acf6104379235f96fcc1d1e6a6f36a4e183f9306f1f6"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/3_net_G.pth",
+      "sha256": "0cfca66dc1141418ef7007f2c17c9b3650f7426d687e63d5bfe7d839fe6e1774"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/4_net_G.pth",
+      "sha256": "ac5682b420b5d750a8f34d90a401859e47da5100ac2905fe1e7a9722322f1924"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/5_net_G.pth",
+      "sha256": "88231d3307a4e9c41d93b10762f4d6635eaf003d323d26d19ebe10234f9d3a8c"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/6_net_G.pth",
+      "sha256": "f2565a380e3129ddba4cc9fae7d8801e40e0b0f4cb36f4ae4c0def9dd21bd810"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/7_net_G.pth",
+      "sha256": "d6b47164a3afa4e69077658219f93f802d8950fad42b0121e37cb50253d3750c"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/8_net_G.pth",
+      "sha256": "13112bb5862688b45480e7bce12a7f7120202b26a8814649ca0eb46c439e0a28"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/9_net_G.pth",
+      "sha256": "5c4e4dbb9e629e41327891861c3f182f325f89a6f3d4121122c73a31c2408b42"
+    },
+    {
+      "path": "single_LowLightTrafficData_s2031/latest_net_G.pth",
+      "sha256": "553f367b7d8c058047dc3e7a7fa6c9a33a5cfbc733696a660c2c192fcab199db"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/10_net_G.pth",
+      "sha256": "01dfdc3f44822db28a3b27ad030c33d2093be2380c1207496101aec7341376bb"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/11_net_G.pth",
+      "sha256": "12707f6ee2df9a1219a9ab483cbe1499a048c55e381005696e7436ef1c657664"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/12_net_G.pth",
+      "sha256": "997e100a958e9163fd84c5953c87c73ecb6e63adb6ab97a422c1410060f1668f"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/13_net_G.pth",
+      "sha256": "13de073b725498fea9020eb2524fc842855383beac431a484ee5e538300350f2"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/14_net_G.pth",
+      "sha256": "b16092b74bc48ce434060183e9277893e908f602f29abed0c847e46d4b3fc8d6"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/15_net_G.pth",
+      "sha256": "4965368279c9b0271de7981375b227d119e5b534c3afef95fc01ca408dd216b3"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/16_net_G.pth",
+      "sha256": "9408d4d2e7084f4b17e2b8761fd11778dc137c316e0de2009056b29afff08417"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/17_net_G.pth",
+      "sha256": "fbecab7212a796e4079f23f515f5a6c40209804baae16d344d2e2a14407bb997"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/18_net_G.pth",
+      "sha256": "b5fb9580dac6dd6ab51499588705589999283aba923915ce6b95a07483216bfa"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/19_net_G.pth",
+      "sha256": "f89916fd392453fbcc77c956beea20dd72be62146892713e80b91b873deacaff"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/1_net_G.pth",
+      "sha256": "d75d15e71114363a0eaed07b93889fb6a993b6366f435660d70a5e1234bab533"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/20_net_G.pth",
+      "sha256": "8d6b40d0049db17cd4c1d5d018cbf9a3f49ca125db2a6dd969cbbbca74348c53"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/2_net_G.pth",
+      "sha256": "53da9ed4d3f90c93c7593d0ba11ca1d7b9887d79772edcb57013f90ba667c1f4"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/3_net_G.pth",
+      "sha256": "ccb7c16dff9b7baf9f6b2492908a28f27acfac2fcf5bc475e38605ef1928c29f"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/4_net_G.pth",
+      "sha256": "33a30c976b745c6c2308002fc10a7a3655453759adbc543997c2efeddd9341fd"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/5_net_G.pth",
+      "sha256": "79efea9a70d5240228b35a70af09d857e7f4173c0e09439d7b6d8b5d49317d31"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/6_net_G.pth",
+      "sha256": "cf399284cbe06480b360fdde56db002928ff7c226b58f7c8c554c9c8573588ed"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/7_net_G.pth",
+      "sha256": "5cefcb7d2a8f079f6ff206d466612218f842d572dc6a0b7d8c8468f868608b71"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/8_net_G.pth",
+      "sha256": "1a2da29b07dab1f0c4b6c11afe8645d3261de6f38d4936e6601540d302ed193a"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/9_net_G.pth",
+      "sha256": "fb73df8c30eee3e836e7644ab390c5b75c163cf4be2276f18efac5ec79e8af77"
+    },
+    {
+      "path": "single_RSCityscapes_s2029/latest_net_G.pth",
+      "sha256": "67d10d935f123f043f0939d6a53efdf49a6e7ca64f9168810f57068d6d94ee8f"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/10_net_G.pth",
+      "sha256": "d3516dad38f33d41280313d4593797a30ebe37635b5d32968ce81d13e28bc67f"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/11_net_G.pth",
+      "sha256": "7d49e62cf90d250f2fe6226d53803f4e6639670b2c78496728b2819fdfe7dda9"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/12_net_G.pth",
+      "sha256": "1f9507d19b7adfad085f34da6e108a26a7c170a9eecdbd7a84c39fb1423d33c0"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/13_net_G.pth",
+      "sha256": "a5c8916bf2e780a6e88a12e7e015f6b4a1eedc526b6689ca5dd40f1bf8f32488"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/14_net_G.pth",
+      "sha256": "5d79669b21ea149600ed3740b2090312b7f29aa2d5070e189f1042adae771a82"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/15_net_G.pth",
+      "sha256": "7ab805cfa5686d99f567c26eb83948a4499eddc291b6d3bf8b0b255189aefaf2"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/16_net_G.pth",
+      "sha256": "cd558dcdd512d4fce993e583f377b2a9387533bf7039fefd33cb7ce1fcb8c4fd"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/17_net_G.pth",
+      "sha256": "5ec6fe5fb25cac6fac693e27d91d536432638aaa1cabf018561089d0a44af37f"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/18_net_G.pth",
+      "sha256": "6dcf4347de6c565542a40c82e75922e5d8f6f872118e2d4c25fb85d1a9158986"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/19_net_G.pth",
+      "sha256": "e38867122932410ebb650ab26946ab239e2d86e5dbca0fb821eb3fe8b8b27b1b"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/1_net_G.pth",
+      "sha256": "36aa11a60e1fe363c8f408532d24bc79cebcaf09afc112eb6bea92e3e5627dfc"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/20_net_G.pth",
+      "sha256": "b040ea9763f477be4adffae1c8570569bbb627b3bf7ea13e786bad74520f1251"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/2_net_G.pth",
+      "sha256": "15e77594d249e9dc26379d4bce621d2b7336cc3c351b40f07669432bfa646900"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/3_net_G.pth",
+      "sha256": "1c52fd617c00d846c5906f7df22cd8d4fe9cf99edb054560d11ba4919473c8a4"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/4_net_G.pth",
+      "sha256": "e97448886d1299127709e38c367065660ba8dbc2c0b7198ce63462572308bd41"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/5_net_G.pth",
+      "sha256": "ceb9cd91589d7113f59d1425038fc4770476179dbbae5793b5bdea9f9cd79487"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/6_net_G.pth",
+      "sha256": "2bc9c8d20f3f25ae9b05bd4cb76263dc58db15a57cc9a1d6e8c00b2781135009"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/7_net_G.pth",
+      "sha256": "e27471ee6f12a7e2453b5b2958ff96e708e99fa45ddacf881ca6fcca4c06c57c"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/8_net_G.pth",
+      "sha256": "79f7955c5479b1b02db71207f304873937795bd6a4c1be46109b8df1f0d3aa9f"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/9_net_G.pth",
+      "sha256": "bc30b1752602189ec673cb144270db6bf1f80d6fe02852c291a08f0360d7f271"
+    },
+    {
+      "path": "single_RSCityscapes_s2030/latest_net_G.pth",
+      "sha256": "f036ae51515c48f5640da1c5cee545f07d3c89e43877e836aec7bc578a8f52f6"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/10_net_G.pth",
+      "sha256": "995f03ecf2d08934e041d182b907ca6d0a907e656d3538da0db4de7856c4311e"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/11_net_G.pth",
+      "sha256": "009ff66d81da124c91d8a201960a7348395621f2169bc32935b7ec46faa459e5"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/12_net_G.pth",
+      "sha256": "5daa1ed9fcb087ef8ce7d106dfa4a875831da12b8ba4367d4c36423b2a940c59"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/13_net_G.pth",
+      "sha256": "e423bfd8af360e42a497b6fe7f592940a4781f1373646ee1e282014e01f1039d"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/14_net_G.pth",
+      "sha256": "9f75dcbe8b8bd60c798359d324fcbfbda85b67c9f9bb37ac1a2c49678511a8bb"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/15_net_G.pth",
+      "sha256": "61b3d4dc7e110c44b4e42050d25d71f72f6db46940b3ce395472b8ce8dd4661d"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/16_net_G.pth",
+      "sha256": "2778b471637b0d33d85a9141a6ede90407ae2e7e84c815668ffe856aa940b957"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/17_net_G.pth",
+      "sha256": "6e3c2ab9eb3680e46025c8527ecb4dc7671a254f9d55c11eae31eb53857111a6"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/18_net_G.pth",
+      "sha256": "40c75363553fa90c7c588ae7d62b1aa196320ad7a4de201c4d8bd08771ed0ebe"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/19_net_G.pth",
+      "sha256": "eb68281317f518ce9d7a0c208300af8b81ea14e3b30ab09fc7bb8b51708ef8d0"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/1_net_G.pth",
+      "sha256": "974e19ea8e2e6b41b0ee8db4fd3411b60ba20ee842b09e4b7e24b6a9e8b867a1"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/20_net_G.pth",
+      "sha256": "aa7876240de1f0127033e0653ab5e90e660eab8424f85372e6ae7e0d1dd1859b"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/2_net_G.pth",
+      "sha256": "f3a325915f921b6e50b499507880315df1c773f5009653e913314f6f6ea106a4"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/3_net_G.pth",
+      "sha256": "1a82750bbd23d09cfe1fd2127a3984dcbd83bad111403334bf4f95bf0d02eaf3"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/4_net_G.pth",
+      "sha256": "5ca0decd93fc60b506cf330f3ceb8fed38a864aa70040896e16bf9d57fa93726"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/5_net_G.pth",
+      "sha256": "1f9fde5c5cc339445323b852f74880256c480bd809e278c494af0ef527c8bafb"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/6_net_G.pth",
+      "sha256": "0c55cef690004756569b6e446731d279b0817dc372952225fd1eac55cc56f207"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/7_net_G.pth",
+      "sha256": "8946a1a5ed3d8ed02453d186f0380a396d80fb106f1a5f8218d9f58d84a704c2"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/8_net_G.pth",
+      "sha256": "8b7ef77e664f2f0dddab8b674d47cf8f15557c0b066926bbaf71a7a84561a280"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/9_net_G.pth",
+      "sha256": "f09b92309a0e26c60b3c95cf1e464b02ec5ce1f895b9af610b7089a56b500d96"
+    },
+    {
+      "path": "single_RSCityscapes_s2031/latest_net_G.pth",
+      "sha256": "4f566863db3b31306adbce72ab1265b14a1bd106f460ce81ef7732784b5bd4b8"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/10_net_G.pth",
+      "sha256": "8ca7e9b24585c12c808e04dfd8a62a9703620a4ae423303c45d24d60556d06bf"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/11_net_G.pth",
+      "sha256": "775dcac643f95b6bcb12a17278022efddd7af2cffe628362b1c162cd7235a640"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/12_net_G.pth",
+      "sha256": "5fb4f51acd0ad107ec3757fc0af84f8f65fe54944febb00012af391c48d28ec1"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/13_net_G.pth",
+      "sha256": "21fcb4e92e0f2b841d01d6dac4bee88839652b555fbb9b4c2b4fd0e37d2dd3e7"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/14_net_G.pth",
+      "sha256": "5371da12bf87801be23ba66a613ff805eef669567cd836796c505e51a143ac1b"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/15_net_G.pth",
+      "sha256": "e077ce5320ab5e47dcc4933adfaa8a5162687edd14bf1103454cf9f4b246b3a6"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/16_net_G.pth",
+      "sha256": "5769b45fb926e0ca6f680f055a55c7b5cfdf1dadda9515a59f8e7404742a643f"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/17_net_G.pth",
+      "sha256": "178a9b223ebd512aa5bda8319a21c621b10da8741127015c827d72f962182d4a"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/18_net_G.pth",
+      "sha256": "6f7d8b9473873c5caaa4319895991bf87da28a2afa66ba2ee1671c7f3566f1e5"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/19_net_G.pth",
+      "sha256": "668e2cded7e8820ccd565336c12f082049bfdcfe3a4684da83c44a24f3ca0e13"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/1_net_G.pth",
+      "sha256": "2459a1c9b6dfc50af8d7b2763665da781b2ca6817a7593fc569605afbd720a58"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/20_net_G.pth",
+      "sha256": "ba184ea2f51ddcfa27588921bb2a69b77d71fcc190bd5e7486e9dc44586c8dbd"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/2_net_G.pth",
+      "sha256": "8ce79a20cea129c71f4860126d4347e3d5d8520da59cea800a15584d839a916a"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/3_net_G.pth",
+      "sha256": "4363b8a1091597ad6d241e5c512310e022074c51513ad70ed45152b90cd9fa35"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/4_net_G.pth",
+      "sha256": "993cd2f72e0d1b02c96bf322b0cdc9055d7b74d698b4f2d03db7944f180234e5"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/5_net_G.pth",
+      "sha256": "5d208ccb4074834eb51bf6a2f3f6c9ea2f31dd1205011e5928a38890325796ad"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/6_net_G.pth",
+      "sha256": "81a2f023d849252a2dcc836193c06406ecf02dbb3b38c2f65cd7e0b30792050e"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/7_net_G.pth",
+      "sha256": "8e940fbc7f94dcbaf02f990d6f2541d32a2cbcf66205283e7e091fd668520920"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/8_net_G.pth",
+      "sha256": "c6695c95a3d00291c02fe509e015b3a68179e6a7a539a4112901159ee6b2c87a"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/9_net_G.pth",
+      "sha256": "643e5071abe2263e11b597fd9db0557f72e401963e6aeba5c62b4c648654117a"
+    },
+    {
+      "path": "single_RainCityscapes_s2029/latest_net_G.pth",
+      "sha256": "6629ad176f19a1db84fe5d0c2e897549ec9e6b64b2b768611d77233035591ec2"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/10_net_G.pth",
+      "sha256": "c6cd5900c208ceb72336d10e1f02bb2d0c749a2a857cc220cc90629622a5183f"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/11_net_G.pth",
+      "sha256": "1c739cfe56836bb4e4157a6a9c02197cd8950c091f23084b13b9180275194591"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/12_net_G.pth",
+      "sha256": "b8b5495aa549f2fccf6d2c49b3d1a7277081b13004ed864ec83f993abb552195"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/13_net_G.pth",
+      "sha256": "f114786018fe6e6068e51e06f9cb8783ca324feac696701d0c6bbc2d84f095ac"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/14_net_G.pth",
+      "sha256": "9aa045fa5bda27608a3b9c50fb1c4274d18539301a30bfebdd004387b478497b"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/15_net_G.pth",
+      "sha256": "8fd77ba3e731cb1115c6e94ce20ccf239b31d9cee4d65a5ec7ea6835e435f04e"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/16_net_G.pth",
+      "sha256": "3e852f1642c8f3f7ad98f13a884788190bdd5dab71383b81d7a2c93c1bc9a3df"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/17_net_G.pth",
+      "sha256": "75447f999a61783bdcd49cbdf7b70e9ad7e2a3a8395e89ec940aff65c8fdbb7d"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/18_net_G.pth",
+      "sha256": "9b304de99b103ec7353f9edf8138343fa2c37f0d275eb67bc56d0b936d039b67"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/19_net_G.pth",
+      "sha256": "658d47ea6a7cc619e58a6bd2d422df155d3131d20988f1badcd3ec57f5b70cd2"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/1_net_G.pth",
+      "sha256": "17ce04746823caf3e04339c296300b97792576ff9b487527e57e603abfa45878"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/20_net_G.pth",
+      "sha256": "edda882a83eb09a4897c24c878f296a516e89313109674ba6159fc87bf96be5f"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/2_net_G.pth",
+      "sha256": "7032045a8566419237d39a63d08a0ad1dace9e830cd0b6da123da7f5bd07dd47"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/3_net_G.pth",
+      "sha256": "bdd305200742af81ba7795d549c964270ce65798b3919ff6d7fd1a878ce9d99a"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/4_net_G.pth",
+      "sha256": "efc1d1315bb4323354c6f6723b5c70334e555b4b203a1c543f301b3c377bc7a1"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/5_net_G.pth",
+      "sha256": "c006ff82a6824eed64bc3385e530dc58fbbc20ee71db1569428f545860e033b4"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/6_net_G.pth",
+      "sha256": "a7e5a0483df2597d4bd91b7caefd4b0732ab5d6641d05421c00916637bafcc9e"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/7_net_G.pth",
+      "sha256": "8353406c80f38013ae0af9a71c32c917c6f35a42383baa67bacb83bf62578674"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/8_net_G.pth",
+      "sha256": "dcebeb006ec510f570f1ac986bdd7541edbed79f44386480c3867e1dcacf1df7"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/9_net_G.pth",
+      "sha256": "abad2a005b84af1143b4bdc9cade8ebfe8e8b32d0bd38e362852b41b1cb14836"
+    },
+    {
+      "path": "single_RainCityscapes_s2030/latest_net_G.pth",
+      "sha256": "97cc365096c3d66c7a99db1cbce28637b99cd4b8ce0bc889cdec9b857308ba99"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/10_net_G.pth",
+      "sha256": "fb1fe9b60505e70dbb433f6bb444f956dfc8ef6fb04280c61a6607f123a947b8"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/11_net_G.pth",
+      "sha256": "5f2aaf208a91bdbc572a21e86e93215fefa515b7428565f95d014695efc83900"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/12_net_G.pth",
+      "sha256": "394bdb4282a03d24add7a532b6c8b8e8fb33deebee85c9d02d17eadc4029ae60"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/13_net_G.pth",
+      "sha256": "74738b2bff571539f8a6579ed8ba336b181ae6263799e8e5250a7ea3401d5739"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/14_net_G.pth",
+      "sha256": "00c5b119d1a45e21a6b3067a654348bda3ca9e81aed61124e00642c4521140ef"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/15_net_G.pth",
+      "sha256": "b8b917976880241c4f197b0d9270e4d6ad2f96d527eaa93091f2ddd4e0d5f5ef"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/16_net_G.pth",
+      "sha256": "d25061576e0d2e32e924907b4d99d25bb621acf6cc82d149c6e1a744ed789c16"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/17_net_G.pth",
+      "sha256": "ad8ce8dfe3e581aecc24211abe0f6c6710927b4e25dab11ac53e485fa134d38b"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/18_net_G.pth",
+      "sha256": "85964b31a9385d3400fa9036fc5228d3938b5bdb22a02906588b917340d323be"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/19_net_G.pth",
+      "sha256": "ceadadec7b799dcfac309679a9e7c46ae845938a02eace553f3bab598cf3a681"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/1_net_G.pth",
+      "sha256": "abaf90843d991bcd793c884144208f22508dc6eab531f2128a0bedc921ce9242"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/20_net_G.pth",
+      "sha256": "f14a729faa8d1eaedcde97e2ae66a4fe9d7884b817a1a565db2ae7e06db58971"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/2_net_G.pth",
+      "sha256": "6ac5d5a1e2ed13fb66aa4ac4a45e6197e4c895300856d35fb7fd55e9d8ebbf96"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/3_net_G.pth",
+      "sha256": "ac71ee31767bf8ff7d4442881090badfada3ab4ed915c38d91b49aca71f5d2c1"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/4_net_G.pth",
+      "sha256": "d3258e1b8dd45cdd4eea7c545f79fe1022a930671574be30e0c912ac42a6739e"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/5_net_G.pth",
+      "sha256": "ebb000f92b5e0ae5925e23c17070e1b9b5eed3e90a7d216dc4fead84abdee265"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/6_net_G.pth",
+      "sha256": "393503eb386fdc76a732fffa6e5f43cd2f80a7d4050a0ad9bb6e11e935362903"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/7_net_G.pth",
+      "sha256": "2f74ae6bdc3dc2c5473b32b2ce83152895503ea2ede9851939714aef31fd7ddf"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/8_net_G.pth",
+      "sha256": "3b1a907f9c4937f801e53d24ff5dbb53c6f265c3135dce65dcc14998e149cace"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/9_net_G.pth",
+      "sha256": "4bac95b5a4cae107026878166ea8407e9d4f627bf85d838d3b082d2aa7868e93"
+    },
+    {
+      "path": "single_RainCityscapes_s2031/latest_net_G.pth",
+      "sha256": "6378884477637dd9c771dce6f934c94dce2e351c04a127c98b6d6aab0e1b2379"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/10_net_G.pth",
+      "sha256": "52e8474e8b0d8f53e90749ce5c37095efe1715db87e49e2c0101546810572c7c"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/11_net_G.pth",
+      "sha256": "0114ac610a7fcc6eb2a6c4d2596718e9523eb6c9e103ae3fc5eeefe8caad959b"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/12_net_G.pth",
+      "sha256": "ef3b515a6858fdab03ea816518d423281f20609839f215e58c81d63b7ecc8a9a"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/13_net_G.pth",
+      "sha256": "dc0c0d578d3042f0a03ace8cea1931c3268acfe9eec8a5716191c7d9921ff5e9"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/14_net_G.pth",
+      "sha256": "0dfe3d2b64a9b9afb5dee1a8f48ef91326e63206280761df064c1917b0af4ac9"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/15_net_G.pth",
+      "sha256": "9afb6661eb91d76f79db45766a019474d78c31e7179ea8dd0fd4a388a246028f"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/16_net_G.pth",
+      "sha256": "e07aef237e5d4ff36777408cbe8d3f5c376e7e8a43ca278c7527c95308994c14"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/17_net_G.pth",
+      "sha256": "ab1c0cfd14303bf5db818767d1eaa6244106d407068794dabe5d692fedce0a65"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/18_net_G.pth",
+      "sha256": "a5ac8bbd1e33b53812f79fc7a728a25eae56d75f35990cb6e089f9577830e535"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/19_net_G.pth",
+      "sha256": "77fab37af1835c57ca0b56c21dbaf4d43b90ca489864ede6d9f7e39b7a94283d"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/1_net_G.pth",
+      "sha256": "352c44c08d4a8dd3af6b83d34a4c8f2c8ed7e2bb0b33ec00d81b994de26dcd16"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/20_net_G.pth",
+      "sha256": "cbd89220f148e74fe1fa4041af80db41cf6d90b4cde57173f615d43d123685cd"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/2_net_G.pth",
+      "sha256": "26f178461012624770413ec6a6040e24861c7eaf4671e4f15ec173a5f251636a"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/3_net_G.pth",
+      "sha256": "c029b81ff9efc5ea6f1b6773148920ddd48f517ee7f13c6d596375d6546e4bce"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/4_net_G.pth",
+      "sha256": "1cc034271ecca7e36e13a23998e9911c0aebda9c8032468ae54f863fb901e3f2"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/5_net_G.pth",
+      "sha256": "97b1b515ccbef2cbcf57c6bdd1390527838d7b3f304cf37ac84373518dc4e8fa"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/6_net_G.pth",
+      "sha256": "7bfa61c9ed9a920b41d109767761471d73b72a6a2ca08ecda9e0b1aa462da79e"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/7_net_G.pth",
+      "sha256": "c8440687fabd95516d528d6c7744d794c735af6d326f80326874be02f61a8907"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/8_net_G.pth",
+      "sha256": "389e21ee8678f8ea449ba38c3ffa0c0b23fcca711f1e7491686a6a6ffdbc3e08"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/9_net_G.pth",
+      "sha256": "7098f342d6f1d23e161be0c9dcce9a41e06d6e0af55d2f4a8987dd25154b61b4"
+    },
+    {
+      "path": "single_SnowTrafficData_s2029/latest_net_G.pth",
+      "sha256": "225714fb99d7c5d4df832419786fd1b2889058c101b32e85ff44de7b6df468ec"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/10_net_G.pth",
+      "sha256": "af9789be8b8066ac659ff2938f8938c5a3689385b89bba2ff8fee6ccd78202b3"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/11_net_G.pth",
+      "sha256": "87286d01d879cd78f25b8d4858ab2f67871137aee2b24365d1fd20e9a07f549d"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/12_net_G.pth",
+      "sha256": "99663c7fc3eb39bfe8d76a125517ec95f1de0337c9cfe3a80d69652c15623927"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/13_net_G.pth",
+      "sha256": "2bf09c369e417fafda7b1e592eefe63b104122a3e5cfa3baac7d05ac2c6759a6"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/14_net_G.pth",
+      "sha256": "0ca3ea06d45960ab7780afc9e46bfdfc8833b60f7ec24938eb03e27982ae44d9"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/15_net_G.pth",
+      "sha256": "f08e7a1524920a9ce903d7e8cb38166b36cde1bc1dbabcc0bf03780951bdd54f"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/16_net_G.pth",
+      "sha256": "778ee14d5f425ef1355366b3019276eb39a7fdcb2be95f6d8eca03f68bc0e790"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/17_net_G.pth",
+      "sha256": "b9d6c5f982258d4851b399407ba6db164cf5c98f46c2e4b17a8d250115c2d42f"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/18_net_G.pth",
+      "sha256": "9097fd20b5f464074a49c41a209777b79d0b17657b2bb68e9311766c95963e67"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/19_net_G.pth",
+      "sha256": "66d54ea4825ff6392b6637825b3b4f49145196a47df66d28a55928bca06ecb97"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/1_net_G.pth",
+      "sha256": "65f9db62ba9e16a7035473a380d1a9c712fed2de114fb89ad31d489468b9efaf"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/20_net_G.pth",
+      "sha256": "047fc014b95f424edfab0bd263c448887acd9a978e33712f61413c8c4208dba5"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/2_net_G.pth",
+      "sha256": "6522c75dcbe72e2255cd8cf1131734bfee807753791772dda700b5fc68fb45bc"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/3_net_G.pth",
+      "sha256": "ce3f3083d057913b1af6ff2d127e257a88adc34d21e78c2e338754f674270ff0"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/4_net_G.pth",
+      "sha256": "ffd5068acd81eabdc9e2a7074c46d589f6a71d2b99c0d6669c44f546c8a72db2"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/5_net_G.pth",
+      "sha256": "31023b184cc6b7d27d5d314e45cedb0a929e6880e1dfdaa9a087b6d2fe157932"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/6_net_G.pth",
+      "sha256": "bfe9fc63f9a4de572ca2ffb1e12f62e59cd4be3be86b44ebf52cda42b23ee5ce"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/7_net_G.pth",
+      "sha256": "fe3a3ac7c87774dfa7996d987f32498e6fd260c24054ad74ca32c548fd65911e"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/8_net_G.pth",
+      "sha256": "e891f4cc09b8919c7672e7d0fd6a3215a282a3f5b7d0894cbdc4da87cac1e541"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/9_net_G.pth",
+      "sha256": "08ef9263859010b74ab606a48651a16fbd72b0281a5ecedcefddc6a11fcd1379"
+    },
+    {
+      "path": "single_SnowTrafficData_s2030/latest_net_G.pth",
+      "sha256": "0198b69f8d22e0aff8df1f4a41d9ca20d4c0188d4aa210710aa694c9ebc0e370"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/10_net_G.pth",
+      "sha256": "6fa00e94876bd65a3013e06ca2ff96eb6d6adfc86a60eb61b1b9614093846c02"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/11_net_G.pth",
+      "sha256": "f0bbf8d3396ccfbc8accfc61f07a78f124dcddccaadb90f661be04a15423070a"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/12_net_G.pth",
+      "sha256": "216cc7a3dc9c3fc9207a7e962b132740bef1d5701c24438227a5efd6b3688171"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/13_net_G.pth",
+      "sha256": "01fdb01697909e853d2e205dfeea5d4c556d6703038fa6ef049a96bda58b9756"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/14_net_G.pth",
+      "sha256": "b48f679adc048d0eee5d2d7167e2659103171c3d8567fc0162661dd3a8df8814"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/15_net_G.pth",
+      "sha256": "ab5a4c029f1a6827353f942bbcb700c119328298de615e7a37d0ce59d3faf4af"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/16_net_G.pth",
+      "sha256": "e57ef00c5209ad431ad2b4d6c356423ab557c4841650eeaea3be96e9a32f5b17"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/17_net_G.pth",
+      "sha256": "c230a57e0668863c58cff89d2a6a434d35a945cc5fdd7da2b876674a984c0661"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/18_net_G.pth",
+      "sha256": "2491ce9238225875a0a71974706aa414b30fa6353f435d735a27c2a412a51245"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/19_net_G.pth",
+      "sha256": "705ec06a3f3cd9909843fe195ba571dc3f9a330a342147e19c109af0fa0fe8fb"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/1_net_G.pth",
+      "sha256": "8893c6b6938af02f9d128eef3d56fc1af9c473f9efe6c7431bfd187480ac5d3f"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/20_net_G.pth",
+      "sha256": "ea3d5257f9dd46307b4498db0dac3cb3756930587812163f9ceada75581fd39a"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/2_net_G.pth",
+      "sha256": "c39a63653d52526f2889c7eb053200a21dc4f9f47ed7a7d1df48344d8fdcf6b7"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/3_net_G.pth",
+      "sha256": "8c6747608a76623f73a13046aec1d75725629527a956057b4e65f883f93732de"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/4_net_G.pth",
+      "sha256": "e5553e7720ab29eabd95a37ca2f03d97e4316c5d4c5b32324c9247d40848bab2"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/5_net_G.pth",
+      "sha256": "87bb02aa2b9b95c306f4718f74c771463c6c85620de5194c3fa13da38168749b"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/6_net_G.pth",
+      "sha256": "0a4e51cbec79ace217e1b92f02995a7d11770c57d0b9309c0a2a939eeaf1cf0c"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/7_net_G.pth",
+      "sha256": "8ba6727b4b44be0a7d6d97db0d1d971213b7608b74e0c84d6d4b97cb31465d5b"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/8_net_G.pth",
+      "sha256": "dfca5533a5adbfec4d27c9666a61d15fd1a5e71e9289e10112cff381c1d62c32"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/9_net_G.pth",
+      "sha256": "3c6a125bd074a5b667f8ae1ca3bfa7a43bd43cf57f6eedcba8fc7b29ad4aa1b8"
+    },
+    {
+      "path": "single_SnowTrafficData_s2031/latest_net_G.pth",
+      "sha256": "7e5abaf846262863e18b0c6b62368b7ce6f22bbcfcfe2f5fef03b868f570f67f"
+    }
+  ],
+  "notes": "由 run_all.sh 训练完成后自动填充。"
+}

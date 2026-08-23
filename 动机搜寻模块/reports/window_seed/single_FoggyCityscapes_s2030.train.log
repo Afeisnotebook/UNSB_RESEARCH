@@ -1,0 +1,180 @@
+/home/yc/unsb_tired/refactor/baseline/models/networks.py:579: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  patch_id = torch.tensor(patch_id, dtype=torch.long, device=feat.device)
+----------------- Options ---------------
+               batch_size: 1                             
+                    beta1: 0.5                           
+                    beta2: 0.999                         
+          checkpoints_dir: /home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints	[default: ./checkpoints]
+           continue_train: False                         
+                crop_size: 128                           	[default: 256]
+                 dataroot: /home/yc/UNSB_PASSION/motivation_baseline_restart/datasets/single/FoggyCityscapes	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 1000000                       	[default: 400]
+               display_id: -1                            	[default: None]
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 256                           
+               easy_label: experiment_name               
+            embedding_dim: 512                           
+           embedding_type: positional                    
+                    epoch: latest                        
+              epoch_count: 1                             
+          evaluation_freq: 5000                          
+        flip_equivariance: False                         
+                 gan_mode: lsgan                         
+                  gpu_ids: 0                             
+                     hnek: False                         
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+                lambda_SB: 1.0                           	[default: 0.1]
+                     lmda: 0.1                           
+                load_size: 128                           	[default: 286]
+                       lr: 0.0001                        	[default: 0.0002]
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                     mode: sb                            
+                    model: sb                            
+                 n_epochs: 20                            	[default: 200]
+           n_epochs_decay: 0                             	[default: 200]
+               n_layers_D: 3                             
+                    n_mlp: 3                             
+                     name: single_FoggyCityscapes_s2030  	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic_cond                    
+                     netE: basic_cond                    
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks_cond           
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: True                          	[default: False]
+                  no_html: True                          	[default: False]
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+              num_threads: 0                             	[default: 4]
+            num_timesteps: 5                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+          pretrained_name: None                          
+               print_freq: 100                           
+         random_scale_max: 3.0                           
+             save_by_iter: False                         
+          save_epoch_freq: 1                             	[default: 5]
+         save_latest_freq: 1000000                       	[default: 5000]
+                     seed: 2030                          	[default: 2026]
+           serial_batches: False                         
+                      std: 0.25                          
+                style_dim: 512                           
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+                      tau: 0.01                          
+         update_html_freq: 1000                          
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+dataset [UnalignedDataset] was created
+model [SBModel] was created
+The number of training images = 100
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 14.684 M
+[Network F] Total number of parameters : 0.560 M
+[Network D] Total number of parameters : 3.143 M
+[Network E] Total number of parameters : 3.152 M
+-----------------------------------------------
+(epoch: 1, iters: 100, time: 0.351, data: 0.015) G_GAN: 0.598 D_real: 0.220 D_fake: 0.028 G: 4.585 NCE: 3.920 SB: 0.041 NCE_Y: 3.970 
+saving the model at the end of epoch 1, iters 100
+End of epoch 1 / 20 	 Time Taken: 76 sec
+learning rate = 0.0001000
+(epoch: 2, iters: 100, time: 0.558, data: 0.012) G_GAN: 0.352 D_real: 0.412 D_fake: 0.106 G: 3.663 NCE: 3.198 SB: 0.032 NCE_Y: 3.359 
+saving the model at the end of epoch 2, iters 200
+End of epoch 2 / 20 	 Time Taken: 94 sec
+learning rate = 0.0001000
+(epoch: 3, iters: 100, time: 0.671, data: 0.012) G_GAN: 0.243 D_real: 0.491 D_fake: 0.180 G: 3.464 NCE: 3.358 SB: 0.020 NCE_Y: 3.044 
+saving the model at the end of epoch 3, iters 300
+End of epoch 3 / 20 	 Time Taken: 91 sec
+learning rate = 0.0001000
+(epoch: 4, iters: 100, time: 0.734, data: 0.012) G_GAN: 0.372 D_real: 0.035 D_fake: 0.340 G: 4.379 NCE: 3.827 SB: 0.009 NCE_Y: 4.168 
+saving the model at the end of epoch 4, iters 400
+End of epoch 4 / 20 	 Time Taken: 88 sec
+learning rate = 0.0001000
+(epoch: 5, iters: 100, time: 0.757, data: 0.012) G_GAN: 0.322 D_real: 0.643 D_fake: 0.101 G: 2.515 NCE: 2.251 SB: 0.048 NCE_Y: 2.040 
+saving the model at the end of epoch 5, iters 500
+End of epoch 5 / 20 	 Time Taken: 83 sec
+learning rate = 0.0001000
+(epoch: 6, iters: 100, time: 0.818, data: 0.016) G_GAN: 0.569 D_real: 0.133 D_fake: 0.137 G: 2.990 NCE: 2.606 SB: 0.009 NCE_Y: 2.218 
+saving the model at the end of epoch 6, iters 600
+End of epoch 6 / 20 	 Time Taken: 95 sec
+learning rate = 0.0001000
+(epoch: 7, iters: 100, time: 0.836, data: 0.012) G_GAN: 0.809 D_real: 0.077 D_fake: 0.087 G: 3.119 NCE: 2.384 SB: 0.031 NCE_Y: 2.175 
+saving the model at the end of epoch 7, iters 700
+End of epoch 7 / 20 	 Time Taken: 93 sec
+learning rate = 0.0001000
+(epoch: 8, iters: 100, time: 0.847, data: 1.034) G_GAN: 0.468 D_real: 0.095 D_fake: 0.202 G: 2.368 NCE: 1.816 SB: 0.013 NCE_Y: 1.958 
+saving the model at the end of epoch 8, iters 800
+End of epoch 8 / 20 	 Time Taken: 93 sec
+learning rate = 0.0001000
+(epoch: 9, iters: 100, time: 0.841, data: 0.011) G_GAN: 0.623 D_real: 0.636 D_fake: 0.076 G: 2.409 NCE: 1.672 SB: 0.048 NCE_Y: 1.805 
+saving the model at the end of epoch 9, iters 900
+End of epoch 9 / 20 	 Time Taken: 90 sec
+learning rate = 0.0001000
+(epoch: 10, iters: 100, time: 0.858, data: 0.183) G_GAN: 0.408 D_real: 0.134 D_fake: 0.162 G: 3.025 NCE: 2.917 SB: 0.003 NCE_Y: 2.310 
+saving the model at the end of epoch 10, iters 1000
+End of epoch 10 / 20 	 Time Taken: 94 sec
+learning rate = 0.0001000
+(epoch: 11, iters: 100, time: 0.851, data: 0.408) G_GAN: 0.641 D_real: 0.348 D_fake: 0.022 G: 2.917 NCE: 2.433 SB: 0.021 NCE_Y: 2.077 
+saving the model at the end of epoch 11, iters 1100
+End of epoch 11 / 20 	 Time Taken: 92 sec
+learning rate = 0.0001000
+(epoch: 12, iters: 100, time: 0.854, data: 0.012) G_GAN: 0.394 D_real: 0.135 D_fake: 0.390 G: 4.094 NCE: 3.834 SB: 0.002 NCE_Y: 3.562 
+saving the model at the end of epoch 12, iters 1200
+End of epoch 12 / 20 	 Time Taken: 90 sec
+learning rate = 0.0001000
+(epoch: 13, iters: 100, time: 0.852, data: 0.012) G_GAN: 0.299 D_real: 0.537 D_fake: 0.285 G: 2.708 NCE: 2.258 SB: -0.006 NCE_Y: 2.572 
+saving the model at the end of epoch 13, iters 1300
+End of epoch 13 / 20 	 Time Taken: 92 sec
+learning rate = 0.0001000
+(epoch: 14, iters: 100, time: 0.856, data: 0.012) G_GAN: 0.351 D_real: 0.543 D_fake: 0.098 G: 2.568 NCE: 2.441 SB: 0.005 NCE_Y: 1.985 
+saving the model at the end of epoch 14, iters 1400
+End of epoch 14 / 20 	 Time Taken: 92 sec
+learning rate = 0.0001000
+(epoch: 15, iters: 100, time: 0.794, data: 0.012) G_GAN: 0.598 D_real: 0.088 D_fake: 0.132 G: 2.824 NCE: 2.513 SB: 0.032 NCE_Y: 1.874 
+saving the model at the end of epoch 15, iters 1500
+End of epoch 15 / 20 	 Time Taken: 73 sec
+learning rate = 0.0001000
+(epoch: 16, iters: 100, time: 0.834, data: 0.744) G_GAN: 0.433 D_real: 0.501 D_fake: 0.073 G: 2.662 NCE: 2.358 SB: 0.033 NCE_Y: 2.033 
+saving the model at the end of epoch 16, iters 1600
+End of epoch 16 / 20 	 Time Taken: 94 sec
+learning rate = 0.0001000
+(epoch: 17, iters: 100, time: 0.844, data: 0.011) G_GAN: 0.375 D_real: 0.640 D_fake: 0.112 G: 2.584 NCE: 2.391 SB: 0.010 NCE_Y: 2.007 
+saving the model at the end of epoch 17, iters 1700
+End of epoch 17 / 20 	 Time Taken: 91 sec
+learning rate = 0.0001000
+(epoch: 18, iters: 100, time: 0.833, data: 0.015) G_GAN: 0.357 D_real: 0.123 D_fake: 0.174 G: 3.205 NCE: 3.027 SB: 0.010 NCE_Y: 2.651 
+saving the model at the end of epoch 18, iters 1800
+End of epoch 18 / 20 	 Time Taken: 90 sec
+learning rate = 0.0001000
+(epoch: 19, iters: 100, time: 0.856, data: 0.049) G_GAN: 0.276 D_real: 0.324 D_fake: 0.333 G: 2.562 NCE: 2.521 SB: 0.024 NCE_Y: 2.003 
+saving the model at the end of epoch 19, iters 1900
+End of epoch 19 / 20 	 Time Taken: 95 sec
+learning rate = 0.0001000
+(epoch: 20, iters: 100, time: 0.869, data: 0.148) G_GAN: 0.327 D_real: 0.234 D_fake: 0.152 G: 2.444 NCE: 2.451 SB: 0.002 NCE_Y: 1.780 
+saving the model at the end of epoch 20, iters 2000
+End of epoch 20 / 20 	 Time Taken: 95 sec
+learning rate = 0.0000000

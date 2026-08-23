@@ -1,0 +1,305 @@
+{
+  "epochs": [
+    {
+      "epoch": 1,
+      "aio_logU": -10.642401537259559,
+      "aio_logU_z_compression": -0.6244638020193656,
+      "aio_ureg": 0.0013699159708266961,
+      "aio_ureg_z_compression": 0.34079561293286187,
+      "effective_rank": 1.0021732797237952,
+      "effective_rank_z_compression": 0.43849649102505933,
+      "mean_energy": 0.9999722242355347,
+      "mean_energy_z_compression": 0.17548675663259738,
+      "gradient_proxy_cosine": 0.2225506866040329,
+      "gradient_proxy_cosine_z_compression": 0.8051675545407189,
+      "feature_cka": 0.6666659992227317,
+      "feature_cka_z_compression": 0.7749716050604983,
+      "compression_score": 0.3184090363620617,
+      "n_components": 6
+    },
+    {
+      "epoch": 3,
+      "aio_logU": -12.022927990139383,
+      "aio_logU_z_compression": -0.00994170356929647,
+      "aio_ureg": 0.0003499643090663085,
+      "aio_ureg_z_compression": 0.4101365596507904,
+      "effective_rank": 1.0101167187164606,
+      "effective_rank_z_compression": 0.4346888200251558,
+      "mean_energy": 0.9999909400939941,
+      "mean_energy_z_compression": 0.3901333292970655,
+      "gradient_proxy_cosine": 0.22354509010910986,
+      "gradient_proxy_cosine_z_compression": 0.8238421872372381,
+      "feature_cka": 0.6666662945622582,
+      "feature_cka_z_compression": 0.7840100109638662,
+      "compression_score": 0.4721448672674699,
+      "n_components": 6
+    },
+    {
+      "epoch": 4,
+      "aio_logU": -12.89915111501967,
+      "aio_logU_z_compression": 0.38009680115378847,
+      "aio_ureg": 0.00019225038877834777,
+      "aio_ureg_z_compression": 0.42085866830884977,
+      "effective_rank": 1.0481093444740386,
+      "effective_rank_z_compression": 0.41647713369623773,
+      "mean_energy": 0.999996542930603,
+      "mean_energy_z_compression": 0.45439058353419925,
+      "gradient_proxy_cosine": 0.23773816674947737,
+      "gradient_proxy_cosine_z_compression": 1.0903843823714952,
+      "feature_cka": 0.6666655274779796,
+      "feature_cka_z_compression": 0.7605345921647657,
+      "compression_score": 0.5871236935382226,
+      "n_components": 6
+    },
+    {
+      "epoch": 5,
+      "aio_logU": -13.779503910873022,
+      "aio_logU_z_compression": 0.7719735713204525,
+      "aio_ureg": 8.489166407343873e-05,
+      "aio_ureg_z_compression": 0.42815740205140695,
+      "effective_rank": 1.2271264869860126,
+      "effective_rank_z_compression": 0.3306656378620228,
+      "mean_energy": 0.9999988675117493,
+      "mean_energy_z_compression": 0.48105050816449946,
+      "gradient_proxy_cosine": 0.21520475695530572,
+      "gradient_proxy_cosine_z_compression": 0.6672129543165024,
+      "feature_cka": 0.6666498098196049,
+      "feature_cka_z_compression": 0.2795201545648986,
+      "compression_score": 0.4930967047132971,
+      "n_components": 6
+    },
+    {
+      "epoch": 6,
+      "aio_logU": -12.816784978312905,
+      "aio_logU_z_compression": 0.3434326640308232,
+      "aio_ureg": 0.000251949480912117,
+      "aio_ureg_z_compression": 0.4168000528646515,
+      "effective_rank": 1.0490879568090812,
+      "effective_rank_z_compression": 0.4160080379038825,
+      "mean_energy": 0.9999957084655762,
+      "mean_energy_z_compression": 0.44482035417973254,
+      "gradient_proxy_cosine": 0.10923963375389577,
+      "gradient_proxy_cosine_z_compression": -1.3227838068821642,
+      "feature_cka": 0.6666572395658633,
+      "feature_cka_z_compression": 0.5068959590782504,
+      "compression_score": 0.134195543529196,
+      "n_components": 6
+    },
+    {
+      "epoch": 17,
+      "aio_logU": -14.762860501167385,
+      "aio_logU_z_compression": 1.2097010441492555,
+      "aio_ureg": 3.222269654656884e-05,
+      "aio_ureg_z_compression": 0.43173807769309924,
+      "effective_rank": 7.024157852314769,
+      "effective_rank_z_compression": -2.448129319293818,
+      "mean_energy": 0.9999997615814209,
+      "mean_energy_z_compression": 0.4913043253299995,
+      "gradient_proxy_cosine": 0.10969367797176044,
+      "gradient_proxy_cosine_z_compression": -1.314256977528375,
+      "feature_cka": 0.6665949857041243,
+      "feature_cka_z_compression": -1.3982864528874197,
+      "compression_score": -0.5046548837562097,
+      "n_components": 6
+    },
+    {
+      "epoch": 20,
+      "aio_logU": -7.393204447445584,
+      "aio_logU_z_compression": -2.070798575065657,
+      "aio_ureg": 0.04239809530554339,
+      "aio_ureg_z_compression": -2.44848637350166,
+      "effective_rank": 1.0578808166527254,
+      "effective_rank_z_compression": 0.41179319878146026,
+      "mean_energy": 0.9997444152832031,
+      "mean_energy_z_compression": -2.4371858571368206,
+      "gradient_proxy_cosine": 0.13976283135513465,
+      "gradient_proxy_cosine_z_compression": -0.749566294055415,
+      "feature_cka": 0.6665848770561578,
+      "feature_cka_z_compression": -1.7076458689414618,
+      "compression_score": -1.500314961653259,
+      "n_components": 6
+    }
+  ],
+  "components": {
+    "aio_logU": {
+      "1": {
+        "value": -10.642401537259559,
+        "z_compression": -0.6244638020193656
+      },
+      "3": {
+        "value": -12.022927990139383,
+        "z_compression": -0.00994170356929647
+      },
+      "4": {
+        "value": -12.89915111501967,
+        "z_compression": 0.38009680115378847
+      },
+      "5": {
+        "value": -13.779503910873022,
+        "z_compression": 0.7719735713204525
+      },
+      "6": {
+        "value": -12.816784978312905,
+        "z_compression": 0.3434326640308232
+      },
+      "17": {
+        "value": -14.762860501167385,
+        "z_compression": 1.2097010441492555
+      },
+      "20": {
+        "value": -7.393204447445584,
+        "z_compression": -2.070798575065657
+      }
+    },
+    "aio_ureg": {
+      "1": {
+        "value": 0.0013699159708266961,
+        "z_compression": 0.34079561293286187
+      },
+      "3": {
+        "value": 0.0003499643090663085,
+        "z_compression": 0.4101365596507904
+      },
+      "4": {
+        "value": 0.00019225038877834777,
+        "z_compression": 0.42085866830884977
+      },
+      "5": {
+        "value": 8.489166407343873e-05,
+        "z_compression": 0.42815740205140695
+      },
+      "6": {
+        "value": 0.000251949480912117,
+        "z_compression": 0.4168000528646515
+      },
+      "17": {
+        "value": 3.222269654656884e-05,
+        "z_compression": 0.43173807769309924
+      },
+      "20": {
+        "value": 0.04239809530554339,
+        "z_compression": -2.44848637350166
+      }
+    },
+    "effective_rank": {
+      "1": {
+        "value": 1.0021732797237952,
+        "z_compression": 0.43849649102505933
+      },
+      "3": {
+        "value": 1.0101167187164606,
+        "z_compression": 0.4346888200251558
+      },
+      "4": {
+        "value": 1.0481093444740386,
+        "z_compression": 0.41647713369623773
+      },
+      "5": {
+        "value": 1.2271264869860126,
+        "z_compression": 0.3306656378620228
+      },
+      "6": {
+        "value": 1.0490879568090812,
+        "z_compression": 0.4160080379038825
+      },
+      "17": {
+        "value": 7.024157852314769,
+        "z_compression": -2.448129319293818
+      },
+      "20": {
+        "value": 1.0578808166527254,
+        "z_compression": 0.41179319878146026
+      }
+    },
+    "mean_energy": {
+      "1": {
+        "value": 0.9999722242355347,
+        "z_compression": 0.17548675663259738
+      },
+      "3": {
+        "value": 0.9999909400939941,
+        "z_compression": 0.3901333292970655
+      },
+      "4": {
+        "value": 0.999996542930603,
+        "z_compression": 0.45439058353419925
+      },
+      "5": {
+        "value": 0.9999988675117493,
+        "z_compression": 0.48105050816449946
+      },
+      "6": {
+        "value": 0.9999957084655762,
+        "z_compression": 0.44482035417973254
+      },
+      "17": {
+        "value": 0.9999997615814209,
+        "z_compression": 0.4913043253299995
+      },
+      "20": {
+        "value": 0.9997444152832031,
+        "z_compression": -2.4371858571368206
+      }
+    },
+    "gradient_proxy_cosine": {
+      "1": {
+        "value": 0.2225506866040329,
+        "z_compression": 0.8051675545407189
+      },
+      "3": {
+        "value": 0.22354509010910986,
+        "z_compression": 0.8238421872372381
+      },
+      "4": {
+        "value": 0.23773816674947737,
+        "z_compression": 1.0903843823714952
+      },
+      "5": {
+        "value": 0.21520475695530572,
+        "z_compression": 0.6672129543165024
+      },
+      "6": {
+        "value": 0.10923963375389577,
+        "z_compression": -1.3227838068821642
+      },
+      "17": {
+        "value": 0.10969367797176044,
+        "z_compression": -1.314256977528375
+      },
+      "20": {
+        "value": 0.13976283135513465,
+        "z_compression": -0.749566294055415
+      }
+    },
+    "feature_cka": {
+      "1": {
+        "value": 0.6666659992227317,
+        "z_compression": 0.7749716050604983
+      },
+      "3": {
+        "value": 0.6666662945622582,
+        "z_compression": 0.7840100109638662
+      },
+      "4": {
+        "value": 0.6666655274779796,
+        "z_compression": 0.7605345921647657
+      },
+      "5": {
+        "value": 0.6666498098196049,
+        "z_compression": 0.2795201545648986
+      },
+      "6": {
+        "value": 0.6666572395658633,
+        "z_compression": 0.5068959590782504
+      },
+      "17": {
+        "value": 0.6665949857041243,
+        "z_compression": -1.3982864528874197
+      },
+      "20": {
+        "value": 0.6665848770561578,
+        "z_compression": -1.7076458689414618
+      }
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "seed": 2026,
+  "m": 8,
+  "single": {
+    "FoggyCityscapes": {
+      "1": {
+        "effective_rank": 1.0006439040973227,
+        "top1_energy": 0.9996781915441312,
+        "top3_energy": 0.9998525656262238,
+        "spectral_entropy": 0.003437914866965028,
+        "mean_energy": 0.9999969601631165
+      },
+      "4": {
+        "effective_rank": 1.001394793456191,
+        "top1_energy": 0.9993032828716092,
+        "top3_energy": 0.9996468468767252,
+        "spectral_entropy": 0.006946923368784224,
+        "mean_energy": 0.9999803304672241
+      }
+    },
+    "LowLightTrafficData": {
+      "1": {
+        "effective_rank": 1.1108853872880942,
+        "top1_energy": 0.9484336314140848,
+        "top3_energy": 0.9807662777233795,
+        "spectral_entropy": 0.2828708175160468,
+        "mean_energy": 1.0
+      },
+      "4": {
+        "effective_rank": 1.0011851072158036,
+        "top1_energy": 0.9994079269971549,
+        "top3_energy": 0.999786927873334,
+        "spectral_entropy": 0.005917596894696436,
+        "mean_energy": 0.9999935030937195
+      }
+    },
+    "RainCityscapes": {
+      "1": {
+        "effective_rank": 2.2178914820202142,
+        "top1_energy": 0.6394152984070345,
+        "top3_energy": 0.880592028998997,
+        "spectral_entropy": 1.1548000115184105,
+        "mean_energy": 1.0
+      },
+      "4": {
+        "effective_rank": 1.007371898290778,
+        "top1_energy": 0.9963329427456135,
+        "top3_energy": 0.998200708281451,
+        "spectral_entropy": 0.030415025277103894,
+        "mean_energy": 0.9999955296516418
+      }
+    },
+    "RSCityscapes": {
+      "1": {
+        "effective_rank": 4.006831091369835,
+        "top1_energy": 0.41244328844686484,
+        "top3_energy": 0.7485432903351799,
+        "spectral_entropy": 1.6226072410607342,
+        "mean_energy": 1.0
+      },
+      "4": {
+        "effective_rank": 1.0013216806178236,
+        "top1_energy": 0.999339653401826,
+        "top3_energy": 0.9999506719112505,
+        "spectral_entropy": 0.0059057996010428715,
+        "mean_energy": 0.9998712539672852
+      }
+    },
+    "SnowTrafficData": {
+      "1": {
+        "effective_rank": 1.002662469716804,
+        "top1_energy": 0.9986712255109977,
+        "top3_energy": 0.9993759299170601,
+        "spectral_entropy": 0.012247687496389893,
+        "mean_energy": 0.9999989867210388
+      },
+      "4": {
+        "effective_rank": 1.0006875990210715,
+        "top1_energy": 0.9996563663805434,
+        "top3_energy": 0.9998204433745563,
+        "spectral_entropy": 0.0036774711489351436,
+        "mean_energy": 0.9999834299087524
+      }
+    }
+  },
+  "aio": {
+    "1": {
+      "overall": {
+        "effective_rank": 1.0013564631789367,
+        "top1_energy": 0.9993223896319513,
+        "top3_energy": 0.9997388413347208,
+        "spectral_entropy": 0.006637904321825068,
+        "mean_energy": 0.9999580979347229
+      },
+      "per_domain": {
+        "FoggyCityscapes": {
+          "effective_rank": 1.0011313748200241,
+          "top1_energy": 0.999434743746149,
+          "top3_energy": 0.9998024546243065,
+          "spectral_entropy": 0.005632421886439165,
+          "mean_energy": 0.9999089241027832
+        },
+        "LowLightTrafficData": {
+          "effective_rank": 1.001429240708119,
+          "top1_energy": 0.9992860703263028,
+          "top3_energy": 0.9997419745154212,
+          "spectral_entropy": 0.006962921361422097,
+          "mean_energy": 0.9999920129776001
+        },
+        "RainCityscapes": {
+          "effective_rank": 1.0015005347852706,
+          "top1_energy": 0.9992504947793062,
+          "top3_energy": 0.9997174188204858,
+          "spectral_entropy": 0.007279686520532717,
+          "mean_energy": 0.9999219179153442
+        },
+        "RSCityscapes": {
+          "effective_rank": 1.0013152127056002,
+          "top1_energy": 0.9993429824461063,
+          "top3_energy": 0.9997400081622875,
+          "spectral_entropy": 0.006487503122341813,
+          "mean_energy": 0.9999550580978394
+        },
+        "SnowTrafficData": {
+          "effective_rank": 1.0013695807840757,
+          "top1_energy": 0.9993158499215962,
+          "top3_energy": 0.999722126916776,
+          "spectral_entropy": 0.006738691673052236,
+          "mean_energy": 0.9999673366546631
+        }
+      }
+    },
+    "4": {
+      "overall": {
+        "effective_rank": 1.0239897939376055,
+        "top1_energy": 0.9882042101192755,
+        "top3_energy": 0.9936877047644098,
+        "spectral_entropy": 0.08487400921679754,
+        "mean_energy": 0.9999955296516418
+      },
+      "per_domain": {
+        "FoggyCityscapes": {
+          "effective_rank": 1.0246483260085832,
+          "top1_energy": 0.9878852151522574,
+          "top3_energy": 0.9932580012549995,
+          "spectral_entropy": 0.0867456814994878,
+          "mean_energy": 0.9999938607215881
+        },
+        "LowLightTrafficData": {
+          "effective_rank": 1.0199904133853537,
+          "top1_energy": 0.9901434276757652,
+          "top3_energy": 0.9945899076837581,
+          "spectral_entropy": 0.07264816983739433,
+          "mean_energy": 0.9999980926513672
+        },
+        "RainCityscapes": {
+          "effective_rank": 1.0317754516051363,
+          "top1_energy": 0.9844589262714213,
+          "top3_energy": 0.9915157407315527,
+          "spectral_entropy": 0.10729150682030683,
+          "mean_energy": 0.9999955296516418
+        },
+        "RSCityscapes": {
+          "effective_rank": 1.023678393155945,
+          "top1_energy": 0.9883546949305165,
+          "top3_energy": 0.9934678819694175,
+          "spectral_entropy": 0.08385337029029345,
+          "mean_energy": 0.9999952912330627
+        },
+        "SnowTrafficData": {
+          "effective_rank": 1.023565092471078,
+          "top1_energy": 0.9884092633431946,
+          "top3_energy": 0.993775954024554,
+          "spectral_entropy": 0.08341992727056703,
+          "mean_energy": 0.9999967813491821
+        }
+      }
+    }
+  }
+}

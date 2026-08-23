@@ -1,0 +1,89 @@
+# 动机搜寻模块（UNSB）
+
+本模块用于回答一个论文动机问题：
+
+> 同一个 plain UNSB，从“每个天气域独立训练（Single-task）”扩展为“五个天气域共享一个模型（All-in-One）”之后，条件恢复方向的几何是否发生阶段依赖的变化？
+
+我们不做新方法，也不做性能优化，只重建一条**纯基线动机证据链**。
+
+## 唯一对照
+
+- Single-task：5 个相互独立的 plain UNSB；
+- Plain All-in-One：5 个域数据并集训练 1 个共享 plain UNSB。
+
+天气域固定为 5 个（已去掉 RainDS-syn）：
+
+FoggyCityscapes、LowLightTrafficData、RainCityscapes、RSCityscapes、SnowTrafficData。
+
+DT 只作为后置 sanity check，HJ 不进入动机图。
+
+## 目录结构
+
+```text
+动机搜寻模块/
+├─ README.md                          # 本文件：模块总览与阅读指引
+├─ docs/                              # 跨环境总账与历史结论
+├─ reports/                           # 各阶段裁决报告、窗口审计、机制量报告
+├─ code/                              # 训练、测量、窗口审计、机制量脚本
+├─ figures/                           # 主图、窗口审计图、机制量图
+├─ CLAIM_LEDGER.json                  # 主张账本（每条主张的状态与证据）
+├─ MOTIVATION_FROZEN_SPEC.json        # effect-blind 冻结协议
+├─ MEASUREMENT_MANIFEST.json          # 测量图像清单
+├─ PATH_MAP.json / CODE_IDENTITY.json # 路径与源码身份
+├─ DATA_MANIFEST.csv/.json            # 五域数据身份清单
+└─ CHECKPOINT_INDEX.json / MANIFEST.sha256
+```
+
+## 我们做过的探索
+
+### 1. 纯基线重启与主测量（seed=2026）
+
+- 重建干净数据目录和冻结协议；
+- 训练 5 个 Single、1 个 AIO plain、1 个 AIO DT；
+- 测量 panel b/c/d/e，核心量是方向分散度 `U` 和空间方向分散度 `U_reg`。
+
+### 2. 固定窗口审计（seed=2026/2027/2028）
+
+- 单看 seed=2026 时，Epoch 4–5 出现“AIO 更压缩”的负向窗口；
+- 补 seed=2027、2028 后，seed=2028 在 Epoch 3–6 翻正；
+- 审计认定 seed=2028 是真实 seed 差异，不是技术异常。
+
+### 3. 机制量筛选与升级
+
+- 先做方向秩、方向 cosine 代理、特征 CKA、综合 compression score；
+- 结论：不能把“早期过度压缩”归因到共享表示冲突或瓶颈；
+- 随后升级为真实跨域参数梯度冲突、M=64 多图方向谱结构。
+
+### 4. 固定窗口终局投票（seed=2029/2030/2031）
+
+- 再训练并测量 3 个新 seed，只做 Single 与 AIO plain；
+- 结论：固定 Epoch 4–5 窗口没有立住，判定关闭。
+
+## 取得的关键结论
+
+最稳定的现象是：
+
+> Epoch 1 的 AIO 初始方向发散，在 seed=2026/2027/2028/2029/2030/2031 中全部一致为正。
+
+其它结论：
+
+- Single 与 AIO 的条件方向几何确实不同，但差异具有阶段依赖、会发生符号反转、且因域而异。
+- 曾想锁定的“Epoch 4–5 过度压缩窗口”不可复现：seed=2028、2031 翻正，seed=2030 只有 3/5 域同号。
+- DT 作为路径尺度干预降低 `U` 的 sanity check：NOT_SUPPORTED。
+- 局部结构冲突主张没有成立，不再作为必要性证据。
+- `U / U_reg` 只能解释为“方向分歧/空间方向分散程度”，不是校准不确定性，也不是压缩的因果证据。
+- 当前**不具备进入算法设计的条件**。
+
+## 如何看这个项目
+
+建议按以下顺序读：
+
+1. [reports/WINDOW_FINAL_VOTE_CN.md](reports/WINDOW_FINAL_VOTE_CN.md)：最新终局投票，固定窗口关闭的最终结论。
+2. [CLAIM_LEDGER.json](CLAIM_LEDGER.json)：每条主张的当前状态和证据文件。
+3. [reports/FINAL_GATE_CN.md](reports/FINAL_GATE_CN.md)：算法设计前门禁。
+4. [reports/WINDOW_NOT_SETTLED_CN.md](reports/WINDOW_NOT_SETTLED_CN.md) 和 [reports/WINDOW_DECISION_REPORT_CN.md](reports/WINDOW_DECISION_REPORT_CN.md)：窗口未敲定的记录与窗口边界分析。
+5. [reports/SEED2028_AUDIT_CN.md](reports/SEED2028_AUDIT_CN.md)：seed=2028 反转审计。
+6. [reports/MOTIVATION_FIGURE_REPORT_CN.md](reports/MOTIVATION_FIGURE_REPORT_CN.md) 与 [MOTIVATION_FIGURE_INTERPRETATION_CN.md](MOTIVATION_FIGURE_INTERPRETATION_CN.md)：主图与可视化结果解释。
+7. [reports/MECHANISM_DESIGN_PLAN_CN.md](reports/MECHANISM_DESIGN_PLAN_CN.md)、[reports/MECHANISM_SCREEN_REPORT_CN.md](reports/MECHANISM_SCREEN_REPORT_CN.md)、[reports/mechanism_upgrade/MECHANISM_UPGRADE_REPORT_CN.md](reports/mechanism_upgrade/MECHANISM_UPGRADE_REPORT_CN.md)：机制量设计与筛选结论。
+
+原始证据图在 `figures/` 下，原始测量数据与 checkpoint 因体积较大未上传；如需复算，可参考 `PATH_MAP.json` 中记录的本地绝对路径。

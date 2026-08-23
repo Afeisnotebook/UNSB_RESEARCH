@@ -1,0 +1,2232 @@
+{
+  "seed": 2026,
+  "method": "aio_plain_s2026",
+  "layers": [
+    "model_res.2.conv_fin.2",
+    "model_res.5.conv_fin.2",
+    "model_res.8.conv_fin.2",
+    "model.4",
+    "model_upsample.5"
+  ],
+  "epochs": {
+    "1": {
+      "model_res.2.conv_fin.2": {
+        "mean_cosine": 0.5452923119068146,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.4243302345275879
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.5753796100616455
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.6412036418914795
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.7132796049118042
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.40769413113594055
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.4461199641227722
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.4928140640258789
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.6627237796783447
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.49853941798210144
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.5908386707305908
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 1.2162657976150513,
+          "LowLightTrafficData": 1.9895415306091309,
+          "RainCityscapes": 1.315453052520752,
+          "RSCityscapes": 1.5087409019470215,
+          "SnowTrafficData": 1.626264214515686
+        }
+      },
+      "model_res.5.conv_fin.2": {
+        "mean_cosine": 0.644973537325859,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.5246397852897644
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.8234446048736572
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.8043681383132935
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.7674190402030945
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.5710534453392029
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.4525899291038513
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.4359588325023651
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.7858629822731018
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.68257737159729
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.60182124376297
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.3141036927700043,
+          "LowLightTrafficData": 0.22384223341941833,
+          "RainCityscapes": 0.28438207507133484,
+          "RSCityscapes": 0.31182101368904114,
+          "SnowTrafficData": 0.28717657923698425
+        }
+      },
+      "model_res.8.conv_fin.2": {
+        "mean_cosine": 0.5765689432621002,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.47938430309295654
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.6696305274963379
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.6938948631286621
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.7361146807670593
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.6445169448852539
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.3761758506298065
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.43673279881477356
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.5840489864349365
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.5930331945419312
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.5521572828292847
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.16484223306179047,
+          "LowLightTrafficData": 0.14388646185398102,
+          "RainCityscapes": 0.17000898718833923,
+          "RSCityscapes": 0.18868455290794373,
+          "SnowTrafficData": 0.16965635120868683
+        }
+      },
+      "model.4": {
+        "mean_cosine": 0.6084192752838135,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.3789035975933075
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.7238114476203918
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.7229733467102051
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.7533302307128906
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.6074629426002502
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.40070784091949463
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.29683998227119446
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.7813301086425781
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.7277889251708984
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.6910443305969238
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 8.487931251525879,
+          "LowLightTrafficData": 9.221144676208496,
+          "RainCityscapes": 8.89999008178711,
+          "RSCityscapes": 10.208797454833984,
+          "SnowTrafficData": 8.851055145263672
+        }
+      },
+      "model_upsample.5": {
+        "mean_cosine": 0.41945841498672964,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.14600177109241486
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.6000803709030151
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.5652098059654236
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.6124057173728943
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.5544304847717285
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.2796306014060974
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.031732503324747086
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.6718403697013855
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.44546329975128174
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.2877892255783081
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 5.380736827850342,
+          "LowLightTrafficData": 5.8044610023498535,
+          "RainCityscapes": 6.611715793609619,
+          "RSCityscapes": 8.344122886657715,
+          "SnowTrafficData": 6.438504695892334
+        }
+      }
+    },
+    "3": {
+      "model_res.2.conv_fin.2": {
+        "mean_cosine": 0.10190226770937443,
+        "conflict_fraction": 0.1,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.037291400134563446
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.10523822903633118
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.39744746685028076
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.11741331964731216
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.105714350938797
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.08193511515855789
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.03153349086642265
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.08231005817651749
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.10233400762081146
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.12167546898126602
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.792817234992981,
+          "LowLightTrafficData": 1.7793428897857666,
+          "RainCityscapes": 0.9895563125610352,
+          "RSCityscapes": 0.9321779608726501,
+          "SnowTrafficData": 0.9529122710227966
+        }
+      },
+      "model_res.5.conv_fin.2": {
+        "mean_cosine": 0.21286150217056274,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.10338235646486282
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.19862383604049683
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.3555265963077545
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.2046409249305725
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.1791597455739975
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.34199586510658264
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.07186197489500046
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.23619550466537476
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.1851249486207962
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.2521032691001892
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.26967522501945496,
+          "LowLightTrafficData": 0.6456296443939209,
+          "RainCityscapes": 0.3704685866832733,
+          "RSCityscapes": 0.3048262298107147,
+          "SnowTrafficData": 0.29936790466308594
+        }
+      },
+      "model_res.8.conv_fin.2": {
+        "mean_cosine": 0.2901927314698696,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.05333521217107773
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.17495082318782806
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.6440522074699402
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.28370401263237
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.23519718647003174
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.2687235474586487
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.16651923954486847
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.3472750186920166
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.4206181764602661
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.30755189061164856
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.2953665554523468,
+          "LowLightTrafficData": 0.48090076446533203,
+          "RainCityscapes": 0.39508914947509766,
+          "RSCityscapes": 0.2153552770614624,
+          "SnowTrafficData": 0.25042521953582764
+        }
+      },
+      "model.4": {
+        "mean_cosine": 0.284507904201746,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.09417795389890671
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.24652567505836487
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.686178982257843
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.08835605531930923
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.1671638786792755
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.1153062954545021
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.2716773450374603
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.4763934910297394
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.38369718194007874
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.31560218334198
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 3.902129650115967,
+          "LowLightTrafficData": 4.1054253578186035,
+          "RainCityscapes": 5.405882358551025,
+          "RSCityscapes": 4.181083679199219,
+          "SnowTrafficData": 4.608038425445557
+        }
+      },
+      "model_upsample.5": {
+        "mean_cosine": 0.2783501658588648,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.03915412724018097
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.2595019042491913
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.7927361726760864
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.23745805025100708
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.04917879030108452
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.07344929128885269
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.16436931490898132
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.3617086708545685
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.29516875743865967
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.5107765793800354
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 5.014331340789795,
+          "LowLightTrafficData": 3.584728717803955,
+          "RainCityscapes": 4.606786251068115,
+          "RSCityscapes": 2.790800094604492,
+          "SnowTrafficData": 3.6948161125183105
+        }
+      }
+    },
+    "4": {
+      "model_res.2.conv_fin.2": {
+        "mean_cosine": 0.1323444288223982,
+        "conflict_fraction": 0.1,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.13011287152767181
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.1692214459180832
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.18319939076900482
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            -0.04750051721930504
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.2143734246492386
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.2597160339355469
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.12325570732355118
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.04642117768526077
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.09529837220907211
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.14934638142585754
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 1.0709412097930908,
+          "LowLightTrafficData": 1.6362783908843994,
+          "RainCityscapes": 1.1835441589355469,
+          "RSCityscapes": 1.916001558303833,
+          "SnowTrafficData": 1.0052920579910278
+        }
+      },
+      "model_res.5.conv_fin.2": {
+        "mean_cosine": 0.08573614973574877,
+        "conflict_fraction": 0.4,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            -0.059997186064720154
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            -0.045408762991428375
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.3766334354877472
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.22714349627494812
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.049793489277362823
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.024564720690250397
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            -0.01222914643585682
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.08439341187477112
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.04982955381274223
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.21176792681217194
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.3721003234386444,
+          "LowLightTrafficData": 0.33098116517066956,
+          "RainCityscapes": 0.43671393394470215,
+          "RSCityscapes": 0.7561923265457153,
+          "SnowTrafficData": 0.3602961003780365
+        }
+      },
+      "model_res.8.conv_fin.2": {
+        "mean_cosine": 0.10890539363026619,
+        "conflict_fraction": 0.3,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            -0.15683677792549133
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.5239935517311096
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.17272794246673584
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.3352280557155609
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            -0.2742333710193634
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.1671171337366104
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            -0.13282392919063568
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.09488282352685928
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.2762396037578583
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.08275890350341797
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.27126601338386536,
+          "LowLightTrafficData": 0.2662050724029541,
+          "RainCityscapes": 0.2684321999549866,
+          "RSCityscapes": 0.5175760388374329,
+          "SnowTrafficData": 0.2164100706577301
+        }
+      },
+      "model.4": {
+        "mean_cosine": 0.051213831268250944,
+        "conflict_fraction": 0.4,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            -0.1506359726190567
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.24589353799819946
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            -0.15208689868450165
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            -0.10361236333847046
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            -0.08963480591773987
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.1195911318063736
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.019112830981612206
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.23651835322380066
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.15992215275764465
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.22707034647464752
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 3.0399374961853027,
+          "LowLightTrafficData": 8.321474075317383,
+          "RainCityscapes": 4.629528522491455,
+          "RSCityscapes": 4.646751403808594,
+          "SnowTrafficData": 3.9453556537628174
+        }
+      },
+      "model_upsample.5": {
+        "mean_cosine": 0.19324171505868434,
+        "conflict_fraction": 0.3,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.17567971348762512
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.4611198306083679
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.19438789784908295
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.30909568071365356
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            -0.0318104587495327
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.4672962725162506
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            -0.2009347528219223
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.2689307928085327
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.3948523700237274
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            -0.1062001958489418
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 3.4263007640838623,
+          "LowLightTrafficData": 4.53568172454834,
+          "RainCityscapes": 4.361806869506836,
+          "RSCityscapes": 5.685306549072266,
+          "SnowTrafficData": 4.4381327629089355
+        }
+      }
+    },
+    "5": {
+      "model_res.2.conv_fin.2": {
+        "mean_cosine": 0.24818451330065727,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.05263391137123108
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.3102678954601288
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.49067211151123047
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.4210910201072693
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.16491790115833282
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.13583047688007355
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.05117034167051315
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.30419355630874634
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.2082505226135254
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.34281739592552185
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 1.3748931884765625,
+          "LowLightTrafficData": 1.3760523796081543,
+          "RainCityscapes": 1.08054518699646,
+          "RSCityscapes": 0.9832594394683838,
+          "SnowTrafficData": 0.8888432383537292
+        }
+      },
+      "model_res.5.conv_fin.2": {
+        "mean_cosine": 0.1918918692797888,
+        "conflict_fraction": 0.4,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            -0.34179943799972534
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.4413767158985138
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.7471176385879517
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.4558972120285034
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            -0.0009154590661637485
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.4017261862754822
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            -0.1982201188802719
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.39368936419487
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.4362752139568329
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.3872237503528595
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.8970569372177124,
+          "LowLightTrafficData": 0.4392909109592438,
+          "RainCityscapes": 0.6173996329307556,
+          "RSCityscapes": 0.49581488966941833,
+          "SnowTrafficData": 0.4121794104576111
+        }
+      },
+      "model_res.8.conv_fin.2": {
+        "mean_cosine": 0.2877350762486458,
+        "conflict_fraction": 0.1,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.12927517294883728
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.38902291655540466
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.4551604092121124
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.4050946831703186
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.4078473448753357
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.08486096560955048
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.4195821285247803
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.0681719109416008
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.5916979908943176
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.09635917097330093
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.30005496740341187,
+          "LowLightTrafficData": 0.2809777557849884,
+          "RainCityscapes": 0.3326566517353058,
+          "RSCityscapes": 0.3211387097835541,
+          "SnowTrafficData": 0.2526978850364685
+        }
+      },
+      "model.4": {
+        "mean_cosine": 0.27347074672579763,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.06696373969316483
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.6232561469078064
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.2763344347476959
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.160198375582695
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.28471219539642334
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.2305784970521927
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.39042696356773376
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.13343888521194458
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.4371330738067627
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.1316651552915573
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 3.7591817378997803,
+          "LowLightTrafficData": 8.312517166137695,
+          "RainCityscapes": 3.9679715633392334,
+          "RSCityscapes": 4.805817604064941,
+          "SnowTrafficData": 3.5863943099975586
+        }
+      },
+      "model_upsample.5": {
+        "mean_cosine": 0.30738347470760347,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.18682189285755157
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.39923861622810364
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.4262336790561676
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.2727562487125397
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.3103105127811432
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.2527026832103729
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.38997676968574524
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.14949780702590942
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.47544947266578674
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.21084706485271454
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 3.0689752101898193,
+          "LowLightTrafficData": 2.776546001434326,
+          "RainCityscapes": 2.60856032371521,
+          "RSCityscapes": 2.8999838829040527,
+          "SnowTrafficData": 2.311777353286743
+        }
+      }
+    },
+    "6": {
+      "model_res.2.conv_fin.2": {
+        "mean_cosine": 0.15,
+        "conflict_fraction": 0.1,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.17018237709999084
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.4085501432418823
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.16943158209323883
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.12970860302448273
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.3368193209171295
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.013337302953004837
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            -0.14224892854690552
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.031559865921735764
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.04772484302520752
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.33493489027023315
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.5710233449935913,
+          "LowLightTrafficData": 1.4979227781295776,
+          "RainCityscapes": 0.7938856482505798,
+          "RSCityscapes": 0.6558477282524109,
+          "SnowTrafficData": 1.0253156423568726
+        }
+      },
+      "model_res.5.conv_fin.2": {
+        "mean_cosine": 0.27008759304881097,
+        "conflict_fraction": 0.2,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.536259651184082
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.5582243204116821
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.23355905711650848
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            -0.03430873528122902
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.5828056931495667
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.2334304004907608
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.2014703005552292
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.18097436428070068
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            -0.05088372901082039
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.25934460759162903
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.305249959230423,
+          "LowLightTrafficData": 0.5370771884918213,
+          "RainCityscapes": 0.32333818078041077,
+          "RSCityscapes": 0.37961024045944214,
+          "SnowTrafficData": 0.44897201657295227
+        }
+      },
+      "model_res.8.conv_fin.2": {
+        "mean_cosine": 0.26121120527386665,
+        "conflict_fraction": 0.3,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.5248411297798157
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.6625748872756958
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.4707097113132477
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            -0.09509802609682083
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.6097476482391357
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.32532158493995667
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            -0.13635915517807007
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.3316636383533478
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            -0.14113231003284454
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.05984294414520264
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.26794523000717163,
+          "LowLightTrafficData": 0.426457941532135,
+          "RainCityscapes": 0.2265222817659378,
+          "RSCityscapes": 0.27488401532173157,
+          "SnowTrafficData": 0.3502826392650604
+        }
+      },
+      "model.4": {
+        "mean_cosine": 0.3396854020655155,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.25370270013809204
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.6271965503692627
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.555811882019043
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.15388880670070648
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.4611852169036865
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.32164087891578674
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.16752073168754578
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.48792073130607605
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.26364222168922424
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.10434430092573166
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 3.488732099533081,
+          "LowLightTrafficData": 6.708807945251465,
+          "RainCityscapes": 4.059516906738281,
+          "RSCityscapes": 4.316896915435791,
+          "SnowTrafficData": 4.498240947723389
+        }
+      },
+      "model_upsample.5": {
+        "mean_cosine": 0.3085568659938872,
+        "conflict_fraction": 0.2,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.5138464570045471
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.7011446356773376
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.5759941935539246
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.12148725986480713
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.6659272313117981
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.25062990188598633
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            -0.006948060356080532
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.4034064710140228
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            -0.14948122203350067
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.009561792016029358
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 2.5878453254699707,
+          "LowLightTrafficData": 3.9219491481781006,
+          "RainCityscapes": 2.5473413467407227,
+          "RSCityscapes": 3.2296578884124756,
+          "SnowTrafficData": 4.332797050476074
+        }
+      }
+    },
+    "17": {
+      "model_res.2.conv_fin.2": {
+        "mean_cosine": 0.05868121907114983,
+        "conflict_fraction": 0.4,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            -0.03239210695028305
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.16952072083950043
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.06776995956897736
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            -0.10536324232816696
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            -0.10009701550006866
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.12091918289661407
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.0659569576382637
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.2529265582561493
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.1464635729789734
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.24294596910476685
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.43085727095603943,
+          "LowLightTrafficData": 1.052732229232788,
+          "RainCityscapes": 0.6018676161766052,
+          "RSCityscapes": 0.6030075550079346,
+          "SnowTrafficData": 0.6834757924079895
+        }
+      },
+      "model_res.5.conv_fin.2": {
+        "mean_cosine": 0.10962598659098148,
+        "conflict_fraction": 0.7,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            -0.0840679332613945
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            -0.10485372692346573
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            -0.08412940800189972
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            -0.07609671354293823
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            -0.1848471313714981
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.08304286748170853
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            -0.04145093634724617
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.5927451252937317
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.5006632208824158
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.6613402366638184
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.2604711055755615,
+          "LowLightTrafficData": 0.5044560432434082,
+          "RainCityscapes": 0.542895495891571,
+          "RSCityscapes": 0.43790340423583984,
+          "SnowTrafficData": 0.7363043427467346
+        }
+      },
+      "model_res.8.conv_fin.2": {
+        "mean_cosine": 0.024311981862410903,
+        "conflict_fraction": 0.4,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.1872430294752121
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.002266091760247946
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.019485630095005035
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            -0.15201808512210846
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            -0.14452771842479706
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.05892859399318695
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            -0.09920656681060791
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.2416626662015915
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.10213405638933182
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.14500930905342102
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.17172138392925262,
+          "LowLightTrafficData": 0.26635661721229553,
+          "RainCityscapes": 0.21339039504528046,
+          "RSCityscapes": 0.21478845179080963,
+          "SnowTrafficData": 0.24063116312026978
+        }
+      },
+      "model.4": {
+        "mean_cosine": 0.2249897986650467,
+        "conflict_fraction": 0.1,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.23660817742347717
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.23988094925880432
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.3392716348171234
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.23240573704242706
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.23264208436012268
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.19419658184051514
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            -0.010477423667907715
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.24118377268314362
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.2670218050479889
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.27716466784477234
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 1.3979228734970093,
+          "LowLightTrafficData": 4.126582622528076,
+          "RainCityscapes": 1.9207931756973267,
+          "RSCityscapes": 1.0892550945281982,
+          "SnowTrafficData": 1.4288339614868164
+        }
+      },
+      "model_upsample.5": {
+        "mean_cosine": 0.23656444549560546,
+        "conflict_fraction": 0.0,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.07703055441379547
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.2960883677005768
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.45807498693466187
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.08768458664417267
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.31640133261680603
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            0.040364138782024384
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.03956354409456253
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.30742061138153076
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.30572211742401123
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.43729421496391296
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 1.293189287185669,
+          "LowLightTrafficData": 2.5760996341705322,
+          "RainCityscapes": 1.961856722831726,
+          "RSCityscapes": 1.7999022006988525,
+          "SnowTrafficData": 1.5537952184677124
+        }
+      }
+    },
+    "20": {
+      "model_res.2.conv_fin.2": {
+        "mean_cosine": 0.08409494888037443,
+        "conflict_fraction": 0.1,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.07156627625226974
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.02318556420505047
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.2589080035686493
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.1064014583826065
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.037681944668293
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.06336236745119095
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.07064550369977951
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.025204285979270935
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.16214436292648315
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.14857445657253265
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.8671677708625793,
+          "LowLightTrafficData": 0.9853551387786865,
+          "RainCityscapes": 0.639651894569397,
+          "RSCityscapes": 0.6896933913230896,
+          "SnowTrafficData": 0.8106821775436401
+        }
+      },
+      "model_res.5.conv_fin.2": {
+        "mean_cosine": 0.12484418209642172,
+        "conflict_fraction": 0.2,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.04352712258696556
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.05321209505200386
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.4554438889026642
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            -0.026624418795108795
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.22481629252433777
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.048784978687763214
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.01905750297009945
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.13494515419006348
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.22359514236450195
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.16925401985645294
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.539139449596405,
+          "LowLightTrafficData": 0.47390756011009216,
+          "RainCityscapes": 0.43008953332901,
+          "RSCityscapes": 0.4373794496059418,
+          "SnowTrafficData": 0.5431801080703735
+        }
+      },
+      "model_res.8.conv_fin.2": {
+        "mean_cosine": 0.08441353160887957,
+        "conflict_fraction": 0.2,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            -0.08300436288118362
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.011497320607304573
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.21809127926826477
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.13488440215587616
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.07288607954978943
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.09021726250648499
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.06462953239679337
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.1952190399169922
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.1708448827266693
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.14930440485477448
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 0.2317509651184082,
+          "LowLightTrafficData": 0.22496749460697174,
+          "RainCityscapes": 0.2195759266614914,
+          "RSCityscapes": 0.25292930006980896,
+          "SnowTrafficData": 0.2996411621570587
+        }
+      },
+      "model.4": {
+        "mean_cosine": 0.08723280616104603,
+        "conflict_fraction": 0.3,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            -0.04663650318980217
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            0.16481713950634003
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.4609465003013611
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.019075468182563782
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.05382777750492096
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.09422651678323746
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.09385199099779129
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            0.06001947075128555
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            -0.06543061882257462
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.22608335316181183
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 1.4493772983551025,
+          "LowLightTrafficData": 2.6802587509155273,
+          "RainCityscapes": 1.3719388246536255,
+          "RSCityscapes": 2.0460104942321777,
+          "SnowTrafficData": 1.96086847782135
+        }
+      },
+      "model_upsample.5": {
+        "mean_cosine": 0.1812272038019728,
+        "conflict_fraction": 0.3,
+        "pairs": [
+          [
+            "FoggyCityscapes",
+            "LowLightTrafficData",
+            0.0008080300758592784
+          ],
+          [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            -0.03820102661848068
+          ],
+          [
+            "FoggyCityscapes",
+            "RainCityscapes",
+            0.6446343064308167
+          ],
+          [
+            "FoggyCityscapes",
+            "SnowTrafficData",
+            0.03855050727725029
+          ],
+          [
+            "LowLightTrafficData",
+            "RSCityscapes",
+            0.31145626306533813
+          ],
+          [
+            "LowLightTrafficData",
+            "RainCityscapes",
+            -0.11393294483423233
+          ],
+          [
+            "LowLightTrafficData",
+            "SnowTrafficData",
+            0.2390289455652237
+          ],
+          [
+            "RSCityscapes",
+            "RainCityscapes",
+            -0.03901183605194092
+          ],
+          [
+            "RSCityscapes",
+            "SnowTrafficData",
+            0.48905453085899353
+          ],
+          [
+            "RainCityscapes",
+            "SnowTrafficData",
+            0.27988526225090027
+          ]
+        ],
+        "norm_by_domain": {
+          "FoggyCityscapes": 1.5803533792495728,
+          "LowLightTrafficData": 2.299595594406128,
+          "RainCityscapes": 1.6360927820205688,
+          "RSCityscapes": 2.153501272201538,
+          "SnowTrafficData": 2.8288097381591797
+        }
+      }
+    }
+  }
+}

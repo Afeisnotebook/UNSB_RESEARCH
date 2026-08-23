@@ -1,0 +1,18 @@
+{
+  "phase": "completed",
+  "arms": {
+    "single": {
+      "status": "completed",
+      "done": [
+        "single_FoggyCityscapes_s2026",
+        "single_LowLightTrafficData_s2026",
+        "single_RainCityscapes_s2026",
+        "single_RSCityscapes_s2026",
+        "single_SnowTrafficData_s2026"
+      ]
+    },
+    "aio_plain": {"status": "completed"},
+    "aio_dt": {"status": "completed"}
+  },
+  "notes": "训练、测量、出图与裁决草稿已完成。WAIT_MAIN=0 在用户确认 GPU 资源足够后执行。"
+}

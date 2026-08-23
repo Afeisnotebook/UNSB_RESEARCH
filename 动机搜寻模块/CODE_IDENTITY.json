@@ -1,0 +1,108 @@
+{
+  "generated_for": "motivation_baseline_restart",
+  "unsb_tired_git_commit": "0ca907518d144f6e9cd948800e214b25ba5ec829",
+  "upstream_cyclomon_unbs_commit": "d1f644f7777e19d5afe5aea3e5cb4bd3afd9b88b",
+  "python": "/home/yc/anaconda3/envs/unsb_cov/bin/python",
+  "files": [
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/train.py",
+      "exists": true,
+      "sha256": "4381e0c1dc90dd9929e6c0abff8c70ff9d5272aec2e5e1dd139f95195686bd51"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/test.py",
+      "exists": true,
+      "sha256": "9c024807b66787787abe8a5f71b5956da397da624f9d92fee2f6b292ce0199a2"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/models/__init__.py",
+      "exists": true,
+      "sha256": "172862fe4fa9e1ff5c814d9a5322df00af276495b44c119d6e53c44829dadf21"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/models/sb_model.py",
+      "exists": true,
+      "sha256": "094cb544b6f10db4a5e2a29376eb35d18d23cf00d2d81bbe874c7d929ff6e5cd"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/models/base_model.py",
+      "exists": true,
+      "sha256": "0c8da60e65a79c2d9fe34e4ddf0f61972217748e2c4118c02eeceb61e09bc90f"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/models/networks.py",
+      "exists": true,
+      "sha256": "8b66ee3aced4b0e9f3ba86c7c9060bdb529717316f4daba440ddb64f223b8de3"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/models/ncsn_networks.py",
+      "exists": true,
+      "sha256": "bb599862eda4051d7e941a9f8e0d2c36aacdf25140577bb7ccd1025b38d1acef"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/models/patchnce.py",
+      "exists": true,
+      "sha256": "faa9df2fa898343e1b1ca7b04e593597745930769c0ae52d26717d973958a8a4"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/models/det_pad.py",
+      "exists": true,
+      "sha256": "61553356e7b064b491d50f9fdb01ce0add1973684f7287a08688c74841e2088e"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/models/hnek/hnek_kernel.py",
+      "exists": true,
+      "sha256": "4d3964a178c11c02b016df5ea21b82fdacd69c6986defb8e8c8f5f036518734c"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/data/unaligned_dataset.py",
+      "exists": true,
+      "sha256": "bb4f4b9fbdbac8a8df92815f47d5d4f949a48955220d4c4ce71e09810d9058b3"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/data/base_dataset.py",
+      "exists": true,
+      "sha256": "fc7d127a62a72ea5cfd86f66fcb5f919e5a8d2359bb0a6ca182bc1f71d481b06"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/baseline/data/image_folder.py",
+      "exists": true,
+      "sha256": "44ae124fb58c5ebbbf0f002d4e3aa92f10f7655725cb997f90c0912817f33138"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/dt_covmatch/dtcov/dtcovmatch.py",
+      "exists": true,
+      "sha256": "479cf31a98025c11d6932275b648f8731211de5c3fb4e49da1b4d89c69436f82"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/dt_covmatch/dtcov/model.py",
+      "exists": true,
+      "sha256": "097ca279837027575433f9d979566d6e2f80b90e16013334f96b9412be782bba"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/hj_patchnce/hj/core.py",
+      "exists": true,
+      "sha256": "6617838ce79a91a1b13fdbe992ef15626a21442a397ccb6cd8673608e7ae6e4e"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/hj_patchnce/hj/structure.py",
+      "exists": true,
+      "sha256": "d25ac0d78c7fc45b91b2fed81cea1000c84e9602c19e2df2b70859ed5fb353b3"
+    },
+    {
+      "path": "/home/yc/unsb_tired/refactor/hj_patchnce/hj/projection.py",
+      "exists": true,
+      "sha256": "21c1977ff6c537ebb3c8eadfd9ddc6c8a1699a2bccccf60b8033638d8a577c5c"
+    },
+    {
+      "path": "/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806/scripts/run_h2_diagnostics.py",
+      "exists": true,
+      "sha256": "99faa31c4ed5066ff194bbf763ad5a9be072e651ee08929ff51606b973af8ba0"
+    },
+    {
+      "path": "/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806/diagnostics/vector_geometry.py",
+      "exists": true,
+      "sha256": "63abe02ac5d8e0ba4f2ffc552d190b6eae1025072b4b9fad270326ea86752260"
+    }
+  ]
+}

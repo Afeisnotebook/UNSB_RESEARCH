@@ -1,0 +1,511 @@
+{
+  "seed": 2026,
+  "n_rows": 6750,
+  "aio_method": "aio_plain",
+  "single_methods": [
+    "single_FoggyCityscapes_s2026",
+    "single_LowLightTrafficData_s2026",
+    "single_RSCityscapes_s2026",
+    "single_RainCityscapes_s2026",
+    "single_SnowTrafficData_s2026"
+  ],
+  "candidate_windows": {
+    "3-4": {
+      "window": [
+        3,
+        4
+      ],
+      "domain_signs": {
+        "FoggyCityscapes": -1.0,
+        "LowLightTrafficData": -1.0,
+        "RainCityscapes": 1.0,
+        "RSCityscapes": -1.0,
+        "SnowTrafficData": -1.0
+      },
+      "n_domains": 5,
+      "agree_count": 4,
+      "agree_fraction": 0.8,
+      "majority_sign": -1,
+      "signed_consensus": -0.8,
+      "per_bridge_time": {
+        "1": {
+          "n": 50,
+          "mean": -1.891830400349237e-05,
+          "ci_low": -3.028848102683737e-05,
+          "ci_high": -1.038217112301176e-05
+        },
+        "2": {
+          "n": 50,
+          "mean": -4.952674048154693e-05,
+          "ci_low": -7.26281428042887e-05,
+          "ci_high": -3.115176481255766e-05
+        },
+        "3": {
+          "n": 50,
+          "mean": -0.00011752065822334679,
+          "ci_low": -0.00016026417127783634,
+          "ci_high": -8.17530867451419e-05
+        }
+      },
+      "pooled_cell_mean": -6.198856756946203e-05
+    },
+    "3-5": {
+      "window": [
+        3,
+        5
+      ],
+      "domain_signs": {
+        "FoggyCityscapes": -1.0,
+        "LowLightTrafficData": -1.0,
+        "RainCityscapes": 1.0,
+        "RSCityscapes": -1.0,
+        "SnowTrafficData": -1.0
+      },
+      "n_domains": 5,
+      "agree_count": 4,
+      "agree_fraction": 0.8,
+      "majority_sign": -1,
+      "signed_consensus": -0.8,
+      "per_bridge_time": {
+        "1": {
+          "n": 50,
+          "mean": -2.11517965523648e-05,
+          "ci_low": -3.400321476151541e-05,
+          "ci_high": -1.1275815628857024e-05
+        },
+        "2": {
+          "n": 50,
+          "mean": -5.2870551620377936e-05,
+          "ci_low": -7.950190087060825e-05,
+          "ci_high": -3.194594513311802e-05
+        },
+        "3": {
+          "n": 50,
+          "mean": -0.0001200085477545502,
+          "ci_low": -0.00016950706060484043,
+          "ci_high": -7.858302747522883e-05
+        }
+      },
+      "pooled_cell_mean": -6.467696530909766e-05
+    },
+    "3-6": {
+      "window": [
+        3,
+        6
+      ],
+      "domain_signs": {
+        "FoggyCityscapes": -1.0,
+        "LowLightTrafficData": -1.0,
+        "RainCityscapes": 1.0,
+        "RSCityscapes": -1.0,
+        "SnowTrafficData": -1.0
+      },
+      "n_domains": 5,
+      "agree_count": 4,
+      "agree_fraction": 0.8,
+      "majority_sign": -1,
+      "signed_consensus": -0.8,
+      "per_bridge_time": {
+        "1": {
+          "n": 50,
+          "mean": -1.6881065907107252e-05,
+          "ci_low": -2.7001731409523693e-05,
+          "ci_high": -9.149230765502739e-06
+        },
+        "2": {
+          "n": 50,
+          "mean": -4.214140014013545e-05,
+          "ci_low": -6.287563125660372e-05,
+          "ci_high": -2.578938807706268e-05
+        },
+        "3": {
+          "n": 50,
+          "mean": -9.560604408555218e-05,
+          "ci_low": -0.00013417027323789132,
+          "ci_high": -6.342878433899978e-05
+        }
+      },
+      "pooled_cell_mean": -5.1542836710931635e-05
+    },
+    "4-5": {
+      "window": [
+        4,
+        5
+      ],
+      "domain_signs": {
+        "FoggyCityscapes": -1.0,
+        "LowLightTrafficData": -1.0,
+        "RainCityscapes": -1.0,
+        "RSCityscapes": -1.0,
+        "SnowTrafficData": -1.0
+      },
+      "n_domains": 5,
+      "agree_count": 5,
+      "agree_fraction": 1.0,
+      "majority_sign": -1,
+      "signed_consensus": -1.0,
+      "per_bridge_time": {
+        "1": {
+          "n": 50,
+          "mean": -2.461415483637097e-05,
+          "ci_low": -3.8057877740811815e-05,
+          "ci_high": -1.4264536871557704e-05
+        },
+        "2": {
+          "n": 50,
+          "mean": -6.359949082025195e-05,
+          "ci_low": -9.293574186337138e-05,
+          "ci_high": -4.006922052865747e-05
+        },
+        "3": {
+          "n": 50,
+          "mean": -0.00014735797456751242,
+          "ci_low": -0.00020394907999479983,
+          "ci_high": -0.0001000117674390708
+        }
+      },
+      "pooled_cell_mean": -7.852387340804513e-05
+    },
+    "4-6": {
+      "window": [
+        4,
+        6
+      ],
+      "domain_signs": {
+        "FoggyCityscapes": -1.0,
+        "LowLightTrafficData": -1.0,
+        "RainCityscapes": -1.0,
+        "RSCityscapes": -1.0,
+        "SnowTrafficData": -1.0
+      },
+      "n_domains": 5,
+      "agree_count": 5,
+      "agree_fraction": 1.0,
+      "majority_sign": -1,
+      "signed_consensus": -1.0,
+      "per_bridge_time": {
+        "1": {
+          "n": 50,
+          "mean": -1.7765727881358848e-05,
+          "ci_low": -2.7309895750110037e-05,
+          "ci_high": -1.0409692257162816e-05
+        },
+        "2": {
+          "n": 50,
+          "mean": -4.5717642446637294e-05,
+          "ci_low": -6.650861642860188e-05,
+          "ci_high": -2.9245349146312568e-05
+        },
+        "3": {
+          "n": 50,
+          "mean": -0.00010570482740452763,
+          "ci_low": -0.0001449142666191771,
+          "ci_high": -7.251010621081377e-05
+        }
+      },
+      "pooled_cell_mean": -5.639606591084127e-05
+    },
+    "5-6": {
+      "window": [
+        5,
+        6
+      ],
+      "domain_signs": {
+        "FoggyCityscapes": -1.0,
+        "LowLightTrafficData": -1.0,
+        "RainCityscapes": -1.0,
+        "RSCityscapes": -1.0,
+        "SnowTrafficData": -1.0
+      },
+      "n_domains": 5,
+      "agree_count": 5,
+      "agree_fraction": 1.0,
+      "majority_sign": -1,
+      "signed_consensus": -1.0,
+      "per_bridge_time": {
+        "1": {
+          "n": 50,
+          "mean": -1.4843827810722133e-05,
+          "ci_low": -2.3739017179710943e-05,
+          "ci_high": -7.788754541426357e-06
+        },
+        "2": {
+          "n": 50,
+          "mean": -3.475605979872398e-05,
+          "ci_low": -5.3462654108699325e-05,
+          "ci_high": -1.957416520839672e-05
+        },
+        "3": {
+          "n": 50,
+          "mean": -7.369142994775757e-05,
+          "ci_low": -0.00011023558641522868,
+          "ci_high": -4.359321685106464e-05
+        }
+      },
+      "pooled_cell_mean": -4.1097105852401215e-05
+    },
+    "4-7": {
+      "window": [
+        4,
+        7
+      ],
+      "domain_signs": {
+        "FoggyCityscapes": 1.0,
+        "LowLightTrafficData": -1.0,
+        "RainCityscapes": 1.0,
+        "RSCityscapes": -1.0,
+        "SnowTrafficData": -1.0
+      },
+      "n_domains": 5,
+      "agree_count": 3,
+      "agree_fraction": 0.6,
+      "majority_sign": -1,
+      "signed_consensus": -0.6,
+      "per_bridge_time": {
+        "1": {
+          "n": 50,
+          "mean": -9.147076457196591e-06,
+          "ci_low": -1.6965228553221577e-05,
+          "ci_high": -2.2789451333018428e-06
+        },
+        "2": {
+          "n": 50,
+          "mean": -2.5791693826420214e-05,
+          "ci_low": -4.2848792809355275e-05,
+          "ci_high": -1.0221913072857802e-05
+        },
+        "3": {
+          "n": 50,
+          "mean": -6.329977022915046e-05,
+          "ci_low": -9.760584070109245e-05,
+          "ci_high": -2.910713442545897e-05
+        }
+      },
+      "pooled_cell_mean": -3.274618017092241e-05
+    },
+    "1-1": {
+      "window": [
+        1,
+        1
+      ],
+      "domain_signs": {
+        "FoggyCityscapes": 1.0,
+        "LowLightTrafficData": 1.0,
+        "RainCityscapes": 1.0,
+        "RSCityscapes": 1.0,
+        "SnowTrafficData": 1.0
+      },
+      "n_domains": 5,
+      "agree_count": 5,
+      "agree_fraction": 1.0,
+      "majority_sign": 1,
+      "signed_consensus": 1.0,
+      "per_bridge_time": {
+        "1": {
+          "n": 50,
+          "mean": 1.2386961208788651e-05,
+          "ci_low": 9.553761166790376e-06,
+          "ci_high": 1.5269715827670677e-05
+        },
+        "2": {
+          "n": 50,
+          "mean": 2.688104432392351e-05,
+          "ci_low": 2.228812815703532e-05,
+          "ci_high": 3.168383204611591e-05
+        },
+        "3": {
+          "n": 50,
+          "mean": 5.166213420303767e-05,
+          "ci_low": 4.504563207950009e-05,
+          "ci_high": 5.819711661169691e-05
+        }
+      },
+      "pooled_cell_mean": 3.031004657858328e-05
+    },
+    "20-20": {
+      "window": [
+        20,
+        20
+      ],
+      "domain_signs": {
+        "FoggyCityscapes": 1.0,
+        "LowLightTrafficData": 1.0,
+        "RainCityscapes": -1.0,
+        "RSCityscapes": 1.0,
+        "SnowTrafficData": 1.0
+      },
+      "n_domains": 5,
+      "agree_count": 4,
+      "agree_fraction": 0.8,
+      "majority_sign": 1,
+      "signed_consensus": 0.8,
+      "per_bridge_time": {
+        "1": {
+          "n": 50,
+          "mean": 0.00036883165209388835,
+          "ci_low": 0.00016733600084385447,
+          "ci_high": 0.000586693597371049
+        },
+        "2": {
+          "n": 50,
+          "mean": 0.0005140924750017461,
+          "ci_low": 0.00019774047562509978,
+          "ci_high": 0.0008211589976550471
+        },
+        "3": {
+          "n": 50,
+          "mean": 0.0006742456521124041,
+          "ci_low": 0.00023169668199301443,
+          "ci_high": 0.0010599345301275137
+        }
+      },
+      "pooled_cell_mean": 0.0005190565930693462
+    }
+  },
+  "ureg_audit": {
+    "3-4": {
+      "window": [
+        3,
+        4
+      ],
+      "per_domain": {
+        "FoggyCityscapes": -0.0008078517097350376,
+        "LowLightTrafficData": -0.0025354068060102555,
+        "RainCityscapes": 0.00018631444851808233,
+        "RSCityscapes": -0.011994172206335682,
+        "SnowTrafficData": -0.0013686583846156473
+      },
+      "majority_sign": -1,
+      "agree_count": 4,
+      "pooled_mean": -0.0033039549316357083
+    },
+    "3-5": {
+      "window": [
+        3,
+        5
+      ],
+      "per_domain": {
+        "FoggyCityscapes": -0.0008692196593260507,
+        "LowLightTrafficData": -0.0020110325695363775,
+        "RainCityscapes": 4.371550621920826e-05,
+        "RSCityscapes": -0.01548398849424524,
+        "SnowTrafficData": -0.0010316026925082551
+      },
+      "majority_sign": -1,
+      "agree_count": 4,
+      "pooled_mean": -0.0038704255818793436
+    },
+    "3-6": {
+      "window": [
+        3,
+        6
+      ],
+      "per_domain": {
+        "FoggyCityscapes": -0.0006467289282395446,
+        "LowLightTrafficData": -0.0018195101016331117,
+        "RainCityscapes": 3.94243459394622e-05,
+        "RSCityscapes": -0.012244087974930935,
+        "SnowTrafficData": -0.0008849852322158884
+      },
+      "majority_sign": -1,
+      "agree_count": 4,
+      "pooled_mean": -0.0031111775782160034
+    },
+    "4-5": {
+      "window": [
+        4,
+        5
+      ],
+      "per_domain": {
+        "FoggyCityscapes": -0.0006991810539001145,
+        "LowLightTrafficData": -0.0031138872866521023,
+        "RainCityscapes": -0.0002608909456194889,
+        "RSCityscapes": -0.01759417851548459,
+        "SnowTrafficData": -0.0015193626382458212
+      },
+      "majority_sign": -1,
+      "agree_count": 5,
+      "pooled_mean": -0.004637500087980423
+    },
+    "4-6": {
+      "window": [
+        4,
+        6
+      ],
+      "per_domain": {
+        "FoggyCityscapes": -0.0004592062809267519,
+        "LowLightTrafficData": -0.0024909057570758402,
+        "RainCityscapes": -0.00016507700871291797,
+        "RSCityscapes": -0.012570914482652401,
+        "SnowTrafficData": -0.0011612860426101436
+      },
+      "majority_sign": -1,
+      "agree_count": 5,
+      "pooled_mean": -0.0033694779143956105
+    },
+    "5-6": {
+      "window": [
+        5,
+        6
+      ],
+      "per_domain": {
+        "FoggyCityscapes": -0.0004856061467440516,
+        "LowLightTrafficData": -0.0011036133972559684,
+        "RainCityscapes": -0.0001074657566391579,
+        "RSCityscapes": -0.012494003743526189,
+        "SnowTrafficData": -0.0004013120798161296
+      },
+      "majority_sign": -1,
+      "agree_count": 5,
+      "pooled_mean": -0.0029184002247962994
+    },
+    "4-7": {
+      "window": [
+        4,
+        7
+      ],
+      "per_domain": {
+        "FoggyCityscapes": 0.002054509092103037,
+        "LowLightTrafficData": -0.0023726489864507538,
+        "RainCityscapes": 0.0008963829772274797,
+        "RSCityscapes": -0.009261118112501668,
+        "SnowTrafficData": -0.0005426336891580341
+      },
+      "majority_sign": -1,
+      "agree_count": 3,
+      "pooled_mean": -0.0018451017437559878
+    },
+    "1-1": {
+      "window": [
+        1,
+        1
+      ],
+      "per_domain": {
+        "FoggyCityscapes": 0.002378332010269446,
+        "LowLightTrafficData": 0.0005044683337024103,
+        "RainCityscapes": 0.0022929638971601243,
+        "RSCityscapes": 0.0017302590818688848,
+        "SnowTrafficData": 0.0016553116100758083
+      },
+      "majority_sign": 1,
+      "agree_count": 5,
+      "pooled_mean": 0.0017122669866153346
+    },
+    "20-20": {
+      "window": [
+        20,
+        20
+      ],
+      "per_domain": {
+        "FoggyCityscapes": 0.08840824194294707,
+        "LowLightTrafficData": 0.01504767535281483,
+        "RainCityscapes": -0.1275072263590725,
+        "RSCityscapes": 0.07337328706198794,
+        "SnowTrafficData": 0.04476945025305884
+      },
+      "majority_sign": 1,
+      "agree_count": 4,
+      "pooled_mean": 0.018818285650347235
+    }
+  }
+}

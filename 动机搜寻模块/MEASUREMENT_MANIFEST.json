@@ -1,0 +1,4050 @@
+{
+  "discovery": [
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "4180",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/4180.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0570",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0570.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0101",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0101.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1297",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1297.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0419",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0419.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2723",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2723.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "4366",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/4366.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1898",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1898.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2204",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2204.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3266",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3266.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1708",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1708.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0445",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0445.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2796",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2796.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0503",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0503.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2996",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2996.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1210",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1210.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3176",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3176.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0702",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0702.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2450",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2450.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3848",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3848.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2745",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2745.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1973",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1973.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2366",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2366.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0991",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0991.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1062",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1062.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3335",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3335.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2175",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2175.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3618",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3618.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0909",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0909.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3329",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3329.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0074",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0074.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2619",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2619.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2340",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2340.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3393",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3393.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1855",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1855.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2449",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2449.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2492",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2492.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "4143",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/4143.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0440",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0440.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3664",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3664.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3868",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3868.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2414",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2414.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3804",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3804.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0301",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0301.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1954",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1954.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2348",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2348.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0010",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0010.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2778",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2778.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1149",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1149.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "4130",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/4130.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0838",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0838.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0123",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0123.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2947",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2947.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3455",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3455.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0659",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0659.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1214",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1214.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3395",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3395.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0165",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0165.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0021",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0021.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0373",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0373.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0602",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0602.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1701",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1701.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0057",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0057.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0044",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0044.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1283",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1283.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3492",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3492.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1197",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1197.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2845",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2845.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0552",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0552.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2948",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2948.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0065",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0065.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3487",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3487.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "4020",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/4020.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3603",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3603.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1146",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1146.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "2306",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/2306.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1792",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1792.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1811",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/1811.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3721",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3721.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "3912",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/3912.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "252",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/252.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "670",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/670.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "424",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/424.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "140",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/140.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "101",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/101.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "270",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/270.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "717",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/717.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "384",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/384.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "394",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/394.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "174",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/174.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "698",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/698.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "216",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/216.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "487",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/487.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "160",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/160.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "013",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/013.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "376",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/376.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "077",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/077.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "539",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/539.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "363",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/363.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "231",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/231.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "362",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/362.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "550",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/550.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "371",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/371.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "485",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/485.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "545",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/545.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "646",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/646.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "058",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/058.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "504",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/504.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "180",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/180.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "677",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/677.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "350",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/350.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "280",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/280.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "708",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/708.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "059",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/059.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "581",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/581.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "703",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/703.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "220",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/220.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "089",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/089.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "454",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/454.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "626",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/626.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "390",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/390.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "598",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/598.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "695",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/695.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "481",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/481.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "006",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/006.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "559",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/559.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "654",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/654.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "486",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/486.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "388",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/388.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "242",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/242.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "397",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/397.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "152",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/152.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "085",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/085.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "146",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/146.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "261",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/261.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "413",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/413.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "452",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/452.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "137",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/137.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "608",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/608.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "202",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/202.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "563",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/563.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "028",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/028.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "432",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/432.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "155",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/155.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "130",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/130.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "464",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/464.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "062",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/062.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "472",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/472.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "524",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/524.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "392",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/392.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "657",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/657.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "244",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/244.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "732",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/732.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "689",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/689.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "577",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/577.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "275",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/275.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "296",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/296.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "083",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/083.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "084",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/084.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "465",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/465.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0175",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0175.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0123",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0123.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0479",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0479.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0016",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0016.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1049",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1049.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0696",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0696.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0348",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0348.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0250",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0250.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1040",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1040.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0971",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0971.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0977",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0977.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1005",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1005.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1075",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1075.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0537",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0537.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0612",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0612.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0243",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0243.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0642",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0642.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0079",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0079.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0443",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0443.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0439",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0439.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0771",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0771.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0497",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0497.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0310",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0310.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1073",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1073.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1112",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1112.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1019",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1019.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0896",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0896.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1021",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1021.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1054",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1054.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0370",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0370.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0116",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0116.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0812",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0812.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0784",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0784.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0285",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0285.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1047",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1047.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0260",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0260.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0730",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0730.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0910",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0910.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0276",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0276.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0208",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0208.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0491",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0491.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0486",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0486.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0763",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0763.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0735",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0735.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0820",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0820.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0843",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0843.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1078",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1078.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0466",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0466.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0643",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0643.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1087",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1087.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0823",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0823.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0158",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0158.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0013",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0013.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0441",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0441.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0040",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0040.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0468",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0468.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0640",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0640.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0063",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0063.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0029",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0029.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0708",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0708.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0666",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0666.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0773",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0773.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0655",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0655.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0082",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0082.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0030",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0030.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0677",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0677.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1060",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1060.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0867",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0867.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0015",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0015.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0967",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0967.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0275",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0275.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1188",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1188.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1136",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1136.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1017",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1017.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0946",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0946.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0046",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0046.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0908",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0908.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0595",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0595.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1083",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/1083.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0600",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0600.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0225",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0225.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1134",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/1134.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0078",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0078.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0845",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0845.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0709",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0709.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0768",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0768.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0817",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0817.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0453",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0453.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0341",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0341.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0549",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0549.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0614",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0614.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0875",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0875.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0583",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0583.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0799",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0799.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1124",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/1124.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1080",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/1080.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1015",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/1015.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0622",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0622.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0007",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0007.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1011",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/1011.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0602",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0602.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1027",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/1027.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0722",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0722.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0771",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0771.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0436",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0436.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0394",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0394.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0798",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0798.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0534",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0534.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0127",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0127.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0967",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0967.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0077",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0077.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0803",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0803.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0902",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0902.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0467",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0467.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0300",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0300.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0600",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0600.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0514",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0514.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0660",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0660.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0757",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0757.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1163",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/1163.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0650",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0650.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0928",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0928.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0840",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0840.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0561",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0561.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0165",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0165.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0170",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0170.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1087",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/1087.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0837",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0837.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0001",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0001.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0135",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0135.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0189",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0189.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0652",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0652.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0517",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0517.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0310",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0310.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0609",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0609.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0378",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0378.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0663",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0663.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0640",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0640.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0190",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0190.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0334",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0334.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0289",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0289.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0657",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0657.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0240",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0240.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0304",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0304.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1071",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/1071.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0126",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0126.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0344",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0344.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0546",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0546.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0826",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0826.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0905",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0905.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0969",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0969.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1120",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/1120.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0121",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0121.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0633",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0633.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0775",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0775.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0643",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0643.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0410",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0410.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1170",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/1170.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0810",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0810.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0742",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0742.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0615",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0615.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0914",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0914.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0428",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0428.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0503",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0503.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1020",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1020.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0113",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0113.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0461",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0461.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0196",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0196.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1248",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1248.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1042",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1042.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0448",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0448.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0738",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0738.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1018",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1018.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0928",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0928.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1099",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1099.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0485",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0485.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0297",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0297.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1240",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1240.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0903",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0903.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0990",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0990.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0506",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0506.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0937",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0937.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0359",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0359.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1168",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1168.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0349",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0349.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1180",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1180.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0281",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0281.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1071",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1071.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0174",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0174.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1080",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1080.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1215",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1215.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1261",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1261.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1044",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1044.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0992",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0992.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0276",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0276.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0068",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0068.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0065",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0065.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1061",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1061.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0275",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0275.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0657",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0657.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0390",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0390.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0777",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0777.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1067",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1067.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0938",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0938.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1191",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1191.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0073",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0073.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0018",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0018.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0627",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0627.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0975",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0975.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1011",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1011.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0582",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0582.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1213",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1213.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0034",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0034.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0611",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0611.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1118",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1118.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0163",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0163.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0396",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0396.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0497",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0497.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0352",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0352.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0417",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0417.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0556",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0556.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0745",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0745.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0677",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0677.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0040",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0040.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0439",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0439.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1001",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1001.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0842",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0842.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0551",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0551.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0648",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0648.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0394",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0394.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0152",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0152.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0221",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0221.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0811",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0811.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0562",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0562.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0900",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0900.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0755",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0755.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0735",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0735.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0509",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0509.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "1242",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/1242.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0041",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0041.png"
+    }
+  ],
+  "b_medoids": [
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0440",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0440.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "296",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/296.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0798",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0798.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0175",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0175.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0485",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0485.png"
+    }
+  ],
+  "c_subset": [
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0010",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0010.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0021",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0021.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0044",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0044.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0057",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0057.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0065",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0065.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0074",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0074.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0101",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0101.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0123",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0123.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0165",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0165.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0301",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0301.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "006",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/006.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "013",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/013.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "028",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/028.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "058",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/058.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "059",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/059.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "062",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/062.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "077",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/077.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "083",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/083.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "084",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/084.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "085",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/085.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0001",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0001.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0007",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0007.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0077",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0077.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0078",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0078.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0121",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0121.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0126",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0126.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0127",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0127.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0135",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0135.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0165",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0165.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0170",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0170.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0013",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0013.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0015",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0015.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0016",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0016.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0029",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0029.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0030",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0030.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0040",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0040.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0046",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0046.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0063",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0063.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0079",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0079.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0082",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0082.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0018",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0018.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0034",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0034.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0040",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0040.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0041",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0041.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0065",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0065.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0068",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0068.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0073",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0073.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0113",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0113.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0152",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0152.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0163",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0163.png"
+    }
+  ],
+  "d_subset": [
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0010",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0010.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0021",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0021.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0044",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0044.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0057",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0057.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0065",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0065.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0074",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0074.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0101",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0101.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0123",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0123.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0165",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0165.png"
+    },
+    {
+      "domain": "FoggyCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0301",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/FoggyCityscapes/input/0301.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "006",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/006.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "013",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/013.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "028",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/028.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "058",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/058.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "059",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/059.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "062",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/062.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "077",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/077.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "083",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/083.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "084",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/084.png"
+    },
+    {
+      "domain": "LowLightTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "085",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/LowLightTrafficData/input/085.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0001",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0001.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0007",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0007.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0077",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0077.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0078",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0078.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0121",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0121.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0126",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0126.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0127",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0127.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0135",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0135.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0165",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0165.png"
+    },
+    {
+      "domain": "RSCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0170",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RSCityscapes/input/0170.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0013",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0013.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0015",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0015.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0016",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0016.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0029",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0029.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0030",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0030.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0040",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0040.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0046",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0046.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0063",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0063.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0079",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0079.png"
+    },
+    {
+      "domain": "RainCityscapes",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0082",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/RainCityscapes/input/0082.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0018",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0018.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0034",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0034.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0040",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0040.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0041",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0041.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0065",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0065.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0068",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0068.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0073",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0073.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0113",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0113.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0152",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0152.png"
+    },
+    {
+      "domain": "SnowTrafficData",
+      "side": "input",
+      "role": "discovery",
+      "stem": "0163",
+      "ext": "png",
+      "source_path": "/home/yc/UNSB_C21/dataset_all/SnowTrafficData/input/0163.png"
+    }
+  ]
+}

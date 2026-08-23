@@ -1,0 +1,170 @@
+----------------- Options ---------------
+               batch_size: 1                             
+                    beta1: 0.5                           
+                    beta2: 0.999                         
+          checkpoints_dir: /home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints	[default: ./checkpoints]
+           continue_train: True                          	[default: False]
+                crop_size: 128                           	[default: 256]
+                 dataroot: /home/yc/UNSB_PASSION/motivation_baseline_restart/datasets/aio	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 1000000                       	[default: 400]
+               display_id: -1                            	[default: None]
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 256                           
+   dtcov_adaptive_epsilon: 0.02                          
+     dtcov_adaptive_floor: 0.0001                        
+ dtcov_adaptive_max_epoch: 0                             
+  dtcov_adaptive_patience: 5                             
+    dtcov_decay_end_epoch: 25                            	[default: 0]
+  dtcov_decay_start_epoch: 15                            	[default: 0]
+           dtcov_diag_out:                               
+     dtcov_domain_balance: grouped_domain                
+             dtcov_lambda: 0.001                         	[default: 0.0]
+         dtcov_lambda_min: 0.0                           
+    dtcov_lambda_schedule: ramp_hold_cosine_decay        	[default: fixed]
+                  dtcov_m: 4                             
+          dtcov_norm_clip: 3.0                           
+           dtcov_norm_eps: 0.0001                        
+          dtcov_norm_mode: domain_time                   
+      dtcov_norm_momentum: 0.98                          
+     dtcov_ramp_end_epoch: 5                             	[default: 0]
+   dtcov_ramp_start_epoch: 1                             
+       dtcov_region_patch: 32                            
+        dtcov_signal_norm: on                            
+            dtcov_teacher: frozen                        
+          dtcov_time_mode: actual                        
+            dtcov_u_floor: 1e-08                         
+       dtcov_warmup_iters: 300                           
+               easy_label: experiment_name               
+            embedding_dim: 512                           
+           embedding_type: positional                    
+                    epoch: latest                        
+              epoch_count: 1                             
+          evaluation_freq: 5000                          
+        flip_equivariance: False                         
+                 gan_mode: lsgan                         
+                  gpu_ids: 0                             
+                     hnek: False                         
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+                lambda_SB: 1.0                           	[default: 0.1]
+                     lmda: 0.1                           
+                load_size: 128                           	[default: 286]
+                       lr: 0.0001                        	[default: 0.0002]
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                     mode: sb                            
+                    model: dtcov                         	[default: sb]
+                 n_epochs: 5                             	[default: 200]
+           n_epochs_decay: 0                             	[default: 200]
+               n_layers_D: 3                             
+                    n_mlp: 3                             
+                     name: aio_dt_s2026                  	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic_cond                    
+                     netE: basic_cond                    
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks_cond           
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: True                          	[default: False]
+                  no_html: True                          	[default: False]
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+              num_threads: 0                             	[default: 4]
+            num_timesteps: 5                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+          pretrained_name: aio_plain_s2026               	[default: None]
+               print_freq: 100                           
+         random_scale_max: 3.0                           
+             save_by_iter: False                         
+          save_epoch_freq: 1                             	[default: 5]
+         save_latest_freq: 1000000                       	[default: 5000]
+                     seed: 2026                          
+           serial_batches: False                         
+                      std: 0.25                          
+                style_dim: 512                           
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+                      tau: 0.01                          
+         update_html_freq: 1000                          
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+dataset [UnalignedDataset] was created
+model [DtcovModel] was created
+The number of training images = 500
+/home/yc/unsb_tired/refactor/baseline/models/networks.py:579: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  patch_id = torch.tensor(patch_id, dtype=torch.long, device=feat.device)
+loading the model from /home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/latest_net_G.pth
+/home/yc/unsb_tired/refactor/baseline/models/base_model.py:217: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(load_path, map_location=str(self.device))
+loading the model from /home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/latest_net_F.pth
+loading the model from /home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/latest_net_D.pth
+loading the model from /home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/latest_net_E.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 14.684 M
+[Network F] Total number of parameters : 0.560 M
+[Network D] Total number of parameters : 3.143 M
+[Network E] Total number of parameters : 3.152 M
+-----------------------------------------------
+(epoch: 1, iters: 100, time: 0.209, data: 0.012) G_GAN: 0.598 D_real: 0.266 D_fake: 0.186 G: 2.320 NCE: 1.731 SB: 0.012 NCE_Y: 1.690 U_match: 0.000 
+(epoch: 1, iters: 200, time: 0.281, data: 0.169) G_GAN: 0.371 D_real: 0.579 D_fake: 0.134 G: 2.030 NCE: 1.609 SB: -0.058 NCE_Y: 1.824 U_match: 0.000 
+(epoch: 1, iters: 300, time: 0.320, data: 0.010) G_GAN: 0.410 D_real: 0.250 D_fake: 0.148 G: 1.626 NCE: 1.438 SB: -0.195 NCE_Y: 1.383 U_match: 0.000 
+(epoch: 1, iters: 400, time: 0.346, data: 0.010) G_GAN: 0.350 D_real: 0.642 D_fake: 0.231 G: 1.854 NCE: 1.660 SB: -0.070 NCE_Y: 1.488 U_match: 0.000 
+(epoch: 1, iters: 500, time: 0.358, data: 0.012) G_GAN: 0.572 D_real: 0.087 D_fake: 0.162 G: 2.001 NCE: 1.501 SB: 0.050 NCE_Y: 1.257 U_match: 0.000 
+saving the model at the end of epoch 1, iters 500
+End of epoch 1 / 5 	 Time Taken: 201 sec
+learning rate = 0.0001000
+(epoch: 2, iters: 100, time: 0.440, data: 0.012) G_GAN: 0.383 D_real: 0.327 D_fake: 0.133 G: 1.889 NCE: 1.616 SB: 0.023 NCE_Y: 1.350 U_match: 2.365 
+(epoch: 2, iters: 200, time: 0.493, data: 0.011) G_GAN: 0.574 D_real: 0.012 D_fake: 0.187 G: 2.015 NCE: 1.549 SB: 0.045 NCE_Y: 1.242 U_match: 0.668 
+(epoch: 2, iters: 300, time: 0.524, data: 0.011) G_GAN: 0.555 D_real: 0.065 D_fake: 0.131 G: 2.412 NCE: 2.264 SB: 0.011 NCE_Y: 1.429 U_match: 0.908 
+(epoch: 2, iters: 400, time: 0.539, data: 0.010) G_GAN: 0.277 D_real: 0.427 D_fake: 0.451 G: 2.877 NCE: 3.345 SB: 0.046 NCE_Y: 1.762 U_match: 0.880 
+(epoch: 2, iters: 500, time: 0.556, data: 0.010) G_GAN: 0.471 D_real: 0.187 D_fake: 0.095 G: 2.052 NCE: 1.307 SB: 0.032 NCE_Y: 1.792 U_match: 0.578 
+saving the model at the end of epoch 2, iters 1000
+End of epoch 2 / 5 	 Time Taken: 297 sec
+learning rate = 0.0001000
+(epoch: 3, iters: 100, time: 0.564, data: 0.013) G_GAN: 0.402 D_real: 0.275 D_fake: 0.243 G: 2.245 NCE: 2.208 SB: 0.007 NCE_Y: 1.464 U_match: 0.409 
+(epoch: 3, iters: 200, time: 0.570, data: 0.012) G_GAN: 0.543 D_real: 0.287 D_fake: 0.075 G: 3.473 NCE: 3.631 SB: 0.009 NCE_Y: 2.211 U_match: 0.609 
+(epoch: 3, iters: 300, time: 0.567, data: 0.108) G_GAN: 0.460 D_real: 0.497 D_fake: 0.063 G: 1.320 NCE: 1.265 SB: -0.336 NCE_Y: 1.124 U_match: 2.413 
+(epoch: 3, iters: 400, time: 0.570, data: 0.012) G_GAN: 0.590 D_real: 0.238 D_fake: 0.074 G: 1.754 NCE: 1.044 SB: 0.047 NCE_Y: 1.189 U_match: 1.117 
+(epoch: 3, iters: 500, time: 0.570, data: 0.011) G_GAN: 0.316 D_real: 0.256 D_fake: 0.296 G: 1.799 NCE: 1.346 SB: 0.013 NCE_Y: 1.592 U_match: 1.500 
+saving the model at the end of epoch 3, iters 1500
+End of epoch 3 / 5 	 Time Taken: 297 sec
+learning rate = 0.0001000
+(epoch: 4, iters: 100, time: 0.572, data: 0.011) G_GAN: 0.607 D_real: 0.010 D_fake: 0.166 G: 3.252 NCE: 2.809 SB: -0.006 NCE_Y: 2.490 U_match: 1.340 
+(epoch: 4, iters: 200, time: 0.574, data: 0.011) G_GAN: 0.446 D_real: 0.036 D_fake: 0.195 G: 1.706 NCE: 1.423 SB: -0.081 NCE_Y: 1.257 U_match: 0.890 
+(epoch: 4, iters: 300, time: 0.574, data: 0.011) G_GAN: 0.382 D_real: 0.221 D_fake: 0.215 G: 2.311 NCE: 2.883 SB: -0.108 NCE_Y: 1.189 U_match: 0.869 
+(epoch: 4, iters: 400, time: 0.572, data: 0.070) G_GAN: 0.717 D_real: 0.067 D_fake: 0.090 G: 2.776 NCE: 2.724 SB: -0.063 NCE_Y: 1.521 U_match: 0.050 
+(epoch: 4, iters: 500, time: 0.572, data: 0.011) G_GAN: 0.666 D_real: 0.027 D_fake: 0.498 G: 1.528 NCE: 1.135 SB: -0.324 NCE_Y: 1.235 U_match: 0.685 
+saving the model at the end of epoch 4, iters 2000
+End of epoch 4 / 5 	 Time Taken: 298 sec
+learning rate = 0.0001000
+(epoch: 5, iters: 100, time: 0.573, data: 0.012) G_GAN: 0.557 D_real: 0.063 D_fake: 0.226 G: 2.245 NCE: 1.489 SB: 0.014 NCE_Y: 1.855 U_match: 1.510 
+(epoch: 5, iters: 200, time: 0.568, data: 0.010) G_GAN: 0.565 D_real: 0.456 D_fake: 0.083 G: 2.064 NCE: 1.327 SB: 0.041 NCE_Y: 1.588 U_match: 1.281 
+(epoch: 5, iters: 300, time: 0.571, data: 0.017) G_GAN: 0.607 D_real: 0.040 D_fake: 0.267 G: 2.508 NCE: 1.589 SB: 0.023 NCE_Y: 2.164 U_match: 1.264 
+(epoch: 5, iters: 400, time: 0.568, data: 0.011) G_GAN: 0.371 D_real: 0.375 D_fake: 0.209 G: 2.752 NCE: 3.199 SB: 0.024 NCE_Y: 1.514 U_match: 1.173 
+(epoch: 5, iters: 500, time: 0.569, data: 0.011) G_GAN: 0.649 D_real: 0.143 D_fake: 0.051 G: 2.299 NCE: 1.577 SB: 0.011 NCE_Y: 1.696 U_match: 1.754 
+saving the model at the end of epoch 5, iters 2500
+End of epoch 5 / 5 	 Time Taken: 294 sec
+learning rate = 0.0000000

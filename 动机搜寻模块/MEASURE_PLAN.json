@@ -1,0 +1,1042 @@
+{
+  "common": {
+    "bridge_times": [
+      1,
+      2,
+      3
+    ],
+    "m": 64,
+    "ngf": 64,
+    "tau": 0.01,
+    "num_timesteps": 5,
+    "region_patch": 32,
+    "seed": 2026
+  },
+  "measurements": [
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 1,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/1_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e01"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 2,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/2_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e02"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 3,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/3_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e03"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 4,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/4_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e04"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 5,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/5_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e05"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 6,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/6_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e06"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 7,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/7_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e07"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 8,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/8_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e08"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 9,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/9_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e09"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 10,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/10_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e10"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 11,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/11_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e11"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 12,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/12_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e12"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 13,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/13_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e13"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 14,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/14_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e14"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 15,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/15_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e15"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 16,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/16_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e16"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 17,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/17_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e17"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 18,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/18_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e18"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 19,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/19_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e19"
+    },
+    {
+      "method": "single_FoggyCityscapes_s2026",
+      "epoch": 20,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/20_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "FoggyCityscapes",
+      "tag": "single_FoggyCityscapes_s2026__e20"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 1,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/1_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e01"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 2,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/2_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e02"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 3,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/3_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e03"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 4,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/4_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e04"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 5,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/5_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e05"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 6,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/6_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e06"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 7,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/7_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e07"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 8,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/8_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e08"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 9,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/9_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e09"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 10,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/10_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e10"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 11,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/11_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e11"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 12,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/12_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e12"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 13,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/13_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e13"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 14,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/14_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e14"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 15,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/15_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e15"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 16,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/16_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e16"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 17,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/17_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e17"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 18,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/18_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e18"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 19,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/19_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e19"
+    },
+    {
+      "method": "single_LowLightTrafficData_s2026",
+      "epoch": 20,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/20_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "LowLightTrafficData",
+      "tag": "single_LowLightTrafficData_s2026__e20"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 1,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/1_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e01"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 2,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/2_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e02"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 3,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/3_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e03"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 4,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/4_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e04"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 5,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/5_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e05"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 6,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/6_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e06"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 7,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/7_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e07"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 8,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/8_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e08"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 9,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/9_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e09"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 10,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/10_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e10"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 11,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/11_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e11"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 12,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/12_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e12"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 13,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/13_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e13"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 14,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/14_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e14"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 15,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/15_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e15"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 16,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/16_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e16"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 17,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/17_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e17"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 18,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/18_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e18"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 19,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/19_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e19"
+    },
+    {
+      "method": "single_RainCityscapes_s2026",
+      "epoch": 20,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/20_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RainCityscapes",
+      "tag": "single_RainCityscapes_s2026__e20"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 1,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/1_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e01"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 2,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/2_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e02"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 3,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/3_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e03"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 4,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/4_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e04"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 5,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/5_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e05"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 6,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/6_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e06"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 7,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/7_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e07"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 8,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/8_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e08"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 9,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/9_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e09"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 10,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/10_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e10"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 11,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/11_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e11"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 12,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/12_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e12"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 13,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/13_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e13"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 14,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/14_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e14"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 15,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/15_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e15"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 16,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/16_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e16"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 17,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/17_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e17"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 18,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/18_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e18"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 19,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/19_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e19"
+    },
+    {
+      "method": "single_RSCityscapes_s2026",
+      "epoch": 20,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/20_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "RSCityscapes",
+      "tag": "single_RSCityscapes_s2026__e20"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 1,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/1_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e01"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 2,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/2_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e02"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 3,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/3_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e03"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 4,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/4_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e04"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 5,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/5_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e05"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 6,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/6_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e06"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 7,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/7_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e07"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 8,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/8_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e08"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 9,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/9_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e09"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 10,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/10_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e10"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 11,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/11_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e11"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 12,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/12_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e12"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 13,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/13_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e13"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 14,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/14_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e14"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 15,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/15_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e15"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 16,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/16_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e16"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 17,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/17_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e17"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 18,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/18_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e18"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 19,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/19_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e19"
+    },
+    {
+      "method": "single_SnowTrafficData_s2026",
+      "epoch": 20,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/20_net_G.pth",
+      "images_key": "c_subset",
+      "domain": "SnowTrafficData",
+      "tag": "single_SnowTrafficData_s2026__e20"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 1,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/1_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e01"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 2,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/2_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e02"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 3,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/3_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e03"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 4,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/4_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e04"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 5,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/5_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e05"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 6,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/6_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e06"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 7,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/7_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e07"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 8,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/8_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e08"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 9,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/9_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e09"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 10,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/10_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e10"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 11,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/11_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e11"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 12,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/12_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e12"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 13,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/13_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e13"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 14,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/14_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e14"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 15,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/15_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e15"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 16,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/16_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e16"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 17,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/17_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e17"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 18,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/18_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e18"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 19,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/19_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e19"
+    },
+    {
+      "method": "aio_plain",
+      "epoch": 20,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/20_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_plain__e20"
+    },
+    {
+      "method": "aio_dt",
+      "epoch": 1,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_dt_s2026/1_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_dt__e01"
+    },
+    {
+      "method": "aio_dt",
+      "epoch": 2,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_dt_s2026/2_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_dt__e02"
+    },
+    {
+      "method": "aio_dt",
+      "epoch": 3,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_dt_s2026/3_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_dt__e03"
+    },
+    {
+      "method": "aio_dt",
+      "epoch": 4,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_dt_s2026/4_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_dt__e04"
+    },
+    {
+      "method": "aio_dt",
+      "epoch": 5,
+      "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_dt_s2026/5_net_G.pth",
+      "images_key": "c_subset",
+      "domain": null,
+      "tag": "aio_dt__e05"
+    }
+  ],
+  "panel_b": {
+    "methods": {
+      "single_FoggyCityscapes_s2026": {
+        "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_FoggyCityscapes_s2026/20_net_G.pth"
+      },
+      "single_LowLightTrafficData_s2026": {
+        "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_LowLightTrafficData_s2026/20_net_G.pth"
+      },
+      "single_RainCityscapes_s2026": {
+        "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RainCityscapes_s2026/20_net_G.pth"
+      },
+      "single_RSCityscapes_s2026": {
+        "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_RSCityscapes_s2026/20_net_G.pth"
+      },
+      "single_SnowTrafficData_s2026": {
+        "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/single_SnowTrafficData_s2026/20_net_G.pth"
+      },
+      "aio_plain": {
+        "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_plain_s2026/20_net_G.pth"
+      },
+      "aio_dt": {
+        "ckpt": "/home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints/aio_dt_s2026/5_net_G.pth"
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "frozen_utc": "2026-08-19T00:00:00Z",
+  "title": "UNSB 动机图纯基线重启（路径尺度 b/c/d/e）冻结协议",
+  "domains": [
+    "FoggyCityscapes",
+    "LowLightTrafficData",
+    "RainCityscapes",
+    "RSCityscapes",
+    "SnowTrafficData"
+  ],
+  "seed": 2026,
+  "data_split": {
+    "trainA": 100,
+    "trainB": 100,
+    "discovery": 80,
+    "sealed": 20,
+    "sealed_policy": "closed",
+    "pairing_used_for_training": false
+  },
+  "training": {
+    "batch_size": 1,
+    "load_size": 128,
+    "crop_size": 128,
+    "preprocess": "resize_and_crop",
+    "lr": 0.0001,
+    "lambda_SB": 1.0,
+    "lambda_NCE": 1.0,
+    "tau": 0.01,
+    "num_timesteps": 5,
+    "n_epochs": 20,
+    "save_epoch_freq": 1,
+    "num_threads": 0,
+    "no_flip": true,
+    "netG": "resnet_9blocks_cond",
+    "netD": "basic_cond",
+    "netE": "basic_cond",
+    "normG": "instance",
+    "normD": "instance",
+    "pool_size": 0,
+    "dataset_mode": "unaligned",
+    "direction": "AtoB"
+  },
+  "arms": {
+    "single": {
+      "model": "sb",
+      "n_models": 5,
+      "dataroot": "datasets/single/<domain>"
+    },
+    "aio_plain": {
+      "model": "sb",
+      "n_models": 1,
+      "dataroot": "datasets/aio"
+    },
+    "aio_dt": {
+      "model": "dtcov",
+      "n_models": 1,
+      "dataroot": "datasets/aio",
+      "warmup": "aio_plain_s2026",
+      "active_epochs": 5,
+      "dtcov_lambda": 0.001,
+      "dtcov_lambda_schedule": "ramp_hold_cosine_decay",
+      "dtcov_ramp_start_epoch": 1,
+      "dtcov_ramp_end_epoch": 5,
+      "dtcov_decay_start_epoch": 15,
+      "dtcov_decay_end_epoch": 25,
+      "dtcov_m": 4,
+      "dtcov_region_patch": 32,
+      "dtcov_u_floor": 1e-8,
+      "dtcov_norm_eps": 1e-4,
+      "dtcov_norm_momentum": 0.98,
+      "dtcov_norm_clip": 3.0,
+      "dtcov_domain_balance": "grouped_domain",
+      "dtcov_warmup_iters": 300,
+      "dtcov_time_mode": "actual"
+    }
+  },
+  "exposure": {
+    "primary_axis": "epoch == per-domain exposure (100 images/epoch/domain)",
+    "sensitivity_axis": "total optimizer step (single 100k vs aio 500k at epoch k)"
+  },
+  "measurement": {
+    "bridge_times": [1, 2, 3],
+    "bridge_time_values": [0.5, 0.74, 0.86],
+    "M_proposals": 64,
+    "region_patch": 32,
+    "ngf": 64,
+    "tau": 0.01,
+    "panel_b": {
+      "images": "1 medoid per domain",
+      "representation": "unit direction d_k_norm",
+      "pca": "joint fit across all arms, 2 components",
+      "display_note": "short-axis floor is display-only; raw eigenvalues saved"
+    },
+    "panel_c": {
+      "images": "10 per domain",
+      "statistic": "U = trace(Cov(unit dirs)) / ||mean(unit dirs)||^2",
+      "plot": "median(log U) over epochs with bootstrap CI"
+    },
+    "panel_d": {
+      "statistic": "per-region U_reg = Var_k(d_k) / (mean(d_k)^2 + eps) over 32px regions"
+    },
+    "panel_e": {
+      "statistic": "image-level U difference AIO-Single, paired bootstrap",
+      "unit": "image; aggregate image -> domain equal weight"
+    }
+  },
+  "allowed_claims": [
+    "Single 与 AIO 的条件方向几何不同（stage-dependent）",
+    "Rain/多域下路径几何改变，但非全程同号",
+    "DT 作为路径尺度干预降低 U（机制一致性 sanity check）"
+  ],
+  "forbidden_claims": [
+    "AIO 在所有域所有阶段都更分散",
+    "U 是校准后的 posterior/epistemic uncertainty",
+    "AIO 已被证明产生更强的局部结构冲突",
+    "patch 数等于独立样本数"
+  ],
+  "adjudication_vocabulary": [
+    "SUPPORTED",
+    "SUPPORTED_SCREEN",
+    "UNRESOLVED",
+    "NOT_SUPPORTED",
+    "FAILED"
+  ]
+}

@@ -1,0 +1,260 @@
+/home/yc/unsb_tired/refactor/baseline/models/networks.py:579: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  patch_id = torch.tensor(patch_id, dtype=torch.long, device=feat.device)
+----------------- Options ---------------
+               batch_size: 1                             
+                    beta1: 0.5                           
+                    beta2: 0.999                         
+          checkpoints_dir: /home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints	[default: ./checkpoints]
+           continue_train: False                         
+                crop_size: 128                           	[default: 256]
+                 dataroot: /home/yc/UNSB_PASSION/motivation_baseline_restart/datasets/aio	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 1000000                       	[default: 400]
+               display_id: -1                            	[default: None]
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 256                           
+               easy_label: experiment_name               
+            embedding_dim: 512                           
+           embedding_type: positional                    
+                    epoch: latest                        
+              epoch_count: 1                             
+          evaluation_freq: 5000                          
+        flip_equivariance: False                         
+                 gan_mode: lsgan                         
+                  gpu_ids: 0                             
+                     hnek: False                         
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+                lambda_SB: 1.0                           	[default: 0.1]
+                     lmda: 0.1                           
+                load_size: 128                           	[default: 286]
+                       lr: 0.0001                        	[default: 0.0002]
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                     mode: sb                            
+                    model: sb                            
+                 n_epochs: 20                            	[default: 200]
+           n_epochs_decay: 0                             	[default: 200]
+               n_layers_D: 3                             
+                    n_mlp: 3                             
+                     name: aio_plain_s2029               	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic_cond                    
+                     netE: basic_cond                    
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks_cond           
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: True                          	[default: False]
+                  no_html: True                          	[default: False]
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+              num_threads: 0                             	[default: 4]
+            num_timesteps: 5                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+          pretrained_name: None                          
+               print_freq: 100                           
+         random_scale_max: 3.0                           
+             save_by_iter: False                         
+          save_epoch_freq: 1                             	[default: 5]
+         save_latest_freq: 1000000                       	[default: 5000]
+                     seed: 2029                          	[default: 2026]
+           serial_batches: False                         
+                      std: 0.25                          
+                style_dim: 512                           
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+                      tau: 0.01                          
+         update_html_freq: 1000                          
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+dataset [UnalignedDataset] was created
+model [SBModel] was created
+The number of training images = 500
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 14.684 M
+[Network F] Total number of parameters : 0.560 M
+[Network D] Total number of parameters : 3.143 M
+[Network E] Total number of parameters : 3.152 M
+-----------------------------------------------
+(epoch: 1, iters: 100, time: 0.350, data: 0.017) G_GAN: 0.275 D_real: 0.172 D_fake: 0.312 G: 4.214 NCE: 3.854 SB: 0.041 NCE_Y: 3.940 
+(epoch: 1, iters: 200, time: 0.479, data: 0.010) G_GAN: 0.303 D_real: 0.089 D_fake: 0.463 G: 3.885 NCE: 3.525 SB: 0.044 NCE_Y: 3.551 
+(epoch: 1, iters: 300, time: 0.577, data: 0.011) G_GAN: 0.174 D_real: 0.228 D_fake: 0.407 G: 3.315 NCE: 3.269 SB: 0.009 NCE_Y: 2.995 
+(epoch: 1, iters: 400, time: 0.635, data: 0.011) G_GAN: 0.309 D_real: 0.255 D_fake: 0.225 G: 3.946 NCE: 4.376 SB: 0.037 NCE_Y: 2.825 
+(epoch: 1, iters: 500, time: 0.665, data: 0.012) G_GAN: 0.322 D_real: 0.277 D_fake: 0.250 G: 3.781 NCE: 4.018 SB: 0.003 NCE_Y: 2.895 
+saving the model at the end of epoch 1, iters 500
+End of epoch 1 / 20 	 Time Taken: 379 sec
+learning rate = 0.0001000
+(epoch: 2, iters: 100, time: 0.644, data: 0.012) G_GAN: 0.511 D_real: 0.344 D_fake: 0.179 G: 3.716 NCE: 2.918 SB: 0.007 NCE_Y: 3.478 
+(epoch: 2, iters: 200, time: 0.654, data: 0.011) G_GAN: 0.372 D_real: 0.340 D_fake: 0.103 G: 2.229 NCE: 1.868 SB: 0.019 NCE_Y: 1.808 
+(epoch: 2, iters: 300, time: 0.713, data: 0.011) G_GAN: 0.276 D_real: 0.387 D_fake: 0.337 G: 2.484 NCE: 2.206 SB: 0.006 NCE_Y: 2.197 
+(epoch: 2, iters: 400, time: 0.773, data: 0.857) G_GAN: 0.408 D_real: 0.273 D_fake: 0.119 G: 2.425 NCE: 2.100 SB: -0.008 NCE_Y: 1.951 
+(epoch: 2, iters: 500, time: 0.796, data: 0.009) G_GAN: 0.284 D_real: 0.228 D_fake: 0.332 G: 2.373 NCE: 2.094 SB: 0.048 NCE_Y: 1.989 
+saving the model at the end of epoch 2, iters 1000
+End of epoch 2 / 20 	 Time Taken: 405 sec
+learning rate = 0.0001000
+(epoch: 3, iters: 100, time: 0.817, data: 0.011) G_GAN: 0.243 D_real: 0.371 D_fake: 0.289 G: 2.352 NCE: 2.180 SB: -0.029 NCE_Y: 2.097 
+(epoch: 3, iters: 200, time: 0.826, data: 0.012) G_GAN: 0.382 D_real: 0.376 D_fake: 0.190 G: 2.475 NCE: 2.407 SB: -0.034 NCE_Y: 1.846 
+(epoch: 3, iters: 300, time: 0.848, data: 0.011) G_GAN: 0.644 D_real: 0.100 D_fake: 0.060 G: 2.895 NCE: 2.947 SB: -0.117 NCE_Y: 1.790 
+(epoch: 3, iters: 400, time: 0.835, data: 0.011) G_GAN: 0.959 D_real: 0.157 D_fake: 0.016 G: 2.462 NCE: 1.518 SB: -0.184 NCE_Y: 1.854 
+(epoch: 3, iters: 500, time: 0.848, data: 0.010) G_GAN: 0.631 D_real: 0.333 D_fake: 0.073 G: 2.880 NCE: 2.379 SB: 0.013 NCE_Y: 2.093 
+saving the model at the end of epoch 3, iters 1500
+End of epoch 3 / 20 	 Time Taken: 453 sec
+learning rate = 0.0001000
+(epoch: 4, iters: 100, time: 0.847, data: 0.012) G_GAN: 0.465 D_real: 0.479 D_fake: 0.182 G: 2.314 NCE: 1.692 SB: 0.044 NCE_Y: 1.918 
+(epoch: 4, iters: 200, time: 0.861, data: 0.051) G_GAN: 0.524 D_real: 0.342 D_fake: 0.073 G: 2.484 NCE: 2.264 SB: 0.024 NCE_Y: 1.610 
+(epoch: 4, iters: 300, time: 0.867, data: 0.012) G_GAN: 0.704 D_real: 0.027 D_fake: 0.060 G: 2.959 NCE: 2.044 SB: -0.104 NCE_Y: 2.676 
+(epoch: 4, iters: 400, time: 0.881, data: 0.012) G_GAN: 0.555 D_real: 0.190 D_fake: 0.167 G: 3.001 NCE: 3.117 SB: -0.087 NCE_Y: 1.949 
+(epoch: 4, iters: 500, time: 0.872, data: 0.011) G_GAN: 0.426 D_real: 0.194 D_fake: 0.189 G: 2.489 NCE: 2.119 SB: 0.034 NCE_Y: 1.939 
+saving the model at the end of epoch 4, iters 2000
+End of epoch 4 / 20 	 Time Taken: 471 sec
+learning rate = 0.0001000
+(epoch: 5, iters: 100, time: 0.812, data: 0.011) G_GAN: 0.527 D_real: 0.015 D_fake: 0.140 G: 2.386 NCE: 1.626 SB: 0.030 NCE_Y: 2.033 
+(epoch: 5, iters: 200, time: 0.812, data: 0.011) G_GAN: 0.479 D_real: 0.309 D_fake: 0.142 G: 2.269 NCE: 1.732 SB: 0.049 NCE_Y: 1.750 
+(epoch: 5, iters: 300, time: 0.851, data: 0.018) G_GAN: 0.387 D_real: 0.045 D_fake: 0.149 G: 1.758 NCE: 1.407 SB: -0.116 NCE_Y: 1.568 
+(epoch: 5, iters: 400, time: 0.850, data: 0.012) G_GAN: 0.560 D_real: 0.767 D_fake: 0.030 G: 2.396 NCE: 1.848 SB: 0.039 NCE_Y: 1.747 
+(epoch: 5, iters: 500, time: 0.860, data: 0.014) G_GAN: 0.292 D_real: 0.324 D_fake: 0.260 G: 2.181 NCE: 1.610 SB: 0.021 NCE_Y: 2.126 
+saving the model at the end of epoch 5, iters 2500
+End of epoch 5 / 20 	 Time Taken: 442 sec
+learning rate = 0.0001000
+(epoch: 6, iters: 100, time: 0.860, data: 0.012) G_GAN: 0.565 D_real: 0.040 D_fake: 0.183 G: 2.363 NCE: 1.726 SB: 0.050 NCE_Y: 1.770 
+(epoch: 6, iters: 200, time: 0.824, data: 0.011) G_GAN: 0.290 D_real: 0.124 D_fake: 0.336 G: 2.278 NCE: 2.149 SB: 0.006 NCE_Y: 1.816 
+(epoch: 6, iters: 300, time: 0.787, data: 0.200) G_GAN: 0.607 D_real: 0.009 D_fake: 0.186 G: 2.252 NCE: 1.431 SB: -0.018 NCE_Y: 1.895 
+(epoch: 6, iters: 400, time: 0.758, data: 0.011) G_GAN: 0.335 D_real: 0.793 D_fake: 0.164 G: 2.487 NCE: 3.000 SB: -0.151 NCE_Y: 1.606 
+(epoch: 6, iters: 500, time: 0.777, data: 0.011) G_GAN: 0.433 D_real: 0.254 D_fake: 0.083 G: 1.733 NCE: 1.572 SB: -0.182 NCE_Y: 1.391 
+saving the model at the end of epoch 6, iters 3000
+End of epoch 6 / 20 	 Time Taken: 416 sec
+learning rate = 0.0001000
+(epoch: 7, iters: 100, time: 0.807, data: 0.012) G_GAN: 0.651 D_real: 0.238 D_fake: 0.041 G: 2.386 NCE: 1.770 SB: 0.031 NCE_Y: 1.639 
+(epoch: 7, iters: 200, time: 0.831, data: 0.215) G_GAN: 0.409 D_real: 0.443 D_fake: 0.078 G: 2.048 NCE: 1.819 SB: 0.027 NCE_Y: 1.406 
+(epoch: 7, iters: 300, time: 0.838, data: 0.012) G_GAN: 0.505 D_real: 0.501 D_fake: 0.056 G: 2.170 NCE: 1.603 SB: 0.034 NCE_Y: 1.661 
+(epoch: 7, iters: 400, time: 0.847, data: 0.012) G_GAN: 0.305 D_real: 0.292 D_fake: 0.232 G: 2.080 NCE: 1.816 SB: 0.021 NCE_Y: 1.691 
+(epoch: 7, iters: 500, time: 0.833, data: 0.012) G_GAN: 0.227 D_real: 0.338 D_fake: 0.380 G: 1.984 NCE: 1.694 SB: 0.026 NCE_Y: 1.767 
+saving the model at the end of epoch 7, iters 3500
+End of epoch 7 / 20 	 Time Taken: 451 sec
+learning rate = 0.0001000
+(epoch: 8, iters: 100, time: 0.855, data: 0.012) G_GAN: 0.182 D_real: 0.528 D_fake: 0.355 G: 2.250 NCE: 2.175 SB: 0.010 NCE_Y: 1.940 
+(epoch: 8, iters: 200, time: 0.854, data: 0.012) G_GAN: 0.461 D_real: 0.394 D_fake: 0.106 G: 1.815 NCE: 1.357 SB: 0.060 NCE_Y: 1.233 
+(epoch: 8, iters: 300, time: 0.858, data: 0.012) G_GAN: 0.564 D_real: 0.163 D_fake: 0.081 G: 2.348 NCE: 1.927 SB: 0.067 NCE_Y: 1.506 
+(epoch: 8, iters: 400, time: 0.852, data: 0.011) G_GAN: 0.383 D_real: 0.182 D_fake: 0.229 G: 2.253 NCE: 2.166 SB: 0.031 NCE_Y: 1.513 
+(epoch: 8, iters: 500, time: 0.850, data: 0.117) G_GAN: 0.506 D_real: 0.357 D_fake: 0.146 G: 2.155 NCE: 1.744 SB: 0.032 NCE_Y: 1.492 
+saving the model at the end of epoch 8, iters 4000
+End of epoch 8 / 20 	 Time Taken: 457 sec
+learning rate = 0.0001000
+(epoch: 9, iters: 100, time: 0.861, data: 0.011) G_GAN: 0.328 D_real: 0.325 D_fake: 0.179 G: 2.008 NCE: 1.500 SB: 0.043 NCE_Y: 1.775 
+(epoch: 9, iters: 200, time: 0.842, data: 0.011) G_GAN: 0.441 D_real: 0.166 D_fake: 0.143 G: 2.052 NCE: 1.721 SB: 0.010 NCE_Y: 1.481 
+(epoch: 9, iters: 300, time: 0.852, data: 0.556) G_GAN: 0.369 D_real: 0.100 D_fake: 0.157 G: 2.979 NCE: 2.327 SB: 0.009 NCE_Y: 2.874 
+(epoch: 9, iters: 400, time: 0.850, data: 0.012) G_GAN: 0.306 D_real: 0.143 D_fake: 0.250 G: 2.172 NCE: 2.050 SB: 0.037 NCE_Y: 1.608 
+(epoch: 9, iters: 500, time: 0.856, data: 0.018) G_GAN: 0.597 D_real: 0.342 D_fake: 0.062 G: 2.505 NCE: 1.512 SB: 0.046 NCE_Y: 2.212 
+saving the model at the end of epoch 9, iters 4500
+End of epoch 9 / 20 	 Time Taken: 457 sec
+learning rate = 0.0001000
+(epoch: 10, iters: 100, time: 0.870, data: 0.011) G_GAN: 0.688 D_real: 0.090 D_fake: 0.057 G: 2.078 NCE: 1.343 SB: 0.042 NCE_Y: 1.354 
+(epoch: 10, iters: 200, time: 0.864, data: 0.011) G_GAN: 0.458 D_real: 0.135 D_fake: 0.155 G: 1.806 NCE: 1.370 SB: 0.026 NCE_Y: 1.276 
+(epoch: 10, iters: 300, time: 0.843, data: 0.011) G_GAN: 0.649 D_real: 0.014 D_fake: 0.145 G: 2.353 NCE: 1.620 SB: 0.018 NCE_Y: 1.752 
+(epoch: 10, iters: 400, time: 0.847, data: 0.011) G_GAN: 0.398 D_real: 0.637 D_fake: 0.086 G: 2.045 NCE: 1.685 SB: 0.010 NCE_Y: 1.589 
+(epoch: 10, iters: 500, time: 0.833, data: 0.012) G_GAN: 0.284 D_real: 0.220 D_fake: 0.268 G: 1.631 NCE: 1.252 SB: -0.018 NCE_Y: 1.479 
+saving the model at the end of epoch 10, iters 5000
+End of epoch 10 / 20 	 Time Taken: 446 sec
+learning rate = 0.0001000
+(epoch: 11, iters: 100, time: 0.798, data: 0.122) G_GAN: 0.347 D_real: 0.255 D_fake: 0.190 G: 1.876 NCE: 2.061 SB: -0.071 NCE_Y: 1.141 
+(epoch: 11, iters: 200, time: 0.824, data: 0.016) G_GAN: 0.330 D_real: 0.326 D_fake: 0.287 G: 1.941 NCE: 1.696 SB: -0.058 NCE_Y: 1.641 
+(epoch: 11, iters: 300, time: 0.854, data: 0.012) G_GAN: 0.376 D_real: 0.024 D_fake: 0.261 G: 1.994 NCE: 1.645 SB: -0.042 NCE_Y: 1.677 
+(epoch: 11, iters: 400, time: 0.858, data: 0.012) G_GAN: 0.277 D_real: 0.299 D_fake: 0.229 G: 1.519 NCE: 1.386 SB: -0.183 NCE_Y: 1.465 
+(epoch: 11, iters: 500, time: 0.859, data: 0.011) G_GAN: 0.536 D_real: 0.037 D_fake: 0.152 G: 2.111 NCE: 1.637 SB: -0.053 NCE_Y: 1.617 
+saving the model at the end of epoch 11, iters 5500
+End of epoch 11 / 20 	 Time Taken: 453 sec
+learning rate = 0.0001000
+(epoch: 12, iters: 100, time: 0.856, data: 0.535) G_GAN: 0.633 D_real: 0.016 D_fake: 0.150 G: 1.908 NCE: 1.427 SB: -0.177 NCE_Y: 1.478 
+(epoch: 12, iters: 200, time: 0.849, data: 0.011) G_GAN: 0.648 D_real: 0.221 D_fake: 0.061 G: 2.467 NCE: 2.241 SB: -0.065 NCE_Y: 1.526 
+(epoch: 12, iters: 300, time: 0.849, data: 0.012) G_GAN: 0.446 D_real: 0.204 D_fake: 0.209 G: 1.628 NCE: 1.365 SB: -0.272 NCE_Y: 1.542 
+(epoch: 12, iters: 400, time: 0.853, data: 0.011) G_GAN: 0.300 D_real: 0.331 D_fake: 0.163 G: 1.250 NCE: 1.272 SB: -0.284 NCE_Y: 1.197 
+(epoch: 12, iters: 500, time: 0.861, data: 0.016) G_GAN: 0.426 D_real: 0.130 D_fake: 0.201 G: 1.595 NCE: 1.431 SB: -0.319 NCE_Y: 1.545 
+saving the model at the end of epoch 12, iters 6000
+End of epoch 12 / 20 	 Time Taken: 458 sec
+learning rate = 0.0001000
+(epoch: 13, iters: 100, time: 0.852, data: 0.013) G_GAN: 0.578 D_real: 0.470 D_fake: 0.027 G: 2.354 NCE: 2.332 SB: -0.171 NCE_Y: 1.561 
+(epoch: 13, iters: 200, time: 0.847, data: 0.018) G_GAN: 0.526 D_real: 0.183 D_fake: 0.100 G: 1.288 NCE: 1.271 SB: -0.452 NCE_Y: 1.157 
+(epoch: 13, iters: 300, time: 0.864, data: 0.012) G_GAN: 0.325 D_real: 0.211 D_fake: 0.527 G: 2.039 NCE: 1.503 SB: 0.022 NCE_Y: 1.883 
+(epoch: 13, iters: 400, time: 0.861, data: 0.011) G_GAN: 0.472 D_real: 0.406 D_fake: 0.116 G: 2.942 NCE: 2.696 SB: 0.063 NCE_Y: 2.120 
+(epoch: 13, iters: 500, time: 0.858, data: 0.012) G_GAN: 0.580 D_real: 0.046 D_fake: 0.081 G: 1.943 NCE: 1.361 SB: 0.056 NCE_Y: 1.252 
+saving the model at the end of epoch 13, iters 6500
+End of epoch 13 / 20 	 Time Taken: 461 sec
+learning rate = 0.0001000
+(epoch: 14, iters: 100, time: 0.852, data: 0.095) G_GAN: 0.529 D_real: 0.053 D_fake: 0.134 G: 2.563 NCE: 2.654 SB: 0.022 NCE_Y: 1.372 
+(epoch: 14, iters: 200, time: 0.851, data: 0.013) G_GAN: 0.488 D_real: 0.143 D_fake: 0.093 G: 1.724 NCE: 1.484 SB: -0.251 NCE_Y: 1.491 
+(epoch: 14, iters: 300, time: 0.833, data: 0.015) G_GAN: 0.563 D_real: 0.122 D_fake: 0.105 G: 2.190 NCE: 2.749 SB: -0.380 NCE_Y: 1.265 
+(epoch: 14, iters: 400, time: 0.819, data: 0.012) G_GAN: 0.288 D_real: 0.484 D_fake: 0.266 G: 1.485 NCE: 1.475 SB: -0.298 NCE_Y: 1.516 
+(epoch: 14, iters: 500, time: 0.833, data: 0.011) G_GAN: 0.332 D_real: 0.485 D_fake: 0.231 G: 1.848 NCE: 1.477 SB: 0.044 NCE_Y: 1.467 
+saving the model at the end of epoch 14, iters 7000
+End of epoch 14 / 20 	 Time Taken: 436 sec
+learning rate = 0.0001000
+(epoch: 15, iters: 100, time: 0.843, data: 0.011) G_GAN: 0.340 D_real: 0.202 D_fake: 0.229 G: 1.686 NCE: 1.296 SB: 0.084 NCE_Y: 1.229 
+(epoch: 15, iters: 200, time: 0.812, data: 0.011) G_GAN: 0.641 D_real: 0.089 D_fake: 0.118 G: 2.378 NCE: 1.688 SB: 0.023 NCE_Y: 1.740 
+(epoch: 15, iters: 300, time: 0.818, data: 0.013) G_GAN: 0.403 D_real: 0.374 D_fake: 0.242 G: 2.088 NCE: 1.733 SB: 0.015 NCE_Y: 1.607 
+(epoch: 15, iters: 400, time: 0.836, data: 0.011) G_GAN: 0.752 D_real: 0.117 D_fake: 0.033 G: 2.080 NCE: 1.268 SB: 0.072 NCE_Y: 1.245 
+(epoch: 15, iters: 500, time: 0.837, data: 0.012) G_GAN: 0.641 D_real: 0.080 D_fake: 0.063 G: 2.340 NCE: 1.761 SB: 0.050 NCE_Y: 1.537 
+saving the model at the end of epoch 15, iters 7500
+End of epoch 15 / 20 	 Time Taken: 441 sec
+learning rate = 0.0001000
+(epoch: 16, iters: 100, time: 0.857, data: 0.011) G_GAN: 0.466 D_real: 0.221 D_fake: 0.118 G: 1.932 NCE: 1.345 SB: 0.027 NCE_Y: 1.534 
+(epoch: 16, iters: 200, time: 0.856, data: 0.011) G_GAN: 0.428 D_real: 0.160 D_fake: 0.185 G: 2.545 NCE: 2.958 SB: 0.042 NCE_Y: 1.191 
+(epoch: 16, iters: 300, time: 0.853, data: 0.011) G_GAN: 0.462 D_real: 0.217 D_fake: 0.136 G: 2.648 NCE: 3.034 SB: 0.074 NCE_Y: 1.190 
+(epoch: 16, iters: 400, time: 0.853, data: 0.011) G_GAN: 0.356 D_real: 0.121 D_fake: 0.256 G: 1.748 NCE: 1.434 SB: 0.048 NCE_Y: 1.254 
+(epoch: 16, iters: 500, time: 0.845, data: 0.012) G_GAN: 0.520 D_real: 0.295 D_fake: 0.104 G: 1.983 NCE: 1.288 SB: 0.037 NCE_Y: 1.564 
+saving the model at the end of epoch 16, iters 8000
+End of epoch 16 / 20 	 Time Taken: 457 sec
+learning rate = 0.0001000
+(epoch: 17, iters: 100, time: 0.855, data: 0.018) G_GAN: 0.345 D_real: 0.243 D_fake: 0.237 G: 1.783 NCE: 1.584 SB: 0.015 NCE_Y: 1.263 
+(epoch: 17, iters: 200, time: 0.867, data: 0.010) G_GAN: 0.619 D_real: 0.078 D_fake: 0.117 G: 2.146 NCE: 1.487 SB: 0.025 NCE_Y: 1.518 
+(epoch: 17, iters: 300, time: 0.853, data: 0.016) G_GAN: 0.331 D_real: 0.097 D_fake: 0.249 G: 1.795 NCE: 1.498 SB: 0.017 NCE_Y: 1.397 
+(epoch: 17, iters: 400, time: 0.866, data: 0.013) G_GAN: 0.253 D_real: 0.282 D_fake: 0.434 G: 1.966 NCE: 1.662 SB: 0.009 NCE_Y: 1.749 
+(epoch: 17, iters: 500, time: 0.857, data: 0.011) G_GAN: 0.396 D_real: 0.248 D_fake: 0.217 G: 1.868 NCE: 1.436 SB: -0.067 NCE_Y: 1.644 
+saving the model at the end of epoch 17, iters 8500
+End of epoch 17 / 20 	 Time Taken: 453 sec
+learning rate = 0.0001000
+(epoch: 18, iters: 100, time: 0.874, data: 0.012) G_GAN: 0.461 D_real: 0.194 D_fake: 0.093 G: 1.365 NCE: 1.278 SB: -0.422 NCE_Y: 1.373 
+(epoch: 18, iters: 200, time: 0.874, data: 0.011) G_GAN: 0.498 D_real: 0.025 D_fake: 0.333 G: 1.945 NCE: 1.391 SB: 0.124 NCE_Y: 1.254 
+(epoch: 18, iters: 300, time: 0.865, data: 0.129) G_GAN: 0.566 D_real: 0.084 D_fake: 0.153 G: 2.827 NCE: 2.553 SB: 0.105 NCE_Y: 1.758 
+(epoch: 18, iters: 400, time: 0.847, data: 0.011) G_GAN: 0.526 D_real: 0.116 D_fake: 0.162 G: 1.935 NCE: 1.422 SB: 0.020 NCE_Y: 1.356 
+(epoch: 18, iters: 500, time: 0.816, data: 0.018) G_GAN: 0.366 D_real: 0.164 D_fake: 0.258 G: 2.417 NCE: 1.664 SB: 0.030 NCE_Y: 2.379 
+saving the model at the end of epoch 18, iters 9000
+End of epoch 18 / 20 	 Time Taken: 445 sec
+learning rate = 0.0001000
+(epoch: 19, iters: 100, time: 0.817, data: 0.515) G_GAN: 0.329 D_real: 0.792 D_fake: 0.288 G: 2.706 NCE: 3.170 SB: 0.014 NCE_Y: 1.556 
+(epoch: 19, iters: 200, time: 0.837, data: 0.012) G_GAN: 0.400 D_real: 0.177 D_fake: 0.119 G: 1.697 NCE: 1.227 SB: 0.043 NCE_Y: 1.282 
+(epoch: 19, iters: 300, time: 0.810, data: 0.012) G_GAN: 0.361 D_real: 0.180 D_fake: 0.337 G: 2.719 NCE: 3.292 SB: 0.051 NCE_Y: 1.322 
+(epoch: 19, iters: 400, time: 0.838, data: 0.014) G_GAN: 0.496 D_real: 0.512 D_fake: 0.039 G: 1.758 NCE: 1.232 SB: 0.060 NCE_Y: 1.173 
+(epoch: 19, iters: 500, time: 0.857, data: 0.011) G_GAN: 0.653 D_real: 0.150 D_fake: 0.028 G: 2.123 NCE: 1.444 SB: 0.051 NCE_Y: 1.394 
+saving the model at the end of epoch 19, iters 9500
+End of epoch 19 / 20 	 Time Taken: 450 sec
+learning rate = 0.0001000
+(epoch: 20, iters: 100, time: 0.860, data: 0.826) G_GAN: 0.294 D_real: 0.090 D_fake: 0.463 G: 1.882 NCE: 1.529 SB: 0.006 NCE_Y: 1.634 
+(epoch: 20, iters: 200, time: 0.857, data: 0.017) G_GAN: 0.575 D_real: 0.504 D_fake: 0.045 G: 2.734 NCE: 2.721 SB: 0.025 NCE_Y: 1.547 
+(epoch: 20, iters: 300, time: 0.834, data: 0.017) G_GAN: 0.370 D_real: 0.149 D_fake: 0.238 G: 2.037 NCE: 1.943 SB: 0.013 NCE_Y: 1.365 
+(epoch: 20, iters: 400, time: 0.841, data: 0.012) G_GAN: 0.659 D_real: 0.078 D_fake: 0.105 G: 1.989 NCE: 1.300 SB: 0.032 NCE_Y: 1.295 
+(epoch: 20, iters: 500, time: 0.841, data: 0.011) G_GAN: 0.645 D_real: 0.225 D_fake: 0.055 G: 3.113 NCE: 2.117 SB: 0.012 NCE_Y: 2.795 
+saving the model at the end of epoch 20, iters 10000
+End of epoch 20 / 20 	 Time Taken: 446 sec
+learning rate = 0.0000000
