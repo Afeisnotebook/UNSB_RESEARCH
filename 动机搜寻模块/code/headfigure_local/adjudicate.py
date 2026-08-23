@@ -72,6 +72,7 @@ def main() -> int:
         pivot[single_log_cols].to_numpy().argmax(axis=1) + 1
     )
     contrast_path = run_root / "reports" / "PAIRED_CONTRAST_ROWS.csv"
+    contrast_path.parent.mkdir(parents=True, exist_ok=True)
     pivot.to_csv(contrast_path, index=False, encoding="utf-8")
 
     summary_rows: list[dict] = []
