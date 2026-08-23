@@ -1,4 +1,5 @@
 import torch
+import pytest
 
 from models.hnek.hnek_search import (
     HnekSearchConfig,
@@ -28,7 +29,21 @@ def test_h1_and_h0_special_cases():
 
 def test_config_defaults():
     cfg = HnekSearchConfig()
-    assert cfg.gamma == 0.5
+    assert cfg.gamma == 0.25
     assert cfg.coord == "residual"
     assert cfg.horizon_mode == "physical"
     assert cfg.partial == "all"
+
+
+@pytest.mark.parametrize(
+    "kwargs",
+    [
+        {"gamma": 0.0},
+        {"coord": "unknown"},
+        {"horizon_mode": "unknown"},
+        {"partial": "unknown"},
+    ],
+)
+def test_config_rejects_invalid_values(kwargs):
+    with pytest.raises(ValueError):
+        HnekSearchConfig(**kwargs)

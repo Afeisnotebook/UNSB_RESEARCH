@@ -1,5 +1,7 @@
 # 统一方法叙事与 novelty 边界（投稿级）
 
+> **历史叙事草案：** DT/HJ 在 clean deterministic 口径下没有稳定正收益，因此本文不得作为当前论文主线。见 [FINAL_STATUS.md](./FINAL_STATUS.md) 和 [../../CURRENT_STATE_CN.md](../../CURRENT_STATE_CN.md)。
+
 ## 统一介入原则
 
 把 DT 与 HJ 统一为同一原则的两个实例：

@@ -1,6 +1,6 @@
 # Harness（统一底座）
 
-这是 DT/HJ 重构前必须依赖的工程底座。CPU 核心已通过 `self_test.py`（12/12）。
+这是 DT/HJ 重构前必须依赖的工程底座。CPU 核心已通过 `self_test.py`（12/12）。自测使用临时元数据 fixture，不依赖旧 `/home/yc` 数据或 checkpoint。
 
 ## 模块
 
@@ -22,5 +22,7 @@
 ## 自测
 
 ```bash
-/home/yc/anaconda3/envs/unsb_cov/bin/python refactor/harness/self_test.py
+python 算法设计模块/code/harness/self_test.py
 ```
+
+该命令只验证 manifest/checkpoint 元数据契约、RNG 隔离和 bootstrap，不代替真实数据身份审计或 GPU 训练 smoke。

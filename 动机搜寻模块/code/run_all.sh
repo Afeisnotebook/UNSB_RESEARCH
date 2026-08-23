@@ -5,14 +5,28 @@ set -euo pipefail
 # 必须在宿主机 GPU 上执行（本 Codex 沙箱无 GPU 设备）。
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-PY="/home/yc/anaconda3/envs/unsb_cov/bin/python"
-REFACTOR="/home/yc/unsb_tired/refactor/baseline"
+REPO_ROOT="$(cd "$ROOT/.." && pwd)"
+PY="${PY:-python3}"
+REFACTOR="${REFACTOR:-$REPO_ROOT/算法设计模块/code/baseline}"
 CKPT="$ROOT/checkpoints"
 RAW="$ROOT/raw"
 SINGLE="$ROOT/datasets/single"
 AIO="$ROOT/datasets/aio"
 GPU="${GPU:-0}"
 DOMAINS=(FoggyCityscapes LowLightTrafficData RainCityscapes RSCityscapes SnowTrafficData)
+
+command -v "$PY" >/dev/null 2>&1 || [[ -x "$PY" ]] || {
+  echo "python interpreter not found: $PY" >&2
+  exit 2
+}
+[[ -f "$REFACTOR/train.py" ]] || {
+  echo "baseline train.py not found under REFACTOR=$REFACTOR" >&2
+  exit 2
+}
+[[ -d "$SINGLE" && -d "$AIO" ]] || {
+  echo "prepared datasets missing under $ROOT/datasets; raw data are not shipped" >&2
+  exit 2
+}
 
 mkdir -p "$CKPT" "$RAW" "$ROOT/reports" "$ROOT/figures"
 export CUDA_VISIBLE_DEVICES="$GPU"
@@ -23,7 +37,7 @@ COMMON=(
   --checkpoints_dir "$CKPT" --mode sb --dataset_mode unaligned --direction AtoB
   --lambda_SB 1.0 --lambda_NCE 1.0 --tau 0.01 --batch_size 1
   --load_size 128 --crop_size 128 --preprocess resize_and_crop
-  --num_threads 0 --gpu_ids "$GPU" --n_epochs_decay 0 --lr 0.0001
+  --num_threads 0 --gpu_ids 0 --n_epochs_decay 0 --lr 0.0001
   --save_latest_freq 1000000 --print_freq 100 --display_freq 1000000
   --display_id -1 --no_html --netG resnet_9blocks_cond --netD basic_cond --netE basic_cond
   --normG instance --normD instance --pool_size 0 --num_timesteps 5 --no_flip
@@ -32,10 +46,11 @@ COMMON=(
 say() { printf '[motivation %s] %s\n' "$(date +%H:%M:%S)" "$*"; }
 
 if [[ "${WAIT_MAIN:-0}" == "1" ]]; then
+  : "${MAIN_RUNS_ROOT:?set MAIN_RUNS_ROOT when WAIT_MAIN=1}"
   say "waiting for main stage2 marker and any active main stage3 search queue ..."
-  while [[ ! -f /home/yc/unsb_tired/refactor/_runs/metrics_clean_core/core_clean.done ]] \
-        || pgrep -f '/home/yc/unsb_tired/refactor/_runs/run_stage3_search_queue.sh' >/dev/null \
-        || pgrep -f '/home/yc/unsb_tired/refactor/_runs/run_hnek_search_variant.py' >/dev/null; do
+  while [[ ! -f "$MAIN_RUNS_ROOT/metrics_clean_core/core_clean.done" ]] \
+        || pgrep -f "$MAIN_RUNS_ROOT/run_stage3_search_queue.sh" >/dev/null \
+        || pgrep -f "$MAIN_RUNS_ROOT/run_hnek_search_variant.py" >/dev/null; do
     sleep 300
   done
   say "main stage2 done and stage3 queue idle, proceeding"

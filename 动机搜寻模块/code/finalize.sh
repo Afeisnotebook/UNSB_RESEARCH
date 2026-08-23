@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-PY="${PY:-/home/yc/anaconda3/envs/unsb_cov/bin/python}"
+PY="${PY:-python3}"
 RAW="$ROOT/raw"
 FIG="$ROOT/figures"
 REPORT_DIR="$ROOT/reports"

@@ -2,6 +2,8 @@
 
 UNSB 研究的项目仓库，按模块组织。研究无配对（unpaired）All-in-One 多天气图像恢复的 Schrödinger Bridge（SB）框架。
 
+> **最后一轮开始前必读：** [CURRENT_STATE_CN.md](./CURRENT_STATE_CN.md)。它给出当前权威结论、已证伪路线、统计边界、仓库缺失资产和最后一轮硬门禁。旧 `FINAL_STATUS`/计划文档与它冲突时，以该文为准。
+
 ## 模块
 
 - [早期搜寻模块](./早期搜寻模块/)：早期探索的“考古层”，只保留真正有价值、未被后续证伪的结论与方法学教训。
@@ -18,4 +20,4 @@ UNSB 研究的项目仓库，按模块组织。研究无配对（unpaired）All-
 
 - 早期搜寻：联合训练退化是最初动机；covariance proxy 口径沿用至今；早期 test-time/confidence/netU 路线被证伪，唯一活下来的训练端方向是 domain-time 校准的 DT-CovMatch。
 - 动机：多轮实验支持「训练制度改变条件路径几何」，但固定窗口的普遍性结论未立住。
-- 算法：确定性干净口径下 DT/HJ 收益基本消失；唯一存活候选是桥原生 `hnek_g0.25`（e200 macro PSNR delta +0.7884 dB，4/5 域为正，单 seed、非 confirmatory）。
+- 算法：确定性干净口径下 DT/HJ 收益基本消失；唯一存活的**开发候选**是桥原生 `hnek_g0.25`（e200 macro PSNR delta +0.7884 dB，4/5 域为正，单 seed、paired-development，非 confirmatory）。当前没有已确认的最终算法。

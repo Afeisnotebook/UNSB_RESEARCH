@@ -1,5 +1,7 @@
 # 诊断分析（只读，2026-08-17）
 
+> **历史诊断：** 数据来自确定性修复前的旧轨迹，可用于理解当时的问题，不能覆盖 clean deterministic 结论。见 [FINAL_STATUS.md](./FINAL_STATUS.md)。
+
 数据源：`refactor/_runs/diagnostics/*.jsonl` 与 `metrics_opt` 下的 `opt_*.jsonl`。
 注意：DT 的 `opt_dt_*.jsonl` 曾因同名重启被 append 污染，本分析按“每 epoch 取最后一行”
 去重；HJ 的 `opt_hj_*.jsonl` 干净（各 200 epoch）。

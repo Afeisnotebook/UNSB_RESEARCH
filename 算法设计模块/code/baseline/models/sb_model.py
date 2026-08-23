@@ -24,8 +24,14 @@ class SBModel(BaseModel):
         parser.add_argument('--netF_nc', type=int, default=256)
         parser.add_argument('--nce_T', type=float, default=0.07, help='temperature for NCE loss')
         parser.add_argument('--lmda', type=float, default=0.1)
-        parser.add_argument('--hnek', type=util.str2bool, nargs='?', const=True, default=False,
-                            help='install HNEK endpoint-kernel coordinate (read-only bridge-native shim)')
+        parser.add_argument(
+            '--hnek', type=util.str2bool, nargs='?', const=True, default=False,
+            help=(
+                'install the legacy frozen gamma=0.5 HNEK shim (failed reference; '
+                'for the surviving development candidate use --model hnek_search '
+                '--hnek_gamma 0.25)'
+            ),
+        )
         parser.add_argument('--num_patches', type=int, default=256, help='number of patches per layer')
         parser.add_argument('--flip_equivariance',
                             type=util.str2bool, nargs='?', const=True, default=False,

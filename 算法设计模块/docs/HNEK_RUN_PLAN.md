@@ -1,5 +1,7 @@
 # HNEK frozen 最小实验运行计划（2026-08-17）
 
+> **已执行并被后续结果覆盖的历史计划：** 当前唯一 e200 存活开发候选是 hnek_g0.25；legacy 冻结 gamma=0.5 参照已失败。见 [FINAL_STATUS.md](./FINAL_STATUS.md)。
+
 ## 0. Shim 状态（已完成）
 
 - `hnek_kernel.py` / `hnek_adapter.py` 已原样拷入

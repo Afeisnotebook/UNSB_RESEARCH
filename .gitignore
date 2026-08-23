@@ -1,0 +1,30 @@
+# Python/test caches
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Local environments and editor state
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Large experiment artifacts: keep curated evidence under evidence/ or reports/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.zip
+*.tar
+*.tar.gz
+*.7z
+**/checkpoints/
+**/_runs/
+**/results/
+**/dist/
+
+# Generated runtime output
+wandb/
+runs/
+logs/

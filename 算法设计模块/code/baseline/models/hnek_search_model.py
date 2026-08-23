@@ -1,4 +1,4 @@
-"""Thin model registration for stage-3 HNEK bridge-native single-axis search."""
+"""Model registration for the HNEK bridge-native development candidate."""
 
 from __future__ import annotations
 
@@ -13,8 +13,15 @@ class HnekSearchModel(SBModel):
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
         parser = SBModel.modify_commandline_options(parser, is_train)
-        parser.add_argument("--hnek_gamma", type=float, default=0.5,
-                            help="remaining-horizon normalization exponent")
+        parser.add_argument(
+            "--hnek_gamma",
+            type=float,
+            default=0.25,
+            help=(
+                "remaining-horizon normalization exponent; 0.25 is the only "
+                "e200 development survivor (still non-confirmatory)"
+            ),
+        )
         parser.add_argument("--hnek_coord", type=str, default="residual",
                             choices=["residual", "endpoint"])
         parser.add_argument("--hnek_horizon_mode", type=str, default="physical",
@@ -26,7 +33,7 @@ class HnekSearchModel(SBModel):
     def __init__(self, opt):
         super().__init__(opt)
         cfg = HnekSearchConfig(
-            gamma=float(getattr(opt, "hnek_gamma", 0.5)),
+            gamma=float(getattr(opt, "hnek_gamma", 0.25)),
             coord=str(getattr(opt, "hnek_coord", "residual")),
             horizon_mode=str(getattr(opt, "hnek_horizon_mode", "physical")),
             partial=str(getattr(opt, "hnek_partial", "all")),

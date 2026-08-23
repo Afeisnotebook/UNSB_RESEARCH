@@ -8,6 +8,7 @@ imports the existing clean refactor through ``measure_path_geometry``.
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -22,7 +23,9 @@ from measure_path_geometry import (
 )
 
 
-ROOT = Path("/home/yc/UNSB_PASSION/motivation_baseline_restart")
+ROOT = Path(
+    os.environ.get("UNSB_MOTIVATION_ROOT", Path(__file__).resolve().parent.parent)
+).expanduser().resolve()
 DOMAINS = [
     "FoggyCityscapes",
     "LowLightTrafficData",

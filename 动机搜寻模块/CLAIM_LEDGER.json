@@ -1,8 +1,10 @@
 {
-  "schema_version": 1,
-  "generated_utc": "2026-08-23T12:09:26Z",
+  "schema_version": 2,
+  "generated_utc": "2026-08-23T20:04:34Z",
   "single_seed": 2026,
-  "adjudication_policy": "draft_only_until_human_confirmation",
+  "window_vote_seeds": [2026, 2027, 2028, 2029, 2030, 2031],
+  "adjudication_policy": "fixed_window_vote_final; remaining screen claims retain bounded observational wording",
+  "authority_note": "WINDOW_FINAL_VOTE_CN.md is final for the fixed Epoch 4-5 claim; raw/*.jsonl paths are provenance references and are not shipped in this repository",
   "claims": [
     {
       "claim_id": "geometry_different_stage_dependent",
@@ -374,12 +376,8 @@
         "raw/seed2030/",
         "raw/seed2031/"
       ],
-      "needs_human_confirmation": true,
-      "human_confirmation_items": [
-        "确认 seed=2031 在 Epoch 4–5 为正、seed=2030 仅 3/5 域同号的窗口表。",
-        "确认是否接受“固定窗口不可复现/关闭”，并把动机对象改为阶段依赖的方向几何差异。",
-        "不得把 U 写成校准不确定性或把窗口写成因果机制。"
-      ],
+      "needs_human_confirmation": false,
+      "human_confirmation_items": [],
       "evidence_detail": {
         "status": "NOT_SUPPORTED",
         "new_seed_windows": {

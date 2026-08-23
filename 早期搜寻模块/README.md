@@ -17,7 +17,7 @@
 早期探索的最大价值不是某一组 PSNR，而是四件事：
 
 1. 证明 **All-in-One 联合训练相对单任务会退化**，尤其 LowLight（严格消融 −3.06 dB PSNR），这是整个项目的原始动机。
-2. 把「uncertainty」严格收敛为 **MC endpoint proposal disagreement proxy**，并明确**不声称 true posterior covariance**，这个口径一直沿用到最终论文。
+2. 把「uncertainty」严格收敛为 **MC endpoint proposal disagreement proxy**，并明确**不声称 true posterior covariance**，这个口径一直沿用到后续模块与当前写作边界。
 3. 排除了多条错误路线：naive train-rollout、confidence 降权、side-car netU、低秩训练端 UA、high-U 门控、专家/prompt routing 都在早期被证明走不通。
 4. 找到并留下唯一有希望的训练端方向：**decay10to20 的 log-U consistency → DT-CovMatch（domain-time calibrated covariance consistency）**，它直接成为算法设计模块的前身。
 

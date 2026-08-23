@@ -36,7 +36,7 @@
 | hnek_entropy_only | 0.967119 | 0.741349 | 1.202221 | 5 | PROCEED_DIRECT_TO_E200 |
 | hnek_endpoint_only | 1.348399 | 1.135305 | 1.562566 | 4 | PROCEED_DIRECT_TO_E200 |
 
-## 5. 阶段3 e200 确认（最终）
+## 5. 阶段3 e200 开发延伸
 
 | variant | e50 delta | e200 delta | e200 95% CI | positive domains | e200 verdict |
 |---|---:|---:|---:|---:|---|
@@ -53,11 +53,11 @@
 - 阶段2 干净核心（单 seed=2026）：完成
 - 阶段3 搜索（e50）+ e200 确认：完成
 - 唯一存活候选：`hnek_g0.25`
-- 状态：E200_CONFIRMED（single seed=2026 paired-development，非 confirmatory）
+- 状态：E200_DEVELOPMENT_SURVIVOR（single seed=2026 paired-development，非 confirmatory）
 
 ## 7. 投稿前仍需人工确认
 
 - 桥原生 novelty 边界是否仍成立；
-- `hnek_g0.25` 正结果是否能在更好服务器上跨 seed 复现；
+- `hnek_g0.25` 正结果是否能在更好服务器上跨 seed 复现，并通过未触碰数据确认；
 - DT / HJ 干净核心与 `hnek_coord_y` 的负结果是否诚实降级；
 - limitation 与 mean±CI 口径是否统一。

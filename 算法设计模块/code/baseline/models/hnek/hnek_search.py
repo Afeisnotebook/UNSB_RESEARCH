@@ -17,10 +17,23 @@ from .hnek_kernel import horizon_from_condition
 
 @dataclass(frozen=True)
 class HnekSearchConfig:
-    gamma: float = 0.5
+    # gamma=0.25 is the only e200 development survivor.  The legacy frozen
+    # HNEK adapter in hnek_adapter.py intentionally remains gamma=0.5 so that
+    # the failed reference can still be reproduced explicitly.
+    gamma: float = 0.25
     coord: str = "residual"          # residual: (x_t,r), endpoint: (x_t,y)
     horizon_mode: str = "physical"   # physical, index, mix
     partial: str = "all"             # all, entropy_only, endpoint_only
+
+    def __post_init__(self):
+        if self.gamma <= 0:
+            raise ValueError("gamma must be positive")
+        if self.coord not in {"residual", "endpoint"}:
+            raise ValueError(f"unknown coord: {self.coord}")
+        if self.horizon_mode not in {"physical", "index", "mix"}:
+            raise ValueError(f"unknown horizon_mode: {self.horizon_mode}")
+        if self.partial not in {"all", "entropy_only", "endpoint_only"}:
+            raise ValueError(f"unknown partial mode: {self.partial}")
 
 
 def _inner(net):

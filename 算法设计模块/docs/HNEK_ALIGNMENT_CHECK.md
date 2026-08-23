@@ -1,5 +1,7 @@
 # HNEK adapter ↔ refactor/baseline 只读对齐验证（2026-08-17，未训练、未动 GPU）
 
+> **历史对齐记录：** 接口对齐结论仍可参考；“未训练”状态已过时。后续搜索与 e200 结果见 [FINAL_STATUS.md](./FINAL_STATUS.md)。
+
 ## 结论先行
 
 `hnek_kernel` / `hnek_adapter` 是自包含的，**可以直接作用在 `refactor/baseline` 的

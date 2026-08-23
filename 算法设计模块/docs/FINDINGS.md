@@ -1,5 +1,7 @@
 # 重构发现：哪些是必要机制，哪些是工程惯性（截至 CPU 阶段）
 
+> **阶段性历史文档：** 本文的“能拿收益”表述发生在最终确定性 GPU clean rerun 之前。最终 DT/HJ 相对 plain 的收益已基本消失；见 [FINAL_STATUS.md](./FINAL_STATUS.md)。
+
 这两个算法“能拿收益但机制糊”，经过 clean-room 重构，结论已经清晰很多。
 
 ## DT-CovMatch

@@ -1,38 +1,65 @@
-# 最终状态归纳（2026-08-17，当前权威）
+# 算法模块当前权威状态
 
-本文是收口结论，不再启动训练。所有 sub-dB 差异按 direction + limitation 处理。
+> 更新：2026-08-24
+> 口径：clean deterministic，single seed=2026，paired-development，非 confirmatory。
+> 跨模块总状态见 [../../CURRENT_STATE_CN.md](../../CURRENT_STATE_CN.md)。
 
-## 1. 已确认收益
+## 1. 确定性基座
 
-- **DT**：3-seed 配对 delta `+0.8875 / +0.7426 / +0.4687`，
-  mean **+0.6996 dB**，95% CI **[0.1712, 1.2280]**（不含 0）→ 方向性成立。
-- **HJ**：3-seed true>plain 全为正 `+2.7533 / +3.1007 / +0.3592`，
-  mean **+2.0711 dB**，95% CI **[−1.6372, +5.7793]**（含 0）→ 方向性成立但幅度不稳。
+- 手工确定性 reflection pad 已取代会触发非确定 CUDA backward 的实现。
+- CuBLAS workspace、deterministic algorithms、数据与辅助 RNG 隔离已统一。
+- 同 seed、同配置的 3-epoch GPU smoke 两次 `3_net_G.pth` SHA256 逐位一致。
+- 因此，“reflection pad 造成不可约 1–2 dB 运行方差”只是修复前历史，不是当前 limitation。
 
-## 2. 机制现状（不互相否定）
+证据：[DETERMINISM_FIX.md](./DETERMINISM_FIX.md)。
 
-- **DT** = 对 amortized endpoint 响应几何（teacher-student 标准化响应漂移）的正则，
-  数理自洽（见 `refactor/METHOD_GROUNDING.md`）。
-- **HJ** = 旧“结构方向特异”在 3-seed 下未复现；但 true>plain 方向为正，算法方向性有效，
-  真正机制未定。
-- **H1（DT 时机/窗口，单 seed=2026）**：control 手调25 = **18.4552** 最优；
-  plateau 退出(cap60) = 17.6721；延长窗口45 = 17.1409。
-  → 不是“窗口太短”，而是“decay 到 0 并退出”的**时机**重要；延长 hold 让 drift 继续涨、结果更差。
-  （差异 0.8~1.3 dB，单 seed 方向性，不作精确声明。）
-- **HJ α（单 seed=2026）**：α0 = 17.1158，α0.5 = 18.6225，α1 = 17.4125。
-  → 结构方向(α0)最差、掺随机(α0.5)最好。但这是**单 seed、差异在噪声内**，只能作弱方向信号。
-  - 口径核查：`hj_alpha00` 在算法上等价于原 `hj_control=true + direction=joint + α=0`
-    （α=0 为 no-op，其余 strength/gate/control 一致）。其 17.11 与历史 true 19.43 差 2.3 dB，
-    原因是 determinism 代码变更 + `reflection_pad2d` 噪声 + HJ 单 seed 方差；`--display_freq`
-    差异经核查为 no-op（display 被 `--display_id -1 --no_html` 禁用），不是 confound。
+## 2. DT / HJ clean core
 
-## 3. 动机
+| 对比 | Δ PSNR |
+|---|---:|
+| DT best − plain | **−0.2677 dB** |
+| HJ true − plain | **+0.0381 dB** |
+| HJ roll − plain | **−0.7521 dB** |
+| HJ true − roll | **+0.7901 dB** |
 
-- 路径方向几何变化：部分成立、阶段依赖（DT 早期退出有效）。
-- 局部结构冲突（edge/SSIM 方向）：3-seed 归因未复现，α 实验为弱负信号 → **证伪/存疑**。
+裁决：
 
-## 4. limitation
+- DT 在确定性 clean 口径下为负，不是当前有效方法。
+- HJ 相对 plain 的收益基本消失。`true−roll` 说明 rollout 更差，不能被转述为 HJ 相对 plain 改进 `+0.7901 dB`。
+- 旧非确定阶段的 DT `+0.8875 dB` 与 HJ 大幅正结果仅作历史轨迹证据，不再作权威性能结论。
 
-- `reflection_pad2d` backward 无确定性实现 → 单 seed 有约 1~2 dB 运行方差。
-- 单 seed（消融/优化）；DT/HJ 各仅 3 seed，n 不足。
-- HJ α 实验的 α0 未 clean 复现历史 true（单 seed 方差所致，非代码 bug）。
+机器可读证据：[CLEAN_CORE_RESULTS.json](../evidence/CLEAN_CORE_RESULTS.json)。
+
+## 3. HNEK 搜索与 e200 延伸
+
+9 个变体在同一 seed=2026 开发协议中进行 e50 搜索，最强两个延长到 e200：
+
+| 变体 | e50 ΔdB | e200 ΔdB | e200 图像级 95% CI | 正域 | 开发裁决 |
+|---|---:|---:|---:|---:|---|
+| `hnek_coord_y` | +3.1481 | −1.2164 | [−1.4174, −1.0153] | 2/5 | FAIL |
+| `hnek_g0.25` | +2.6173 | **+0.7884** | **[+0.5916, +0.9933]** | 4/5 | DEVELOPMENT_PASS_SINGLE_SEED |
+
+`hnek_g0.25` 的当前精确定义：
+
+```text
+--model hnek_search
+--hnek_gamma 0.25
+--hnek_coord residual
+--hnek_horizon_mode physical
+--hnek_partial all
+```
+
+LowLightTrafficData 仍为 −0.1813 dB。CI 仅描述固定训练 seed 与开发数据下的配对样本不确定性，不包含训练 seed 方差。因为经过 9 变体搜索且 T3 已饱和，该结果必须被称为“开发候选”，不是确认、泛化或稳健结论。
+
+机器可读证据：[E200_CONFIRMATION.json](../evidence/hnek_search/E200_CONFIRMATION.json)。文件名中的 `CONFIRMATION` 是历史阶段名，不表示 confirmatory study。
+
+## 4. 当前方法裁决
+
+- 当前没有已确认的最终方法。
+- 唯一可进入最后一轮的候选是 `hnek_g0.25`。
+- 最后一轮先做同 seed 跨环境复现，再做冻结配置的多 seed，最后使用未触碰数据一次性确认。
+- 任一门禁失败时收口为负结果，不再在饱和开发集上增加变体。
+
+## 5. 历史文档警告
+
+`ABLATION_RESULTS.md`、`ADAPTIVE_SCHEDULE.md`、`BASELINE_DECISION.md`、`DIAGNOSTIC_ANALYSIS.md`、`EXPERIMENT_PLAN.md` 和旧版 `REPRODUCE.md` 曾记录确定性修复前的当时判断。它们不得覆盖本文和机器可读 evidence。

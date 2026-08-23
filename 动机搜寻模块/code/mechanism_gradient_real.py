@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -18,7 +19,14 @@ import numpy as np
 import torch
 
 
-ROOT = Path("/home/yc/UNSB_PASSION/motivation_baseline_restart")
+ROOT = Path(
+    os.environ.get("UNSB_MOTIVATION_ROOT", Path(__file__).resolve().parent.parent)
+).expanduser().resolve()
+BASELINE_ROOT = Path(
+    os.environ.get(
+        "UNSB_BASELINE_ROOT", ROOT.parent / "算法设计模块" / "code" / "baseline"
+    )
+).expanduser().resolve()
 DOMAINS = [
     "FoggyCityscapes",
     "LowLightTrafficData",
@@ -81,12 +89,12 @@ def _pairwise(vectors: dict[str, np.ndarray]) -> dict:
 
 
 def _make_opt(epoch: int) -> object:
-    sys.path.insert(0, "/home/yc/unsb_tired/refactor/baseline")
+    sys.path.insert(0, str(BASELINE_ROOT))
     from options.train_options import TrainOptions
 
     cmd = (
-        "--dataroot /home/yc/UNSB_PASSION/motivation_baseline_restart/datasets/aio "
-        "--checkpoints_dir /home/yc/UNSB_PASSION/motivation_baseline_restart/checkpoints "
+        f"--dataroot {ROOT / 'datasets' / 'aio'} "
+        f"--checkpoints_dir {ROOT / 'checkpoints'} "
         "--name aio_plain_s2026 --model sb --mode sb --dataset_mode unaligned --direction AtoB "
         "--lambda_SB 1.0 --lambda_NCE 1.0 --tau 0.01 --batch_size 1 "
         "--load_size 128 --crop_size 128 --preprocess resize_and_crop --num_threads 0 --gpu_ids 0 "
@@ -108,7 +116,7 @@ def main() -> int:
     args = parser.parse_args()
 
     epochs = [int(x) for x in args.epochs.split(",") if x.strip()]
-    sys.path.insert(0, "/home/yc/unsb_tired/refactor/baseline")
+    sys.path.insert(0, str(BASELINE_ROOT))
     from models.sb_model import SBModel
 
     out = {"seed": 2026, "method": "aio_plain_s2026", "layers": GRAD_LAYERS, "epochs": {}}

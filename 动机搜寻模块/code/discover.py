@@ -10,18 +10,24 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import random
 import sys
 from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DATA_ROOT = Path("/home/yc/UNSB_C21/dataset_all")
-REFACTOR_ROOT = Path("/home/yc/unsb_tired/refactor")
+REPOSITORY_ROOT = PROJECT_ROOT.parent
+DATA_ROOT = Path(
+    os.environ.get("UNSB_DATA_ROOT", PROJECT_ROOT / "_missing_source_dataset")
+).expanduser().resolve()
+REFACTOR_ROOT = Path(
+    os.environ.get("UNSB_REFACTOR_ROOT", REPOSITORY_ROOT / "算法设计模块" / "code")
+).expanduser().resolve()
 BOOTSTRAP_ROOT = Path(
-    "/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806"
-)
-PYTHON = "/home/yc/anaconda3/envs/unsb_cov/bin/python"
+    os.environ.get("UNSB_BOOTSTRAP_ROOT", PROJECT_ROOT / "_missing_bootstrap_reference")
+).expanduser().resolve()
+PYTHON = os.environ.get("UNSB_PYTHON", sys.executable)
 
 DOMAINS = [
     "FoggyCityscapes",
@@ -206,6 +212,11 @@ def write_data_manifest(rows: list[dict], summary: dict) -> None:
 
 
 def main() -> int:
+    if not DATA_ROOT.is_dir():
+        raise SystemExit(
+            "source dataset not found; set UNSB_DATA_ROOT to the five-domain "
+            f"dataset root (resolved default: {DATA_ROOT})"
+        )
     write_path_map()
     write_code_identity()
     rows, summary = build_split()

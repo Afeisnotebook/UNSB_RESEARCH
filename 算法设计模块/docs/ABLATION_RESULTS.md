@@ -1,5 +1,7 @@
 # Knock-out 消融结果（单 seed=2026，eval-off PSNR）
 
+> **历史/已被后续口径覆盖：** 本文记录确定性修复前的消融。其 DT/HJ 正收益与“不可约 reflection-pad 方差”不是当前结论。当前权威状态见 [FINAL_STATUS.md](./FINAL_STATUS.md)。
+
 > ⚠️ **确定性边界**：以下均为单 seed=2026 结果。已确认生成器 `reflection_pad2d`
 > 的 backward 无确定性实现，单 seed 运行间方差约 1 dB；因此 DT 侧 +0.35~+1.07 dB
 > 的差距**在噪声量级内，不能单独作为 necessity 结论**。HJ 侧 +2.75 dB 效应较大、

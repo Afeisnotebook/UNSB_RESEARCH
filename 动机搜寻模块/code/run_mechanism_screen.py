@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -16,9 +17,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-ROOT = Path("/home/yc/UNSB_PASSION/motivation_baseline_restart")
-PY = "/home/yc/anaconda3/envs/unsb_cov/bin/python"
-REFACTOR = "/home/yc/unsb_tired/refactor/baseline"
+ROOT = Path(
+    os.environ.get("UNSB_MOTIVATION_ROOT", Path(__file__).resolve().parent.parent)
+).expanduser().resolve()
+PY = os.environ.get("UNSB_PYTHON", sys.executable)
+REFACTOR = str(
+    Path(
+        os.environ.get(
+            "UNSB_BASELINE_ROOT", ROOT.parent / "算法设计模块" / "code" / "baseline"
+        )
+    ).expanduser().resolve()
+)
 REPORT_DIR = ROOT / "reports" / "mechanism"
 FIGURE_DIR = ROOT / "figures" / "mechanism"
 

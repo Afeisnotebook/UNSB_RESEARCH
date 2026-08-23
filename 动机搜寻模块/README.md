@@ -87,3 +87,19 @@ DT 只作为后置 sanity check，HJ 不进入动机图。
 7. [reports/MECHANISM_DESIGN_PLAN_CN.md](reports/MECHANISM_DESIGN_PLAN_CN.md)、[reports/MECHANISM_SCREEN_REPORT_CN.md](reports/MECHANISM_SCREEN_REPORT_CN.md)、[reports/mechanism_upgrade/MECHANISM_UPGRADE_REPORT_CN.md](reports/mechanism_upgrade/MECHANISM_UPGRADE_REPORT_CN.md)：机制量设计与筛选结论。
 
 原始证据图在 `figures/` 下，原始测量数据与 checkpoint 因体积较大未上传；如需复算，可参考 `PATH_MAP.json` 中记录的本地绝对路径。
+
+## 新环境的路径约定
+
+`PATH_MAP.json`、manifest 和 identity 文件中的 `/home/yc/...` 是历史服务器溯源，保留原值。`code/` 下的启动脚本不再以这些路径为运行默认值：Python 默认使用当前解释器，baseline 默认指向本仓库的 `算法设计模块/code/baseline`。
+
+按需要显式设置：
+
+- `UNSB_DATA_ROOT`：五域原始数据根目录（运行 `discover.py` 时必需）；
+- `UNSB_REFACTOR_ROOT`：包含 `baseline/`、`dt_covmatch/`、`hj_patchnce/` 的源码根目录；
+- `UNSB_BASELINE_ROOT`：baseline 目录，供机制量脚本使用；
+- `UNSB_MOTIVATION_ROOT`：本模块的工作根目录；
+- `UNSB_BOOTSTRAP_ROOT`：历史测量参考源码根目录；
+- `UNSB_PYTHON`（Python orchestration）或 `PY`（shell orchestration）：指定解释器。
+- `GPU`：选择物理 GPU；脚本设置 `CUDA_VISIBLE_DEVICES=$GPU` 后始终把可见设备作为逻辑 `gpu_ids=0` 使用。
+
+这些变量只解决路径身份；完整 GPU 重算仍需要未上传的数据与 checkpoint，并必须先核对 manifest/hash。
