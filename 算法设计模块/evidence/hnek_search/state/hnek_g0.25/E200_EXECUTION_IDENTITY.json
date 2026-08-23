@@ -1,0 +1,64 @@
+{
+  "run_id": "hnek-search-g0.25_residual_physical_all-seed2026",
+  "spec_sha256_canonical": "7a3c135847fe31c736b57d3f3eb8e723d3d8d5649c07d9f9bcc0abfdc22f8573",
+  "identity": {
+    "run_id": "final1-ta-minimal-seed2026-20260811-bb102af286f0d15f",
+    "frozen_spec_canonical_sha256": "bb102af286f0d15f1f6b3bd0e562964d70cf86af463323373ae027e7194f4d86",
+    "run_id_match": true,
+    "identity_frozen_spec_match": true,
+    "frozen_spec_raw_match": true,
+    "t3_manifest_match": true,
+    "t2_manifest_match": true,
+    "schema_version": 1,
+    "phase_id": "FINAL-1",
+    "spec_id": "ta-minimal-single-seed-decisive-20260811",
+    "status": "FROZEN_BEFORE_TA_E200_AND_PAIRED_EFFECT_READ",
+    "authority_copy": "authority/final1_ta_minimal_seed2026_20260811",
+    "authority_copy_verify": "13/13 manifest hash OK + verify_package.py 13/13 PASS",
+    "frozen_spec_raw_sha256": "577881d9e7e661a4d3321dca7ce9c76c3b422478976d56f7c85ac30bcf076f57",
+    "canonicalization": "json.dumps(load, sort_keys=True, ensure_ascii=False, separators=(',',':')) UTF-8, no trailing newline",
+    "server_repo": "/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806",
+    "parent_branch": "rebuild/a3r2-common-anchor-20260810",
+    "a3r2_final_head": "884d58ed94cc77b5d318aa646cb2a91aceb558f3",
+    "new_branch": "rebuild/final1-ta-minimal-seed2026-20260811",
+    "a3r2_run_id": "a3r2-common-anchor-ta-kck-20260810-f62a617223bf2bd8",
+    "a3r2_return_zip": {
+      "path": "/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806/state/A3R2_COMMON_ANCHOR_CONTINUATION_RETURN_20260810.zip",
+      "sha256": "26fd12f7846da4cc4a0d39c17ea4e0cc4fe598613451b58e9d46462251198351"
+    },
+    "a3r2_spec_canonical_sha256": "f62a617223bf2bd854976ebfac957ae00e2b50347e4f35313cfbc5d3bba38807",
+    "a3r2_external_bundle": {
+      "path": "/home/yc/UNSB_Long/UNSB_bootstrap_git_backup_20260810_a3r2.bundle",
+      "sha256": "7195d09168bf26fd38d844f9d911a2cb50e35d8944ee70a89a27f55ab355c19a",
+      "verify": "OK (complete history)"
+    },
+    "training_manifest_sha256": "f6049e7c1563565d8e00e1baca1821b67b56d33bd78b064c596dbbc17d3d6e02",
+    "paired_development_manifest_sha256": "71b4eb92822166d67a97c15f9c5b2bbd8b4d70a24173d1ae03fe5c20596ddb0c",
+    "historical_plain_oracle": {
+      "path": "/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806/runs/h2-plain-20260807-a1/checkpoints/full_state_e200.pt",
+      "sha256": "2d1a7acf9eb7eca35ef020a5558e6a0f5d7a991f661d3ff80e1e64acb7908d37",
+      "role": "LEGACY_ORACLE_ONLY"
+    },
+    "historical_ta_e10_lineage": {
+      "path": "/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806/runs/a3-tact-unsb-20260809/ta_minimal/checkpoints/full_state_e10.pt",
+      "sha256": "5c0a7088fbc1c0717184c79085d14c033720226e79ab4436085bdfbdb71091d5",
+      "role": "LINEAGE_ONLY"
+    },
+    "effect_lanes": [
+      "FINAL1_PLAIN",
+      "FINAL1_TA"
+    ],
+    "historical_checkpoints_used_as_effect_lanes": false,
+    "seed": 2026,
+    "recorded_at": "2026-08-11T00:20:00+00:00"
+  },
+  "variant": {
+    "gamma": 0.25,
+    "coord": "residual",
+    "horizon_mode": "physical",
+    "partial": "all"
+  },
+  "resume_epoch": 50,
+  "target_epoch": 200,
+  "started_at": "2026-08-23T06:20:43.486249+00:00"
+}

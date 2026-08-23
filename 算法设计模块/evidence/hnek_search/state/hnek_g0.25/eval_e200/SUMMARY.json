@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "run_id": "hnek-search-g0.25_residual_physical_all-seed2026",
+  "spec_sha256": "7a3c135847fe31c736b57d3f3eb8e723d3d8d5649c07d9f9bcc0abfdc22f8573",
+  "purpose": "TRAIN_E200",
+  "epoch": 200,
+  "split_status": "SATURATED_PAIRED_DEVELOPMENT_NOT_CONFIRMATORY",
+  "images": 320,
+  "replicates": 4,
+  "macro_psnr": {
+    "HNEK_PLAIN": 18.84673264733668,
+    "HNEK_METHOD": 19.63510470656946
+  },
+  "macro_ssim": {
+    "HNEK_PLAIN": 0.6031881067960058,
+    "HNEK_METHOD": 0.6386382981901988
+  },
+  "macro_psnr_delta_db": 0.7883720592327812,
+  "macro_ssim_delta": 0.03545019139419303,
+  "psnr_ci95": [
+    0.5916360545222022,
+    0.9932679280915209
+  ],
+  "domain_psnr_delta_db": {
+    "FoggyCityscapes": 1.3798040671722411,
+    "LowLightTrafficData": -0.1812897951811081,
+    "RainCityscapes": 1.0925675159929646,
+    "RSCityscapes": 0.3312404681775831,
+    "SnowTrafficData": 1.3195380400022287
+  },
+  "positive_domains": 4,
+  "all_finite": true,
+  "recorded_at": "2026-08-23T17:54:52.132412+00:00"
+}

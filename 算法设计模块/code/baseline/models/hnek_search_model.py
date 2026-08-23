@@ -1,0 +1,34 @@
+"""Thin model registration for stage-3 HNEK bridge-native single-axis search."""
+
+from __future__ import annotations
+
+from models.sb_model import SBModel
+from models.hnek.hnek_search import (
+    HnekSearchConfig,
+    install_hnek_search_model,
+)
+
+
+class HnekSearchModel(SBModel):
+    @staticmethod
+    def modify_commandline_options(parser, is_train=True):
+        parser = SBModel.modify_commandline_options(parser, is_train)
+        parser.add_argument("--hnek_gamma", type=float, default=0.5,
+                            help="remaining-horizon normalization exponent")
+        parser.add_argument("--hnek_coord", type=str, default="residual",
+                            choices=["residual", "endpoint"])
+        parser.add_argument("--hnek_horizon_mode", type=str, default="physical",
+                            choices=["physical", "index", "mix"])
+        parser.add_argument("--hnek_partial", type=str, default="all",
+                            choices=["all", "entropy_only", "endpoint_only"])
+        return parser
+
+    def __init__(self, opt):
+        super().__init__(opt)
+        cfg = HnekSearchConfig(
+            gamma=float(getattr(opt, "hnek_gamma", 0.5)),
+            coord=str(getattr(opt, "hnek_coord", "residual")),
+            horizon_mode=str(getattr(opt, "hnek_horizon_mode", "physical")),
+            partial=str(getattr(opt, "hnek_partial", "all")),
+        )
+        install_hnek_search_model(self, cfg)
