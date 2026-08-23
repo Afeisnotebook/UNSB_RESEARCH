@@ -452,6 +452,7 @@ class DTCovMatch:
         canonical post-e20 netG and never updates.
         """
         import copy
+        import hashlib
 
         source = self.netG.module if isinstance(self.netG, torch.nn.DataParallel) else self.netG
         teacher = copy.deepcopy(source)
@@ -460,7 +461,20 @@ class DTCovMatch:
         for param in teacher.parameters():
             param.requires_grad_(False)
         self.teacher = teacher
+        self._teacher_netG_sha256 = _state_dict_sha256(teacher.state_dict())
         return teacher
+
+
+def _state_dict_sha256(state_dict: dict) -> str:
+    import hashlib
+
+    digest = hashlib.sha256()
+    for key in sorted(state_dict.keys()):
+        digest.update(key.encode("utf-8"))
+        digest.update(b"\x00")
+        digest.update(state_dict[key].detach().cpu().contiguous().numpy().tobytes())
+        digest.update(b"\x00")
+    return digest.hexdigest()
 
     def _current_and_teacher_stats(
         self,

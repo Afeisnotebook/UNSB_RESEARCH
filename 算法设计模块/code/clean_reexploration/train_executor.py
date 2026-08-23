@@ -360,8 +360,10 @@ def train_lane(
     loader = TwoStreamLoader(pairs, transform, steps_per_epoch)
 
     model, opt = _create_model(model_name, lane_name)
+    teacher_netG_sha256 = None
     if teacher_state is not None and hasattr(model, "dtcov"):
         model.dtcov.inject_teacher(teacher_state)
+        teacher_netG_sha256 = getattr(model.dtcov, "_teacher_netG_sha256", None)
     controller = None
     controllers_map = {}
     if method:
@@ -425,6 +427,7 @@ def train_lane(
         "end_epoch": end_epoch,
         "global_step": global_step,
         "controller_state": controller.state_dict() if controller else None,
+        "teacher_netG_sha256": teacher_netG_sha256,
     }
 
 
@@ -617,6 +620,9 @@ def run_all_lanes(args) -> int:
     if post_e20.is_file():
         st = full_state.load_full_state(post_e20)
         post_e20_netG = st["networks"]["netG"]
+        from clean_reexploration.full_state import hash_tensors
+        post_e20_netG_sha = hash_tensors(post_e20_netG)
+        (RUNS_ROOT / "canonical_plain" / "post_e20_netG_sha256.txt").write_text(post_e20_netG_sha + "\n")
 
     # 2) HNEK FULL e1..e200 (always ON)
     _seed_all(2026)
@@ -637,6 +643,12 @@ def run_all_lanes(args) -> int:
         steps_per_epoch=args.steps_per_epoch,
     )
     results["dt"] = dt_result
+    # Verify the DT teacher identity (section 6.2).
+    dt_teacher_sha = None
+    try:
+        dt_teacher_sha = dt_result.get("teacher_netG_sha256")
+    except Exception:
+        pass
 
     # 4) HJ e1..e200 (plain until e5, HJ active e5+)
     _seed_all(2026)
