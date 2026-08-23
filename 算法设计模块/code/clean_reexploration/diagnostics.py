@@ -7,6 +7,9 @@ from pathlib import Path
 
 import numpy as np
 
+import torch
+import torch.nn.functional as F
+
 
 def _stem_key(stem: str) -> str:
     return hashlib.sha256(stem.encode("utf-8")).hexdigest()
@@ -94,3 +97,33 @@ def stable_manifest_hash(rows: list[dict]) -> str:
         for r in sorted(rows, key=lambda r: (r["domain"], r.get("side", r.get("role")), r["stem"]))
     )
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def _ssim_numpy(a: torch.Tensor, b: torch.Tensor) -> float:
+    """Standard 11x11 Gaussian-window SSIM on [0,1] 4D tensors, returned as float."""
+    a = a.detach().cpu().float()
+    b = b.detach().cpu().float()
+    C1 = 0.01 ** 2
+    C2 = 0.03 ** 2
+    kernel = torch.tensor(
+        [1, 4, 6, 4, 1,
+         4, 16, 24, 16, 4,
+         6, 24, 36, 24, 6,
+         4, 16, 24, 16, 4,
+         1, 4, 6, 4, 1],
+        dtype=torch.float32,
+    ).reshape(5, 5)
+    kernel = kernel / kernel.sum()
+    kernel = kernel.view(1, 1, 5, 5).repeat(3, 1, 1, 1)
+    mu1 = F.conv2d(a, kernel, padding=2, groups=3)
+    mu2 = F.conv2d(b, kernel, padding=2, groups=3)
+    mu1_sq = mu1 ** 2
+    mu2_sq = mu2 ** 2
+    mu1_mu2 = mu1 * mu2
+    sigma1_sq = F.conv2d(a * a, kernel, padding=2, groups=3) - mu1_sq
+    sigma2_sq = F.conv2d(b * b, kernel, padding=2, groups=3) - mu2_sq
+    sigma12 = F.conv2d(a * b, kernel, padding=2, groups=3) - mu1_mu2
+    ssim_map = ((2 * mu1_mu2 + C1) * (2 * sigma12 + C2)) / (
+        (mu1_sq + mu2_sq + C1) * (sigma1_sq + sigma2_sq + C2)
+    )
+    return float(ssim_map.mean().item())
