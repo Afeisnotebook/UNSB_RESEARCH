@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "protocol_id": "unsb-initial-shared-bridge-fanout-dual-control-v1",
+  "frozen_local_time": "2026-08-24T05:29:11+08:00",
+  "frozen_before_new_seed_effect_read": true,
+  "scientific_question_cn": "同一 plain UNSB 在五域共享训练第一个 epoch 后，是否超出任务专用模型在本域曝光匹配和总优化步匹配下的早期方向几何包络？",
+  "phenomenon_name_cn": "初始共享桥扇出",
+  "phenomenon_name_en": "initial shared-bridge fan-out",
+  "scope": {
+    "plain_baseline_only": true,
+    "methods_or_interventions_allowed": false,
+    "paired_target_allowed": false,
+    "claim_type": "observational training-regime contrast",
+    "not_causal_mechanism": true,
+    "not_calibrated_uncertainty": true
+  },
+  "lineage": {
+    "repository_commit": "3967b14",
+    "branch_at_freeze": "motivation/headfigure-local-20260824",
+    "source_hashes": {
+      "算法设计模块/code/baseline/train.py": "4381e0c1dc90dd9929e6c0abff8c70ff9d5272aec2e5e1dd139f95195686bd51",
+      "算法设计模块/code/baseline/models/sb_model.py": "81c75cbc5863445cb08399f6f9360d64056aaabac166cc488cd696a17b7ce840",
+      "算法设计模块/code/baseline/models/networks.py": "8b66ee3aced4b0e9f3ba86c7c9060bdb529717316f4daba440ddb64f223b8de3",
+      "动机搜寻模块/code/measure_path_geometry.py": "43e21f769588f2bc8ad6167f3135c6d0a10917621ab9cd95ac117c6b5fa10483"
+    }
+  },
+  "domains": [
+    "FoggyCityscapes",
+    "LowLightTrafficData",
+    "RainCityscapes",
+    "RSCityscapes",
+    "SnowTrafficData"
+  ],
+  "new_training_seed": 2041,
+  "data": {
+    "trainA_per_domain": 100,
+    "trainB_per_domain": 100,
+    "training_loader": "unaligned",
+    "aio_construction": "hardlink union of the five frozen single-domain trainA/trainB views",
+    "heldout_pool": "existing 80-image discovery testA per domain",
+    "historically_measured_stems_excluded": true,
+    "heldout_selection": "sort remaining stems by sha256(protocol_id|domain|stem), take first 20 per domain",
+    "heldout_per_domain": 20,
+    "heldout_status": "HELDOUT_WITHIN_DISCOVERY_NOT_CONFIRMATORY",
+    "target_content_read": false,
+    "sealed_content_read": false
+  },
+  "training": {
+    "source": "算法设计模块/code/baseline/train.py",
+    "model": "sb",
+    "resolution": 128,
+    "preprocess": "resize_and_crop",
+    "batch_size": 1,
+    "num_threads": 0,
+    "no_flip": true,
+    "learning_rate": 0.0001,
+    "lambda_GAN": 1.0,
+    "lambda_SB": 1.0,
+    "lambda_NCE": 1.0,
+    "tau": 0.01,
+    "num_timesteps": 5,
+    "pool_size": 0,
+    "save_epoch_freq": 1,
+    "single_epochs": 5,
+    "aio_epochs": 1,
+    "arms": [
+      "single_<domain>_s2041_e5",
+      "aio5_plain_s2041_e1"
+    ],
+    "comparison_table": {
+      "exposure_matched": "AIO epoch 1 vs Single epoch 1; both have 100 expected exposures for the focal domain",
+      "optimizer_clock_matched": "AIO epoch 1 vs Single epoch 5; both have 500 total optimizer steps",
+      "age_envelope": "AIO epoch 1 vs max dispersion across Single epochs 1..5"
+    }
+  },
+  "measurement": {
+    "checkpoint_aio": 1,
+    "checkpoint_single": [1, 2, 3, 4, 5],
+    "bridge_time_indices": [1, 2, 3],
+    "bridge_time_values_expected": [0.5, 0.74, 0.86],
+    "proposals_M": 32,
+    "proposal_chunk": 8,
+    "common_random_numbers": true,
+    "random_identity": "sha256(protocol_id|domain|stem|bridge_time|role) -> 63-bit seed",
+    "primary_statistic": {
+      "name": "spherical_pairwise_direction_dispersion",
+      "symbol": "D_sph",
+      "formula": "2/[M(M-1)] * sum_{m<n}(1-cos(z_m,z_n)), z_m=unit(d_m)",
+      "equivalent_formula": "M/(M-1) * (1-||mean_m z_m||^2)",
+      "range": "[0, approximately 2]",
+      "display": "log10(D_sph + 1e-12)"
+    },
+    "secondary_statistics": [
+      "resultant_length_squared=||mean z||^2",
+      "legacy_U=D_sph/(resultant_length_squared+1e-8)",
+      "mean_pair_angle_degrees=acos(1-D_sph)",
+      "joint tangent-PCA coordinates for one hash-selected image per domain at bridge index 2"
+    ],
+    "primary_contrasts": [
+      "exposure_gap=logD(AIO_e1)-logD(Single_e1)",
+      "clock_gap=logD(AIO_e1)-logD(Single_e5)",
+      "age_envelope_excess=logD(AIO_e1)-max_e1..5(logD(Single_e))"
+    ]
+  },
+  "inference": {
+    "primary_unit": "image",
+    "domain_weighting": "equal",
+    "bootstrap": "nested domain then image resampling",
+    "bootstrap_draws": 5000,
+    "bootstrap_seed": 20410824,
+    "interval": 0.95,
+    "local_support_gate": {
+      "minimum_bridge_times": 2,
+      "requirements_per_passing_time": [
+        "age_envelope_excess nested-bootstrap lower bound > 0",
+        "age_envelope_excess domain mean > 0 in at least 4/5 domains",
+        "exposure_gap nested-bootstrap lower bound > 0",
+        "clock_gap nested-bootstrap lower bound > 0"
+      ]
+    },
+    "outcomes": [
+      "SUPPORTED_LOCAL_VALIDATION",
+      "PARTIAL_DUAL_CONTROL",
+      "EXPOSURE_ONLY",
+      "NOT_REPRODUCED_LOCAL",
+      "HOLD_ENGINEERING"
+    ]
+  },
+  "precommitted_fallback_interpretation": {
+    "if_age_envelope_fails_but_exposure_and_clock_pass": "Report dual-control fan-out but do not claim that AIO exceeds the entire Single early-age envelope.",
+    "if_only_exposure_passes": "Treat the result as exposure-matched only and retain optimizer-age confounding.",
+    "if_all_fail": "Report the fresh-seed negative result next to the historical six-seed evidence; do not tune samples, epochs, metric, or bridge times post hoc."
+  },
+  "headfigure": {
+    "title": "Sharing one bridge changes the initial conditional direction field",
+    "panels": [
+      "A: five task-specific bridges versus one shared bridge schematic using real held-out thumbnails",
+      "B: historical 6-seed x 5-domain Epoch-1 sign-consensus wall",
+      "C: fresh-seed domain forest for age-envelope excess",
+      "D: fresh-seed exposure/clock/envelope bridge-time curves with nested-bootstrap intervals",
+      "E: hash-selected per-domain joint tangent-PCA direction glyphs"
+    ],
+    "single_color": "#167D8D",
+    "aio_color": "#E4572E",
+    "clock_color": "#6C5CE7",
+    "display_only_adjustments": "ellipse short-axis floor allowed only in the separate diagnostic figure and must be labeled"
+  },
+  "forbidden_post_effect_changes": [
+    "change heldout stems",
+    "change new training seed",
+    "change primary bridge times",
+    "change M to rescue a sign",
+    "replace D_sph after reading the result",
+    "select a different checkpoint as the primary AIO observation",
+    "drop a weather domain",
+    "treat image bootstrap as training-seed confirmation"
+  ]
+}
