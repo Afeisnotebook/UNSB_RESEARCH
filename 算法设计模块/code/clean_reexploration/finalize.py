@@ -235,7 +235,13 @@ def stage_return(run_id: str, evidence: dict, reports: dict) -> dict:
 
     # Stage pre-effect evidence.
     state = RUNTIME_ROOT / "state"
-    for name in ("DETERMINISM_GATE.json", "PROTECTION_RECORD.json", "PRE_IMPLEMENTATION_FINDINGS.md"):
+    for name in (
+        "DETERMINISM_GATE.json",
+        "PROTECTION_RECORD.json",
+        "PRE_IMPLEMENTATION_FINDINGS.md",
+        "SEMANTIC_TESTS.json",
+        "PRE_EFFECT_RED_TEAM.md",
+    ):
         src = state / name
         if src.is_file():
             shutil.copyfile(src, staging / "state" / name)
