@@ -26,3 +26,6 @@ __pycache__/
 00_original_UNSB/
 01_DT_CovMatch/
 02_HJ_PatchNCE/
+
+# Clean re-exploration runtime artifacts (large; kept only on the server)
+runtime_4090/

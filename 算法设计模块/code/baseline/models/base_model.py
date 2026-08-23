@@ -145,6 +145,15 @@ class BaseModel(ABC):
         lr = self.optimizers[0].param_groups[0]['lr']
         print('learning rate = %.7f' % lr)
 
+    def set_train_epoch(self, epoch):
+        """Set the explicit physical training epoch before the first batch.
+
+        Subclasses that schedule an intervention by epoch override this method
+        and store ``epoch`` in their own lane-specific field.  The default is a
+        no-op so plain ``SBModel`` remains unchanged.
+        """
+        pass
+
     def get_current_visuals(self):
         """Return visualization images. train.py will display these images with visdom, and save the images to a HTML"""
         visual_ret = OrderedDict()

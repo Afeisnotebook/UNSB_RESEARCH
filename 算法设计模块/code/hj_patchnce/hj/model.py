@@ -204,6 +204,10 @@ class SBModelHJPatchNCE(SBModel):
         self._hj_probe_sum = 0.0
         self._hj_risk_positive_sum = 0.0
 
+    def set_train_epoch(self, epoch):
+        """Explicit physical epoch for the HJ start gate."""
+        self.hj_epoch = int(epoch)
+
 
 def util_str2bool(v):
     if isinstance(v, bool):

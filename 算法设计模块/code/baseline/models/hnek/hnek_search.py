@@ -248,3 +248,50 @@ def hnek_search_installation_status(model) -> dict:
         "horizon_mode": None if cfg is None else cfg.horizon_mode,
         "partial": None if cfg is None else cfg.partial,
     }
+
+
+def set_hnek_search_active(model, active: bool) -> None:
+    """Toggle the HNEK-search adapter ON/OFF without changing state-dict keys."""
+    if not hasattr(model, "_hnek_search_cfg"):
+        raise RuntimeError("HNEK search model adapter is not installed")
+    generator = _inner(model.netG)
+    cfg = model._hnek_search_cfg
+
+    if bool(active):
+        if cfg.partial != "entropy_only" and hasattr(generator, "_hnek_search_original_forward"):
+            if not hasattr(generator.forward, "__self__") or generator.forward.__self__ is not generator:
+                generator.forward = types.MethodType(
+                    _make_hnek_search_forward(generator), generator
+                )
+        if cfg.partial in ("all", "entropy_only"):
+            model.compute_E_loss = types.MethodType(hnek_search_compute_E_loss, model)
+            model.compute_G_loss = types.MethodType(hnek_search_compute_G_loss, model)
+    else:
+        if cfg.partial != "entropy_only" and hasattr(generator, "_hnek_search_original_forward"):
+            generator.forward = generator._hnek_search_original_forward
+        if cfg.partial in ("all", "entropy_only"):
+            model.compute_E_loss = model._hnek_search_original_compute_E_loss
+            model.compute_G_loss = model._hnek_search_original_compute_G_loss
+
+    model.hnek_active = bool(active)
+
+
+def _make_hnek_search_forward(generator):
+    def hnek_search_forward(self, x, time_cond, z, layers=None, encode_only=False):
+        requested_layers = [] if layers is None else layers
+        result = self._hnek_search_original_forward(
+            x, time_cond, z, requested_layers, encode_only
+        )
+        if len(requested_layers) > 0:
+            return result
+        horizon = horizon_from_condition(
+            time_cond,
+            num_timesteps=self._hnek_search_num_timesteps,
+            like=x,
+        )
+        residual = result - x
+        return endpoint_from_residual_gamma(
+            x, residual, horizon, gamma=self._hnek_search_gamma
+        )
+
+    return hnek_search_forward
