@@ -146,12 +146,42 @@ def _hnek_on_off_no_param_change() -> dict:
     }
 
 
+def _physical_epoch_gates() -> dict:
+    from clean_reexploration.train_executor import _create_model, _seed_all, _setup_backend
+
+    _setup_backend("STRICT_CUDNN")
+    _seed_all(2026)
+    dt, _ = _create_model("dtcov", "sem_dt_gate")
+    _seed_all(2026)
+    hj, _ = _create_model("hj", "sem_hj_gate")
+
+    # HJ: OFF at physical e4, ON at physical e5 (start_epoch=5).
+    hj.set_train_epoch(4)
+    hj_off = not hj._hj_active()
+    hj.set_train_epoch(5)
+    hj_on = hj._hj_active()
+
+    # DT: OFF at physical e20 (active age 0), ON at physical e21 (active age 1).
+    dt.set_train_epoch(20)
+    dt_lambda_off = dt._scheduled_dtcov_lambda() <= 0.0
+    dt.set_train_epoch(21)
+    dt_lambda_on = dt._scheduled_dtcov_lambda() > 0.0
+
+    return {
+        "hj_off_at_e4": hj_off,
+        "hj_on_at_e5": hj_on,
+        "dt_off_at_e20": dt_lambda_off,
+        "dt_on_at_e21": dt_lambda_on,
+    }
+
+
 def semantic_main() -> int:
     results = {}
     results.update(_hnek_off_equals_plain())
     results.update(_dt_lambda0_equals_plain())
     results.update(_hj_strength0_equals_raw())
     results.update(_hnek_on_off_no_param_change())
+    results.update(_physical_epoch_gates())
     out = RUNTIME_ROOT / "state" / "SEMANTIC_TESTS.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
