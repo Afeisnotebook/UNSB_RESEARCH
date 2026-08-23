@@ -175,6 +175,38 @@ def _physical_epoch_gates() -> dict:
     }
 
 
+def _hj_true_forward_equals_raw() -> dict:
+    """HJ true projection must keep the forward loss identical (backward-only)."""
+    from clean_reexploration.train_executor import _create_model, _data_dependent_init, _seed_all, _setup_backend
+
+    _setup_backend("STRICT_CUDNN")
+    batch = _make_fixed_batch()
+
+    _seed_all(2026)
+    hj, opt = _create_model("hj", "sem_hj_fwd")
+    opt.hj_enable = True
+    opt.hj_strength = 0.5
+    hj.hj_config.strength = 0.5
+    hj.set_train_epoch(6)
+    _data_dependent_init(hj, batch)
+    hj.set_train_epoch(6)
+    hj.set_input(batch, batch)
+    hj.optimize_parameters()
+    hj_loss = float(hj.loss_G.item())
+
+    _seed_all(2026)
+    raw, opt2 = _create_model("hj", "sem_hj_fwd_raw")
+    opt2.hj_enable = False
+    raw.set_train_epoch(6)
+    _data_dependent_init(raw, batch)
+    raw.set_train_epoch(6)
+    raw.set_input(batch, batch)
+    raw.optimize_parameters()
+    raw_loss = float(raw.loss_G.item())
+
+    return {"hj_true_forward_equals_raw": (hj_loss == raw_loss), "hj_loss": hj_loss, "raw_loss": raw_loss}
+
+
 def semantic_main() -> int:
     results = {}
     results.update(_hnek_off_equals_plain())
@@ -182,6 +214,7 @@ def semantic_main() -> int:
     results.update(_hj_strength0_equals_raw())
     results.update(_hnek_on_off_no_param_change())
     results.update(_physical_epoch_gates())
+    results.update(_hj_true_forward_equals_raw())
     out = RUNTIME_ROOT / "state" / "SEMANTIC_TESTS.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
