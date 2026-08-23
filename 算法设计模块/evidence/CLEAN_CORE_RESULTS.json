@@ -1,0 +1,105 @@
+{
+  "phase": "deterministic_clean_core",
+  "design": "single_seed",
+  "design_note": "single seed=2026 only; same-seed bitwise reproducibility verified after determinism fixes; cross-seed robustness deferred to a better server",
+  "seeds": [
+    2026
+  ],
+  "rows": [
+    {
+      "seed": 2026,
+      "dt_plain": 18.889844754848987,
+      "dt_best": 18.622148785768413,
+      "dt_delta": -0.2676959690805738,
+      "hj_plain": 18.44520267997841,
+      "hj_true": 18.483282645270528,
+      "hj_roll": 17.693152365858218,
+      "hj_true_plain": 0.038079965292116214,
+      "hj_roll_plain": -0.7520503141201935,
+      "hj_true_roll": 0.7901302794123097
+    }
+  ],
+  "aggregates": {
+    "dt_delta": {
+      "n": 1,
+      "values": [
+        -0.2676959690805738
+      ],
+      "mean": -0.2676959690805738,
+      "std": 0.0,
+      "sem": 0.0
+    },
+    "hj_true_plain": {
+      "n": 1,
+      "values": [
+        0.038079965292116214
+      ],
+      "mean": 0.038079965292116214,
+      "std": 0.0,
+      "sem": 0.0
+    },
+    "hj_roll_plain": {
+      "n": 1,
+      "values": [
+        -0.7520503141201935
+      ],
+      "mean": -0.7520503141201935,
+      "std": 0.0,
+      "sem": 0.0
+    },
+    "hj_true_roll": {
+      "n": 1,
+      "values": [
+        0.7901302794123097
+      ],
+      "mean": 0.7901302794123097,
+      "std": 0.0,
+      "sem": 0.0
+    },
+    "dt_plain_abs": {
+      "n": 1,
+      "values": [
+        18.889844754848987
+      ],
+      "mean": 18.889844754848987,
+      "std": 0.0,
+      "sem": 0.0
+    },
+    "dt_best_abs": {
+      "n": 1,
+      "values": [
+        18.622148785768413
+      ],
+      "mean": 18.622148785768413,
+      "std": 0.0,
+      "sem": 0.0
+    },
+    "hj_plain_abs": {
+      "n": 1,
+      "values": [
+        18.44520267997841
+      ],
+      "mean": 18.44520267997841,
+      "std": 0.0,
+      "sem": 0.0
+    },
+    "hj_true_abs": {
+      "n": 1,
+      "values": [
+        18.483282645270528
+      ],
+      "mean": 18.483282645270528,
+      "std": 0.0,
+      "sem": 0.0
+    },
+    "hj_roll_abs": {
+      "n": 1,
+      "values": [
+        17.693152365858218
+      ],
+      "mean": 17.693152365858218,
+      "std": 0.0,
+      "sem": 0.0
+    }
+  }
+}

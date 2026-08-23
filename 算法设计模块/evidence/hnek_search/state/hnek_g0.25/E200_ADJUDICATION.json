@@ -1,0 +1,12 @@
+{
+  "stage": "E200",
+  "verdict": "DEVELOPMENT_PASS_SINGLE_SEED",
+  "thresholds_frozen": true,
+  "macro_psnr_delta_db": 0.7883720592327812,
+  "ci95": [
+    0.5916360545222022,
+    0.9932679280915209
+  ],
+  "positive_domains": 4,
+  "claim_boundary": "paired-development, seed-2026 only; not confirmatory"
+}
