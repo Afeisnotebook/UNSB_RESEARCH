@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "protocol_id": "unsb-shared-bridge-domain-phase-desynchronization-v1",
+  "frozen_local_time": "2026-08-24T07:34:00+08:00",
+  "hypothesis_origin": "Discovered after the reciprocal-kernel probe returned NOT_DISTINCT_FROM_SINGLE_AGE_TRAJECTORY on the first 20 images/domain",
+  "frozen_before_confirmation_image_selection_and_effect_read": true,
+  "phenomenon_name_cn": "共享桥域相位失同步",
+  "phenomenon_name_en": "shared-bridge domain-phase desynchronization",
+  "scientific_question_cn": "同一个 AIO epoch-1 checkpoint 在固定 bridge time 上，是否对应不同天气域互不一致的 task-specific 条件核有效年龄？",
+  "scope": {
+    "plain_baseline_only": true,
+    "new_training": false,
+    "reuse_seed2041_checkpoints": true,
+    "target_content_read": false,
+    "claim_type": "internal held-out confirmation of an observational SB-native phase phenomenon",
+    "not_causal_harm": true
+  },
+  "confirmation_split": {
+    "source_pool": "the same frozen 80-image/domain testA view",
+    "exclude": [
+      "all 21 historical measurement stems/domain",
+      "all 20 discovery stems/domain used by the fan-out and reciprocal probes"
+    ],
+    "selection": "rank remaining stems by stable SHA-256 identity under this protocol, before loading pixels",
+    "images_per_domain": 24,
+    "domains": 5,
+    "status": "INTERNAL_HELDOUT_CONFIRMATION_FROM_SAME_SOURCE_POOL_NOT_SEALED"
+  },
+  "measurement": {
+    "bridge_time_indices": [1, 2, 3],
+    "bridge_time_values": [0.5, 0.74, 0.86],
+    "proposals_M": 32,
+    "proposal_chunk": 8,
+    "common_random_numbers": true,
+    "single_ages": [1, 2, 3, 4, 5],
+    "reciprocal_KDD": "same two-anchor common-state definition frozen in unsb-reciprocal-bridge-kernel-deflection-v1",
+    "effective_age": "e_star(d,t)=argmin_e mean_image KDD(d,t,e), ties resolved to the lower epoch",
+    "M16_prefix_effective_age": "same definition using the first 16 of the frozen 32 proposals"
+  },
+  "primary_inference": {
+    "per_time_statistic": "T_t = mean_d (e_star(d,t)-mean_d e_star(d,t))^2",
+    "null": "permute complete five-age image KDD profiles across domain labels with 24 images retained per label",
+    "permutations": 9999,
+    "p_value": "(1 + count(T_perm >= T_observed)) / 10000",
+    "bootstrap": "5000 within-domain image bootstrap draws; recompute all five effective ages and their range",
+    "passing_time_requirements": [
+      "domain-label permutation p <= 0.01",
+      "at least 4/5 domains have effective-age bootstrap modal share >= 0.80",
+      "at least three distinct modal effective ages occur across the five domains",
+      "at least 90% of bootstrap draws have cross-domain age range >= 2 epochs"
+    ],
+    "overall_support": "at least 2/3 bridge times pass all requirements",
+    "M16_robustness_gate": "M16 and M32 effective ages agree in at least 12/15 domain-time cells"
+  },
+  "outcomes": [
+    "SUPPORTED_DOMAIN_PHASE_DESYNCHRONIZATION",
+    "PARTIAL_DOMAIN_PHASE_STRUCTURE",
+    "NOT_REPRODUCED_ON_CONFIRMATION_SPLIT",
+    "HOLD_ENGINEERING"
+  ],
+  "interpretation_if_supported": "A single global AIO training clock does not place every weather domain at the same task-specific conditional-kernel phase. This is an SB-native All-in-One mismatch defined through bridge transitions, not through output quality or a generic gradient-conflict score.",
+  "interpretation_if_failed": "The discovery-set age pattern does not reproduce on independent internal images and must not enter the paper head figure.",
+  "forbidden_post_effect_changes": [
+    "change the 24 confirmation images/domain",
+    "remove a weather domain, bridge time, or Single age",
+    "replace domain-level mean KDD with per-image majority vote",
+    "change the tie rule, permutation unit, bootstrap gate, or M16 gate",
+    "use target quality to select the effect"
+  ],
+  "execution_code_status_at_freeze": "not_implemented"
+}
