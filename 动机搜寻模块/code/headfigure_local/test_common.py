@@ -6,6 +6,7 @@ from .common import nested_domain_image_bootstrap, spherical_dispersion, stable_
 from .measure import joint_pca_rows
 from .measure_reciprocal import cosine_distance, mean_direction_and_floor, single_age_span
 from .adjudicate_phase_confirmation import effective_ages, phase_variance
+from .prepare_phase_confirmation import canonical_stem
 
 
 def test_spherical_dispersion_identical_is_zero():
@@ -93,3 +94,8 @@ def test_phase_effective_age_and_variance():
     ages = effective_ages([first, second])
     assert ages.tolist() == [3, 4]
     assert np.isclose(phase_variance(ages), 0.25)
+
+
+def test_confirmation_stem_normalization():
+    assert canonical_stem("FoggyCityscapes", "FoggyCityscapes__2984") == "2984"
+    assert canonical_stem("FoggyCityscapes", "2984") == "2984"

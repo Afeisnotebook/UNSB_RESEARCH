@@ -15,6 +15,11 @@ except ImportError:  # direct script execution
 PROTOCOL_ID = "unsb-shared-bridge-domain-phase-desynchronization-v1"
 
 
+def canonical_stem(domain: str, stem: str) -> str:
+    prefix = f"{domain}__"
+    return stem[len(prefix) :] if stem.startswith(prefix) else stem
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-root", required=True)
@@ -37,7 +42,9 @@ def main() -> int:
     discovery = json.loads(
         (discovery_root / "state" / "HELDOUT_MANIFEST.json").read_text(encoding="utf-8")
     )
-    discovery_ids = {(row["domain"], row["stem"]) for row in discovery}
+    discovery_ids = {
+        (row["domain"], canonical_stem(row["domain"], row["stem"])) for row in discovery
+    }
     selected_rows: list[dict] = []
     availability: dict[str, dict] = {}
     for domain in DOMAINS:
@@ -46,8 +53,8 @@ def main() -> int:
         eligible = [
             path
             for path in all_files
-            if (domain, path.stem) not in historical
-            and (domain, path.stem) not in discovery_ids
+            if (domain, canonical_stem(domain, path.stem)) not in historical
+            and (domain, canonical_stem(domain, path.stem)) not in discovery_ids
         ]
         ranked = sorted(
             eligible,
@@ -58,7 +65,9 @@ def main() -> int:
             raise RuntimeError(f"{domain}: only {len(selected)} eligible confirmation images")
         availability[domain] = {
             "testA_total": len(all_files),
-            "historical_excluded": sum(d == domain for d, _ in historical),
+            "historical_excluded_from_source_pool": sum(
+                (domain, canonical_stem(domain, path.stem)) in historical for path in all_files
+            ),
             "discovery_excluded": sum(d == domain for d, _ in discovery_ids),
             "eligible": len(eligible),
             "selected": len(selected),
@@ -104,10 +113,12 @@ def main() -> int:
         "selected_rows": len(selected_rows),
         "unique_domain_stems": len({(row["domain"], row["stem"]) for row in selected_rows}),
         "overlap_historical": sum(
-            (row["domain"], row["stem"]) in historical for row in selected_rows
+            (row["domain"], canonical_stem(row["domain"], row["stem"])) in historical
+            for row in selected_rows
         ),
         "overlap_discovery": sum(
-            (row["domain"], row["stem"]) in discovery_ids for row in selected_rows
+            (row["domain"], canonical_stem(row["domain"], row["stem"])) in discovery_ids
+            for row in selected_rows
         ),
         "target_content_read": False,
         "pixel_content_read": False,
