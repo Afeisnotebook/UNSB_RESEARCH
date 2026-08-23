@@ -195,6 +195,7 @@ def main() -> int:
                 )
                 aio_panel = proposal_panel(aio_net, x_aio, t, z_panel, chunk_size=args.chunk_size)
                 aio_mean, aio_floor = mean_direction_and_floor(aio_panel)
+                aio_mean_m16, aio_floor_m16 = mean_direction_and_floor(aio_panel[:16])
                 cache[(image_row["stem"], t)] = {
                     "x": x.detach(),
                     "z": z_panel,
@@ -202,6 +203,8 @@ def main() -> int:
                     "x_aio": x_aio.detach(),
                     "aio_mean_on_aio": aio_mean.cpu(),
                     "aio_floor_on_aio": aio_floor,
+                    "aio_mean_on_aio_M16": aio_mean_m16.cpu(),
+                    "aio_floor_on_aio_M16": aio_floor_m16,
                     "single_means_on_aio": [],
                 }
 
@@ -237,14 +240,32 @@ def main() -> int:
                     single_mean_aio, floor_single_aio = mean_direction_and_floor(single_on_aio)
                     aio_mean_single, floor_aio_single = mean_direction_and_floor(aio_on_single)
                     single_mean_single, floor_single_single = mean_direction_and_floor(single_on_single)
+                    single_mean_aio_m16, floor_single_aio_m16 = mean_direction_and_floor(single_on_aio[:16])
+                    aio_mean_single_m16, floor_aio_single_m16 = mean_direction_and_floor(aio_on_single[:16])
+                    single_mean_single_m16, floor_single_single_m16 = mean_direction_and_floor(single_on_single[:16])
                     deflection_aio_anchor = cosine_distance(entry["aio_mean_on_aio"], single_mean_aio)
                     deflection_single_anchor = cosine_distance(aio_mean_single, single_mean_single)
                     kdd = 0.5 * (deflection_aio_anchor + deflection_single_anchor)
+                    deflection_aio_anchor_m16 = cosine_distance(
+                        entry["aio_mean_on_aio_M16"], single_mean_aio_m16
+                    )
+                    deflection_single_anchor_m16 = cosine_distance(
+                        aio_mean_single_m16, single_mean_single_m16
+                    )
+                    kdd_m16 = 0.5 * (
+                        deflection_aio_anchor_m16 + deflection_single_anchor_m16
+                    )
                     proposal_floor = max(
                         entry["aio_floor_on_aio"],
                         floor_single_aio,
                         floor_aio_single,
                         floor_single_single,
+                    )
+                    proposal_floor_m16 = max(
+                        entry["aio_floor_on_aio_M16"],
+                        floor_single_aio_m16,
+                        floor_aio_single_m16,
+                        floor_single_single_m16,
                     )
                     entry["single_means_on_aio"].append(single_mean_aio.cpu())
                     row = {
@@ -255,9 +276,11 @@ def main() -> int:
                         "bridge_time_value": float(times[t]),
                         "single_epoch": epoch,
                         "reciprocal_KDD": kdd,
+                        "reciprocal_KDD_M16": kdd_m16,
                         "aio_anchor_deflection": deflection_aio_anchor,
                         "single_anchor_deflection": deflection_single_anchor,
                         "proposal_floor": proposal_floor,
+                        "proposal_floor_M16": proposal_floor_m16,
                         "floor_aio_on_aio": entry["aio_floor_on_aio"],
                         "floor_single_on_aio": floor_single_aio,
                         "floor_aio_on_single": floor_aio_single,

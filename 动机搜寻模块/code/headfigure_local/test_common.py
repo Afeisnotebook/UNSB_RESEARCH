@@ -5,6 +5,7 @@ import numpy as np
 from .common import nested_domain_image_bootstrap, spherical_dispersion, stable_seed
 from .measure import joint_pca_rows
 from .measure_reciprocal import cosine_distance, mean_direction_and_floor, single_age_span
+from .adjudicate_phase_confirmation import effective_ages, phase_variance
 
 
 def test_spherical_dispersion_identical_is_zero():
@@ -84,3 +85,11 @@ def test_reciprocal_cosine_distance_and_age_span():
     assert np.isclose(cosine_distance(x, y), 1.0)
     assert np.isclose(cosine_distance(x, z), 2.0)
     assert np.isclose(single_age_span([x, y, z]), 2.0)
+
+
+def test_phase_effective_age_and_variance():
+    first = np.array([[3.0, 2.0, 1.0, 2.0, 3.0], [3.0, 2.0, 1.0, 2.0, 3.0]])
+    second = np.array([[3.0, 2.0, 2.0, 1.0, 3.0], [3.0, 2.0, 2.0, 1.0, 3.0]])
+    ages = effective_ages([first, second])
+    assert ages.tolist() == [3, 4]
+    assert np.isclose(phase_variance(ages), 0.25)
