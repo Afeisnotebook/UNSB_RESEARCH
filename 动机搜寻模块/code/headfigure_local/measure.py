@@ -154,6 +154,8 @@ def measure_checkpoint(
             unit = flat / flat.norm(dim=1, keepdim=True).clamp_min(1e-12)
             unit_np = unit.detach().cpu().numpy().astype(np.float32)
             stats = spherical_dispersion(unit_np)
+            stats_m8 = spherical_dispersion(unit_np[:8])
+            stats_m16 = spherical_dispersion(unit_np[:16])
             rows.append(
                 {
                     "protocol_id": PROTOCOL_ID,
@@ -165,6 +167,8 @@ def measure_checkpoint(
                     "bridge_time_value": float(times[t]),
                     "M": m,
                     "D_sph": stats["D_sph"],
+                    "D_sph_M8": stats_m8["D_sph"],
+                    "D_sph_M16": stats_m16["D_sph"],
                     "log10_D_sph": math.log10(stats["D_sph"] + 1e-12),
                     "R2": stats["R2"],
                     "legacy_U": stats["legacy_U"],

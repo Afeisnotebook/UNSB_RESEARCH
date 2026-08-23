@@ -91,6 +91,7 @@
       "display": "log10(D_sph + 1e-12)"
     },
     "secondary_statistics": [
+      "prefix Monte Carlo stability at M=8 and M=16 using the first proposals of the frozen M=32 panel",
       "resultant_length_squared=||mean z||^2",
       "legacy_U=D_sph/(resultant_length_squared+1e-8)",
       "mean_pair_angle_degrees=acos(1-D_sph)",
