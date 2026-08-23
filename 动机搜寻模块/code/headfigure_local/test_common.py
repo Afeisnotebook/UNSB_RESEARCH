@@ -21,6 +21,17 @@ def test_spherical_dispersion_orthogonal_pair():
     assert np.isclose(result["mean_pair_angle_deg"], 90.0)
 
 
+def test_float32_near_identical_panel_has_no_negative_roundoff():
+    rng = np.random.default_rng(9)
+    base = rng.normal(size=(64,)).astype(np.float32)
+    base /= np.linalg.norm(base)
+    x = np.stack([base + 1e-7 * rng.normal(size=64).astype(np.float32) for _ in range(32)])
+    x /= np.linalg.norm(x, axis=1, keepdims=True)
+    result = spherical_dispersion(x)
+    assert result["D_sph"] >= 0
+    assert np.isfinite(result["legacy_U"])
+
+
 def test_stable_seed_identity():
     assert stable_seed("a", 1, "b") == stable_seed("a", 1, "b")
     assert stable_seed("a", 1, "b") != stable_seed("a", 2, "b")

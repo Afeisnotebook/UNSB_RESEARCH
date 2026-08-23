@@ -60,13 +60,18 @@ def spherical_dispersion(unit_directions: np.ndarray) -> dict[str, float]:
     norms = np.linalg.norm(x, axis=1)
     if not np.all(np.isfinite(x)) or not np.allclose(norms, 1.0, atol=2e-5, rtol=2e-5):
         raise ValueError("directions must be finite unit vectors")
+    # The tensors arrive as float32-normalized rows.  Re-normalize in float64
+    # before applying the exact pairwise identity; otherwise a nearly
+    # identical direction panel can have R^2=1+O(1e-8) and a tiny negative
+    # direct cosine distance solely from roundoff.
+    x = x / norms[:, None]
     m = x.shape[0]
     mean = x.mean(axis=0)
     r2 = float(np.dot(mean, mean))
     d_sph = float(m / (m - 1.0) * max(0.0, 1.0 - r2))
     gram = x @ x.T
     iu = np.triu_indices(m, k=1)
-    direct = float(np.mean(1.0 - gram[iu]))
+    direct = max(0.0, float(np.mean(1.0 - gram[iu])))
     if not np.isclose(d_sph, direct, atol=2e-10, rtol=2e-8):
         raise AssertionError(f"pairwise identity mismatch: {d_sph} vs {direct}")
     mean_cos = float(np.clip(1.0 - d_sph, -1.0, 1.0))
@@ -120,4 +125,3 @@ def nested_domain_image_bootstrap(
         "positive_domain_count": int(np.sum(domain_means > 0)),
     }
     return result, boot
-
