@@ -190,6 +190,38 @@ def stage_return(run_id: str, evidence: dict, reports: dict) -> dict:
     return {"staging": str(staging)}
 
 
+def _stage_controller_signals(staging: Path) -> None:
+    """Compute and stage target-blind controller signals for key checkpoints."""
+    from clean_reexploration import controller_audits, diagnostics, identity
+
+    t2 = Path("/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806/specs/h2/T2_MANIFEST.json")
+    files = identity.load_training_manifest(t2)
+    panel = diagnostics.build_diagnostic_panel(files)
+    rows = controller_audits._load_panel_rows(panel, files)
+
+    signals = {}
+    for lane, model_name in (("hnek_full", "hnek_search"), ("dt", "sb"), ("hj", "sb")):
+        for epoch in (20, 50, 100, 200):
+            ckpt = RUNS_ROOT / lane / f"full_state_e{epoch}.pt"
+            if not ckpt.is_file():
+                continue
+            from clean_reexploration import evaluate
+            netG, _ = evaluate._load_netG(ckpt, model_name)
+            netG.eval()
+            if lane == "hnek_full":
+                sig = controller_audits.compute_hnek_c_h(
+                    netG, rows, gamma=0.25, num_timesteps=5, tau=0.01, ngf=64
+                )
+            else:
+                sig = controller_audits.compute_dt_logu(
+                    netG, rows, m=4, ngf=64, num_timesteps=5, tau=0.01
+                )
+            signals[f"{lane}/e{epoch}"] = sig
+
+    p = staging / "CONTROLLER_SIGNALS.json"
+    p.write_text(json.dumps(signals, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def _final_report_md(run_id: str, reports: dict) -> str:
     m = reports["mechanical"]
     labels = m["mechanical_results"]
@@ -229,6 +261,7 @@ def finalize_main() -> int:
     evidence = build_evidence(evaluated, run_id=run_id)
     reports = build_reports(evidence, run_id=run_id)
     stage = stage_return(run_id, evidence, reports)
+    _stage_controller_signals(Path(stage["staging"]))
 
     from clean_reexploration import package_return
 
