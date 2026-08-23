@@ -167,14 +167,19 @@ def main() -> int:
     primary_rows: list[dict] = []
     pca_rows: list[dict] = []
     checkpoint_hashes: dict[str, str] = {}
+    per_domain_counts = {
+        domain: sum(row["domain"] == domain for row in heldout) for domain in DOMAINS
+    }
+    if len(set(per_domain_counts.values())) != 1 or min(per_domain_counts.values()) <= 0:
+        raise RuntimeError(f"heldout manifest is not balanced: {per_domain_counts}")
 
     aio_checkpoint = checkpoints_root / "aio5_plain_s2041_e1" / "1_net_G.pth"
     checkpoint_hashes["aio_e1"] = sha256_file(aio_checkpoint)
 
     for domain_index, domain in enumerate(DOMAINS):
         images = [row for row in heldout if row["domain"] == domain]
-        if len(images) != 20:
-            raise RuntimeError(f"{domain}: expected 20 images, got {len(images)}")
+        if len(images) != per_domain_counts[domain]:
+            raise RuntimeError(f"{domain}: heldout identity changed during measurement")
         aio_net = build_generator(str(aio_checkpoint), str(baseline_root), args.device)
         # Cache the common AIO anchor and its own mean direction once.  A cache
         # entry contains GPU tensors only for the active domain.
@@ -365,9 +370,9 @@ def main() -> int:
         "status": "complete",
         "protocol_id": PROTOCOL_ID,
         "age_rows": len(age_rows),
-        "expected_age_rows": 5 * 20 * 3 * 5,
+        "expected_age_rows": len(heldout) * 3 * 5,
         "primary_rows": len(primary_rows),
-        "expected_primary_rows": 5 * 20 * 3,
+        "expected_primary_rows": len(heldout) * 3,
         "representative_pca_rows": len(pca_rows),
         "M": args.m,
         "elapsed_seconds": time.time() - started,
