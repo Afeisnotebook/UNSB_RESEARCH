@@ -444,6 +444,24 @@ class DTCovMatch:
             self.teacher = teacher
         return self.teacher
 
+    def inject_teacher(self, state_dict: dict) -> torch.nn.Module:
+        """Install a teacher from an explicit (canonical post-e20) netG state.
+
+        Unlike :meth:`ensure_teacher`, this never deep-copies the live generator;
+        it loads the frozen state directly so the teacher identity is exactly the
+        canonical post-e20 netG and never updates.
+        """
+        import copy
+
+        source = self.netG.module if isinstance(self.netG, torch.nn.DataParallel) else self.netG
+        teacher = copy.deepcopy(source)
+        teacher.load_state_dict(state_dict)
+        teacher.eval()
+        for param in teacher.parameters():
+            param.requires_grad_(False)
+        self.teacher = teacher
+        return teacher
+
     def _current_and_teacher_stats(
         self,
         X_g: torch.Tensor,

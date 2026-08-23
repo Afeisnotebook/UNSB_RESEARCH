@@ -350,6 +350,7 @@ def train_lane(
     method: str | None = None,
     restore_epoch: int = 0,
     steps_per_epoch: int | None = None,
+    teacher_state: dict | None = None,
 ) -> dict:
     """Run one deterministic lane from ``start_epoch`` to ``end_epoch``."""
     from clean_reexploration import full_state
@@ -359,6 +360,8 @@ def train_lane(
     loader = TwoStreamLoader(pairs, transform, steps_per_epoch)
 
     model, opt = _create_model(model_name, lane_name)
+    if teacher_state is not None and hasattr(model, "dtcov"):
+        model.dtcov.inject_teacher(teacher_state)
     controller = None
     controllers_map = {}
     if method:
@@ -583,6 +586,74 @@ def _resume_probe_main() -> int:
     return 0 if equal else 1
 
 
+def run_all_lanes(args) -> int:
+    """Orchestrate the four lanes in the frozen execution order."""
+    from clean_reexploration import full_state, identity
+
+    t2 = AUTHORITY_ROOT / "specs/h2/T2_MANIFEST.json"
+    files = identity.load_training_manifest(t2)
+    pairs = build_deterministic_pairs(files)
+    transform = _img_transform()
+    _setup_backend(args.backend)
+
+    run_id = args.run_id
+    spec = {"_spec_sha256": args.spec_sha256}
+    code_sha256 = args.code_sha256
+
+    results = {}
+
+    # 1) canonical plain e1..e200
+    _seed_all(2026)
+    results["canonical_plain"] = train_lane(
+        model_name="sb", lane_name="canonical_plain", start_epoch=1, end_epoch=args.epochs,
+        anchors=ANCHOR_EPOCHS, restore_path=None, pairs=pairs, transform=transform,
+        run_id=run_id, spec=spec, code_sha256=code_sha256,
+        steps_per_epoch=args.steps_per_epoch,
+    )
+
+    # Extract canonical post-e20 netG for the DT teacher.
+    post_e20 = RUNS_ROOT / "canonical_plain" / "full_state_e20.pt"
+    post_e20_netG = None
+    if post_e20.is_file():
+        st = full_state.load_full_state(post_e20)
+        post_e20_netG = st["networks"]["netG"]
+
+    # 2) HNEK FULL e1..e200 (always ON)
+    _seed_all(2026)
+    results["hnek_full"] = train_lane(
+        model_name="hnek_search", lane_name="hnek_full", start_epoch=1, end_epoch=args.epochs,
+        anchors=ANCHOR_EPOCHS, restore_path=None, pairs=pairs, transform=transform,
+        run_id=run_id, spec=spec, code_sha256=code_sha256, method="HNEK",
+        steps_per_epoch=args.steps_per_epoch,
+    )
+
+    # 3) DT e1..e200 (plain until e21, DT active e21..e45, then plain)
+    _seed_all(2026)
+    dt_result = train_lane(
+        model_name="dtcov", lane_name="dt", start_epoch=1, end_epoch=args.epochs,
+        anchors=ANCHOR_EPOCHS, restore_path=None, pairs=pairs, transform=transform,
+        run_id=run_id, spec=spec, code_sha256=code_sha256, method="DT",
+        teacher_state=post_e20_netG,
+        steps_per_epoch=args.steps_per_epoch,
+    )
+    results["dt"] = dt_result
+
+    # 4) HJ e1..e200 (plain until e5, HJ active e5+)
+    _seed_all(2026)
+    results["hj"] = train_lane(
+        model_name="hj", lane_name="hj", start_epoch=1, end_epoch=args.epochs,
+        anchors=ANCHOR_EPOCHS, restore_path=None, pairs=pairs, transform=transform,
+        run_id=run_id, spec=spec, code_sha256=code_sha256, method="HJ",
+        steps_per_epoch=args.steps_per_epoch,
+    )
+
+    (RUNTIME_ROOT / "TRAINING_FROZEN.ok").write_text(
+        json.dumps({"run_id": run_id, "completed_utc": time.strftime("%Y-%m-%dT%H:%M:%S%z")}) + "\n"
+    )
+    print(json.dumps(results, ensure_ascii=False))
+    return 0
+
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--model", choices=["sb", "hnek_search", "dtcov", "hj"], default="sb")
@@ -592,10 +663,15 @@ def main() -> int:
     p.add_argument("--determinism", action="store_true")
     p.add_argument("--determinism-gate", action="store_true")
     p.add_argument("--train", action="store_true")
+    p.add_argument("--orchestrate", action="store_true")
     p.add_argument("--lane", type=str, default="canonical_plain")
     p.add_argument("--start-epoch", type=int, default=1)
     p.add_argument("--end-epoch", type=int, default=200)
     p.add_argument("--steps-per-epoch", type=int, default=None)
+    p.add_argument("--epochs", type=int, default=200)
+    p.add_argument("--run-id", type=str, default="clean-reexploration-s2026-20260824")
+    p.add_argument("--spec-sha256", type=str, default="")
+    p.add_argument("--code-sha256", type=str, default="")
     args = p.parse_args()
     if args.smoke:
         return smoke(args)
@@ -605,6 +681,8 @@ def main() -> int:
         return determinism_gate(args)
     if args.train:
         return run_train(args)
+    if args.orchestrate:
+        return run_all_lanes(args)
     return 0
 
 
