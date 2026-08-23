@@ -4,6 +4,7 @@ import numpy as np
 
 from .common import nested_domain_image_bootstrap, spherical_dispersion, stable_seed
 from .measure import joint_pca_rows
+from .measure_reciprocal import cosine_distance, mean_direction_and_floor, single_age_span
 
 
 def test_spherical_dispersion_identical_is_zero():
@@ -62,3 +63,24 @@ def test_joint_pca_uses_all_three_arms():
     assert len(rows) == 24
     assert {row["arm"] for row in rows} == set(groups)
     assert all(np.isfinite(row["pca1"]) and np.isfinite(row["pca2"]) for row in rows)
+
+
+def test_reciprocal_mean_direction_floor_identical_panel():
+    import torch
+
+    panel = torch.zeros(8, 3, 2, 2)
+    panel[:, 0] = 1.0
+    mean, floor = mean_direction_and_floor(panel)
+    assert np.isclose(float(mean.norm()), 1.0)
+    assert floor == 0.0
+
+
+def test_reciprocal_cosine_distance_and_age_span():
+    import torch
+
+    x = torch.tensor([1.0, 0.0, 0.0])
+    y = torch.tensor([0.0, 1.0, 0.0])
+    z = torch.tensor([-1.0, 0.0, 0.0])
+    assert np.isclose(cosine_distance(x, y), 1.0)
+    assert np.isclose(cosine_distance(x, z), 2.0)
+    assert np.isclose(single_age_span([x, y, z]), 2.0)
