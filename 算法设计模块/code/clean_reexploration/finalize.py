@@ -88,6 +88,31 @@ def _evaluate_all(epochs: list[int], replicates: int) -> dict:
     return out
 
 
+def _discover_epochs() -> list[int]:
+    d = RUNS_ROOT / "canonical_plain"
+    if not d.is_dir():
+        return [200]
+    epochs = []
+    for p in d.glob("full_state_e*.pt"):
+        try:
+            epochs.append(int(p.stem.replace("full_state_e", "")))
+        except ValueError:
+            continue
+    return sorted(epochs)
+
+
+def _stage_per_image_rows(staging: Path, evaluated: dict) -> None:
+    """Write per-image PSNR/SSIM rows for every evaluated checkpoint."""
+    lines = ["lane,epoch,domain,stem,psnr,ssim"]
+    for lane, epochs in evaluated.items():
+        for epoch, payload in epochs.items():
+            for r in payload["rows"]:
+                lines.append(
+                    f"{lane},{epoch},{r['domain']},{r['stem']},{r['psnr']:.10f},{r['ssim']:.10f}"
+                )
+    (staging / "PER_IMAGE_METRICS.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def build_evidence(evaluated: dict, *, run_id: str) -> dict:
     """Convert evaluated rows into adjudicator-ready raw evidence."""
     plain = evaluated.get("canonical_plain", {})
@@ -187,6 +212,33 @@ def stage_return(run_id: str, evidence: dict, reports: dict) -> dict:
         "run_id": run_id,
     }, ensure_ascii=False, indent=2) + "\n")
     w("PAIRED_EVAL_EVIDENCE.json", json.dumps(evidence, ensure_ascii=False, indent=2) + "\n")
+
+    # Stage the actual executed code and its tests (section 15.2).
+    for py in sorted((CODE_ROOT / "clean_reexploration").rglob("*.py")):
+        rel = py.relative_to(CODE_ROOT)
+        dst = staging / "code" / rel
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(py, dst)
+    # Minimal baseline hooks that were touched.
+    for rel in (
+        "baseline/models/base_model.py",
+        "baseline/models/hnek/hnek_search.py",
+        "dt_covmatch/dtcov/model.py",
+        "dt_covmatch/dtcov/dtcovmatch.py",
+        "hj_patchnce/hj/model.py",
+    ):
+        src = CODE_ROOT / rel
+        if src.is_file():
+            dst = staging / "code" / rel
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(src, dst)
+
+    # Stage pre-effect evidence.
+    state = RUNTIME_ROOT / "state"
+    for name in ("DETERMINISM_GATE.json", "PROTECTION_RECORD.json", "PRE_IMPLEMENTATION_FINDINGS.md"):
+        src = state / name
+        if src.is_file():
+            shutil.copyfile(src, staging / "state" / name)
     return {"staging": str(staging)}
 
 
@@ -252,33 +304,38 @@ def _decision_log_md(reports: dict) -> str:
 
 def finalize_main() -> int:
     p = argparse.ArgumentParser()
-    p.add_argument("--epochs", type=str, default="200")
+    p.add_argument("--epochs", type=str, default="auto")
     p.add_argument("--replicates", type=int, default=4)
     p.add_argument("--run-id", type=str, default="clean-reexploration-s2026-20260824")
     p.add_argument("--zip-name", type=str, default="DTHJ_HNEK_CLEAN_REEXPLORATION_RETURN_20260824.zip")
     args = p.parse_args()
 
     run_id = (RUNTIME_ROOT / "authority" / "RUN_ID.txt").read_text().strip() or args.run_id
-    epochs = [int(e) for e in args.epochs.split(",")]
+    epochs = _discover_epochs() if args.epochs == "auto" else [int(e) for e in args.epochs.split(",")]
 
     evaluated = _evaluate_all(epochs, args.replicates)
     evidence = build_evidence(evaluated, run_id=run_id)
     reports = build_reports(evidence, run_id=run_id)
     stage = stage_return(run_id, evidence, reports)
+    _stage_per_image_rows(Path(stage["staging"]), evaluated)
     _stage_controller_signals(Path(stage["staging"]))
 
     from clean_reexploration import package_return
 
     zip_path, sidecar = package_return.package_return(
         staging=Path(stage["staging"]),
-        output_dir=RUNTIME_ROOT / "return_staging",
+        output_dir=RUNTIME_ROOT / "portable",
         zip_name=args.zip_name,
+    )
+    acceptance = package_return.fresh_directory_acceptance(
+        zip_path, RUNTIME_ROOT / "portable" / "_fresh_acceptance"
     )
     print(json.dumps({
         "finalized": True,
         "zip": str(zip_path),
         "sidecar": str(sidecar),
         "labels": reports["summary"].get("labels", {}),
+        "fresh_acceptance": acceptance,
     }, ensure_ascii=False))
     return 0
 
