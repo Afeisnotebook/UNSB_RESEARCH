@@ -284,6 +284,37 @@ def _stage_controller_signals(staging: Path) -> None:
     p.write_text(json.dumps(signals, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def _stage_git_and_logs(staging: Path) -> None:
+    import subprocess
+
+    def run(cmd):
+        try:
+            return subprocess.run(cmd, cwd=str(REPO_ROOT), text=True, capture_output=True, timeout=30).stdout
+        except Exception:
+            return ""
+
+    git_id = {
+        "branch": run(["git", "branch", "--show-current"]).strip(),
+        "head": run(["git", "rev-parse", "HEAD"]).strip(),
+        "log": run(["git", "log", "--oneline", "-20"]),
+        "status": run(["git", "status", "--porcelain=v1"]),
+        "remote": run(["git", "remote", "get-url", "origin"]).strip(),
+    }
+    (staging / "GIT_IDENTITY.json").write_text(
+        json.dumps(git_id, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+
+    log = RUNTIME_ROOT / "logs" / "run_long.log"
+    if log.is_file():
+        tail = run(["tail", "-n", "200", str(log)])
+        (staging / "LOGS_SUMMARY.md").write_text(
+            "# 训练日志摘要（tail 200）\n\n```\n" + tail + "\n```\n", encoding="utf-8"
+        )
+    hb = RUNTIME_ROOT / "logs" / "heartbeat.json"
+    if hb.is_file():
+        (staging / "HEARTBEAT_SUMMARY.json").write_text(hb.read_text(encoding="utf-8"), encoding="utf-8")
+
+
 def _final_report_md(run_id: str, reports: dict) -> str:
     m = reports["mechanical"]
     labels = m["mechanical_results"]
@@ -325,6 +356,7 @@ def finalize_main() -> int:
     stage = stage_return(run_id, evidence, reports)
     _stage_per_image_rows(Path(stage["staging"]), evaluated)
     _stage_controller_signals(Path(stage["staging"]))
+    _stage_git_and_logs(Path(stage["staging"]))
 
     from clean_reexploration import package_return
 
