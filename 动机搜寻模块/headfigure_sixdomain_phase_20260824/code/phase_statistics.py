@@ -271,6 +271,7 @@ def main() -> int:
     cell_rows: list[dict] = []
     crossfit_rows: list[dict] = []
     draw_rows: list[dict] = []
+    phase_draw_rows: list[dict] = []
     time_results = []
     phase_mean_matrix = np.empty((len(domains), len(times)), dtype=np.float64)
     has_m16 = "reciprocal_KDD_M16" in frame and frame["reciprocal_KDD_M16"].notna().all()
@@ -321,6 +322,15 @@ def main() -> int:
                 effective_age_m16 = ages[age_from_profile(arrays_m16[domain].mean(axis=0))]
                 m16_m32_agreement += int(effective_age_m16 == ages[int(np.argmin(profile))])
             phase_values = phase_draws[domain]
+            phase_draw_rows.extend(
+                {
+                    "bridge_time_index": time_index,
+                    "domain": domain,
+                    "draw": draw,
+                    "effective_age": ages[int(value)],
+                }
+                for draw, value in enumerate(phase_values)
+            )
             counts = np.bincount(phase_values, minlength=len(ages))
             phase_mode_index = int(np.argmax(counts))
             phase_mean_matrix[domain_index, time_position] = float(phase_values.mean() + 1)
@@ -447,6 +457,7 @@ def main() -> int:
     write_csv(output_dir / "PHASE_CELL_SUMMARY.csv", cell_rows)
     write_csv(output_dir / "CROSSFIT_DIRECTION_DETAILS.csv", crossfit_rows)
     write_csv(output_dir / "CROSSFIT_BOOTSTRAP_DRAWS.csv", draw_rows)
+    write_csv(output_dir / "PHASE_BOOTSTRAP_DRAWS.csv", phase_draw_rows)
     print(json.dumps(payload, ensure_ascii=False, indent=2))
     return 0
 
