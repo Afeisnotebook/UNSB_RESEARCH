@@ -7,6 +7,7 @@ from .measure import joint_pca_rows
 from .measure_reciprocal import cosine_distance, mean_direction_and_floor, single_age_span
 from .adjudicate_phase_confirmation import effective_ages, phase_variance
 from .prepare_phase_confirmation import canonical_stem
+from .adjudicate_phase_tertiary import mapping_accuracy
 
 
 def test_spherical_dispersion_identical_is_zero():
@@ -99,3 +100,15 @@ def test_phase_effective_age_and_variance():
 def test_confirmation_stem_normalization():
     assert canonical_stem("FoggyCityscapes", "FoggyCityscapes__2984") == "2984"
     assert canonical_stem("FoggyCityscapes", "2984") == "2984"
+
+
+def test_phase_mapping_accuracy():
+    observed = {
+        1: np.array([4, 3, 2, 4, 5]),
+        2: np.array([4, 3, 2, 4, 5]),
+        3: np.array([4, 3, 2, 2, 5]),
+    }
+    predicted = {key: value.copy() for key, value in observed.items()}
+    assert mapping_accuracy(observed, predicted) == 15
+    predicted[3][0] = 1
+    assert mapping_accuracy(observed, predicted) == 14
