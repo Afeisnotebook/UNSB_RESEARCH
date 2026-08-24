@@ -15,20 +15,21 @@
     "not_calibrated_uncertainty": true
   },
   "lineage": {
-    "execution_code_commit": "8bc71aea9ed8a60b37716f0c35314324a63d851d",
+    "execution_code_commit": "0afa29da73af05b2d4cd026a49e1ff5321fad588",
     "branch": "motivation/sixdomain-phase-statistics-20260824",
     "source_hashes": {
       "动机搜寻模块/headfigure_sixdomain_phase_20260824/code/common.py": "d7821436040ed97e89ad33996399bfbfbf18f6396fef3c7d2997463304788080",
       "动机搜寻模块/headfigure_sixdomain_phase_20260824/code/prepare_sixdomain.py": "f77a098e579f3c5643d382a3b6485984d89d1e513cc914a10f190221eeaba5ae",
       "动机搜寻模块/headfigure_sixdomain_phase_20260824/code/train_sixdomain.py": "9aa80c8f847b88ea7b725e567f25034394b40f171d84e1e209bbaf18ce957922",
       "动机搜寻模块/headfigure_sixdomain_phase_20260824/code/measure_sixdomain.py": "4ce9506d6d8524a315a9e9af9f8c6f894369958b20395b331e7809fba9f7d14f",
-      "动机搜寻模块/headfigure_sixdomain_phase_20260824/code/phase_statistics.py": "6125a92117b54c4be91879fb7974542ef56cf30b839c14f6d5a6cdc34ee13fb3",
+      "动机搜寻模块/headfigure_sixdomain_phase_20260824/code/phase_statistics.py": "3a339063f841c868e4b364b82636527eb3298f37eff84299215bf2378dd6c0df",
       "算法设计模块/code/baseline/train.py": "4381e0c1dc90dd9929e6c0abff8c70ff9d5272aec2e5e1dd139f95195686bd51",
       "算法设计模块/code/baseline/models/sb_model.py": "81c75cbc5863445cb08399f6f9360d64056aaabac166cc488cd696a17b7ce840",
       "算法设计模块/code/baseline/models/ncsn_networks.py": "bb599862eda4051d7e941a9f8e0d2c36aacdf25140577bb7ccd1025b38d1acef",
       "动机搜寻模块/code/measure_path_geometry.py": "43e21f769588f2bc8ad6167f3135c6d0a10917621ab9cd95ac117c6b5fa10483"
     }
   },
+  "pre_effect_revision": "After protocol freeze but before any six-domain model effect was read, the statistics runner was completed with the already frozen adjudication gates and M16 reporting; no formula, threshold, sample, checkpoint, or training setting changed.",
   "domains": [
     "FoggyCityscapes",
     "LowLightTrafficData",
