@@ -1,0 +1,94 @@
+{
+  "verdict": "PASS",
+  "protocol_id": "unsb-sixdomain-expanded-phase-field-v1",
+  "heldout_status": "EXPANDED_INTERNAL_HELDOUT_NOT_EXTERNAL_OR_SEALED",
+  "domains": [
+    "FoggyCityscapes",
+    "LowLightTrafficData",
+    "RainCityscapes",
+    "RainDS-syn",
+    "RSCityscapes",
+    "SnowTrafficData"
+  ],
+  "per_domain": {
+    "FoggyCityscapes": {
+      "source_input": 4575,
+      "source_target": 4575,
+      "trainA": 120,
+      "trainB": 120,
+      "heldout": 80,
+      "trainA_heldout_overlap": 0,
+      "trainA_trainB_stem_overlap": 0,
+      "prior_phase_identities_in_source": 60,
+      "prior_phase_overlap_heldout": 0
+    },
+    "LowLightTrafficData": {
+      "source_input": 736,
+      "source_target": 736,
+      "trainA": 120,
+      "trainB": 120,
+      "heldout": 80,
+      "trainA_heldout_overlap": 0,
+      "trainA_trainB_stem_overlap": 0,
+      "prior_phase_identities_in_source": 60,
+      "prior_phase_overlap_heldout": 0
+    },
+    "RainCityscapes": {
+      "source_input": 1188,
+      "source_target": 1188,
+      "trainA": 120,
+      "trainB": 120,
+      "heldout": 80,
+      "trainA_heldout_overlap": 0,
+      "trainA_trainB_stem_overlap": 0,
+      "prior_phase_identities_in_source": 60,
+      "prior_phase_overlap_heldout": 0
+    },
+    "RainDS-syn": {
+      "source_input": 200,
+      "source_target": 200,
+      "trainA": 120,
+      "trainB": 120,
+      "heldout": 80,
+      "trainA_heldout_overlap": 0,
+      "trainA_trainB_stem_overlap": 40,
+      "prior_phase_identities_in_source": 0,
+      "prior_phase_overlap_heldout": 0
+    },
+    "RSCityscapes": {
+      "source_input": 1188,
+      "source_target": 1188,
+      "trainA": 120,
+      "trainB": 120,
+      "heldout": 80,
+      "trainA_heldout_overlap": 0,
+      "trainA_trainB_stem_overlap": 0,
+      "prior_phase_identities_in_source": 60,
+      "prior_phase_overlap_heldout": 0
+    },
+    "SnowTrafficData": {
+      "source_input": 1266,
+      "source_target": 1266,
+      "trainA": 120,
+      "trainB": 120,
+      "heldout": 80,
+      "trainA_heldout_overlap": 0,
+      "trainA_trainB_stem_overlap": 0,
+      "prior_phase_identities_in_source": 60,
+      "prior_phase_overlap_heldout": 0
+    }
+  },
+  "train_rows": 1440,
+  "heldout_rows": 480,
+  "heldout_unique": 480,
+  "prior_phase_csv_hashes": {
+    "E:\\UNSB_Expl\\UNSB_HEADFIGURE_LOCAL_20260824\\raw\\RECIPROCAL_KERNEL_BY_AGE.csv": "b6c40631ce235b9410fc7af7752a0ea9ad5166b21b5dccbaf180782acfa16b0c",
+    "E:\\UNSB_Expl\\UNSB_HEADFIGURE_PHASE_CONFIRM_20260824\\raw\\RECIPROCAL_KERNEL_BY_AGE.csv": "930c289b8efce2f50fdd4bb6c45ebfc3dc27a56a090f3a1b301062f740ddc11c",
+    "E:\\UNSB_Expl\\UNSB_HEADFIGURE_PHASE_TERTIARY_20260824\\raw\\RECIPROCAL_KERNEL_BY_AGE.csv": "de5843bce017be54b7e130fbacc48e0639438dd33105e0f299fe91691d28683a"
+  },
+  "pairing_used_for_training": false,
+  "training_loader": "unaligned_random_B",
+  "target_content_read_for_measurement": false,
+  "data_manifest_sha256": "1f35f9846251bde6cd70a495eed4cd5ed534adcda0c1b66ca813601b531f4fd5",
+  "heldout_manifest_sha256": "591c33d269c06498f18559eb00e985c7a1c759731af9025847d40653f6227dc9"
+}

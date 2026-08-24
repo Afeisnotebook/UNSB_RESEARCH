@@ -1,0 +1,152 @@
+{
+  "protocol_id": "unsb-sixdomain-expanded-phase-field-v1",
+  "status": "complete",
+  "verdict": "SUPPORTED_SIXDOMAIN_SHARED_CLOCK_REGRET",
+  "statistic_name_cn": "交叉拟合共享时钟遗憾与相位 Wasserstein 离散",
+  "statistic_name_en": "cross-fitted shared-clock regret and phase-Wasserstein dispersion",
+  "domains": [
+    "FoggyCityscapes",
+    "LowLightTrafficData",
+    "RainCityscapes",
+    "RainDS-syn",
+    "RSCityscapes",
+    "SnowTrafficData"
+  ],
+  "ages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "input_splits": [
+    {
+      "label": "expanded80",
+      "path": "E:\\UNSB_Expl\\UNSB_HEADFIGURE_SIXDOMAIN_EXPANDED_20260824\\raw\\RECIPROCAL_KERNEL_BY_AGE.csv",
+      "sha256": "39759cc737ac8b0e0fec09a5b45859ac3b3681cec750f8af48ac63cf50b1fed7"
+    }
+  ],
+  "row_count": 8640,
+  "unique_images_per_domain": {
+    "FoggyCityscapes": 80,
+    "LowLightTrafficData": 80,
+    "RainCityscapes": 80,
+    "RainDS-syn": 80,
+    "RSCityscapes": 80,
+    "SnowTrafficData": 80
+  },
+  "time_results": [
+    {
+      "bridge_time_index": 1,
+      "bridge_time_value": 0.5,
+      "n_images_per_domain": 80,
+      "domain_effective_ages": {
+        "FoggyCityscapes": 4,
+        "LowLightTrafficData": 2,
+        "RainCityscapes": 4,
+        "RainDS-syn": 3,
+        "RSCityscapes": 2,
+        "SnowTrafficData": 6
+      },
+      "best_common_age": 4,
+      "in_sample_sync_regret": 0.020230406836149697,
+      "in_sample_normalized_regret": 0.05661047170609693,
+      "crossfit_sync_regret": 0.020080230038607302,
+      "crossfit_normalized_regret": 0.05619023402046648,
+      "bootstrap_ci_95": [
+        0.018566437173710964,
+        0.021593326854864214
+      ],
+      "bootstrap_one_sided_95_lower": 0.018841180188067994,
+      "bootstrap_positive_fraction": 1.0,
+      "wasserstein_barycenter_energy": 1.7656444444444443,
+      "normalized_wasserstein_energy": 0.2825031111111111,
+      "between_domain_phase_variance": 1.7120087555555557,
+      "mean_bootstrap_phase_variance": 0.07749929333333334,
+      "phase_reliability_ratio": 0.9566924030425832
+    },
+    {
+      "bridge_time_index": 2,
+      "bridge_time_value": 0.74,
+      "n_images_per_domain": 80,
+      "domain_effective_ages": {
+        "FoggyCityscapes": 4,
+        "LowLightTrafficData": 2,
+        "RainCityscapes": 4,
+        "RainDS-syn": 4,
+        "RSCityscapes": 2,
+        "SnowTrafficData": 6
+      },
+      "best_common_age": 4,
+      "in_sample_sync_regret": 0.03689041337654919,
+      "in_sample_normalized_regret": 0.11628156393582748,
+      "crossfit_sync_regret": 0.036890413376549226,
+      "crossfit_normalized_regret": 0.11628156393582759,
+      "bootstrap_ci_95": [
+        0.03498323712396005,
+        0.038455304710906385
+      ],
+      "bootstrap_one_sided_95_lower": 0.03530697647337766,
+      "bootstrap_positive_fraction": 1.0,
+      "wasserstein_barycenter_energy": 1.8898611111111112,
+      "normalized_wasserstein_energy": 0.3023777777777778,
+      "between_domain_phase_variance": 1.882503418888889,
+      "mean_bootstrap_phase_variance": 0.009629246666666667,
+      "phase_reliability_ratio": 0.9949109030027556
+    },
+    {
+      "bridge_time_index": 3,
+      "bridge_time_value": 0.8600000000000001,
+      "n_images_per_domain": 80,
+      "domain_effective_ages": {
+        "FoggyCityscapes": 4,
+        "LowLightTrafficData": 3,
+        "RainCityscapes": 4,
+        "RainDS-syn": 4,
+        "RSCityscapes": 2,
+        "SnowTrafficData": 6
+      },
+      "best_common_age": 4,
+      "in_sample_sync_regret": 0.01781569923066652,
+      "in_sample_normalized_regret": 0.07642865371164907,
+      "crossfit_sync_regret": 0.016367879353596754,
+      "crossfit_normalized_regret": 0.07021756299953517,
+      "bootstrap_ci_95": [
+        0.014596920086904329,
+        0.018524236778077973
+      ],
+      "bootstrap_one_sided_95_lower": 0.014888151681701886,
+      "bootstrap_positive_fraction": 1.0,
+      "wasserstein_barycenter_energy": 1.4389,
+      "normalized_wasserstein_energy": 0.230224,
+      "between_domain_phase_variance": 1.3086713822222222,
+      "mean_bootstrap_phase_variance": 0.17378066666666667,
+      "phase_reliability_ratio": 0.8827748480654624
+    }
+  ],
+  "domain_time_phase_shear_energy": 0.07438118555555555,
+  "M16_available": true,
+  "M16_M32_effective_age_agreement": 18,
+  "M16_M32_total_cells": 18,
+  "requirements": {
+    "crossfit_regret_positive_all_times": true,
+    "one_sided_95_lower_positive_at_least_two_times": true,
+    "bootstrap_positive_fraction_ge_0_95_at_least_two_times": true,
+    "at_least_three_distinct_domain_phases_at_least_two_times": true
+  },
+  "interpretation": {
+    "sync_regret": "Held-out excess reciprocal KDD paid by a single shared task phase relative to clocks selected separately for each domain.",
+    "wasserstein": "Distance among bootstrap phase distributions; it uses the full sampling uncertainty of the argmin and has no soft-min temperature.",
+    "shear": "Across-domain variance of phase increments over adjacent bridge-time observations."
+  },
+  "claim_boundary": {
+    "allowed": "A positive cross-fitted regret means a common phase is statistically less compatible with the observed domain-specific conditional-kernel trajectories than domain-specific phases.",
+    "forbidden": [
+      "causal restoration harm",
+      "calibrated posterior uncertainty",
+      "method effectiveness",
+      "external or multi-training-seed confirmation"
+    ]
+  }
+}
