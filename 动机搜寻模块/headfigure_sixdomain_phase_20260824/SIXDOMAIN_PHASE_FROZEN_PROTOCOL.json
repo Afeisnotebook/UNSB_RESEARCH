@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "protocol_id": "unsb-sixdomain-expanded-phase-field-v1",
-  "frozen_local_time": "2026-08-24T10:35:00+08:00",
+  "frozen_local_time": "2026-08-24T23:50:20+08:00",
   "frozen_before_new_sixdomain_model_effect_read": true,
   "purpose_cn": "恢复完整六域，以更大的均衡训练/观测集复核共享桥域相位失同步，并把离散有效年龄提升为可交叉拟合的共享时钟代价。",
   "scope": {
