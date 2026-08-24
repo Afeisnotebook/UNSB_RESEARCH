@@ -1,0 +1,39 @@
+{
+  "verdict": "PASS",
+  "protocol_id": "unsb-domain-phase-mapping-reconfirmation-v1",
+  "status": "TERTIARY_INTERNAL_HELDOUT_FROM_SAME_SOURCE_POOL_NOT_SEALED",
+  "availability": {
+    "FoggyCityscapes": {
+      "source_total": 80,
+      "eligible_after_union_exclusion": 28,
+      "selected": 16
+    },
+    "LowLightTrafficData": {
+      "source_total": 80,
+      "eligible_after_union_exclusion": 29,
+      "selected": 16
+    },
+    "RainCityscapes": {
+      "source_total": 80,
+      "eligible_after_union_exclusion": 27,
+      "selected": 16
+    },
+    "RSCityscapes": {
+      "source_total": 80,
+      "eligible_after_union_exclusion": 31,
+      "selected": 16
+    },
+    "SnowTrafficData": {
+      "source_total": 80,
+      "eligible_after_union_exclusion": 27,
+      "selected": 16
+    }
+  },
+  "selected_rows": 80,
+  "overlap_historical": 0,
+  "overlap_discovery": 0,
+  "overlap_first_confirmation": 0,
+  "pixel_content_read": false,
+  "target_content_read": false,
+  "manifest_sha256": "4bfcbf56f10f6cb4cd31d1795b6a2b0201b8f23946a62e257463b90d75e61a01"
+}

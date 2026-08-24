@@ -1,0 +1,133 @@
+{
+  "protocol_id": "unsb-initial-shared-bridge-fanout-dual-control-v1",
+  "new_seed": 2041,
+  "verdict": "EXPOSURE_ONLY",
+  "primary_time_passes": [
+    false,
+    false,
+    false
+  ],
+  "n_passing_bridge_times": 0,
+  "summary": [
+    {
+      "n_domains": 5,
+      "n_images": 100,
+      "mean": 3.562079536485212,
+      "ci_low": 1.146747003456683,
+      "ci_high": 5.797895409048559,
+      "positive_domain_count": 4,
+      "bridge_time_index": 1,
+      "contrast": "exposure_gap"
+    },
+    {
+      "n_domains": 5,
+      "n_images": 100,
+      "mean": 0.12233561145732608,
+      "ci_low": -0.7664490229356519,
+      "ci_high": 1.2148903699371247,
+      "positive_domain_count": 2,
+      "bridge_time_index": 1,
+      "contrast": "clock_gap"
+    },
+    {
+      "n_domains": 5,
+      "n_images": 100,
+      "mean": -0.5451839934976228,
+      "ci_low": -1.720274920708173,
+      "ci_high": 0.7718678223738771,
+      "positive_domain_count": 1,
+      "bridge_time_index": 1,
+      "contrast": "age_envelope_excess"
+    },
+    {
+      "n_domains": 5,
+      "n_images": 100,
+      "mean": 3.6742631311626823,
+      "ci_low": 1.149520139521577,
+      "ci_high": 6.020536435552246,
+      "positive_domain_count": 4,
+      "bridge_time_index": 2,
+      "contrast": "exposure_gap"
+    },
+    {
+      "n_domains": 5,
+      "n_images": 100,
+      "mean": 0.07102659205384346,
+      "ci_low": -0.8086238020833814,
+      "ci_high": 1.100186678871841,
+      "positive_domain_count": 2,
+      "bridge_time_index": 2,
+      "contrast": "clock_gap"
+    },
+    {
+      "n_domains": 5,
+      "n_images": 100,
+      "mean": -0.5937121565332409,
+      "ci_low": -1.784833496683456,
+      "ci_high": 0.7571322873868022,
+      "positive_domain_count": 1,
+      "bridge_time_index": 2,
+      "contrast": "age_envelope_excess"
+    },
+    {
+      "n_domains": 5,
+      "n_images": 100,
+      "mean": 3.77378544074521,
+      "ci_low": 1.1931960693079133,
+      "ci_high": 6.2118997422086,
+      "positive_domain_count": 4,
+      "bridge_time_index": 3,
+      "contrast": "exposure_gap"
+    },
+    {
+      "n_domains": 5,
+      "n_images": 100,
+      "mean": 0.05713103248556343,
+      "ci_low": -0.8155183134197146,
+      "ci_high": 1.170926118747601,
+      "positive_domain_count": 2,
+      "bridge_time_index": 3,
+      "contrast": "clock_gap"
+    },
+    {
+      "n_domains": 5,
+      "n_images": 100,
+      "mean": -0.5454592136784563,
+      "ci_low": -1.740172044502742,
+      "ci_high": 0.8681082248651457,
+      "positive_domain_count": 1,
+      "bridge_time_index": 3,
+      "contrast": "age_envelope_excess"
+    }
+  ],
+  "historic_epoch1": {
+    "seeds": [
+      2026,
+      2027,
+      2028,
+      2029,
+      2030,
+      2031
+    ],
+    "seed_count": 6,
+    "seed_domain_positive": 30,
+    "seed_domain_total": 30,
+    "seed_time_ci_positive": 18,
+    "seed_time_total": 18
+  },
+  "claim_boundary": {
+    "allowed": "Initial shared-bridge fan-out under a fresh local seed, with exposure and optimizer-clock controls, if supported by the frozen gate.",
+    "forbidden": [
+      "causal harm",
+      "calibrated posterior uncertainty",
+      "all-stage fan-out",
+      "training-seed confirmation from image bootstrap"
+    ],
+    "heldout_status": "HELDOUT_WITHIN_DISCOVERY_NOT_CONFIRMATORY"
+  },
+  "evidence_hashes": {
+    "direction_statistics": "266519df4bba20f3f4dc3fd68731b6964ba78ef0a75c58f99031616cac5a2e2c",
+    "paired_contrasts": "6e215b3644d13de67c83a439532561fe20ee8dcb3b83ebc53fcf8b2692553c0e",
+    "historic_consensus": "7b537f94fc3635e4a4b24a9efb30a3877074030faaf2aec56e74f108aae8383d"
+  }
+}

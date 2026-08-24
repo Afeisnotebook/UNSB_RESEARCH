@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "protocol_id": "unsb-reciprocal-bridge-kernel-deflection-v1",
+  "frozen_local_time": "2026-08-24T06:28:50+08:00",
+  "frozen_after": "unsb-initial-shared-bridge-fanout-dual-control-v1 returned EXPOSURE_ONLY",
+  "frozen_before_reciprocal_effect_read": true,
+  "scientific_question_cn": "在模型年龄不能解释为额外离散后，五域共享训练是否仍使 plain UNSB 的条件转移核偏离任务专用模型在 epoch 1–5 形成的早期方向轨迹？",
+  "phenomenon_name_cn": "共享桥条件核偏折",
+  "phenomenon_name_en": "shared-bridge conditional-kernel deflection",
+  "scope": {
+    "plain_baseline_only": true,
+    "new_training": false,
+    "reuse_frozen_seed2041_checkpoints": true,
+    "reuse_frozen_heldout_manifest": true,
+    "target_content_read": false,
+    "claim_type": "observational reciprocal common-state probe",
+    "not_causal_harm": true
+  },
+  "models": {
+    "aio": "aio5_plain_s2041_e1",
+    "single": "single_<domain>_s2041_e5 checkpoints e1..e5",
+    "same_initialization_seed": 2041,
+    "best_age_control": "minimize reciprocal deflection over Single e1..e5 independently for each image and bridge time"
+  },
+  "measurement": {
+    "images_per_domain": 20,
+    "domains": 5,
+    "bridge_time_indices": [1, 2, 3],
+    "proposals_M": 32,
+    "proposal_chunk": 8,
+    "common_random_numbers": true,
+    "anchors": [
+      "X_A: bridge state rolled out by AIO e1",
+      "X_S,e: bridge state rolled out by Single epoch e"
+    ],
+    "mean_direction": "mu_r(X,t)=unit(mean_m(unit((G_r(X,t,z_m)-X)/(1-t))))",
+    "one_anchor_deflection": "delta(A,S|X)=1-cos(mu_A(X),mu_S(X))",
+    "reciprocal_deflection": "KDD_e=0.5*[delta(A,S_e|X_A)+delta(A,S_e|X_S,e)]",
+    "proposal_floor": "maximum odd-vs-even mean-direction cosine distance across the four model-anchor panels",
+    "single_age_span": "maximum pairwise cosine distance among Single e1..e5 mean directions queried on the common AIO anchor",
+    "primary_reference": "max(proposal_floor over e1..e5, single_age_span)",
+    "primary_effect": "log10(min_e KDD_e + 1e-12)-log10(primary_reference + 1e-12)",
+    "secondary": [
+      "best matching Single age",
+      "clock-matched KDD at Single e5",
+      "AIO-anchor and Single-anchor deflection components",
+      "proposal-floor ratio",
+      "single-age-span ratio"
+    ]
+  },
+  "inference": {
+    "primary_unit": "image",
+    "domain_weighting": "equal",
+    "bootstrap": "nested domain then image resampling",
+    "bootstrap_draws": 5000,
+    "support_gate": {
+      "minimum_bridge_times": 2,
+      "requirements_per_passing_time": [
+        "primary effect nested-bootstrap lower bound > 0",
+        "domain mean primary effect > 0 in at least 4/5 domains",
+        "at least 80% of pooled images have min-age KDD above the primary reference"
+      ]
+    },
+    "outcomes": [
+      "SUPPORTED_SHARED_KERNEL_DEFLECTION",
+      "PARTIAL_KERNEL_DEFLECTION",
+      "NOT_DISTINCT_FROM_SINGLE_AGE_TRAJECTORY",
+      "HOLD_ENGINEERING"
+    ]
+  },
+  "interpretation_if_supported": "共享训练学到的初始条件方向场不是任务专用训练的简单年龄偏移；即便允许每张图选择最接近的 Single 早期 checkpoint，其互易共同状态方向偏折仍超过 stochastic floor 和 Single 自身早期年龄跨度。",
+  "interpretation_if_failed": "当前观测不足以把共享训练描述为独特的条件核变化；头图只能保留更弱的阶段依赖现象，不能制造必要性。",
+  "forbidden_post_effect_changes": [
+    "drop an age checkpoint",
+    "choose one anchor direction post hoc",
+    "replace reciprocal mean by the larger anchor component",
+    "remove single-age-span control",
+    "change heldout images or bridge times",
+    "use target quality to select images"
+  ],
+  "execution_code_status_at_freeze": "not_implemented"
+}
