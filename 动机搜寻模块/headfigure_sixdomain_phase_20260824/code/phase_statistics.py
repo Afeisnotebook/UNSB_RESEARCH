@@ -200,7 +200,12 @@ def load_frames(paths: Iterable[Path], labels: Iterable[str]) -> pd.DataFrame:
 
 
 def make_arrays(
-    frame: pd.DataFrame, domains: list[str], time_index: int, ages: list[int]
+    frame: pd.DataFrame,
+    domains: list[str],
+    time_index: int,
+    ages: list[int],
+    *,
+    value_column: str = "reciprocal_KDD",
 ) -> tuple[dict[str, np.ndarray], dict[str, list[str]]]:
     arrays: dict[str, np.ndarray] = {}
     stems: dict[str, list[str]] = {}
@@ -208,7 +213,7 @@ def make_arrays(
         block = frame[
             (frame["domain"] == domain) & (frame["bridge_time_index"] == time_index)
         ]
-        pivot = block.pivot(index="stem", columns="single_epoch", values="reciprocal_KDD")
+        pivot = block.pivot(index="stem", columns="single_epoch", values=value_column)
         if list(pivot.columns.astype(int)) != ages:
             raise RuntimeError(f"{domain}/t{time_index}: ages {list(pivot.columns)} != {ages}")
         if pivot.isna().any().any():
@@ -268,9 +273,22 @@ def main() -> int:
     draw_rows: list[dict] = []
     time_results = []
     phase_mean_matrix = np.empty((len(domains), len(times)), dtype=np.float64)
+    has_m16 = "reciprocal_KDD_M16" in frame and frame["reciprocal_KDD_M16"].notna().all()
+    m16_m32_agreement = 0
 
     for time_position, time_index in enumerate(times):
         arrays, stems = make_arrays(frame, domains, time_index, ages)
+        arrays_m16 = (
+            make_arrays(
+                frame,
+                domains,
+                time_index,
+                ages,
+                value_column="reciprocal_KDD_M16",
+            )[0]
+            if has_m16
+            else None
+        )
         folds = frozen_folds(stems, args.protocol_id)
         full_profiles = np.stack([arrays[domain].mean(axis=0) for domain in domains])
         in_sample = in_sample_sync_regret(full_profiles)
@@ -298,6 +316,10 @@ def main() -> int:
         )
         for domain_index, domain in enumerate(domains):
             profile = full_profiles[domain_index]
+            effective_age_m16 = None
+            if arrays_m16 is not None:
+                effective_age_m16 = ages[age_from_profile(arrays_m16[domain].mean(axis=0))]
+                m16_m32_agreement += int(effective_age_m16 == ages[int(np.argmin(profile))])
             phase_values = phase_draws[domain]
             counts = np.bincount(phase_values, minlength=len(ages))
             phase_mode_index = int(np.argmax(counts))
@@ -314,6 +336,7 @@ def main() -> int:
                     "domain": domain,
                     "n_images": len(arrays[domain]),
                     "effective_age": ages[int(order[0])],
+                    "effective_age_M16": effective_age_m16,
                     "second_best_age": ages[int(order[1])],
                     "profile_margin": float(profile[order[1]] - profile[order[0]]),
                     "bootstrap_phase_mean": float(phase_values.mean() + 1),
@@ -358,9 +381,34 @@ def main() -> int:
 
     slopes = np.diff(phase_mean_matrix, axis=1)
     shear_energy = float(np.mean(np.var(slopes, axis=0))) if slopes.size else 0.0
+    requirements = {
+        "crossfit_regret_positive_all_times": all(
+            result["crossfit_sync_regret"] > 0 for result in time_results
+        ),
+        "one_sided_95_lower_positive_at_least_two_times": sum(
+            result["bootstrap_one_sided_95_lower"] > 0 for result in time_results
+        )
+        >= 2,
+        "bootstrap_positive_fraction_ge_0_95_at_least_two_times": sum(
+            result["bootstrap_positive_fraction"] >= 0.95 for result in time_results
+        )
+        >= 2,
+        "at_least_three_distinct_domain_phases_at_least_two_times": sum(
+            len(set(result["domain_effective_ages"].values())) >= 3
+            for result in time_results
+        )
+        >= 2,
+    }
+    if all(requirements.values()):
+        verdict = "SUPPORTED_SIXDOMAIN_SHARED_CLOCK_REGRET"
+    elif sum(requirements.values()) >= 2:
+        verdict = "PARTIAL_SIXDOMAIN_PHASE_STRUCTURE"
+    else:
+        verdict = "NOT_REPLICATED_SIXDOMAIN"
     payload = {
         "protocol_id": args.protocol_id,
         "status": "complete",
+        "verdict": verdict,
         "statistic_name_cn": "交叉拟合共享时钟遗憾与相位 Wasserstein 离散",
         "statistic_name_en": "cross-fitted shared-clock regret and phase-Wasserstein dispersion",
         "domains": domains,
@@ -376,6 +424,10 @@ def main() -> int:
         },
         "time_results": time_results,
         "domain_time_phase_shear_energy": shear_energy,
+        "M16_available": has_m16,
+        "M16_M32_effective_age_agreement": m16_m32_agreement if has_m16 else None,
+        "M16_M32_total_cells": len(domains) * len(times) if has_m16 else None,
+        "requirements": requirements,
         "interpretation": {
             "sync_regret": "Held-out excess reciprocal KDD paid by a single shared task phase relative to clocks selected separately for each domain.",
             "wasserstein": "Distance among bootstrap phase distributions; it uses the full sampling uncertainty of the argmin and has no soft-min temperature.",
