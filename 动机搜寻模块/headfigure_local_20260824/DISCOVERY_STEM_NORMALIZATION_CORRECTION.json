@@ -1,0 +1,16 @@
+{
+  "status": "CORRECTED_DISCOVERY_INDEPENDENCE_LABEL",
+  "affected_artifact": "E:/UNSB_Expl/UNSB_HEADFIGURE_LOCAL_20260824/state/PREPARE_AUDIT.json",
+  "original_claim": "historically measured stems were excluded by exact (domain, stem) identity",
+  "defect": "historical ledgers store suffix stems, whereas the frozen source view uses domain-prefixed stems",
+  "actual_historical_overlap_by_domain": {
+    "FoggyCityscapes": 2,
+    "LowLightTrafficData": 3,
+    "RainCityscapes": 2,
+    "RSCityscapes": 6,
+    "SnowTrafficData": 1
+  },
+  "actual_historical_overlap_total": 14,
+  "scientific_consequence": "The first 20-image/domain split remains discovery evidence and is not independent of historical image identities. The 24-image/domain and 16-image/domain held-out splits use canonical stem exclusion and have zero historical overlap; both reproduce the complete 15-cell phase map.",
+  "target_content_read": false
+}
