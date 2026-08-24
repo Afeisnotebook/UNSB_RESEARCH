@@ -434,7 +434,8 @@ def main() -> int:
         },
         "time_results": time_results,
         "domain_time_phase_shear_energy": shear_energy,
-        "M16_available": has_m16,
+        # pandas returns numpy.bool_ here; normalize only the serialization type.
+        "M16_available": bool(has_m16),
         "M16_M32_effective_age_agreement": m16_m32_agreement if has_m16 else None,
         "M16_M32_total_cells": len(domains) * len(times) if has_m16 else None,
         "requirements": requirements,
