@@ -8,6 +8,21 @@ import util.util as util
 
 class UnalignedDataset(BaseDataset):
     """
+
+    @staticmethod
+    def modify_commandline_options(parser, is_train):
+        parser.add_argument(
+            '--dcum',
+            type=util.str2bool,
+            nargs='?',
+            const=True,
+            default=False,
+            help=(
+                'training-only domain-conditional unpaired marginal: sample B '
+                'uniformly from the A domain while forbidding the same stem'
+            ),
+        )
+        return parser
     This dataset class can load unaligned/unpaired datasets.
 
     It requires two directories to host training images from domain A '/path/to/data/trainA'
@@ -36,6 +51,39 @@ class UnalignedDataset(BaseDataset):
         self.B_paths = sorted(make_dataset(self.dir_B, opt.max_dataset_size))    # load images from '/path/to/data/trainB'
         self.A_size = len(self.A_paths)  # get the size of dataset A
         self.B_size = len(self.B_paths)  # get the size of dataset B
+        self._dcum_enabled = bool(getattr(opt, 'dcum', False)) and bool(opt.isTrain)
+        self._B_by_domain = {}
+        if self._dcum_enabled:
+            for path in self.B_paths:
+                domain, _ = self._domain_and_stem(path)
+                self._B_by_domain.setdefault(domain, []).append(path)
+            if not self._B_by_domain:
+                raise RuntimeError('DCUM requires domain-prefixed B filenames')
+
+    @staticmethod
+    def _domain_and_stem(path):
+        """Read ``domain__stem`` from a materialized view without pairing it."""
+        name = os.path.splitext(os.path.basename(path))[0]
+        if '__' not in name:
+            raise ValueError(
+                'DCUM expects materialized filenames in domain__stem form: %s' % path
+            )
+        domain, stem = name.split('__', 1)
+        return domain, stem
+
+    def _sample_dcum_B(self, A_path):
+        domain, a_stem = self._domain_and_stem(A_path)
+        pool = self._B_by_domain.get(domain, [])
+        eligible = [
+            path for path in pool
+            if self._domain_and_stem(path)[1] != a_stem
+        ]
+        if not eligible:
+            raise RuntimeError(
+                'DCUM has no different-stem B candidate for domain %s' % domain
+            )
+        # Exactly one Python-RNG draw, just like the official unaligned path.
+        return eligible[random.randint(0, len(eligible) - 1)]
 
     def __getitem__(self, index):
         """Return a data point and its metadata information.
@@ -50,11 +98,14 @@ class UnalignedDataset(BaseDataset):
             B_paths (str)    -- image paths
         """
         A_path = self.A_paths[index % self.A_size]  # make sure index is within then range
-        if self.opt.serial_batches:   # make sure index is within then range
+        if self._dcum_enabled:
+            B_path = self._sample_dcum_B(A_path)
+        elif self.opt.serial_batches:   # make sure index is within then range
             index_B = index % self.B_size
+            B_path = self.B_paths[index_B]
         else:   # randomize the index for domain B to avoid fixed pairs.
             index_B = random.randint(0, self.B_size - 1)
-        B_path = self.B_paths[index_B]
+            B_path = self.B_paths[index_B]
         A_img = Image.open(A_path).convert('RGB')
         B_img = Image.open(B_path).convert('RGB')
 

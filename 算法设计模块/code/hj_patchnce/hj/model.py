@@ -51,6 +51,10 @@ class SBModelHJPatchNCE(SBModel):
         parser.add_argument("--hj_random_seed", type=int, default=2026)
         parser.add_argument("--hj_schedule", type=str, default="constant")
         parser.add_argument("--hj_diag_out", type=str, default="")
+        parser.add_argument(
+            "--hj_search_start_step", type=int, default=-1,
+            help="search-runner override for the first active optimizer step",
+        )
         return parser
 
     def __init__(self, opt):
@@ -91,11 +95,16 @@ class SBModelHJPatchNCE(SBModel):
         )
 
     def _hj_active(self):
+        search_start = int(getattr(self.opt, "hj_search_start_step", -1))
+        if search_start >= 0:
+            time_ready = int(getattr(self, "_search_global_step", 0)) >= search_start
+        else:
+            time_ready = self.hj_epoch >= int(getattr(self.opt, "hj_start_epoch", 5))
         return (
             self.isTrain
             and bool(getattr(self.opt, "hj_enable", False))
             and self.opt.lambda_NCE > 0.0
-            and self.hj_epoch >= int(getattr(self.opt, "hj_start_epoch", 5))
+            and time_ready
         )
 
     def _hj_probe_fn(self, z, layer, sample_ids):
@@ -207,6 +216,22 @@ class SBModelHJPatchNCE(SBModel):
     def set_train_epoch(self, epoch):
         """Set the physical epoch used by the HJ start gate."""
         self.hj_epoch = int(epoch)
+
+    def get_extra_training_state(self):
+        state = super().get_extra_training_state()
+        names = (
+            "hj_epoch", "_hj_step_in_epoch", "_hj_gate_sum",
+            "_hj_risk_sum", "_hj_probe_sum", "_hj_risk_positive_sum",
+            "_hj_sb_grad_norm", "_hj_conflict_ema", "_hj_conflict_peak",
+            "_hj_adaptive_weight",
+        )
+        state["hj_controller"] = {name: getattr(self, name) for name in names}
+        return state
+
+    def load_extra_training_state(self, state):
+        super().load_extra_training_state(state)
+        for name, value in (state or {}).get("hj_controller", {}).items():
+            setattr(self, name, value)
 
 
 def util_str2bool(v):

@@ -6,6 +6,7 @@ from models.sb_model import SBModel
 from models.hnek.hnek_search import (
     HnekSearchConfig,
     install_hnek_search_model,
+    set_hnek_search_active,
 )
 
 
@@ -39,3 +40,14 @@ class HnekSearchModel(SBModel):
             partial=str(getattr(opt, "hnek_partial", "all")),
         )
         install_hnek_search_model(self, cfg)
+
+    def get_extra_training_state(self):
+        state = super().get_extra_training_state()
+        state["hnek_active"] = bool(getattr(self, "hnek_active", True))
+        return state
+
+    def load_extra_training_state(self, state):
+        super().load_extra_training_state(state)
+        desired = bool((state or {}).get("hnek_active", True))
+        if desired != bool(getattr(self, "hnek_active", True)):
+            set_hnek_search_active(self, desired)

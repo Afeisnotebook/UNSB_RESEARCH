@@ -155,6 +155,34 @@ class BaseModel(ABC):
         """
         del epoch
 
+    def set_search_step(self, step, total_steps=None):
+        """Expose an explicit optimizer-step clock to search-time mechanisms.
+
+        The normal epoch-based training entry point does not depend on this
+        hook.  The directional-search runner uses it so target-blind schedules
+        and deterministic time quadrature survive checkpoint/resume exactly.
+        """
+        self._search_global_step = int(step)
+        if total_steps is not None:
+            self._search_total_steps = int(total_steps)
+
+    def get_extra_training_state(self):
+        """Return serializable method/controller state beyond networks.
+
+        Subclasses should merge their state with ``super()``.  Network,
+        optimizer, scheduler and RNG state are owned by the outer runner.
+        """
+        return {
+            "search_global_step": int(getattr(self, "_search_global_step", 0)),
+            "search_total_steps": int(getattr(self, "_search_total_steps", 0)),
+        }
+
+    def load_extra_training_state(self, state):
+        """Restore state produced by :meth:`get_extra_training_state`."""
+        state = state or {}
+        self._search_global_step = int(state.get("search_global_step", 0))
+        self._search_total_steps = int(state.get("search_total_steps", 0))
+
     def get_current_visuals(self):
         """Return visualization images. train.py will display these images with visdom, and save the images to a HTML"""
         visual_ret = OrderedDict()

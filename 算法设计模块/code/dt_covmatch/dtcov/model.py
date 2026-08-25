@@ -14,6 +14,7 @@ loss.
 
 from __future__ import annotations
 
+import copy
 import os
 import sys
 
@@ -90,6 +91,14 @@ class SBModelDTCovMatch(SBModel):
         parser.add_argument("--dtcov_warmup_iters", type=int, default=300)
         parser.add_argument("--dtcov_time_mode", type=str, default="actual",
                             choices=["index", "actual"])
+        parser.add_argument(
+            "--dtcov_search_start_step", type=int, default=-1,
+            help="search-runner override: first active optimizer step (-1=epoch schedule)",
+        )
+        parser.add_argument(
+            "--dtcov_search_duration_steps", type=int, default=0,
+            help="search-runner override: map this active window to DT ages 1..25",
+        )
         return parser
 
     def __init__(self, opt):
@@ -121,6 +130,16 @@ class SBModelDTCovMatch(SBModel):
         base = float(getattr(opt, "dtcov_lambda", 0.0))
         if base <= 0.0:
             return 0.0
+        search_start = int(getattr(opt, "dtcov_search_start_step", -1))
+        if search_start >= 0:
+            step = int(getattr(self, "_search_global_step", 0))
+            duration = int(getattr(opt, "dtcov_search_duration_steps", 0))
+            if duration <= 0:
+                raise RuntimeError("DT search schedule requires a positive duration")
+            if step < search_start or step >= search_start + duration:
+                return 0.0
+            active_step = step - search_start
+            self._dtcov_epoch = min(25, 1 + (active_step * 25) // duration)
         if str(getattr(opt, "dtcov_lambda_schedule", "fixed")) == "adaptive":
             return self._dtcov_adaptive_lambda
         return scheduled_lambda(
@@ -268,3 +287,40 @@ class SBModelDTCovMatch(SBModel):
     def set_train_epoch(self, epoch):
         """Map physical epoch to DT active age (physical e21 -> age 1)."""
         self._dtcov_epoch = max(0, int(epoch) - 20)
+
+    def get_extra_training_state(self):
+        state = super().get_extra_training_state()
+        controller_names = (
+            "_dtcov_iter", "_dtcov_epoch", "_dtcov_epoch_loss_sum",
+            "_dtcov_epoch_loss_count", "_dtcov_mismatch_ema",
+            "_dtcov_plateau", "_dtcov_activated",
+            "_dtcov_adaptive_lambda", "_dtcov_step_in_epoch",
+            "_dtcov_sb_grad_norm",
+        )
+        state["dtcov_controller"] = {
+            name: getattr(self, name) for name in controller_names
+        }
+        if hasattr(self, "dtcov"):
+            teacher = getattr(self.dtcov, "teacher", None)
+            state["dtcov_core"] = {
+                "iter": int(self.dtcov.iter),
+                "stats_store": copy.deepcopy(self.dtcov.stats.store),
+                "teacher": None if teacher is None else {
+                    key: value.detach().cpu()
+                    for key, value in teacher.state_dict().items()
+                },
+            }
+        return state
+
+    def load_extra_training_state(self, state):
+        super().load_extra_training_state(state)
+        state = state or {}
+        for name, value in state.get("dtcov_controller", {}).items():
+            setattr(self, name, value)
+        core = state.get("dtcov_core")
+        if core is not None and hasattr(self, "dtcov"):
+            self.dtcov.iter = int(core.get("iter", 0))
+            self.dtcov.stats.store = copy.deepcopy(core.get("stats_store", {}))
+            teacher_state = core.get("teacher")
+            if teacher_state is not None:
+                self.dtcov.inject_teacher(teacher_state)

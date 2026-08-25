@@ -1,3 +1,5 @@
+import copy
+import math
 import numpy as np
 import torch
 from .base_model import BaseModel
@@ -36,6 +38,26 @@ class SBModel(BaseModel):
         parser.add_argument('--flip_equivariance',
                             type=util.str2bool, nargs='?', const=True, default=False,
                             help="Enforce flip-equivariance as additional regularization. It's used by FastCUT, but not CUT")
+        parser.add_argument(
+            '--search_lbst', type=util.str2bool, nargs='?', const=True, default=False,
+            help='use a one-epoch-half-life EMA netG only for bridge-state rollout',
+        )
+        parser.add_argument(
+            '--search_ptq', type=util.str2bool, nargs='?', const=True, default=False,
+            help='sample train time by frozen physical-time quadrature blocks',
+        )
+        parser.add_argument(
+            '--search_aeb', type=util.str2bool, nargs='?', const=True, default=False,
+            help='average endpoint predictions at antithetic latents z and -z',
+        )
+        parser.add_argument(
+            '--search_steps_per_epoch', type=int, default=0,
+            help='explicit data-epoch length used by the LBST EMA half-life',
+        )
+        parser.add_argument(
+            '--search_ptq_seed', type=int, default=2026,
+            help='seed for deterministic within-block PTQ shuffling',
+        )
         
         parser.set_defaults(pool_size=0)  # no image pooling
 
@@ -103,6 +125,10 @@ class SBModel(BaseModel):
         if getattr(opt, 'hnek', False):
             from .hnek.hnek_adapter import install_hnek_model
             install_hnek_model(self)
+
+        self._search_global_step = 0
+        self._search_total_steps = 0
+        self._lbst_netG = None
             
     def data_dependent_initialize(self, data,data2):
         """
@@ -155,8 +181,117 @@ class SBModel(BaseModel):
         self.loss_G = self.compute_G_loss()
         self.loss_G.backward()
         self.optimizer_G.step()
+        self._update_lbst_teacher()
         if self.opt.netF == 'mlp_sample':
             self.optimizer_F.step()       
+
+    @staticmethod
+    def _inner_network(net):
+        return net.module if isinstance(net, torch.nn.DataParallel) else net
+
+    def _ensure_lbst_teacher(self):
+        if not bool(getattr(self.opt, 'search_lbst', False)):
+            return None
+        if self._lbst_netG is None:
+            source = self._inner_network(self.netG)
+            self._lbst_netG = copy.deepcopy(source).to(self.device)
+            self._lbst_netG.eval()
+            for parameter in self._lbst_netG.parameters():
+                parameter.requires_grad_(False)
+        return self._lbst_netG
+
+    def reset_lbst_teacher(self):
+        """Synchronize the rollout teacher to the current generator exactly."""
+        if not bool(getattr(self.opt, 'search_lbst', False)):
+            return
+        teacher = self._ensure_lbst_teacher()
+        source = self._inner_network(self.netG)
+        teacher.load_state_dict(source.state_dict(), strict=True)
+        teacher.eval()
+
+    def _update_lbst_teacher(self):
+        teacher = self._ensure_lbst_teacher()
+        if teacher is None:
+            return
+        steps_per_epoch = int(getattr(self.opt, 'search_steps_per_epoch', 0))
+        if steps_per_epoch <= 0:
+            raise RuntimeError('LBST requires --search_steps_per_epoch > 0')
+        decay = math.exp(math.log(0.5) / float(steps_per_epoch))
+        source = self._inner_network(self.netG)
+        with torch.no_grad():
+            for target_param, source_param in zip(teacher.parameters(), source.parameters()):
+                target_param.mul_(decay).add_(source_param.detach(), alpha=1.0 - decay)
+            for target_buffer, source_buffer in zip(teacher.buffers(), source.buffers()):
+                target_buffer.copy_(source_buffer.detach())
+        teacher.eval()
+
+    def _rollout_generator(self):
+        teacher = self._ensure_lbst_teacher()
+        return teacher if teacher is not None else self.netG
+
+    def _predict_endpoint(self, net, x, time_idx, z):
+        first = net(x, time_idx, z)
+        if not bool(getattr(self.opt, 'search_aeb', False)):
+            return first
+        second = net(x, time_idx, -z)
+        return 0.5 * (first + second)
+
+    def _ptq_index(self, step, T):
+        if T != 5:
+            raise ValueError('the frozen PTQ schedule is defined for T=5')
+        block = int(step) // 50
+        offset = int(step) % 50
+        values = np.asarray([0] * 25 + [1] * 12 + [2] * 6 + [3] * 4 + [4] * 3)
+        rng = np.random.default_rng(int(getattr(self.opt, 'search_ptq_seed', 2026)) + block)
+        rng.shuffle(values)
+        return int(values[offset])
+
+    def _sample_training_time_idx(self, T):
+        # Always consume the official CPU draw so PTQ does not perturb the
+        # remaining main-training RNG bundle.
+        official = torch.randint(T, size=[1])
+        if bool(getattr(self.opt, 'search_ptq', False)):
+            value = self._ptq_index(getattr(self, '_search_global_step', 0), T)
+            return torch.full((1,), value, device=self.device, dtype=torch.long)
+        return (
+            official.to(self.device) * torch.ones(size=[1], device=self.device)
+        ).long()
+
+    def get_extra_training_state(self):
+        state = super().get_extra_training_state()
+        state['search_mechanisms'] = {
+            'lbst': bool(getattr(self.opt, 'search_lbst', False)),
+            'ptq': bool(getattr(self.opt, 'search_ptq', False)),
+            'aeb': bool(getattr(self.opt, 'search_aeb', False)),
+        }
+        if bool(getattr(self.opt, 'search_lbst', False)):
+            teacher = self._ensure_lbst_teacher()
+            state['lbst_netG'] = {
+                key: value.detach().cpu() for key, value in teacher.state_dict().items()
+            }
+        return state
+
+    def load_extra_training_state(self, state):
+        super().load_extra_training_state(state)
+        state = state or {}
+        recorded = state.get('search_mechanisms', {})
+        expected = {
+            'lbst': bool(getattr(self.opt, 'search_lbst', False)),
+            'ptq': bool(getattr(self.opt, 'search_ptq', False)),
+            'aeb': bool(getattr(self.opt, 'search_aeb', False)),
+        }
+        if recorded and recorded != expected:
+            raise RuntimeError(
+                'search mechanism mismatch while restoring state: %r != %r'
+                % (recorded, expected)
+            )
+        if expected['lbst']:
+            teacher_state = state.get('lbst_netG')
+            if teacher_state is None:
+                raise RuntimeError('LBST checkpoint is missing lbst_netG state')
+            teacher = self._ensure_lbst_teacher()
+            teacher.load_state_dict(teacher_state, strict=True)
+            teacher.eval()
         
     def set_input(self, input,input2=None):
 
@@ -183,15 +318,17 @@ class SBModel(BaseModel):
         times = times / times[-1]
         times = 0.5 * times[-1] + 0.5 * times
         times = np.concatenate([np.zeros(1),times])
-        times = torch.tensor(times).float().cuda()
+        times = torch.tensor(times, dtype=torch.float32, device=self.device)
         self.times = times
         bs =  self.real_A.size(0)
-        time_idx = (torch.randint(T, size=[1]).cuda() * torch.ones(size=[1]).cuda()).long()
+        time_idx = self._sample_training_time_idx(T)
         self.time_idx = time_idx
         self.timestep     = times[time_idx]
         
         with torch.no_grad():
             self.netG.eval()
+            rollout_net = self._rollout_generator()
+            rollout_net.eval()
             for t in range(self.time_idx.int().item()+1):
                 
                 if t > 0:
@@ -200,32 +337,32 @@ class SBModel(BaseModel):
                     inter = (delta / denom).reshape(-1,1,1,1)
                     scale = (delta * (1 - delta / denom)).reshape(-1,1,1,1)
                 Xt       = self.real_A if (t == 0) else (1-inter) * Xt + inter * Xt_1.detach() + (scale * tau).sqrt() * torch.randn_like(Xt).to(self.real_A.device)
-                time_idx = (t * torch.ones(size=[self.real_A.shape[0]]).to(self.real_A.device)).long()
+                time_idx = (t * torch.ones(size=[self.real_A.shape[0]], device=self.real_A.device)).long()
                 time     = times[time_idx]
-                z        = torch.randn(size=[self.real_A.shape[0],4*self.opt.ngf]).to(self.real_A.device)
-                Xt_1     = self.netG(Xt, time_idx, z)
+                z        = torch.randn(size=[self.real_A.shape[0],4*self.opt.ngf], device=self.real_A.device)
+                Xt_1     = self._predict_endpoint(rollout_net, Xt, time_idx, z)
                 
                 Xt2       = self.real_A2 if (t == 0) else (1-inter) * Xt2 + inter * Xt_12.detach() + (scale * tau).sqrt() * torch.randn_like(Xt2).to(self.real_A.device)
-                time_idx = (t * torch.ones(size=[self.real_A.shape[0]]).to(self.real_A.device)).long()
+                time_idx = (t * torch.ones(size=[self.real_A.shape[0]], device=self.real_A.device)).long()
                 time     = times[time_idx]
-                z        = torch.randn(size=[self.real_A.shape[0],4*self.opt.ngf]).to(self.real_A.device)
-                Xt_12    = self.netG(Xt2, time_idx, z)
+                z        = torch.randn(size=[self.real_A.shape[0],4*self.opt.ngf], device=self.real_A.device)
+                Xt_12    = self._predict_endpoint(rollout_net, Xt2, time_idx, z)
                 
                 
                 if self.opt.nce_idt:
                     XtB = self.real_B if (t == 0) else (1-inter) * XtB + inter * Xt_1B.detach() + (scale * tau).sqrt() * torch.randn_like(XtB).to(self.real_A.device)
-                    time_idx = (t * torch.ones(size=[self.real_A.shape[0]]).to(self.real_A.device)).long()
+                    time_idx = (t * torch.ones(size=[self.real_A.shape[0]], device=self.real_A.device)).long()
                     time     = times[time_idx]
-                    z        = torch.randn(size=[self.real_A.shape[0],4*self.opt.ngf]).to(self.real_A.device)
-                    Xt_1B = self.netG(XtB, time_idx, z)
+                    z        = torch.randn(size=[self.real_A.shape[0],4*self.opt.ngf], device=self.real_A.device)
+                    Xt_1B = self._predict_endpoint(rollout_net, XtB, time_idx, z)
             if self.opt.nce_idt:
                 self.XtB = XtB.detach()
             self.real_A_noisy = Xt.detach()
             self.real_A_noisy2 = Xt2.detach()
                       
         
-        z_in    = torch.randn(size=[2*bs,4*self.opt.ngf]).to(self.real_A.device)
-        z_in2    = torch.randn(size=[bs,4*self.opt.ngf]).to(self.real_A.device)
+        z_in    = torch.randn(size=[2*bs,4*self.opt.ngf], device=self.real_A.device)
+        z_in2    = torch.randn(size=[bs,4*self.opt.ngf], device=self.real_A.device)
         """Run forward pass"""
         self.real = torch.cat((self.real_A, self.real_B), dim=0) if self.opt.nce_idt and self.opt.isTrain else self.real_A
         
@@ -237,8 +374,8 @@ class SBModel(BaseModel):
                 self.real = torch.flip(self.real, [3])
                 self.realt = torch.flip(self.realt, [3])
         
-        self.fake = self.netG(self.realt,self.time_idx,z_in)
-        self.fake_B2 =  self.netG(self.real_A_noisy2,self.time_idx,z_in2)
+        self.fake = self._predict_endpoint(self.netG, self.realt, self.time_idx, z_in)
+        self.fake_B2 = self._predict_endpoint(self.netG, self.real_A_noisy2, self.time_idx, z_in2)
         self.fake_B = self.fake[:self.real_A.size(0)]
         if self.opt.nce_idt:
             self.idt_B = self.fake[self.real_A.size(0):]
@@ -251,10 +388,10 @@ class SBModel(BaseModel):
             times = times / times[-1]
             times = 0.5 * times[-1] + 0.5 * times
             times = np.concatenate([np.zeros(1),times])
-            times = torch.tensor(times).float().cuda()
+            times = torch.tensor(times, dtype=torch.float32, device=self.device)
             self.times = times
             bs =  self.real.size(0)
-            time_idx = (torch.randint(T, size=[1]).cuda() * torch.ones(size=[1]).cuda()).long()
+            time_idx = (torch.randint(T, size=[1]).to(self.device) * torch.ones(size=[1], device=self.device)).long()
             self.time_idx = time_idx
             self.timestep     = times[time_idx]
             visuals = []
@@ -270,8 +407,8 @@ class SBModel(BaseModel):
                     Xt       = self.real_A if (t == 0) else (1-inter) * Xt + inter * Xt_1.detach() + (scale * tau).sqrt() * torch.randn_like(Xt).to(self.real_A.device)
                     time_idx = (t * torch.ones(size=[self.real_A.shape[0]]).to(self.real_A.device)).long()
                     time     = times[time_idx]
-                    z        = torch.randn(size=[self.real_A.shape[0],4*self.opt.ngf]).to(self.real_A.device)
-                    Xt_1     = self.netG(Xt, time_idx, z)
+                    z        = torch.randn(size=[self.real_A.shape[0],4*self.opt.ngf], device=self.real_A.device)
+                    Xt_1     = self._predict_endpoint(self.netG, Xt, time_idx, z)
                     
                     setattr(self, "fake_"+str(t+1), Xt_1)
                     
