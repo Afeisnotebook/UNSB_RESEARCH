@@ -480,6 +480,15 @@ def _run_controller_audit(
     from clean_reexploration import audit
 
     if method == "DT":
+        from clean_reexploration import evaluate as _ev
+        canonical_ckpt = (
+            Path("/home/yc/unsb_tired/runtime_4090/clean_reexploration_20260824/runs/canonical_plain")
+            / f"full_state_e{epoch}.pt"
+        )
+        canonical_plain_netG = None
+        if canonical_ckpt.is_file():
+            canonical_plain_netG, _ = _ev._load_netG(canonical_ckpt, "sb")
+            canonical_plain_netG.eval()
         stats, valid, reason = audit.compute_dt_audit(
             model,
             teacher_netG,
@@ -490,6 +499,7 @@ def _run_controller_audit(
             ngf=int(model.opt.ngf),
             num_timesteps=int(model.opt.num_timesteps),
             tau=float(model.opt.tau),
+            canonical_plain_netG=canonical_plain_netG,
         )
     elif method == "HJ":
         stats, valid, reason = audit.compute_hj_audit(
