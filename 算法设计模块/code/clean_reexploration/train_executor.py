@@ -27,7 +27,12 @@ from torchvision import transforms
 REPO_ROOT = Path("/home/yc/unsb_tired")
 CODE_ROOT = REPO_ROOT / "算法设计模块/code"
 MODULE_ROOT = CODE_ROOT / "clean_reexploration"
-RUNTIME_ROOT = REPO_ROOT / "runtime_4090/clean_reexploration_20260824"
+RUNTIME_ROOT = Path(
+    os.environ.get(
+        "UNSB_REPAIR_RUNTIME",
+        str(REPO_ROOT / "runtime_4090/clean_reexploration_repair_20260825"),
+    )
+)
 RUNS_ROOT = RUNTIME_ROOT / "runs"
 AUTHORITY_ROOT = Path("/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806")
 
@@ -318,6 +323,15 @@ ANCHOR_EPOCHS = [1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100,
                  120, 140, 160, 180, 200]
 
 
+def _audit_epochs_for(method: str | None) -> list[int]:
+    if method == "DT":
+        # active age 2,4,...,24,25 -> physical 22,24,...,44,45.
+        return [e for e in range(22, 46, 2)] + [45]
+    if method in ("HJ", "HNEK"):
+        return list(range(10, 201, 10))
+    return []
+
+
 def _save_full_state(model, *, epoch, global_step, controllers, loader, lane_dir, ident) -> dict:
     from clean_reexploration import full_state
 
@@ -351,6 +365,8 @@ def train_lane(
     restore_epoch: int = 0,
     steps_per_epoch: int | None = None,
     teacher_state: dict | None = None,
+    panel_rows: list[dict] | None = None,
+    audit_epochs: list[int] | None = None,
 ) -> dict:
     """Run one deterministic lane from ``start_epoch`` to ``end_epoch``."""
     from clean_reexploration import full_state
@@ -370,6 +386,8 @@ def train_lane(
         from clean_reexploration.controllers import make_controller
         controller = make_controller(method, run_id)
         controllers_map[method] = controller
+    audit_set = set(audit_epochs if audit_epochs is not None else _audit_epochs_for(method))
+    save_set = set(anchors) | audit_set
 
     ident = {
         "run_id": run_id,
@@ -415,7 +433,25 @@ def train_lane(
             model.optimize_parameters()
             global_step += 1
         model.update_learning_rate()
-        if epoch in anchors:
+        if epoch in audit_set and controller is not None and panel_rows is not None:
+            _run_controller_audit(
+                model=model,
+                method=method,
+                controller=controller,
+                panel_rows=panel_rows,
+                run_id=run_id,
+                epoch=epoch,
+                teacher_netG=getattr(getattr(model, "dtcov", None), "teacher", None),
+            )
+            if method == "DT" and controller.state.status == "OFF":
+                model.opt.dtcov_lambda = 0.0
+                if hasattr(model, "dtcov"):
+                    model.dtcov.config.lambda_value = 0.0
+            if method == "HJ" and controller.state.status == "OFF":
+                model.opt.hj_strength = 0.0
+                if hasattr(model, "hj_config"):
+                    model.hj_config.strength = 0.0
+        if epoch in save_set:
             _save_full_state(model, epoch=epoch, global_step=global_step,
                              controllers=controllers_map, loader=loader,
                              lane_dir=lane_dir, ident=ident)
@@ -429,6 +465,73 @@ def train_lane(
         "controller_state": controller.state_dict() if controller else None,
         "teacher_netG_sha256": teacher_netG_sha256,
     }
+
+
+def _run_controller_audit(
+    *,
+    model,
+    method,
+    controller,
+    panel_rows,
+    run_id,
+    epoch,
+    teacher_netG,
+) -> None:
+    from clean_reexploration import audit
+
+    if method == "DT":
+        stats, valid, reason = audit.compute_dt_audit(
+            model,
+            teacher_netG,
+            panel_rows,
+            run_id=run_id,
+            epoch=epoch,
+            m=int(getattr(model.opt, "dtcov_m", 4)),
+            ngf=int(model.opt.ngf),
+            num_timesteps=int(model.opt.num_timesteps),
+            tau=float(model.opt.tau),
+        )
+    elif method == "HJ":
+        stats, valid, reason = audit.compute_hj_audit(
+            model,
+            panel_rows,
+            run_id=run_id,
+            epoch=epoch,
+            ngf=int(model.opt.ngf),
+            num_timesteps=int(model.opt.num_timesteps),
+            tau=float(model.opt.tau),
+        )
+    elif method == "HNEK":
+        stats, valid, reason = audit.compute_hnek_audit(
+            model,
+            panel_rows,
+            run_id=run_id,
+            epoch=epoch,
+            num_timesteps=int(model.opt.num_timesteps),
+            tau=float(model.opt.tau),
+            ngf=int(model.opt.ngf),
+        )
+    else:
+        return
+
+    status_before = controller.state.status
+    controller.observe(epoch, statistics=stats, valid=valid, reason=reason)
+    status_after = controller.state.status
+    print(
+        json.dumps(
+            {
+                "audit": method,
+                "epoch": epoch,
+                "status_before": status_before,
+                "status_after": status_after,
+                "reason": controller.state.reason,
+                "history_length": len(controller.history),
+                "valid": valid,
+            },
+            ensure_ascii=False,
+        ),
+        flush=True,
+    )
 
 
 def determinism_twin(args) -> int:
@@ -562,6 +665,7 @@ def _resume_probe_main() -> int:
     pairs = build_deterministic_pairs(files)
     transform = _img_transform()
     _setup_backend("STRICT_CUDNN")
+    _seed_all(2026)
 
     loader = TwoStreamLoader(pairs, transform)
     model, opt = _create_model("sb", "det_gate_resume")
@@ -599,6 +703,17 @@ def run_all_lanes(args) -> int:
     transform = _img_transform()
     _setup_backend(args.backend)
 
+    # Build the frozen source-only diagnostic panel once for all lanes.
+    from clean_reexploration import diagnostics as diag
+
+    panel = diag.build_diagnostic_panel(files)
+    panel_rows = [
+        row
+        for domain, sides in panel.items()
+        for side in ("A", "B")
+        for row in _panel_manifest_rows(panel, files, domain, side)
+    ]
+
     run_id = args.run_id
     spec = {"_spec_sha256": args.spec_sha256}
     code_sha256 = args.code_sha256
@@ -612,6 +727,7 @@ def run_all_lanes(args) -> int:
         anchors=ANCHOR_EPOCHS, restore_path=None, pairs=pairs, transform=transform,
         run_id=run_id, spec=spec, code_sha256=code_sha256,
         steps_per_epoch=args.steps_per_epoch,
+        panel_rows=None,
     )
 
     # Extract canonical post-e20 netG for the DT teacher.
@@ -631,6 +747,7 @@ def run_all_lanes(args) -> int:
         anchors=ANCHOR_EPOCHS, restore_path=None, pairs=pairs, transform=transform,
         run_id=run_id, spec=spec, code_sha256=code_sha256, method="HNEK",
         steps_per_epoch=args.steps_per_epoch,
+        panel_rows=panel_rows,
     )
 
     # 3) DT e1..e200 (plain until e21, DT active e21..e45, then plain)
@@ -641,6 +758,7 @@ def run_all_lanes(args) -> int:
         run_id=run_id, spec=spec, code_sha256=code_sha256, method="DT",
         teacher_state=post_e20_netG,
         steps_per_epoch=args.steps_per_epoch,
+        panel_rows=panel_rows,
     )
     results["dt"] = dt_result
     # Verify the DT teacher identity (section 6.2).
@@ -657,6 +775,7 @@ def run_all_lanes(args) -> int:
         anchors=ANCHOR_EPOCHS, restore_path=None, pairs=pairs, transform=transform,
         run_id=run_id, spec=spec, code_sha256=code_sha256, method="HJ",
         steps_per_epoch=args.steps_per_epoch,
+        panel_rows=panel_rows,
     )
 
     (RUNTIME_ROOT / "TRAINING_FROZEN.ok").write_text(
@@ -664,6 +783,14 @@ def run_all_lanes(args) -> int:
     )
     print(json.dumps(results, ensure_ascii=False))
     return 0
+
+
+def _panel_manifest_rows(panel, files, domain, side):
+    by_key = {(f["domain"], f["side"], f["stem"]): f for f in files if f["side"] in ("A", "B")}
+    rows = []
+    for stem in panel[domain][side]:
+        rows.append(by_key[(domain, side, stem)])
+    return rows
 
 
 def run_hnek_handoff_lane(args) -> int:
@@ -677,6 +804,7 @@ def run_hnek_handoff_lane(args) -> int:
     pairs = build_deterministic_pairs(files)
     transform = _img_transform()
     _setup_backend(args.backend)
+    _seed_all(2026)
 
     handoff = determine_hnek_handoff(args.run_id)
     e_star = handoff["e_star"]
@@ -765,6 +893,16 @@ def run_train(args) -> int:
     _setup_backend(args.backend)
     _seed_all(2026)
 
+    from clean_reexploration import diagnostics as diag
+
+    panel = diag.build_diagnostic_panel(files)
+    panel_rows = [
+        row
+        for domain, sides in panel.items()
+        for side in ("A", "B")
+        for row in _panel_manifest_rows(panel, files, domain, side)
+    ]
+
     run_id = "clean-reexploration-s2026-20260824"
     spec = {"_spec_sha256": ""}
     code_sha256 = ""
@@ -783,6 +921,7 @@ def run_train(args) -> int:
         code_sha256=code_sha256,
         method={"sb": None, "hnek_search": "HNEK", "dtcov": "DT", "hj": "HJ"}[args.model],
         steps_per_epoch=args.steps_per_epoch,
+        panel_rows=panel_rows,
     )
     print(json.dumps(result, ensure_ascii=False))
     return 0

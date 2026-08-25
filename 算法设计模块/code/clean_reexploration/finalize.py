@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import sys
 import time
@@ -14,7 +15,12 @@ import numpy as np
 
 REPO_ROOT = Path("/home/yc/unsb_tired")
 CODE_ROOT = REPO_ROOT / "算法设计模块/code"
-RUNTIME_ROOT = REPO_ROOT / "runtime_4090/clean_reexploration_20260824"
+RUNTIME_ROOT = Path(
+    os.environ.get(
+        "UNSB_REPAIR_RUNTIME",
+        str(REPO_ROOT / "runtime_4090/clean_reexploration_repair_20260825"),
+    )
+)
 RUNS_ROOT = RUNTIME_ROOT / "runs"
 AUTHORITY_ROOT = Path("/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806")
 
@@ -255,6 +261,7 @@ def stage_return(run_id: str, evidence: dict, reports: dict) -> dict:
 
     # Stage pre-effect evidence.
     state = RUNTIME_ROOT / "state"
+    (staging / "state").mkdir(parents=True, exist_ok=True)
     for name in (
         "DETERMINISM_GATE.json",
         "PROTECTION_RECORD.json",
@@ -270,15 +277,20 @@ def stage_return(run_id: str, evidence: dict, reports: dict) -> dict:
 
 def _stage_controller_signals(staging: Path) -> None:
     """Compute and stage target-blind controller signals for key checkpoints."""
-    from clean_reexploration import controller_audits, diagnostics, identity
+    from clean_reexploration import controller_audits, controllers, diagnostics, identity
 
     t2 = Path("/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806/specs/h2/T2_MANIFEST.json")
     files = identity.load_training_manifest(t2)
     panel = diagnostics.build_diagnostic_panel(files)
     rows = controller_audits._load_panel_rows(panel, files)
+    run_id = (RUNTIME_ROOT / "authority" / "RUN_ID.txt").read_text().strip()
 
     signals = {}
-    for lane, model_name in (("hnek_full", "hnek_search"), ("dt", "sb"), ("hj", "sb")):
+    for lane, model_name, method in (
+        ("hnek_full", "hnek_search", "HNEK"),
+        ("dt", "sb", "DT"),
+        ("hj", "sb", "HJ"),
+    ):
         for epoch in (20, 50, 100, 200):
             ckpt = RUNS_ROOT / lane / f"full_state_e{epoch}.pt"
             if not ckpt.is_file():
@@ -286,17 +298,21 @@ def _stage_controller_signals(staging: Path) -> None:
             from clean_reexploration import evaluate
             netG, _ = evaluate._load_netG(ckpt, model_name)
             netG.eval()
+            rollout_seed = controllers.controller_bootstrap_seed(run_id, method, epoch, "rollout")
             if lane == "hnek_full":
                 sig = controller_audits.compute_hnek_c_h(
-                    netG, rows, gamma=0.25, num_timesteps=5, tau=0.01, ngf=64
+                    netG, rows, gamma=0.25, num_timesteps=5, tau=0.01, ngf=64,
+                    seed=rollout_seed,
                 )
             elif lane == "hj":
                 sig = controller_audits.compute_hj_structure_loss(
-                    netG, rows, ngf=64, num_timesteps=5, tau=0.01
+                    netG, rows, ngf=64, num_timesteps=5, tau=0.01,
+                    seed=rollout_seed,
                 )
             else:
                 sig = controller_audits.compute_dt_logu(
-                    netG, rows, m=4, ngf=64, num_timesteps=5, tau=0.01
+                    netG, rows, m=4, ngf=64, num_timesteps=5, tau=0.01,
+                    seed=rollout_seed,
                 )
             signals[f"{lane}/e{epoch}"] = sig
 

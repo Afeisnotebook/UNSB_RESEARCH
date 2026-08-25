@@ -36,7 +36,12 @@ from clean_reexploration import (
 REPO_ROOT = Path("/home/yc/unsb_tired")
 CODE_ROOT = REPO_ROOT / "算法设计模块/code"
 MODULE_ROOT = CODE_ROOT / "clean_reexploration"
-RUNTIME_ROOT = REPO_ROOT / "runtime_4090/clean_reexploration_20260824"
+RUNTIME_ROOT = Path(
+    os.environ.get(
+        "UNSB_REPAIR_RUNTIME",
+        str(REPO_ROOT / "runtime_4090/clean_reexploration_repair_20260825"),
+    )
+)
 AUTHORITY_ROOT = Path("/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806")
 
 

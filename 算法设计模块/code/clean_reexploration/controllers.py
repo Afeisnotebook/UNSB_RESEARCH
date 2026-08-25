@@ -4,6 +4,10 @@ Controllers never read paired targets.  They consume pre-computed, unpaired
 diagnostic statistics, apply the frozen decision rules from the task prompt,
 and expose a serializable state so a resumed run replays bitwise-identical
 decisions.
+
+The decision functions below are deliberately pure functions of the complete
+audit history.  Invalid records are never pre-filtered before the engineering
+invalid check, which is the 2026-08-24 implementation defect this module fixes.
 """
 
 from __future__ import annotations
@@ -153,6 +157,9 @@ class AuditRecord:
         )
 
 
+SignalRecord = AuditRecord
+
+
 def _stat(audit: AuditRecord, name: str, key: str, default: float = math.nan) -> float:
     s = audit.statistics.get(name)
     if not isinstance(s, dict):
@@ -171,12 +178,14 @@ class ControllerState:
     status: str = "ACTIVE"  # ACTIVE | HANDOFF | OFF
     reason: str = ""
     frozen_epoch: int | None = None
+    counters: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
         return {
             "status": self.status,
             "reason": self.reason,
             "frozen_epoch": self.frozen_epoch,
+            "counters": dict(self.counters),
         }
 
     @classmethod
@@ -185,6 +194,7 @@ class ControllerState:
             status=str(d.get("status", "ACTIVE")),
             reason=str(d.get("reason", "")),
             frozen_epoch=None if d.get("frozen_epoch") is None else int(d["frozen_epoch"]),
+            counters=dict(d.get("counters", {})),
         )
 
 
@@ -212,8 +222,37 @@ class Controller:
         self.state = ControllerState.from_dict(d.get("state", {}))
         self.history = [AuditRecord.from_dict(a) for a in d.get("history", [])]
 
+    def observe(
+        self,
+        epoch: int,
+        lane_state: dict | None = None,
+        canonical_plain_state: dict | None = None,
+        diagnostic_manifest: dict | None = None,
+        *,
+        statistics: dict | None = None,
+        valid: bool = True,
+        reason: str = "",
+    ) -> AuditRecord:
+        """Build and append one target-blind audit record.
+
+        ``lane_state``, ``canonical_plain_state`` and ``diagnostic_manifest`` are
+        accepted to keep the unified interface explicit.  The actual statistics
+        must have been computed by a caller without consuming paired targets or
+        advancing the main training RNG/optimizer/scheduler/sampler.
+        """
+        record = AuditRecord(
+            method=self.method,
+            epoch=int(epoch),
+            statistics=statistics or {},
+            valid=bool(valid),
+            reason=str(reason),
+        )
+        self.record(record)
+        return record
+
     def record(self, audit: AuditRecord) -> None:
         self.history.append(audit)
+        self._update_counters(audit)
         if self.state.status in ("OFF", "HANDOFF"):
             return
         status, reason, frozen_epoch = self.decide(self.history)
@@ -223,6 +262,25 @@ class Controller:
             self.state.frozen_epoch = frozen_epoch
         elif reason:
             self.state.reason = reason
+        else:
+            self.state.reason = ""
+
+    def _update_counters(self, audit: AuditRecord) -> None:
+        """Expose transparent consecutive counts for the frozen full-state.
+
+        The actual decision remains a pure function of ``history``; these
+        counters are descriptive and made resumable for auditability.
+        """
+        keys = self._counter_keys()
+        for key in keys:
+            current = int(self.state.counters.get(key, 0))
+            self.state.counters[key] = current + 1 if self._matches(audit, key) else 0
+
+    def _counter_keys(self) -> list[str]:
+        return []
+
+    def _matches(self, audit: AuditRecord, key: str) -> bool:
+        return False
 
     def decide(self, history: Sequence[AuditRecord]) -> tuple[str, str, int | None]:
         raise NotImplementedError
@@ -244,9 +302,26 @@ class DTController(Controller):
     method = "DT"
     countable_min_epoch = 26  # physical e26 == active age 6
 
+    def _counter_keys(self) -> list[str]:
+        return ["E_DT_upper_le_0", "R_DT_lower_le_0", "engineering_invalid"]
+
+    def _matches(self, audit: AuditRecord, key: str) -> bool:
+        if audit.epoch < self.countable_min_epoch:
+            return False
+        if key == "E_DT_upper_le_0":
+            return audit.valid and _stat(audit, "E_DT", "upper", math.inf) <= 0.0
+        if key == "R_DT_lower_le_0":
+            return audit.valid and _stat(audit, "R_DT", "lower", math.inf) <= 0.0
+        if key == "engineering_invalid":
+            return not audit.valid
+        return False
+
     def decide(self, history: Sequence[AuditRecord]) -> tuple[str, str, int | None]:
-        valid = [a for a in history if a.valid]
-        countable = [a for a in valid if a.epoch >= self.countable_min_epoch]
+        countable = [a for a in history if a.epoch >= self.countable_min_epoch]
+        if any(not a.valid for a in countable):
+            return ("OFF", "DT_ENGINEERING_LANE_STOP", countable[-1].epoch)
+
+        valid = [a for a in countable if a.valid]
         if len(countable) < 2:
             return ("ACTIVE", "", None)
 
@@ -257,13 +332,11 @@ class DTController(Controller):
         ):
             return ("OFF", "DT_SIGNAL_EXHAUSTED", None)
         if _consecutive(
-            countable,
+            valid,
             lambda a: _stat(a, "R_DT", "lower", math.inf) <= 0.0,
             3,
         ):
             return ("OFF", "DT_NO_TARGET_BLIND_RESPONSE", None)
-        if any(not a.valid for a in countable):
-            return ("OFF", "DT_ENGINEERING_LANE_STOP", None)
         return ("ACTIVE", "", None)
 
 
@@ -271,9 +344,20 @@ class HJController(Controller):
     method = "HJ"
     countable_min_epoch = 20
 
+    def _counter_keys(self) -> list[str]:
+        return ["invalid", "valid"]
+
+    def _matches(self, audit: AuditRecord, key: str) -> bool:
+        if audit.epoch < self.countable_min_epoch:
+            return False
+        if key == "invalid":
+            return not audit.valid
+        if key == "valid":
+            return audit.valid
+        return False
+
     def decide(self, history: Sequence[AuditRecord]) -> tuple[str, str, int | None]:
-        valid = [a for a in history if a.valid]
-        countable = [a for a in valid if a.epoch >= self.countable_min_epoch]
+        countable = [a for a in history if a.epoch >= self.countable_min_epoch]
         if len(countable) < 2:
             return ("ACTIVE", "", None)
         if _consecutive(countable, lambda a: not a.valid, 2):
@@ -285,32 +369,54 @@ class HNEKController(Controller):
     method = "HNEK"
     countable_min_epoch = 30
 
+    def _counter_keys(self) -> list[str]:
+        return [
+            "C_H_upper_le_0",
+            "B_H_lower_le_0",
+            "safety_lost",
+            "engineering_invalid",
+        ]
+
+    def _matches(self, audit: AuditRecord, key: str) -> bool:
+        if audit.epoch < self.countable_min_epoch:
+            return False
+        if key == "C_H_upper_le_0":
+            return audit.valid and _stat(audit, "C_H", "upper", math.inf) <= 0.0
+        if key == "B_H_lower_le_0":
+            return audit.valid and _stat(audit, "B_H", "lower", math.inf) <= 0.0
+        if key == "safety_lost":
+            return audit.valid and bool(audit.statistics.get("safety_lost", {}).get("point", False))
+        if key == "engineering_invalid":
+            return not audit.valid
+        return False
+
     def decide(self, history: Sequence[AuditRecord]) -> tuple[str, str, int | None]:
-        valid = [a for a in history if a.valid]
-        countable = [a for a in valid if a.epoch >= self.countable_min_epoch]
+        countable = [a for a in history if a.epoch >= self.countable_min_epoch]
+        if any(not a.valid for a in countable):
+            return ("HANDOFF", "HNEK_ENGINEERING_LANE_STOP", countable[-1].epoch)
+
+        valid = [a for a in countable if a.valid]
         if len(countable) < 2:
             return ("ACTIVE", "", None)
 
         if _consecutive(
-            countable,
+            valid,
             lambda a: _stat(a, "C_H", "upper", math.inf) <= 0.0,
             2,
         ):
             return ("HANDOFF", "HNEK_SIGNAL_EXHAUSTED", countable[-1].epoch)
         if _consecutive(
-            countable,
-            lambda a: _stat(a, "B_H", "lower", -math.inf) <= 0.0,
+            valid,
+            lambda a: _stat(a, "B_H", "lower", math.inf) <= 0.0,
             2,
         ):
             return ("HANDOFF", "HNEK_NO_LONGER_BEATS_PLAIN_UPDATE", countable[-1].epoch)
         if _consecutive(
-            countable,
+            valid,
             lambda a: bool(a.statistics.get("safety_lost", {}).get("point", False)),
             2,
         ):
             return ("HANDOFF", "HNEK_NATIVE_SAFETY_LOST", countable[-1].epoch)
-        if any(not a.valid for a in countable):
-            return ("HANDOFF", "HNEK_ENGINEERING_LANE_STOP", countable[-1].epoch)
         return ("ACTIVE", "", None)
 
 

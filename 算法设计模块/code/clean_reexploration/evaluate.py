@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -17,7 +18,12 @@ from torchvision import transforms
 
 REPO_ROOT = Path("/home/yc/unsb_tired")
 CODE_ROOT = REPO_ROOT / "算法设计模块/code"
-RUNTIME_ROOT = REPO_ROOT / "runtime_4090/clean_reexploration_20260824"
+RUNTIME_ROOT = Path(
+    os.environ.get(
+        "UNSB_REPAIR_RUNTIME",
+        str(REPO_ROOT / "runtime_4090/clean_reexploration_repair_20260825"),
+    )
+)
 RUNS_ROOT = RUNTIME_ROOT / "runs"
 AUTHORITY_ROOT = Path("/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806")
 

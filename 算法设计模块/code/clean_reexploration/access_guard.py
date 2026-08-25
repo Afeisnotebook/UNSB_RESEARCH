@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import os
+import time
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -43,6 +44,9 @@ class TargetAccessGuard:
         ledger_path: Path,
         data_root: str,
         frozen_ok_path: Path,
+        run_id: str = "",
+        spec_sha256: str = "",
+        code_sha256: str = "",
     ):
         self.training_manifest = training_manifest
         self.paired_manifest = paired_manifest
@@ -50,7 +54,11 @@ class TargetAccessGuard:
         self.ledger_path.parent.mkdir(parents=True, exist_ok=True)
         self.data_root = Path(data_root).resolve()
         self.frozen_ok_path = Path(frozen_ok_path)
+        self.run_id = run_id
+        self.spec_sha256 = spec_sha256
+        self.code_sha256 = code_sha256
         self._target_read_count = 0
+        self._ledger_header_written = False
 
         # Allowed unpaired A/B training stems per domain.
         self._allowed = set()
@@ -83,7 +91,16 @@ class TargetAccessGuard:
             return {"domain": domain, "side": side_kind, "stem": stem, "resolved": str(resolved)}
         return {"domain": None, "side": None, "stem": None, "resolved": str(resolved)}
 
-    def request(self, path: str, *, role: str, purpose: str) -> str:
+    def request(
+        self,
+        path: str,
+        *,
+        role: str,
+        purpose: str,
+        phase: str = "",
+        lane: str = "",
+        epoch: int | None = None,
+    ) -> str:
         """Validate and record a file read; return the resolved path if allowed."""
         info = self._classify(path)
         domain, side, stem = info["domain"], info["side"], info["stem"]
@@ -101,24 +118,99 @@ class TargetAccessGuard:
         else:
             allowed = True
 
-        rec = AccessRecord(
+        self._append_csv(
             path=str(path),
             role=role,
             purpose=purpose,
             resolved=info["resolved"],
             allowed=allowed,
+            phase=phase,
+            lane=lane,
+            epoch=epoch,
+            stem=stem,
         )
-        self._append(rec)
         if not allowed:
             raise PermissionError(
                 f"target access rejected: {path} (role={role}, purpose={purpose})"
             )
         return info["resolved"]
 
-    def _append(self, rec: AccessRecord) -> None:
-        line = json.dumps(rec.to_dict(), ensure_ascii=False, sort_keys=True)
-        with self.ledger_path.open("a", encoding="utf-8") as handle:
-            handle.write(line + "\n")
+    def open_image(
+        self,
+        path: str,
+        *,
+        role: str,
+        purpose: str,
+        phase: str = "",
+        lane: str = "",
+        epoch: int | None = None,
+    ):
+        """The unique image-open entry point for all target/source reads."""
+        from PIL import Image
+
+        resolved = self.request(
+            path,
+            role=role,
+            purpose=purpose,
+            phase=phase,
+            lane=lane,
+            epoch=epoch,
+        )
+        return Image.open(resolved)
+
+    def _append_csv(
+        self,
+        *,
+        path,
+        role,
+        purpose,
+        resolved,
+        allowed,
+        phase,
+        lane,
+        epoch,
+        stem,
+    ) -> None:
+        header = [
+            "timestamp_utc",
+            "phase",
+            "lane",
+            "epoch",
+            "purpose",
+            "role",
+            "path",
+            "resolved_path",
+            "stem",
+            "allowed",
+            "training_frozen_sha256",
+            "run_id",
+            "spec_sha256",
+            "code_sha256",
+        ]
+        row = {
+            "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "phase": phase,
+            "lane": lane,
+            "epoch": "" if epoch is None else str(int(epoch)),
+            "purpose": purpose,
+            "role": role,
+            "path": path,
+            "resolved_path": resolved,
+            "stem": "" if stem is None else stem,
+            "allowed": "true" if allowed else "false",
+            "training_frozen_sha256": "",
+            "run_id": self.run_id,
+            "spec_sha256": self.spec_sha256,
+            "code_sha256": self.code_sha256,
+        }
+        import csv
+
+        new = not self.ledger_path.exists() or self.ledger_path.stat().st_size == 0
+        with self.ledger_path.open("a", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=header)
+            if new:
+                writer.writeheader()
+            writer.writerow(row)
 
     def target_read_count(self) -> int:
         return self._target_read_count

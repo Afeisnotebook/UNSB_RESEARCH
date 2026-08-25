@@ -7,6 +7,7 @@ panel, never from paired targets.
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -16,7 +17,12 @@ import torch
 
 REPO_ROOT = Path("/home/yc/unsb_tired")
 CODE_ROOT = REPO_ROOT / "算法设计模块/code"
-RUNTIME_ROOT = REPO_ROOT / "runtime_4090/clean_reexploration_20260824"
+RUNTIME_ROOT = Path(
+    os.environ.get(
+        "UNSB_REPAIR_RUNTIME",
+        str(REPO_ROOT / "runtime_4090/clean_reexploration_repair_20260825"),
+    )
+)
 RUNS_ROOT = RUNTIME_ROOT / "runs"
 
 sys.path.insert(0, str(CODE_ROOT / "baseline"))
@@ -33,47 +39,103 @@ def _load_panel_rows(panel: dict, training_manifest: list[dict]) -> list[dict]:
     return rows
 
 
-def compute_hnek_c_h(netG, panel_rows: list[dict], *, gamma: float, num_timesteps: int, tau: float, ngf: int) -> dict:
-    """Compute the HNEK cross-time remaining-horizon energy-distance statistic."""
+def compute_hnek_c_h(
+    netG,
+    panel_rows: list[dict],
+    *,
+    gamma: float,
+    num_timesteps: int,
+    tau: float,
+    ngf: int,
+    seed: int = 2026,
+) -> dict:
+    """Compute the HNEK cross-time remaining-horizon energy-distance statistic.
+
+    The returned bundle now includes ``repeat_floor`` (the effect-blind 99th
+    percentile of independent same-state repeat estimates) and ``repeat_estimates``
+    so callers must subtract the floor before checking ``upper <= 0``.
+    """
     from clean_reexploration.evaluate import _bridge_schedule, _img_to_tensor
     from clean_reexploration.diagnostics import energy_distance
 
     device = next(netG.parameters()).device
     times = _bridge_schedule(num_timesteps, device)
-    per_domain: dict[str, list[float]] = {}
 
-    with torch.no_grad():
-        for f in panel_rows:
-            A = _img_to_tensor(f["absolute_path"]).unsqueeze(0).to(device)
-            # Reproduce the non-terminal rollout states.
-            Xt = A
-            Xt_1 = None
-            r_at_t = {}
-            for t in range(num_timesteps):
-                if t > 0:
-                    delta = times[t] - times[t - 1]
-                    denom = times[-1] - times[t - 1]
-                    inter = (delta / denom).reshape(-1, 1, 1, 1)
-                    scale = (delta * (1.0 - delta / denom)).reshape(-1, 1, 1, 1)
-                    Xt = (1 - inter) * Xt + inter * Xt_1.detach() + (scale * tau).sqrt() * torch.randn_like(Xt)
-                time_idx = (t * torch.ones(size=[A.shape[0]], device=device)).long()
-                z = torch.randn(size=[A.shape[0], 4 * ngf], device=device)
-                Xt_1 = netG(Xt, time_idx, z)
-                h = float(1.0 - times[t].item())
-                if h > 0:
-                    r_at_t[t] = ((Xt_1 - Xt) / (h ** gamma)).flatten().cpu().numpy()
+    def _raw_clusters(run_seed: int) -> dict:
+        per_domain: dict[str, list[float]] = {}
+        noise_gen = torch.Generator(device=device).manual_seed(run_seed)
+        z_gen = torch.Generator(device=device).manual_seed(run_seed ^ 0x5D4E9A73)
+        with torch.no_grad():
+            for f in panel_rows:
+                A = _img_to_tensor(f["absolute_path"]).unsqueeze(0).to(device)
+                Xt = A
+                Xt_1 = None
+                r_at_t = {}
+                for t in range(num_timesteps):
+                    if t > 0:
+                        delta = times[t] - times[t - 1]
+                        denom = times[-1] - times[t - 1]
+                        inter = (delta / denom).reshape(-1, 1, 1, 1)
+                        scale = (delta * (1.0 - delta / denom)).reshape(-1, 1, 1, 1)
+                        Xt = (
+                            (1 - inter) * Xt
+                            + inter * Xt_1.detach()
+                            + (scale * tau).sqrt()
+                            * torch.randn(Xt.shape, generator=noise_gen, device=Xt.device, dtype=Xt.dtype)
+                        )
+                    time_idx = (t * torch.ones(size=[A.shape[0]], device=device)).long()
+                    z = torch.randn(size=[A.shape[0], 4 * ngf], device=device, generator=z_gen)
+                    Xt_1 = netG(Xt, time_idx, z)
+                    h = float(1.0 - times[t].item())
+                    if h > 0:
+                        r_at_t[t] = ((Xt_1 - Xt) / (h ** gamma)).flatten().cpu().numpy()
 
-            ts = sorted(r_at_t)
-            vals = []
-            for j in range(len(ts) - 1):
-                vals.append(energy_distance(r_at_t[ts[j]], r_at_t[ts[j + 1]]))
-            per_domain.setdefault(f["domain"], []).append(np.mean(vals) if vals else 0.0)
+                ts = sorted(r_at_t)
+                vals = []
+                for j in range(len(ts) - 1):
+                    vals.append(energy_distance(r_at_t[ts[j]], r_at_t[ts[j + 1]]))
+                per_domain.setdefault(f["domain"], []).append(np.mean(vals) if vals else 0.0)
 
-    clusters = {d: [[v] for v in vals] for d, vals in per_domain.items()}
-    return {"raw_clusters": clusters}
+        return {d: [[v] for v in vals] for d, vals in per_domain.items()}
+
+    raw_clusters = _raw_clusters(seed)
+    repeat_estimates = []
+    for i in range(20):
+        clusters_i = _raw_clusters(seed + 1 + i)
+        repeat_estimates.append(point_estimate(clusters_i, "mean"))
+    finite = [x for x in repeat_estimates if np.isfinite(x)]
+    repeat_floor = float(np.quantile(finite, 0.99)) if finite else 0.0
+
+    return {
+        "raw_clusters": raw_clusters,
+        "repeat_floor": repeat_floor,
+        "repeat_estimates": repeat_estimates,
+    }
 
 
-def compute_dt_logu(netG, panel_rows: list[dict], *, m: int, ngf: int, num_timesteps: int, tau: float) -> dict:
+def _legacy_hnek_raw_clusters(netG, panel_rows, *, gamma, num_timesteps, tau, ngf, seed):
+    """Backwards-compatible raw-cluster-only variant used by existing callers."""
+    return compute_hnek_c_h(
+        netG,
+        panel_rows,
+        gamma=gamma,
+        num_timesteps=num_timesteps,
+        tau=tau,
+        ngf=ngf,
+        seed=seed,
+    )["raw_clusters"]
+
+
+def compute_dt_logu(
+    netG,
+    panel_rows: list[dict],
+    *,
+    m: int,
+    ngf: int,
+    num_timesteps: int,
+    tau: float,
+    seed: int = 2026,
+) -> dict:
     """Compute DT signal-normalized region disagreement logU per source cluster."""
     sys.path.insert(0, str(CODE_ROOT / "dt_covmatch"))
     from dtcov.dtcovmatch import compute_direction_statistics
@@ -82,6 +144,8 @@ def compute_dt_logu(netG, panel_rows: list[dict], *, m: int, ngf: int, num_times
     device = next(netG.parameters()).device
     times = _bridge_schedule(num_timesteps, device)
     logu_by_domain: dict[str, list[float]] = {}
+    noise_gen = torch.Generator(device=device).manual_seed(seed)
+    z_gen = torch.Generator(device=device).manual_seed(seed ^ 0x5D4E9A73)
 
     with torch.no_grad():
         for f in panel_rows:
@@ -94,13 +158,19 @@ def compute_dt_logu(netG, panel_rows: list[dict], *, m: int, ngf: int, num_times
                     denom = times[-1] - times[t - 1]
                     inter = (delta / denom).reshape(-1, 1, 1, 1)
                     scale = (delta * (1.0 - delta / denom)).reshape(-1, 1, 1, 1)
-                    Xt = (1 - inter) * Xt + inter * Xt_1.detach() + (scale * tau).sqrt() * torch.randn_like(Xt)
+                    Xt = (
+                        (1 - inter) * Xt
+                        + inter * Xt_1.detach()
+                        + (scale * tau).sqrt()
+                        * torch.randn(Xt.shape, generator=noise_gen, device=Xt.device, dtype=Xt.dtype)
+                    )
                 time_idx = (t * torch.ones(size=[A.shape[0]], device=device)).long()
                 endpoints = []
                 for _ in range(m):
-                    z = torch.randn(size=[A.shape[0], 4 * ngf], device=device)
+                    z = torch.randn(size=[A.shape[0], 4 * ngf], device=device, generator=z_gen)
                     endpoints.append(netG(Xt, time_idx, z))
                 ep = torch.stack(endpoints, dim=0)
+                Xt_1 = endpoints[0]
                 t_norm = float(times[t].item() / times[-1].item())
                 stats = compute_direction_statistics(
                     X_t=Xt, endpoint_samples=ep, t_norm=t_norm,
@@ -112,7 +182,15 @@ def compute_dt_logu(netG, panel_rows: list[dict], *, m: int, ngf: int, num_times
     return {d: [v] for d, v in logu_by_domain.items()}
 
 
-def compute_hj_structure_loss(netG, panel_rows: list[dict], *, ngf: int, num_timesteps: int, tau: float) -> dict:
+def compute_hj_structure_loss(
+    netG,
+    panel_rows: list[dict],
+    *,
+    ngf: int,
+    num_timesteps: int,
+    tau: float,
+    seed: int = 2026,
+) -> dict:
     """Compute the HJ joint edge+SSIM structure functional on source-only panels."""
     import torch.nn.functional as F
     from clean_reexploration.evaluate import _bridge_schedule, _img_to_tensor
@@ -120,6 +198,8 @@ def compute_hj_structure_loss(netG, panel_rows: list[dict], *, ngf: int, num_tim
     device = next(netG.parameters()).device
     times = _bridge_schedule(num_timesteps, device)
     structure_by_domain: dict[str, list[float]] = {}
+    noise_gen = torch.Generator(device=device).manual_seed(seed)
+    z_gen = torch.Generator(device=device).manual_seed(seed ^ 0x5D4E9A73)
 
     def sobel_mag(x):
         gray = x[:, 0:1] * 0.2989 + x[:, 1:2] * 0.5870 + x[:, 2:3] * 0.1140
@@ -140,9 +220,14 @@ def compute_hj_structure_loss(netG, panel_rows: list[dict], *, ngf: int, num_tim
                     denom = times[-1] - times[t - 1]
                     inter = (delta / denom).reshape(-1, 1, 1, 1)
                     scale = (delta * (1.0 - delta / denom)).reshape(-1, 1, 1, 1)
-                    Xt = (1 - inter) * Xt + inter * Xt_1.detach() + (scale * tau).sqrt() * torch.randn_like(Xt)
+                    Xt = (
+                        (1 - inter) * Xt
+                        + inter * Xt_1.detach()
+                        + (scale * tau).sqrt()
+                        * torch.randn(Xt.shape, generator=noise_gen, device=Xt.device, dtype=Xt.dtype)
+                    )
                 time_idx = (t * torch.ones(size=[A.shape[0]], device=device)).long()
-                z = torch.randn(size=[A.shape[0], 4 * ngf], device=device)
+                z = torch.randn(size=[A.shape[0], 4 * ngf], device=device, generator=z_gen)
                 Xt_1 = netG(Xt, time_idx, z)
             out = Xt_1
             edge = torch.sqrt((sobel_mag(out) - sobel_mag(A.detach())).square() + 1e-6).mean()
@@ -170,9 +255,9 @@ def audit_main() -> int:
     netG.eval()
 
     if args.lane == "hnek_full":
-        sig = compute_hnek_c_h(netG, rows, gamma=0.25, num_timesteps=5, tau=0.01, ngf=64)
+        sig = compute_hnek_c_h(netG, rows, gamma=0.25, num_timesteps=5, tau=0.01, ngf=64, seed=2026)
     else:
-        sig = compute_dt_logu(netG, rows, m=4, ngf=64, num_timesteps=5, tau=0.01)
+        sig = compute_dt_logu(netG, rows, m=4, ngf=64, num_timesteps=5, tau=0.01, seed=2026)
     print(json.dumps(sig, ensure_ascii=False))
     return 0
 
@@ -202,17 +287,25 @@ def determine_hnek_handoff(run_id: str) -> dict:
             continue
         netG, _ = evaluate._load_netG(ckpt, "hnek_search")
         netG.eval()
-        sig = compute_hnek_c_h(netG, rows, gamma=0.25, num_timesteps=5, tau=0.01, ngf=64)
+        rollout_seed = controllers.controller_bootstrap_seed(run_id, "HNEK", epoch, "C_H_rollout")
+        sig = compute_hnek_c_h(
+            netG, rows, gamma=0.25, num_timesteps=5, tau=0.01, ngf=64,
+            seed=rollout_seed,
+        )
         clusters = sig["raw_clusters"]
+        repeat_floor = float(sig.get("repeat_floor", 0.0))
         seed = controllers.controller_bootstrap_seed(run_id, "HNEK", epoch, "C_H")
         draws = controllers.cluster_bootstrap_draws(clusters, statistic="mean", n_draws=999, seed=seed)
-        point = controllers.point_estimate(clusters, "mean")
-        upper = upper_bound(draws)
+        point = controllers.point_estimate(clusters, "mean") - repeat_floor
+        upper = upper_bound(draws) - repeat_floor
         triggered = upper <= 0.0
         records.append({
             "epoch": epoch,
             "C_H_point": point,
+            "C_H_point_unfloored": controllers.point_estimate(clusters, "mean"),
             "C_H_upper": upper,
+            "C_H_upper_unfloored": upper_bound(draws),
+            "repeat_floor": repeat_floor,
             "triggered": triggered,
         })
         if epoch >= 30:
