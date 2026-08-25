@@ -122,3 +122,9 @@ HNEK handoff 还缺少完整 repeat floor、安全包络和校准后的判据；
 7. 最后才冻结新 spec/code/data identity 并启动 GPU lane。
 
 任一 oracle 失败时，先停止算法解释，不用新的方法数字覆盖基座问题。
+
+## 6. 本地真实数据补充微验证
+
+2026-08-26 在本地 GTX 1660 上完成了 sampler、reflection padding、历史 checkpoint 推理和一步完整训练 twin gate。当前 baseline 的同 seed 一步训练可生成字节完全相同的 G/F/D/E checkpoint，固定排序配对也被真实数据直接证明会把 unpaired 训练改成 100% 同名、100% 同域配对。
+
+同时，当前精简 baseline 虽能稳定重放自身输出，但尚不与 2026-08-11 完整历史研究代码的 PNG 字节一致。因此工程微门通过不等于 authoritative evaluator/canonical oracle 已闭合。完整结果见 [LOCAL_MICRO_VALIDATION_20260826.md](./LOCAL_MICRO_VALIDATION_20260826.md)。

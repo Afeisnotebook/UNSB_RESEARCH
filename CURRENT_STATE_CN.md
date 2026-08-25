@@ -37,6 +37,8 @@ HNEK 表中的 95% CI `[0.5916, 0.9933]` 是固定 seed=2026 与开发集条件�
 - 先用历史 authoritative checkpoint 做 evaluator oracle，再用 authoritative loader/config 做 sampler replay；plain 无法回到预注册容差时不得启动方法 lane。
 - HNEK/HJ/DT 必须分别从 canonical pre-e1/pre-e5/post-e20 **完整 full-state** 分叉，继承 RNG、sampler、optimizer、scheduler 和 global step；同 seed 重新初始化不等于共同父节点。
 
+2026-08-26 的本地真实数据微验证已经通过 sampler 语义、deterministic reflection padding、当前代码自身推理重放和一步完整训练 twin gate；两次一步训练的 G/F/D/E checkpoint 字节完全一致。但当前精简代码与 2026-08-11 完整历史研究树的输出仍非字节一致，故 Gate 0 只完成了工程微门，authoritative evaluator/canonical oracle 仍未关闭。详见 [算法设计模块/docs/LOCAL_MICRO_VALIDATION_20260826.md](./算法设计模块/docs/LOCAL_MICRO_VALIDATION_20260826.md)。
+
 ### Gate 1：同 seed 跨环境复现
 
 - 先用 seed=2026 复现 plain 与 `hnek_g0.25`。

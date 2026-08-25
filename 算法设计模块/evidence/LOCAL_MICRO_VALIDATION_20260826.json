@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-26",
+  "repo_commit_under_test": "98cbf333c66857fc632e0b22a67efabdbc471314",
+  "verdict": "ENGINEERING_MICRO_GATE_PASS_ORACLE_STILL_OPEN",
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.6.0+cu124",
+    "cuda_runtime": "12.4",
+    "gpu": "NVIDIA GeForce GTX 1660"
+  },
+  "inputs": {
+    "aio_train_a_images": 500,
+    "aio_train_b_images": 500,
+    "aio_domains": 5,
+    "paired_probe_domain": "FoggyCityscapes",
+    "paired_probe_images": 3,
+    "historic_epoch14_net_g_sha256": "b5fbed2318f976e9f5a9c9799db5b82305d1d250daeb5b0f593382b4443888ff"
+  },
+  "sampler": {
+    "fixed_sorted": {
+      "pairs": 500,
+      "same_domain": 500,
+      "same_basename": 500,
+      "unique_b": 500
+    },
+    "official_seed2041_epoch1_first100": {
+      "pairs": 100,
+      "same_domain": 17,
+      "same_basename": 0,
+      "unique_b": 86
+    },
+    "official_seed2041_epoch2_first100": {
+      "pairs": 100,
+      "same_domain": 24,
+      "same_basename": 0,
+      "unique_b": 93
+    },
+    "same_seed_exact_replay": true,
+    "epoch_schedule_changes": true,
+    "different_seed_changes": true,
+    "fixed_sorted_is_canonical": false
+  },
+  "deterministic_reflection_pad": {
+    "real_image_probe": "FoggyCityscapes__FoggyCityscapes__0016.png",
+    "new_equals_torch_forward": true,
+    "new_equals_historic_forward": true,
+    "forward_max_abs_error": 0.0,
+    "new_strict_cuda_backward_succeeds": true,
+    "new_backward_exact_replay": true,
+    "native_torch_strict_cuda_backward_succeeds": false,
+    "new_gradient_sha256": "c333acb49332081ced3e5ff38c3017dc35f3e35c26444cb4d7f83262aa6dc6c1"
+  },
+  "historic_checkpoint_inference": {
+    "current_code_repeat_pngs": 18,
+    "current_code_repeat_byte_mismatches": 0,
+    "historic_code_vs_stored_fake5_matches": 3,
+    "historic_code_vs_stored_fake5_total": 3,
+    "current_code_vs_stored_fake5_byte_matches": 0,
+    "current_code_vs_stored_fake5_total": 3,
+    "fixed_cuda_rng_state_equal_between_code_paths": true,
+    "fixed_rng_full_network_tensor_hashes_equal": false,
+    "psnr_delta_db_current_minus_historic": [
+      -0.013942917780418895,
+      0.006264009932788639,
+      0.002966334312725749
+    ],
+    "ssim_delta_current_minus_historic": [
+      -0.00023858921484359863,
+      0.00041589572093442273,
+      0.0007242400038431351
+    ],
+    "interpretation": "current code is internally deterministic but is not a byte-identical replay of the complete historic research tree"
+  },
+  "one_step_twin_training": {
+    "seed": 2041,
+    "real_aio_updates_per_run": 1,
+    "strict_deterministic_backward_succeeds": true,
+    "checkpoint_files_compared": 4,
+    "checkpoint_byte_mismatches": 0,
+    "checkpoint_sha256": {
+      "1_net_G.pth": "e6aeeac70773173471222e2df7398c4a62941095b254d1a5607e0378e0dd15cc",
+      "1_net_F.pth": "bef23719da91dc02a092cc382f0c4cab88aaa369df9cffd7ec7b0b64b58dc083",
+      "1_net_D.pth": "41353a8759c3ff868cdffc836f12bae2d0f9bd223ee7cb867701a4f9022355da",
+      "1_net_E.pth": "d7d00891535e1e88d24e96ac94a9da769a802fb93dfd442d685eee673a8163cb"
+    },
+    "displayed_losses": {
+      "G_GAN": 0.987,
+      "D_real": 1.002,
+      "D_fake": 0.0,
+      "G": 7.535,
+      "NCE": 6.605,
+      "SB": 0.011,
+      "NCE_Y": 6.469
+    }
+  },
+  "gates": {
+    "real_data_sampler_semantics": "pass",
+    "deterministic_pad_forward_backward": "pass",
+    "current_code_self_replay": "pass",
+    "one_step_full_training_twin": "pass",
+    "historic_full_tree_byte_oracle": "open",
+    "long_canonical_anchor_replay": "open",
+    "full_state_resume_next_bundle": "open",
+    "method_fork_controller_access": "open"
+  },
+  "next_action": "run a short canonical anchor replay with frozen current CLI/config and pre-registered numeric tolerances before any long method lane"
+}
