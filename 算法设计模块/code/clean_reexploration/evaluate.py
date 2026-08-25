@@ -7,13 +7,11 @@ import json
 import math
 import os
 import sys
+import tempfile
 from pathlib import Path
 
 import numpy as np
 import torch
-import torch.nn.functional as F
-from PIL import Image
-from torchvision import transforms
 
 
 REPO_ROOT = Path("/home/yc/unsb_tired")
@@ -27,8 +25,9 @@ RUNTIME_ROOT = Path(
 RUNS_ROOT = RUNTIME_ROOT / "runs"
 AUTHORITY_ROOT = Path("/home/yc/UNSB_Long/UNSB_EvidenceFirst_Rebuild_Bootstrap_20260806")
 
-sys.path.insert(0, str(CODE_ROOT / "baseline"))
 sys.path.insert(0, str(CODE_ROOT))
+sys.path.insert(0, str(AUTHORITY_ROOT))
+sys.path.insert(0, str(CODE_ROOT / "baseline"))
 
 EVAL_DOMAINS = [
     "FoggyCityscapes",
@@ -39,82 +38,50 @@ EVAL_DOMAINS = [
 ]
 
 
-def _img_to_tensor(path: str) -> torch.Tensor:
-    t = transforms.Compose(
-        [
-            transforms.Resize((128, 128), interpolation=Image.BICUBIC),
-            transforms.ToTensor(),
-            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-        ]
-    )
-    return t(Image.open(path).convert("RGB"))
+from scripts.final1 import final1_metrics as F1M  # noqa: E402
+from scripts.final1 import final1_common as F1C  # noqa: E402
+from scripts.final1 import final1_networks as F1N  # noqa: E402
 
 
 def _load_netG(full_state_path: Path, model_name: str):
     from clean_reexploration import full_state
 
-    state = full_state.load_full_state(full_state_path)
-    sd = state["networks"]["netG"]
-    if model_name == "hnek_search":
-        from models.hnek_search_model import HnekSearchModel
-        from clean_reexploration.train_executor import _make_sb_opt
-        opt = _make_sb_opt("eval")
-        opt.model = "hnek_search"
-        opt.hnek_gamma = 0.25
-        opt.hnek_coord = "residual"
-        opt.hnek_horizon_mode = "physical"
-        opt.hnek_partial = "all"
-        model = HnekSearchModel(opt)
+    # Support both current clean_reexploration full-state and historical
+    # HNEK coupled-lane checkpoints.
+    payload = torch.load(full_state_path, map_location="cpu", weights_only=False)
+    if isinstance(payload, dict) and "lanes" in payload:
+        sd = payload["lanes"]["HNEK_METHOD"]["networks"]["G"]
     else:
-        from models.sb_model import SBModel
-        from clean_reexploration.train_executor import _make_sb_opt
-        model = SBModel(_make_sb_opt("eval"))
+        state = full_state.load_full_state(full_state_path)
+        sd = state["networks"]["netG"]
+    attempt = Path(tempfile.mkdtemp(prefix="eval_netg_"))
+    model, _ = F1N.build_official_model(attempt, seed=2026)
+    if model_name == "hnek_search":
+        import importlib
+        sys.path.insert(0, str(CODE_ROOT / "baseline"))
+        if "models" in sys.modules:
+            sys.modules.pop("models", None)
+        hnek_mod = importlib.import_module("models.hnek.hnek_search")
+        HnekSearchConfig = hnek_mod.HnekSearchConfig
+        install_hnek_search_model = hnek_mod.install_hnek_search_model
+        install_hnek_search_model(
+            model,
+            HnekSearchConfig(
+                gamma=0.25, coord="residual", horizon_mode="physical", partial="all"
+            ),
+        )
     net = model.netG.module if hasattr(model.netG, "module") else model.netG
     net.load_state_dict(sd)
     net.eval()
-    return net, model
+    return model, model
 
 
-def rollout_endpoint(netG, A: torch.Tensor, *, num_timesteps: int, tau: float, ngf: int, z: torch.Tensor, bridge_noise: torch.Tensor) -> torch.Tensor:
-    """Run the five-step UNSB rollout and return the final endpoint."""
-    times = _bridge_schedule(num_timesteps, A.device)
-    Xt = A
-    Xt_1 = None
-    for t in range(num_timesteps):
-        if t > 0:
-            delta = times[t] - times[t - 1]
-            denom = times[-1] - times[t - 1]
-            inter = (delta / denom).reshape(-1, 1, 1, 1)
-            scale = (delta * (1.0 - delta / denom)).reshape(-1, 1, 1, 1)
-            Xt = (1 - inter) * Xt + inter * Xt_1.detach() + (scale * tau).sqrt() * bridge_noise[t - 1]
-        time_idx = (t * torch.ones(size=[A.shape[0]], device=A.device)).long()
-        Xt_1 = netG(Xt, time_idx, z[t])
-    return Xt_1
+def _img_to_tensor(path: str, device) -> torch.Tensor:
+    from PIL import Image
 
-
-def _bridge_schedule(num_timesteps: int, device) -> torch.Tensor:
-    incs = np.array([0.0] + [1.0 / (i + 1) for i in range(num_timesteps - 1)], dtype=np.float64)
-    times = np.cumsum(incs)
-    times = times / times[-1]
-    times = 0.5 + 0.5 * times
-    times = np.concatenate([np.zeros(1), times])
-    return torch.tensor(times, dtype=torch.float32).to(device)
-
-
-def _to_unit(x: torch.Tensor) -> torch.Tensor:
-    return ((x + 1.0) / 2.0).clamp(0.0, 1.0)
-
-
-def psnr(a: torch.Tensor, b: torch.Tensor) -> float:
-    mse = float(F.mse_loss(a, b).item())
-    if mse <= 0:
-        return float("inf")
-    return float(10.0 * math.log10(1.0 / mse))
-
-
-def ssim(a: torch.Tensor, b: torch.Tensor) -> float:
-    from clean_reexploration.diagnostics import _ssim_numpy
-    return _ssim_numpy(a, b)
+    image = Image.open(path).convert("RGB").resize((128, 128), Image.BICUBIC)
+    array = np.asarray(image, dtype=np.float32) / 127.5 - 1.0
+    return torch.from_numpy(array).permute(2, 0, 1).contiguous().unsqueeze(0).to(device)
 
 
 def evaluate_checkpoint(
@@ -127,15 +94,14 @@ def evaluate_checkpoint(
     tau: float,
     replicates: int,
     seed: int,
+    spec_sha256: str = "",
 ) -> list[dict]:
-    netG, _ = _load_netG(full_state_path, model_name)
-    netG.eval()
-    device = next(netG.parameters()).device
+    model, _ = _load_netG(full_state_path, model_name)
+    model.eval()
+    device = next(model.netG.parameters()).device
 
-    # Group the 64 A evaluation images (with target) per domain.
     a_rows = [f for f in paired_manifest if f["role"] == "T3_A"]
     target_by = {f["stem"]: f for f in paired_manifest if f["role"] == "T3_A_TARGET"}
-    rng = np.random.default_rng(seed)
 
     rows = []
     with torch.no_grad():
@@ -143,33 +109,67 @@ def evaluate_checkpoint(
             stem = f["stem"]
             domain = f["domain"]
             target_path = target_by[stem]["absolute_path"]
-            A = _img_to_tensor(f["absolute_path"]).unsqueeze(0).to(device)
-            T = _img_to_tensor(target_path).unsqueeze(0).to(device)
-            T_unit = _to_unit(T)
+            A = _img_to_tensor(f["absolute_path"], device)
+            T = _img_to_tensor(target_path, device)
+            T_unit = F1M.to_unit_range(T)
             psnrs = []
             ssims = []
             for r in range(replicates):
-                rng_local = np.random.default_rng([seed, int(stem), r])
-                gen_z = torch.Generator().manual_seed(int(rng_local.integers(0, 2**31)))
-                gen_n = torch.Generator().manual_seed(int(rng_local.integers(0, 2**31)))
-                z = torch.randn(
-                    size=[num_timesteps, 1, 4 * ngf],
-                    generator=gen_z,
-                ).to(device)
-                noise = torch.randn(
-                    size=[num_timesteps - 1, 1, 3, 128, 128],
-                    generator=gen_n,
-                ).to(device)
-                out = rollout_endpoint(netG, A, num_timesteps=num_timesteps, tau=tau, ngf=ngf, z=z, bridge_noise=noise)
-                out_unit = _to_unit(out)
-                psnrs.append(psnr(out_unit, T_unit))
-                ssims.append(ssim(out_unit, T_unit))
+                bundle = F1M.build_rollout_bundle(
+                    spec_sha256, domain, stem, r, 4 * ngf, 128, 128, num_timesteps
+                )
+                out = F1M.five_step_rollout(model, A, bundle, device)
+                out_unit = F1M.to_unit_range(out)
+                psnrs.append(F1M.psnr_unit(out_unit, T_unit))
+                ssims.append(F1M.ssim_unit(out_unit, T_unit))
             rows.append({
                 "domain": domain,
                 "stem": stem,
                 "psnr": float(np.mean(psnrs)),
                 "ssim": float(np.mean(ssims)),
             })
+    return rows
+
+
+def evaluate_checkpoint_raw(
+    *,
+    full_state_path: Path,
+    model_name: str,
+    paired_manifest: list[dict],
+    ngf: int,
+    num_timesteps: int,
+    tau: float,
+    replicates: int,
+    spec_sha256: str,
+) -> list[dict]:
+    """Return raw replicate rows (1280 for T3) with canonical bundle hashes."""
+    model, _ = _load_netG(full_state_path, model_name)
+    model.eval()
+    device = next(model.netG.parameters()).device
+    a_rows = [f for f in paired_manifest if f["role"] == "T3_A"]
+    target_by = {f["stem"]: f for f in paired_manifest if f["role"] == "T3_A_TARGET"}
+    rows = []
+    with torch.no_grad():
+        for f in a_rows:
+            stem, domain = f["stem"], f["domain"]
+            A = _img_to_tensor(f["absolute_path"], device)
+            T = _img_to_tensor(target_by[stem]["absolute_path"], device)
+            T_unit = F1M.to_unit_range(T)
+            for r in range(replicates):
+                bundle = F1M.build_rollout_bundle(
+                    spec_sha256, domain, stem, r, 4 * ngf, 128, 128, num_timesteps
+                )
+                out = F1M.five_step_rollout(model, A, bundle, device)
+                out_unit = F1M.to_unit_range(out)
+                rows.append({
+                    "domain": domain,
+                    "stem": stem,
+                    "replicate": r,
+                    "variant": "HNEK_METHOD",
+                    "bundle_hash": F1M.bundle_hash(bundle),
+                    "psnr": F1M.psnr_unit(out_unit, T_unit),
+                    "ssim": F1M.ssim_unit(out_unit, T_unit),
+                })
     return rows
 
 

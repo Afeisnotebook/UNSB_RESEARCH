@@ -141,3 +141,31 @@ def test_state_roundtrip_and_next_decision_equal():
     c.record(nxt)
     restored.record(nxt)
     assert c.state_dict() == restored.state_dict()
+
+
+def test_hnek_b_h_two_consecutive_handoff():
+    c = HNEKController("r")
+    for epoch in (30, 31):
+        c.record(
+            AuditRecord(
+                method="HNEK",
+                epoch=epoch,
+                statistics={"B_H": {"lower": -0.25}},
+            )
+        )
+    assert c.state.status == "HANDOFF"
+    assert c.state.reason == "HNEK_NO_LONGER_BEATS_PLAIN_UPDATE"
+
+
+def test_dt_r_dt_three_consecutive_off():
+    c = DTController("r")
+    for epoch in (26, 27, 28):
+        c.record(
+            AuditRecord(
+                method="DT",
+                epoch=epoch,
+                statistics={"E_DT": {"upper": 1.0}, "R_DT": {"lower": -0.05}},
+            )
+        )
+    assert c.state.status == "OFF"
+    assert c.state.reason == "DT_NO_TARGET_BLIND_RESPONSE"

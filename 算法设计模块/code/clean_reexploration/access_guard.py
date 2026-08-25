@@ -109,8 +109,10 @@ class TargetAccessGuard:
         if not self.frozen:
             if domain is not None and side in ("input", "target") and stem is not None:
                 if side == "target":
-                    # Same-stem target and paired-development targets are forbidden.
-                    allowed = False
+                    # Paired targets are normally sealed; the isolated legacy
+                    # evaluator calibration process is the only pre-freeze
+                    # exception and must be recorded as such.
+                    allowed = purpose == "legacy_evaluator_calibration"
                 elif (domain, "A", stem) in self._allowed or (domain, "B", stem) in self._allowed:
                     allowed = True
             if side == "target":

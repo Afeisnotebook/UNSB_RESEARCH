@@ -31,6 +31,23 @@ sys.path.insert(0, str(CODE_ROOT))
 from clean_reexploration.controllers import point_estimate
 
 
+def _bridge_schedule(num_timesteps: int, device):
+    incs = np.array([0.0] + [1.0 / (i + 1) for i in range(num_timesteps - 1)], dtype=np.float64)
+    times = np.cumsum(incs)
+    times = times / times[-1]
+    times = 0.5 + 0.5 * times
+    times = np.concatenate([np.zeros(1), times])
+    return torch.tensor(times, dtype=torch.float32).to(device)
+
+
+def _img_to_tensor(path: str, device):
+    from PIL import Image
+
+    image = Image.open(path).convert("RGB").resize((128, 128), Image.BICUBIC)
+    array = np.asarray(image, dtype=np.float32) / 127.5 - 1.0
+    return torch.from_numpy(array).permute(2, 0, 1).contiguous().unsqueeze(0).to(device)
+
+
 def _load_panel_rows(panel: dict, training_manifest: list[dict]) -> list[dict]:
     by_key = {(f["domain"], f["side"], f["stem"]): f for f in training_manifest if f["side"] in ("A", "B")}
     rows = []
@@ -57,7 +74,6 @@ def compute_hnek_c_h(
     percentile of independent same-state repeat estimates) and ``repeat_estimates``
     so callers must subtract the floor before checking ``upper <= 0``.
     """
-    from clean_reexploration.evaluate import _bridge_schedule, _img_to_tensor
     from clean_reexploration.diagnostics import energy_distance
 
     device = next(netG.parameters()).device
@@ -69,7 +85,7 @@ def compute_hnek_c_h(
         z_gen = torch.Generator(device=device).manual_seed(run_seed ^ 0x5D4E9A73)
         with torch.no_grad():
             for f in panel_rows:
-                A = _img_to_tensor(f["absolute_path"]).unsqueeze(0).to(device)
+                A = _img_to_tensor(f["absolute_path"], device)
                 Xt = A
                 Xt_1 = None
                 r_at_t = {}
@@ -141,7 +157,6 @@ def compute_dt_logu(
     """Compute DT signal-normalized region disagreement logU per source cluster."""
     sys.path.insert(0, str(CODE_ROOT / "dt_covmatch"))
     from dtcov.dtcovmatch import compute_direction_statistics
-    from clean_reexploration.evaluate import _bridge_schedule, _img_to_tensor
 
     device = next(netG.parameters()).device
     times = _bridge_schedule(num_timesteps, device)
@@ -151,7 +166,7 @@ def compute_dt_logu(
 
     with torch.no_grad():
         for f in panel_rows:
-            A = _img_to_tensor(f["absolute_path"]).unsqueeze(0).to(device)
+            A = _img_to_tensor(f["absolute_path"], device)
             Xt = A
             Xt_1 = None
             for t in range(num_timesteps):
@@ -195,7 +210,6 @@ def compute_hj_structure_loss(
 ) -> dict:
     """Compute the HJ joint edge+SSIM structure functional on source-only panels."""
     import torch.nn.functional as F
-    from clean_reexploration.evaluate import _bridge_schedule, _img_to_tensor
 
     device = next(netG.parameters()).device
     times = _bridge_schedule(num_timesteps, device)
@@ -213,7 +227,7 @@ def compute_hj_structure_loss(
 
     with torch.no_grad():
         for f in panel_rows:
-            A = _img_to_tensor(f["absolute_path"]).unsqueeze(0).to(device)
+            A = _img_to_tensor(f["absolute_path"], device)
             Xt = A
             Xt_1 = None
             for t in range(num_timesteps):
