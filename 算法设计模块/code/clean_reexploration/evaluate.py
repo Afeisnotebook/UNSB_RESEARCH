@@ -41,6 +41,7 @@ EVAL_DOMAINS = [
 from scripts.final1 import final1_metrics as F1M  # noqa: E402
 from scripts.final1 import final1_common as F1C  # noqa: E402
 from scripts.final1 import final1_networks as F1N  # noqa: E402
+import scripts.hnek.run_hnek_decisive as RD  # noqa: E402
 
 
 def _load_netG(full_state_path: Path, model_name: str):
@@ -143,6 +144,43 @@ def evaluate_checkpoint_raw(
     spec_sha256: str,
 ) -> list[dict]:
     """Return raw replicate rows (1280 for T3) with canonical bundle hashes."""
+    if model_name == "hnek_search":
+        from models.hnek.hnek_search import HnekSearchConfig, install_hnek_search_model
+        def install_variant(model):
+            return install_hnek_search_model(
+                model,
+                HnekSearchConfig(gamma=0.25, coord="residual", horizon_mode="physical", partial="all"),
+            )
+        RD.install_hnek_model = install_variant
+        import tempfile as _tf
+        out_dir = Path(_tf.mkdtemp(prefix="candidate_raw_"))
+        plain, method = RD.build_training_pair(out_dir / "build")
+        RD.restore_checkpoint(
+            full_state_path,
+            plain,
+            method,
+            run_id="hnek-search-g0.25_residual_physical_all-seed2026",
+            spec_sha=spec_sha256,
+        )
+        RD.evaluate_pair(
+            plain, method, epoch=200, spec_sha=spec_sha256,
+            run_id="hnek-search-g0.25_residual_physical_all-seed2026",
+            out_dir=out_dir, purpose="REPAIR_CANDIDATE_ORACLE",
+        )
+        import csv as _csv
+        out = []
+        for r in _csv.DictReader((out_dir / "REPLICATE_ROWS.csv").open()):
+            if r["variant"] == "HNEK_METHOD":
+                out.append({
+                    "domain": r["domain"],
+                    "stem": r["stem"],
+                    "replicate": int(r["replicate"]),
+                    "variant": r["variant"],
+                    "bundle_hash": r["bundle_hash"],
+                    "psnr": float(r["psnr"]),
+                    "ssim": float(r["ssim"]),
+                })
+        return out
     model, _ = _load_netG(full_state_path, model_name)
     model.eval()
     device = next(model.netG.parameters()).device
