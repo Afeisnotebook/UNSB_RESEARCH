@@ -90,6 +90,15 @@ HNEK handoff 还缺少完整 repeat floor、安全包络和校准后的判据；
 - attempt ledger 被写成空数组；
 - repair return、repair frozen spec、oracle audits 和 `TRAINING_FROZEN.ok` 均不存在。
 
+### 3.7 还有两个独立的官方 UNSB 算法属性
+
+这两个问题不是 CUDA 不确定性，也不应在 plain 基线里被静默“修好”：
+
+1. official rollout 使用非均匀物理时刻约 `[0, 0.5, 0.74, 0.86, 0.94, 1]`，但 SB 熵权重使用均匀索引 `(T-i)/T`；真实剩余时域与索引权重不一致。
+2. `ResnetBlock_cond.forward()` 在遍历层时反复执行 `out = layer(x)`，前一层加入的显式 time embedding 被后续层覆盖，形成已记录的 `time-dead` 行为。
+
+当前权威 plain 刻意保留这两个官方行为，以免改变基线定义。HNEK `gamma=0.25` 是针对物理剩余时域/残差坐标的独立开发候选；不能把 HNEK 信号解释为 deterministic reflection padding 的附带收益。若要修复 time conditioning，必须注册为新的模型变体并从共同 canonical 父状态单独证伪。
+
 ## 4. 本次并入仓库的安全修复
 
 1. 补回 2026-08-25 repair contract，作为运行前硬门禁而不是执行结果。

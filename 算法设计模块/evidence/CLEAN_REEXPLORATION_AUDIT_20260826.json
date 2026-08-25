@@ -46,5 +46,10 @@
     "repair_return": "MISSING",
     "training_frozen_marker": "MISSING"
   },
+  "separate_official_unsb_properties": {
+    "physical_horizon_vs_index_entropy_weight": "CONFIRMED_BASELINE_PROPERTY",
+    "generator_explicit_time_conditioning": "TIME_DEAD_BASELINE_PROPERTY",
+    "policy": "retain in canonical plain; test any repair as a separate preregistered variant"
+  },
   "scientific_effect": "DOES_NOT_UPDATE_CURRENT_STATE"
 }
