@@ -1,5 +1,9 @@
 # MOT-001：All-in-One 条件路径几何
 
+> **当前中文阅读入口：** [READING_GUIDE_CN.md](./READING_GUIDE_CN.md)。它统一解释五域多 seed 证据、六域扩大实验、共享时钟遗憾、头图各面板及允许/禁止表述。
+
+> 本 README 的“唯一对照”和五域内容描述最初的多 seed 主线；后续六域扩展恢复了 RainDS-syn，但仍属于同一个 MOT-001 观察性问题。两条证据链的关系以阅读指南和最新 `decisions/CURRENT.md` 为准。
+
 本模块用于回答一个论文动机问题：
 
 > 同一个 plain UNSB，从“每个天气域独立训练（Single-task）”扩展为“五个天气域共享一个模型（All-in-One）”之后，条件恢复方向的几何是否发生阶段依赖的变化？
