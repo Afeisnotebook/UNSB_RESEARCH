@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "motivations": [
+    {
+      "id": "MOT-001",
+      "slug": "aio-path-geometry",
+      "path": "research/motivations/MOT-001-aio-path-geometry",
+      "status": "supported_with_limits",
+      "candidates": ["CAND-001", "CAND-002", "CAND-003"]
+    }
+  ]
+}

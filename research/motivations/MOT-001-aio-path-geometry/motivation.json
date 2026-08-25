@@ -1,0 +1,8 @@
+{
+  "id": "MOT-001",
+  "title": "All-in-One shared training changes conditional path geometry",
+  "status": "supported_with_limits",
+  "supported_claim": "Shared training changes conditional restoration-path geometry with phase, seed and domain dependence.",
+  "rejected_claim": "There is a universal fixed over-compression window shared by all seeds and domains.",
+  "experiments": ["EXP-L1-MOTIVATION-WINDOW-20260824", "EXP-L1-MOTIVATION-HEADFIGURE-20260824", "EXP-L2-MOTIVATION-SIXDOMAIN-20260824"]
+}

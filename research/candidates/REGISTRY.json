@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "candidates": [
+    {"id":"CAND-001","slug":"dt-covmatch","status":"closed_negative","motivation":"MOT-001","path":"research/candidates/CAND-001-dt-covmatch"},
+    {"id":"CAND-002","slug":"hj-patchnce","status":"closed_negative","motivation":"MOT-001","path":"research/candidates/CAND-002-hj-patchnce"},
+    {"id":"CAND-003","slug":"hnek","status":"development_frozen","motivation":"MOT-001","path":"research/candidates/CAND-003-hnek"},
+    {"id":"CAND-004","slug":"search-mechanisms","status":"implemented_unadjudicated","motivation":null,"path":"research/candidates/CAND-004-search-mechanisms","searches":["SEARCH-001"]}
+  ]
+}

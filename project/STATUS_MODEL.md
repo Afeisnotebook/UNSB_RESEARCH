@@ -1,0 +1,15 @@
+# Status model
+
+## Motivation
+
+`PROPOSED`、`SUPPORTED_WITH_LIMITS`、`SUPPORTED`、`REJECTED`、`ARCHIVED`。
+
+## Candidate
+
+`INCUBATING`、`IMPLEMENTED`、`DEVELOPMENT_FROZEN`、`HELD`、`CLOSED_NEGATIVE`、`CONFIRMED`、`ARCHIVED`。
+
+## Decision outcome
+
+`PROMOTE`、`REVISE`、`HOLD`、`REJECT`、`FREEZE_DEVELOPMENT`、`CONFIRM`、`SUPERSEDE`。
+
+状态只能由 `decisions/DECISION_LEDGER.json` 中的记录改变，不能从文件夹名称、最好 checkpoint 或单个数字推测。

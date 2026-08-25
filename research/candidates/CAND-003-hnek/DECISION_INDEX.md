@@ -1,0 +1,3 @@
+# Decisions
+
+- `DEC-20260824-ALGORITHM-STATUS`

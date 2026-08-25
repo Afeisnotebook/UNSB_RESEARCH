@@ -1,0 +1,12 @@
+{
+  "id": "SEARCH-001",
+  "schema": "clean-unsb-directional-v1",
+  "status": "implemented_unrun",
+  "source_commit": "495a092",
+  "runner": "research/searches/SEARCH-001-clean-directional/run_search.py",
+  "candidate_families": ["CAND-001", "CAND-002", "CAND-003", "CAND-004"],
+  "new_mechanisms": ["lbst", "ptq", "dcum", "aeb"],
+  "stages": ["engineering_gate", "direction_screen", "full_view", "extension", "verify4090"],
+  "confirmation_access": false,
+  "next_gate": "run_engineering_gate_and_register_as_L0_experiment"
+}

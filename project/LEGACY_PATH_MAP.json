@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "migrated": "2026-08-26",
+  "paths": {
+    "算法设计模块/code/baseline": "foundation/canonical/src",
+    "算法设计模块/code/harness": "foundation/harness",
+    "算法设计模块/code/dt_covmatch": "research/candidates/CAND-001-dt-covmatch",
+    "算法设计模块/code/hj_patchnce": "research/candidates/CAND-002-hj-patchnce",
+    "算法设计模块/evidence/hnek_search": "experiments/L2-medium-4090/EXP-L2-HNEK-SEARCH-E200-20260824/evidence",
+    "动机搜寻模块": "research/motivations/MOT-001-aio-path-geometry",
+    "动机搜寻模块/reports": "experiments/L1-local/EXP-L1-MOTIVATION-WINDOW-20260824/evidence",
+    "动机搜寻模块/headfigure_local_20260824": "experiments/L1-local/EXP-L1-MOTIVATION-HEADFIGURE-20260824/source_snapshot",
+    "动机搜寻模块/headfigure_sixdomain_phase_20260824": "experiments/L2-medium-4090/EXP-L2-MOTIVATION-SIXDOMAIN-20260824/source_snapshot",
+    "早期搜寻模块": "archive/early-search",
+    "CURRENT_STATE_CN.md@pre-layout-v2": "decisions/CURRENT.md"
+  },
+  "note": "Frozen historical protocol payloads retain their original paths as provenance and are not mechanically rewritten."
+}

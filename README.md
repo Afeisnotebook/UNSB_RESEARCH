@@ -1,25 +1,62 @@
-# UNSB_RESEARCH
+# UNSB Research Lifecycle Repository
 
-UNSB 研究的项目仓库，按模块组织。研究无配对（unpaired）All-in-One 多天气图像恢复的 Schrödinger Bridge（SB）框架。
+本仓库按研究生命周期组织 UNSB 无配对 All-in-One 多天气恢复工作。默认入口只呈现当前基座、活跃动机、候选状态和下一门禁；历史材料仍可追溯，但位于 `archive/`，不会干扰当前判断。
 
-> **最后一轮开始前必读：** [CURRENT_STATE_CN.md](./CURRENT_STATE_CN.md)。它给出当前权威结论、已证伪路线、统计边界、仓库缺失资产和最后一轮硬门禁。旧 `FINAL_STATUS`/计划文档与它冲突时，以该文为准。
+```text
+canonical foundation
+        ↓
+motivation (MOT)
+        ↓
+candidate / iteration (CAND / ITER)
+        ↓
+frozen search controller (SEARCH)
+        ↓
+experiment L0 → L1 → L2 → L3 → L4
+        ↓
+decision (DEC)
+        ↓
+paper / figure / release / handoff
+```
 
-## 模块
+## 当前快照
 
-- [早期搜寻模块](./早期搜寻模块/)：早期探索的“考古层”，只保留真正有价值、未被后续证伪的结论与方法学教训。
-- [动机搜寻模块](./动机搜寻模块/)：重建 UNSB 论文的纯基线动机证据链，研究 Single-task 与 All-in-One 的条件恢复方向几何差异。
-- [算法设计模块](./算法设计模块/)：clean-room 重构、确定性修复、DT/HJ 应用层方法、HNEK 桥原生搜索与 e200 确认。
+- 新 deterministic canonical 已可作为后续探索基座。
+- `MOT-001` 支持“共享训练改变条件路径几何”的现象级动机，不支持固定普适窗口。
+- DT、HJ 已在 clean deterministic 口径下关闭为当前主方法。
+- HNEK `gamma=0.25` 是单 seed paired-development 候选，尚未确认。
+- commit `495a092` 保存了新一轮 DCUM/LBST/PTQ/AEB 与状态恢复代码；它们已由 `SEARCH-001` 接入分级搜索，但尚未产生实验裁决，不改变上述科学状态。
 
-## 快速入口
+机器状态见 [PROJECT_STATE.json](./PROJECT_STATE.json)，人类可读摘要见 [CURRENT_STATE_CN.md](./CURRENT_STATE_CN.md)。
 
-- 想了解「研究是怎么一步步走到这里的，哪些早期路线被放弃」：读 [早期搜寻模块/README.md](./早期搜寻模块/README.md)。
-- 想了解「动机证据与裁决」：读 [动机搜寻模块/README.md](./动机搜寻模块/README.md)。
-- 想了解「算法探索与最终结论」：读 [算法设计模块/README.md](./算法设计模块/README.md)。
-- 想直接使用新的干净基座：读 [CLEAN_DETERMINISTIC_BASELINE_20260826.md](./算法设计模块/docs/CLEAN_DETERMINISTIC_BASELINE_20260826.md)。
-- 想了解 DT、HJ、HNEK 如何在与 Codex 的互动中形成：读 [DT_HJ_HNEK_CODEX_INTERACTION_HISTORY_CN.md](./算法设计模块/docs/DT_HJ_HNEK_CODEX_INTERACTION_HISTORY_CN.md)。
+## 五分钟入口
 
-## 一句话结论
+1. [当前裁决全文](./decisions/CURRENT.md)
+2. [确定性 canonical](./foundation/canonical/README.md)
+3. [核心动机 MOT-001](./research/motivations/MOT-001-aio-path-geometry/README.md)
+4. [候选注册表](./research/candidates/README.md)
+5. [当前搜索控制器](./research/searches/README.md)
+6. [实验放大路径](./experiments/README.md)
+7. [决策账本](./decisions/README.md)
+8. [最终产出](./outputs/README.md)
 
-- 早期搜寻：联合训练退化是最初动机；covariance proxy 口径沿用至今；早期 test-time/confidence/netU 路线被证伪，唯一活下来的训练端方向是 domain-time 校准的 DT-CovMatch。
-- 动机：多轮实验支持「训练制度改变条件路径几何」，但固定窗口的普遍性结论未立住。
-- 算法：确定性干净口径下 DT/HJ 收益基本消失；唯一存活的**开发候选**是桥原生 `hnek_g0.25`（e200 macro PSNR delta +0.7884 dB，4/5 域为正，单 seed、paired-development，非 confirmatory）。当前没有已确认的最终算法。
+## 目录职责
+
+| 目录 | 职责 |
+|---|---|
+| `project/` | 生命周期、状态词汇、稳定 ID、旧路径映射 |
+| `foundation/` | canonical baseline、确定性/数据/评估契约、公共 harness |
+| `research/` | 动机实体、候选算法及其演进、跨候选研究综合 |
+| `experiments/` | L0–L4 实验记录、协议、证据和裁决输入 |
+| `decisions/` | 当前状态和不可变决策记录 |
+| `outputs/` | 论文、最终图、发布包和 handoff 索引 |
+| `archive/` | 早期探索、旧 prompt、被取代计划和旧布局说明 |
+
+## 基座验证
+
+```bash
+python -m pytest -q
+python foundation/harness/self_test.py
+python -m compileall -q foundation research
+```
+
+迁移前的中文路径和服务器路径保留在历史协议中作为 provenance。新代码和新文档应使用当前 ASCII 路径；映射见 [LEGACY_PATH_MAP.json](./project/LEGACY_PATH_MAP.json)。

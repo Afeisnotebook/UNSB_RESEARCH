@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-26",
+  "layout_version": 2,
+  "canonical": {
+    "path": "foundation/canonical",
+    "status": "ready",
+    "deterministic_code_anchor": "b9dc39f07e90653f7b3c6eb0726f86cc2ecfcc48"
+  },
+  "active_motivations": ["MOT-001"],
+  "candidates": {
+    "CAND-001": "closed_negative",
+    "CAND-002": "closed_negative",
+    "CAND-003": "development_frozen",
+    "CAND-004": "implemented_unadjudicated"
+  },
+  "active_searches": {
+    "SEARCH-001": "implemented_unrun"
+  },
+  "pre_restructure_search_work_commit": "495a092",
+  "next_gate": "run_SEARCH-001_engineering_gate_and_register_L0_evidence",
+  "human_current_state": "decisions/CURRENT.md",
+  "decision_ledger": "decisions/DECISION_LEDGER.json"
+}
