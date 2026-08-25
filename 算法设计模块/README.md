@@ -4,6 +4,8 @@
 
 > 2026-08-26 clean re-exploration 包的复核结论见 [docs/CLEAN_REEXPLORATION_AUDIT_20260826.md](docs/CLEAN_REEXPLORATION_AUDIT_20260826.md)。该包是初轮取证与未完成修复，不是新的训练基座；其 `+0.2663 dB` HNEK FULL 数字不替代本页既有开发结论。
 
+> 当前仓库本身已冻结为新的确定性基座，见 [docs/CLEAN_DETERMINISTIC_BASELINE_20260826.md](docs/CLEAN_DETERMINISTIC_BASELINE_20260826.md)。DT、HJ、HNEK 的人机互动形成过程见 [docs/DT_HJ_HNEK_CODEX_INTERACTION_HISTORY_CN.md](docs/DT_HJ_HNEK_CODEX_INTERACTION_HISTORY_CN.md)。
+
 ## 一、目标（一句话）
 
 在无配对、多天气统一恢复的 UNSB（Schrödinger Bridge）上，筛选一个真正「桥原生」的改进候选，然后用跨 seed 与未触碰数据尝试证伪，而不是停留在通用训练技巧或用开发集数字预告投稿级贡献。
@@ -72,6 +74,8 @@
 │   ├── DETERMINISM_FIX.md              # 确定性修复审计
 │   ├── DIAGNOSTIC_ANALYSIS.md          # 诊断分析
 │   ├── PROJECT_WORK_SUMMARY.md         # 阶段性工作总结
+│   ├── CLEAN_DETERMINISTIC_BASELINE_20260826.md # 新 canonical 的验收口径
+│   ├── DT_HJ_HNEK_CODEX_INTERACTION_HISTORY_CN.md # 三个算法的互动形成史
 │   └── ...
 └── evidence/
     ├── CLEAN_CORE_RESULTS.md/json      # 干净核心结果

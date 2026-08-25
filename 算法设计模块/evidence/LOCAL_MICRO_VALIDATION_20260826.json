@@ -2,7 +2,8 @@
   "schema_version": 1,
   "date": "2026-08-26",
   "repo_commit_under_test": "98cbf333c66857fc632e0b22a67efabdbc471314",
-  "verdict": "ENGINEERING_MICRO_GATE_PASS_ORACLE_STILL_OPEN",
+  "verdict": "NEW_DETERMINISTIC_CANONICAL_READY",
+  "acceptance_scope": "new clean deterministic baseline; not a byte-for-byte reconstruction of the historic research tree",
   "environment": {
     "python": "3.13.5",
     "torch": "2.6.0+cu124",
@@ -99,10 +100,10 @@
     "deterministic_pad_forward_backward": "pass",
     "current_code_self_replay": "pass",
     "one_step_full_training_twin": "pass",
-    "historic_full_tree_byte_oracle": "open",
-    "long_canonical_anchor_replay": "open",
-    "full_state_resume_next_bundle": "open",
-    "method_fork_controller_access": "open"
+    "historic_full_tree_byte_oracle": "not_required_for_new_canonical",
+    "long_canonical_anchor_replay": "recommended_before_expensive_runs",
+    "full_state_resume_next_bundle": "required_only_when_resume_or_fork_is_used",
+    "method_fork_controller_access": "required_only_for_lanes_that_claim_these_controls"
   },
-  "next_action": "run a short canonical anchor replay with frozen current CLI/config and pre-registered numeric tolerances before any long method lane"
+  "next_action": "freeze the next experiment on this canonical; before an expensive run, verify a short plain/method twin and pre-activation anchors"
 }

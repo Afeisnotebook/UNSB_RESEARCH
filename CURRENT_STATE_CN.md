@@ -34,10 +34,10 @@ HNEK 表中的 95% CI `[0.5916, 0.9933]` 是固定 seed=2026 与开发集条件�
 - 从全新 clone 运行根目录测试、harness 自测和全量 Python 编译。
 - 固定源码 commit、数据 manifest hash、训练/评估配置和每个 seed 的输出目录。
 - 评估禁用 test-time UA/TTO；默认 `ua_scheme none`。
-- 先用历史 authoritative checkpoint 做 evaluator oracle，再用 authoritative loader/config 做 sampler replay；plain 无法回到预注册容差时不得启动方法 lane。
-- HNEK/HJ/DT 必须分别从 canonical pre-e1/pre-e5/post-e20 **完整 full-state** 分叉，继承 RNG、sampler、optimizer、scheduler 和 global step；同 seed 重新初始化不等于共同父节点。
+- 保留官方 unpaired sampler；确定性来自受控随机流，不能用固定 A/B 配对替代。
+- HNEK/HJ/DT 应从同一新 canonical 出发。完整 full-state 分叉是首选；若采用从头连续训练，必须在方法激活前核对确定性 anchor 一致。
 
-2026-08-26 的本地真实数据微验证已经通过 sampler 语义、deterministic reflection padding、当前代码自身推理重放和一步完整训练 twin gate；两次一步训练的 G/F/D/E checkpoint 字节完全一致。但当前精简代码与 2026-08-11 完整历史研究树的输出仍非字节一致，故 Gate 0 只完成了工程微门，authoritative evaluator/canonical oracle 仍未关闭。详见 [算法设计模块/docs/LOCAL_MICRO_VALIDATION_20260826.md](./算法设计模块/docs/LOCAL_MICRO_VALIDATION_20260826.md)。
+2026-08-26 的本地真实数据微验证已经通过 sampler 语义、deterministic reflection padding、当前代码自身推理重放和一步完整训练 twin gate；两次一步训练的 G/F/D/E checkpoint 字节完全一致。因此当前仓库已被接受为**新的干净确定性 canonical baseline**。它无需逐字节复刻确定性修复前的完整历史研究树；历史输出差异只保留为 provenance。详见 [算法设计模块/docs/CLEAN_DETERMINISTIC_BASELINE_20260826.md](./算法设计模块/docs/CLEAN_DETERMINISTIC_BASELINE_20260826.md) 和 [算法设计模块/docs/LOCAL_MICRO_VALIDATION_20260826.md](./算法设计模块/docs/LOCAL_MICRO_VALIDATION_20260826.md)。
 
 ### Gate 1：同 seed 跨环境复现
 

@@ -111,20 +111,16 @@ HNEK handoff 还缺少完整 repeat floor、安全包络和校准后的判据；
 
 没有并入包内 `clean_reexploration/train_executor.py` 等执行文件，因为其 sampler、fork、controller、guard、resume 和路径问题尚未达到基座标准。
 
-## 5. 重新进入 GPU 训练前的顺序
+## 5. 两种目标必须分开
 
-1. evaluator oracle：历史 checkpoint 在新 evaluator 上复现到预注册容差。
-2. sampler/config oracle：保留 UNSB 的随机训练过程，但固定并保存全部 RNG/sampler 状态；禁止用固定配对替代 unpaired 抽样。
-3. canonical replay：从同一 pre-e1 full-state 重放并在多个 anchor 做逐位或预注册数值核对。
-4. fork gate：HNEK/HJ/DT 在激活前与 canonical 的网络、optimizer、scheduler、sampler 和下一随机 bundle 相同。
-5. controller gate：真实在线调用、history 非空、状态可恢复，HNEK repeat floor 与安全判据完成校准。
-6. access gate：所有 paired target 读取走唯一入口，freeze 前零读取，freeze 后 ledger 与逐图评估一一对应。
-7. 最后才冻结新 spec/code/data identity 并启动 GPU lane。
+如果目标是**法证式复原旧结果**，仍需 evaluator oracle、旧 sampler/config oracle 和历史 checkpoint replay。这条任务用于解释旧数字，不是新研究的前置条件。
 
-任一 oracle 失败时，先停止算法解释，不用新的方法数字覆盖基座问题。
+如果目标是**从确定性修复后的代码开始新探索**，当前仓库已经可以定义为新的 canonical baseline。长跑前只需冻结新 spec/code/data identity，保留 official unpaired sampler，并验证 plain/method 的激活前 anchor。共同 full-state fork、resume 和在线 controller 只在对应实验确实使用这些能力时才是硬要求。
+
+两类结果不得混写：新 canonical 下的数字不能冒充旧历史数字的精确复现，旧历史 PNG 也不能反过来阻止一套已经自洽、确定的新 canonical 启动。
 
 ## 6. 本地真实数据补充微验证
 
 2026-08-26 在本地 GTX 1660 上完成了 sampler、reflection padding、历史 checkpoint 推理和一步完整训练 twin gate。当前 baseline 的同 seed 一步训练可生成字节完全相同的 G/F/D/E checkpoint，固定排序配对也被真实数据直接证明会把 unpaired 训练改成 100% 同名、100% 同域配对。
 
-同时，当前精简 baseline 虽能稳定重放自身输出，但尚不与 2026-08-11 完整历史研究代码的 PNG 字节一致。因此工程微门通过不等于 authoritative evaluator/canonical oracle 已闭合。完整结果见 [LOCAL_MICRO_VALIDATION_20260826.md](./LOCAL_MICRO_VALIDATION_20260826.md)。
+同时，当前精简 baseline 虽能稳定重放自身输出，但不与 2026-08-11 完整历史研究代码的 PNG 字节一致。该差异保留为历史 provenance；它阻止的是“声称精确复原旧轨迹”，不阻止把当前严格确定性代码冻结为新的 canonical。完整结果见 [LOCAL_MICRO_VALIDATION_20260826.md](./LOCAL_MICRO_VALIDATION_20260826.md)。

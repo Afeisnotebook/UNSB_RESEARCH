@@ -15,6 +15,8 @@ UNSB 研究的项目仓库，按模块组织。研究无配对（unpaired）All-
 - 想了解「研究是怎么一步步走到这里的，哪些早期路线被放弃」：读 [早期搜寻模块/README.md](./早期搜寻模块/README.md)。
 - 想了解「动机证据与裁决」：读 [动机搜寻模块/README.md](./动机搜寻模块/README.md)。
 - 想了解「算法探索与最终结论」：读 [算法设计模块/README.md](./算法设计模块/README.md)。
+- 想直接使用新的干净基座：读 [CLEAN_DETERMINISTIC_BASELINE_20260826.md](./算法设计模块/docs/CLEAN_DETERMINISTIC_BASELINE_20260826.md)。
+- 想了解 DT、HJ、HNEK 如何在与 Codex 的互动中形成：读 [DT_HJ_HNEK_CODEX_INTERACTION_HISTORY_CN.md](./算法设计模块/docs/DT_HJ_HNEK_CODEX_INTERACTION_HISTORY_CN.md)。
 
 ## 一句话结论
 

@@ -4,7 +4,7 @@
 
 当前 GitHub baseline 已通过真实本地数据上的工程级确定性微验证：官方 unpaired 抽样语义被保留，确定性 reflection padding 的前向等价与严格 CUDA backward 成立，同 seed 的一步完整训练可以生成字节完全相同的 G/F/D/E checkpoint。
 
-但这次验证也确认了一个必须保留的边界：当前精简 baseline 对 2026-08-11 历史 checkpoint 的推理结果可以稳定重放，却不与当时完整研究代码生成的 PNG 字节一致。因此它可以作为下一轮 **canonical 重放候选基座**，不能仅凭本次微验证宣称已经闭合历史 evaluator/canonical oracle，更不能直接开始长程方法 lane。
+当前精简 baseline 对 2026-08-11 历史 checkpoint 的推理结果可以稳定重放，但不与当时完整研究代码生成的 PNG 字节一致。这说明两棵代码树不是同一条历史数值轨迹，不表示当前实现仍有不确定性。项目现决定以当前严格确定性实现作为**新的 canonical baseline**；历史 PNG 字节一致性只用于旧结果取证，不再作为后续工作的启动门槛。
 
 机器可读结果见 `算法设计模块/evidence/LOCAL_MICRO_VALIDATION_20260826.json`。
 
@@ -57,7 +57,7 @@
 - 把两个代码路径在加载 checkpoint 后重置到完全相同的 CUDA RNG 状态，五个 NFE 的浮点 tensor 仍有很小的数值差异；
 - 对 3 张图的 PSNR 差为 `[-0.013943, +0.006264, +0.002966] dB`，SSIM 差绝对值不超过 `0.000725`。
 
-这不是“当前实现不确定”：当前实现重复运行完全一致。它表示完整历史研究树与当前精简树之间仍存在数值执行/RNG 消费契约差异，不能把当前结果冒充历史 PNG 的字节重放。正式启动前仍需在预注册容差下完成全量 authoritative evaluator/canonical oracle。
+这不是“当前实现不确定”：当前实现重复运行完全一致。它表示完整历史研究树与当前精简树之间存在数值执行/RNG 消费契约差异，因此不能把当前结果冒充历史 PNG 的字节重放。若未来要法证式复原旧实验，仍需单独做 historical oracle；若目标是从当前干净实现开始新探索，则该差异不是 blocker。
 
 历史 endpoint 脚本还携带当前精简 baseline 已删除的 UA/NCE CLI 参数。当前 `train.py/test.py` 在 `seed >= 0` 时直接启用严格确定性；旧脚本不能原样作为新 runner，必须由当前冻结配置重新生成命令，不能靠吞掉未知参数伪装兼容。
 
@@ -88,11 +88,11 @@ NCE 6.605; SB 0.011; NCE_Y 6.469
 3. 当前 baseline 自身的历史 checkpoint 推理重放；
 4. 一步完整训练的跨进程字节级 twin gate。
 
-仍未通过：
+尚未覆盖、但不阻断把当前代码定为新 canonical：
 
-1. 当前精简 baseline 对完整历史代码/输出的全量 evaluator oracle；
-2. authoritative 长程 canonical anchor replay；
+1. 完整历史代码/输出的法证式 evaluator oracle；
+2. 长程 canonical twin replay；
 3. full-state resume 后的下一随机 bundle 与 optimizer/scheduler/sampler 一致性；
 4. 方法 lane 激活前共同父状态和在线 controller/access gate。
 
-所以当前合理动作是先做短程 canonical anchor replay，而不是直接启动最后一轮长程 DT/HJ/HNEK 训练。
+当前代码已经可以用于后续讨论、实现和小规模验证。昂贵长跑前建议补短程 plain/method twin、激活前 anchor 和必要的 full-state resume 检查；这些检查用于保证**新实验**公平，不再承担重放旧不确定轨迹的任务。
