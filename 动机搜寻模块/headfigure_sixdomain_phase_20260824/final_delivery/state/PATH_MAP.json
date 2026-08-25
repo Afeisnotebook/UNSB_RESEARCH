@@ -1,0 +1,13 @@
+{
+  "run_root": "E:\\UNSB_Expl\\UNSB_HEADFIGURE_SIXDOMAIN_EXPANDED_20260824",
+  "repo_root": "E:\\UNSB_Expl\\UNSB_RESEARCH",
+  "baseline_root": "E:\\UNSB_Expl\\UNSB_RESEARCH\\算法设计模块\\code\\baseline",
+  "dataset_root": "E:\\UNSB_abl\\full_dataset",
+  "single_data_root": "E:\\UNSB_Expl\\UNSB_HEADFIGURE_SIXDOMAIN_EXPANDED_20260824\\data_views\\single",
+  "aio_data_root": "E:\\UNSB_Expl\\UNSB_HEADFIGURE_SIXDOMAIN_EXPANDED_20260824\\data_views\\aio",
+  "heldout_root": "E:\\UNSB_Expl\\UNSB_HEADFIGURE_SIXDOMAIN_EXPANDED_20260824\\data_views\\heldoutA",
+  "checkpoints_root": "E:\\UNSB_Expl\\UNSB_HEADFIGURE_SIXDOMAIN_EXPANDED_20260824\\checkpoints",
+  "raw_root": "E:\\UNSB_Expl\\UNSB_HEADFIGURE_SIXDOMAIN_EXPANDED_20260824\\raw",
+  "reports_root": "E:\\UNSB_Expl\\UNSB_HEADFIGURE_SIXDOMAIN_EXPANDED_20260824\\reports",
+  "figures_root": "E:\\UNSB_Expl\\UNSB_HEADFIGURE_SIXDOMAIN_EXPANDED_20260824\\figures"
+}

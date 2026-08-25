@@ -1,0 +1,104 @@
+{
+  "protocol_id": "unsb-domain-phase-mapping-reconfirmation-v1",
+  "verdict": "SUPPORTED_DOMAIN_PHASE_MAPPING_REPLICATION",
+  "fixed_prediction": {
+    "1": [
+      4,
+      3,
+      2,
+      4,
+      5
+    ],
+    "2": [
+      4,
+      3,
+      2,
+      4,
+      5
+    ],
+    "3": [
+      4,
+      3,
+      2,
+      2,
+      5
+    ]
+  },
+  "observed_M32": {
+    "1": [
+      4,
+      3,
+      2,
+      4,
+      5
+    ],
+    "2": [
+      4,
+      3,
+      2,
+      4,
+      5
+    ],
+    "3": [
+      4,
+      3,
+      2,
+      2,
+      5
+    ]
+  },
+  "observed_M16": {
+    "1": [
+      4,
+      3,
+      2,
+      4,
+      5
+    ],
+    "2": [
+      4,
+      3,
+      2,
+      4,
+      5
+    ],
+    "3": [
+      4,
+      3,
+      2,
+      2,
+      5
+    ]
+  },
+  "mapping_accuracy": 15,
+  "mapping_total_cells": 15,
+  "permutation_p": 0.0002,
+  "stable_predicted_cells": 14,
+  "M16_M32_agreement_cells": 15,
+  "time_structure_pass": [
+    true,
+    true,
+    true
+  ],
+  "requirements": {
+    "mapping_accuracy_ge_14": true,
+    "mapping_permutation_p_le_0_001": true,
+    "stable_predicted_cells_ge_13": true,
+    "M16_M32_agreement_ge_14": true,
+    "all_times_structured": true
+  },
+  "claim_boundary": {
+    "allowed_if_supported": "A fixed domain-to-task-specific conditional-kernel-age map replicated across three zero-overlap image splits under one training seed.",
+    "forbidden": [
+      "causal quality harm",
+      "multi-training-seed confirmation",
+      "external/sealed confirmation",
+      "calibrated uncertainty"
+    ]
+  },
+  "hashes": {
+    "RECIPROCAL_KERNEL_BY_AGE.csv": "de5843bce017be54b7e130fbacc48e0639438dd33105e0f299fe91691d28683a",
+    "TERTIARY_PHASE_CELL_SUMMARY.csv": "b7657c6c3bf260d9ec0bd60756518e0a0b47a75aa087c266dfcea782916a7826",
+    "TERTIARY_MAPPING_PERMUTATION_DRAWS.csv": "027faec0214454d049722d49ed6299293751ac4ddfa77b46e8e6e0b0020e0146"
+  }
+}

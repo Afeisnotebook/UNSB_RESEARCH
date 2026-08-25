@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-08-25T04:38:07+08:00",
+  "status": "SERIALIZATION_ONLY_REPAIR_AFTER_CALCULATION_BEFORE_OUTPUT_WRITE",
+  "failure": "PHASE_STATISTICS.json could not be written because pandas returned numpy.bool_ for M16_available",
+  "frozen_code_sha256": "20c8978e01d5e59ea34ff3b97261989af4a19187fa38125bece7647a71f97894",
+  "repaired_code_sha256": "9c3505f27685c2893f8ebff2e12197b6659248438f753501e6cabe748bd26e70",
+  "change": "Wrap only M16_available in built-in bool() before JSON serialization.",
+  "scientific_logic_changed": false,
+  "statistics_or_thresholds_changed": false,
+  "effect_dependent_choice_made": false,
+  "failed_attempt_output_written": false,
+  "rerun_policy": "Rerun the same frozen command with identical inputs, seed rules, resampling count, and adjudication thresholds."
+}

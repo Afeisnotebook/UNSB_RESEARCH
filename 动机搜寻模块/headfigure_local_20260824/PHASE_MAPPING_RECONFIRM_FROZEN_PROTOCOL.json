@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "protocol_id": "unsb-domain-phase-mapping-reconfirmation-v1",
+  "frozen_local_time": "2026-08-24T08:35:00+08:00",
+  "frozen_before_tertiary_split_selection_and_effect_read": true,
+  "superseded_adjudication": {
+    "protocol_id": "unsb-shared-bridge-domain-phase-desynchronization-v1",
+    "scientific_status": "INVALID_NULL_EXCHANGEABILITY",
+    "reason": "The null permuted complete KDD profiles across domains even though each profile is generated relative to a different domain-specific Single checkpoint. Those profiles are not exchangeable; the random grouping creates artificial mixed-model age minima and does not test whether a pre-fixed domain-to-age mapping replicates.",
+    "evidence_retained": "The first internal confirmation map and all raw measurements remain immutable descriptive evidence. Its 15/15 map replication cannot itself serve as the repaired confirmatory test."
+  },
+  "phenomenon_name_cn": "共享桥域相位映射复现",
+  "phenomenon_name_en": "shared-bridge domain-phase mapping replication",
+  "fixed_prediction_from_two_prior_splits": {
+    "domain_order": [
+      "FoggyCityscapes",
+      "LowLightTrafficData",
+      "RainCityscapes",
+      "RSCityscapes",
+      "SnowTrafficData"
+    ],
+    "bridge_time_1": [4, 3, 2, 4, 5],
+    "bridge_time_2": [4, 3, 2, 4, 5],
+    "bridge_time_3": [4, 3, 2, 2, 5],
+    "origin": "identical domain-level argmin maps on the 20-image discovery split and the 24-image first internal confirmation split"
+  },
+  "tertiary_split": {
+    "images_per_domain": 16,
+    "domains": 5,
+    "exclude": [
+      "all historical measurement suffix stems present in the frozen source pool",
+      "all 20 discovery images/domain",
+      "all 24 first-confirmation images/domain"
+    ],
+    "selection": "stable SHA-256 identity ranking under this new protocol before pixel decoding",
+    "status": "TERTIARY_INTERNAL_HELDOUT_FROM_SAME_SOURCE_POOL_NOT_SEALED"
+  },
+  "measurement": {
+    "reuse_seed2041_checkpoints": true,
+    "new_training": false,
+    "reciprocal_KDD": "unchanged two-anchor common-state definition",
+    "single_ages": [1, 2, 3, 4, 5],
+    "bridge_time_indices": [1, 2, 3],
+    "M": 32,
+    "M16_prefix": true,
+    "target_content_read": false
+  },
+  "primary_test": {
+    "observed_cell_map": "domain-level argmin of mean image reciprocal_KDD for all 15 domain-time cells",
+    "mapping_accuracy": "number of the 15 observed cells exactly matching the fixed prediction",
+    "null": "within each bridge time, independently permute the five pre-fixed predicted ages across the five fixed domain identities; never move KDD profiles between model systems",
+    "permutations": 9999,
+    "permutation_statistic": "mapping accuracy",
+    "p_value": "(1 + count(null accuracy >= observed accuracy)) / 10000",
+    "bootstrap": "5000 within-domain image resamples; recompute effective age per cell",
+    "support_requirements": [
+      "mapping accuracy >= 14/15",
+      "mapping permutation p <= 0.001",
+      "at least 13/15 cells have bootstrap modal share >= 0.80 and the mode equals the fixed prediction",
+      "M16 and M32 effective ages agree in at least 14/15 cells",
+      "each bridge time retains at least three distinct ages and an age range >= 2"
+    ]
+  },
+  "outcomes": [
+    "SUPPORTED_DOMAIN_PHASE_MAPPING_REPLICATION",
+    "PARTIAL_PHASE_MAPPING_REPLICATION",
+    "NOT_REPLICATED_TERTIARY_SPLIT",
+    "HOLD_ENGINEERING"
+  ],
+  "interpretation_if_supported": "A fixed domain-to-task-specific-kernel-age map learned from two prior image splits replicates on a third zero-overlap image split. The shared AIO checkpoint is therefore phase-desynchronized across domains under this training realization.",
+  "claim_boundary": {
+    "allowed": "internal same-source, one-training-seed replication of an SB-native observational phase map",
+    "forbidden": [
+      "causal quality harm",
+      "multi-training-seed confirmation",
+      "external or sealed confirmation",
+      "calibrated uncertainty"
+    ]
+  },
+  "forbidden_post_effect_changes": [
+    "change the fixed prediction",
+    "drop a domain, bridge time, age, or image",
+    "move measured KDD profiles between domain-specific model systems",
+    "change any support threshold",
+    "read targets or select by output quality"
+  ],
+  "execution_code_status_at_freeze": "not_implemented"
+}

@@ -1,0 +1,70 @@
+{
+  "protocol_id": "unsb-shared-bridge-domain-phase-desynchronization-v1",
+  "verdict": "NOT_REPRODUCED_ON_CONFIRMATION_SPLIT",
+  "n_passing_bridge_times": 0,
+  "passing_bridge_times": [
+    false,
+    false,
+    false
+  ],
+  "M16_M32_agreement_count": 15,
+  "M16_M32_total_cells": 15,
+  "M16_robustness_gate": true,
+  "time_summary": [
+    {
+      "bridge_time_index": 1,
+      "bridge_time_value": 0.5,
+      "observed_phase_variance": 1.04,
+      "permutation_p": 0.6183,
+      "effective_ages_M32": "4|3|2|4|5",
+      "effective_ages_M16": "4|3|2|4|5",
+      "modal_ages": "4|3|2|4|5",
+      "stable_domain_count": 5,
+      "distinct_modal_ages": 4,
+      "bootstrap_range_ge2_fraction": 1.0,
+      "passes_frozen_time_gate": false
+    },
+    {
+      "bridge_time_index": 2,
+      "bridge_time_value": 0.74,
+      "observed_phase_variance": 1.04,
+      "permutation_p": 0.036,
+      "effective_ages_M32": "4|3|2|4|5",
+      "effective_ages_M16": "4|3|2|4|5",
+      "modal_ages": "4|3|2|4|5",
+      "stable_domain_count": 5,
+      "distinct_modal_ages": 4,
+      "bootstrap_range_ge2_fraction": 1.0,
+      "passes_frozen_time_gate": false
+    },
+    {
+      "bridge_time_index": 3,
+      "bridge_time_value": 0.8600000000000001,
+      "observed_phase_variance": 1.3599999999999999,
+      "permutation_p": 0.67,
+      "effective_ages_M32": "4|3|2|2|5",
+      "effective_ages_M16": "4|3|2|2|5",
+      "modal_ages": "4|3|2|2|5",
+      "stable_domain_count": 4,
+      "distinct_modal_ages": 4,
+      "bootstrap_range_ge2_fraction": 1.0,
+      "passes_frozen_time_gate": false
+    }
+  ],
+  "claim_boundary": {
+    "allowed_if_supported": "One AIO checkpoint occupies distinct task-specific conditional-kernel phases across weather domains at common bridge times.",
+    "forbidden": [
+      "causal restoration harm",
+      "a calibrated uncertainty claim",
+      "external or sealed confirmation",
+      "proof that per-domain phase correction improves final quality"
+    ]
+  },
+  "hashes": {
+    "RECIPROCAL_KERNEL_BY_AGE.csv": "930c289b8efce2f50fdd4bb6c45ebfc3dc27a56a090f3a1b301062f740ddc11c",
+    "PHASE_CELL_SUMMARY.csv": "5425ef591ac7568318b45e43af5cc59fd0cfeac64e8bf61e02d0be66f59e69cb",
+    "PHASE_TIME_ADJUDICATION.csv": "c7f4fa7732752e6670c95f91f93d64410c97d6c0931c09443423673dcb6352cc",
+    "PHASE_PERMUTATION_DRAWS.csv": "00f459df066ce3949ee68390bd06ceb4c2cdb9c66652f97765a023626398adca",
+    "PHASE_BOOTSTRAP_DRAWS.csv": "6aa694373c09c7ab056f2e98842fa48dc4e9c1289e517cef435d239a768ad1c9"
+  }
+}

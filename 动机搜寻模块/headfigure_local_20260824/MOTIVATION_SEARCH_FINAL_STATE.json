@@ -1,0 +1,73 @@
+{
+  "snapshot_date": "2026-08-24",
+  "branch": "motivation/headfigure-local-20260824",
+  "plain_baseline_only": true,
+  "final_phenomenon_cn": "共享桥域相位失同步",
+  "final_phenomenon_en": "shared-bridge domain-phase desynchronization",
+  "final_verdict": "SUPPORTED_DOMAIN_PHASE_MAPPING_REPLICATION",
+  "fixed_domain_order": [
+    "FoggyCityscapes",
+    "LowLightTrafficData",
+    "RainCityscapes",
+    "RSCityscapes",
+    "SnowTrafficData"
+  ],
+  "fixed_phase_map": {
+    "t0.50": [4, 3, 2, 4, 5],
+    "t0.74": [4, 3, 2, 4, 5],
+    "t0.86": [4, 3, 2, 2, 5]
+  },
+  "final_gate": {
+    "mapping_accuracy": "15/15",
+    "mapping_permutation_p": 0.0002,
+    "bootstrap_stable_predicted_cells": "14/15",
+    "M16_M32_agreement": "15/15",
+    "all_bridge_times_structured": true
+  },
+  "evidence_ladder": [
+    {
+      "stage": "initial direction fan-out dual control",
+      "verdict": "EXPOSURE_ONLY",
+      "status": "retained negative/control evidence"
+    },
+    {
+      "stage": "reciprocal common-state kernel deflection beyond Single age trajectory",
+      "verdict": "NOT_DISTINCT_FROM_SINGLE_AGE_TRAJECTORY",
+      "status": "failed stronger hypothesis"
+    },
+    {
+      "stage": "first phase confirmation domain-label null",
+      "verdict": "INVALID_NULL_EXCHANGEABILITY",
+      "status": "raw map retained; old inferential result invalidated"
+    },
+    {
+      "stage": "tertiary fixed mapping replication",
+      "verdict": "SUPPORTED_DOMAIN_PHASE_MAPPING_REPLICATION",
+      "status": "current authority"
+    }
+  ],
+  "split_status": {
+    "discovery": "20/domain; mutually disjoint from later splits; 14 historical identity overlaps due corrected stem bug; discovery only",
+    "first_internal_holdout": "24/domain; canonical historical and discovery overlap zero; map 15/15",
+    "tertiary_internal_holdout": "16/domain; historical/discovery/first-confirm overlap zero; frozen repaired mapping test"
+  },
+  "claim_boundary": {
+    "allowed": "one-training-seed, same-source internal replication of a domain-specific SB conditional-kernel phase map",
+    "forbidden": [
+      "causal restoration harm",
+      "multi-training-seed confirmation",
+      "external or sealed confirmation",
+      "calibrated posterior uncertainty",
+      "method effectiveness"
+    ]
+  },
+  "key_hashes": {
+    "tertiary_raw_age_csv": "de5843bce017be54b7e130fbacc48e0639438dd33105e0f299fe91691d28683a",
+    "tertiary_adjudication_json": "944196207d0123c3409733d22182f8302fb7456b1868757f080f5525b69ef000",
+    "tertiary_cell_summary_csv": "b7657c6c3bf260d9ec0bd60756518e0a0b47a75aa087c266dfcea782916a7826",
+    "final_report_md": "afa09dd7d3474bcc15b2a0a0ce601e20ac5385de7282ad7e87a69134c32d0e1c",
+    "final_headfigure_png": "a3cfa8e3471919d81c6c720e5d830f604b1744773d65d309df66111ec1f0f0c8",
+    "final_headfigure_pdf": "115df7d78b365ce3a2b44fa923529b8bd24ced84df6d8896bf7306635d9f3d7e",
+    "final_headfigure_svg": "ab9c036d785bf2f153ac1fef3a08c085ac3d9ea7a6b5610d58ce522ddda7088f"
+  }
+}

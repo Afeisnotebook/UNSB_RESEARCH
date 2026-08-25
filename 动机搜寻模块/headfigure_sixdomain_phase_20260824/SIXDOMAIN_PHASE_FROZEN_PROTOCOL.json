@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "protocol_id": "unsb-sixdomain-expanded-phase-field-v1",
+  "frozen_local_time": "2026-08-24T23:50:20+08:00",
+  "frozen_before_new_sixdomain_model_effect_read": true,
+  "purpose_cn": "恢复完整六域，以更大的均衡训练/观测集复核共享桥域相位失同步，并把离散有效年龄提升为可交叉拟合的共享时钟代价。",
+  "scope": {
+    "plain_unsb_only": true,
+    "single_vs_all_in_one_only": true,
+    "candidate_methods_allowed": false,
+    "paired_target_for_measurement": false,
+    "claim_type": "fresh one-seed internal six-domain extension",
+    "not_external_confirmation": true,
+    "not_causal_quality_harm": true,
+    "not_calibrated_uncertainty": true
+  },
+  "lineage": {
+    "execution_code_commit": "084babc5443c02c45dbbff7bb422b4e6f8ebf7be",
+    "branch": "motivation/sixdomain-phase-statistics-20260824",
+    "source_hashes": {
+      "动机搜寻模块/headfigure_sixdomain_phase_20260824/code/common.py": "d7821436040ed97e89ad33996399bfbfbf18f6396fef3c7d2997463304788080",
+      "动机搜寻模块/headfigure_sixdomain_phase_20260824/code/prepare_sixdomain.py": "f77a098e579f3c5643d382a3b6485984d89d1e513cc914a10f190221eeaba5ae",
+      "动机搜寻模块/headfigure_sixdomain_phase_20260824/code/train_sixdomain.py": "9aa80c8f847b88ea7b725e567f25034394b40f171d84e1e209bbaf18ce957922",
+      "动机搜寻模块/headfigure_sixdomain_phase_20260824/code/measure_sixdomain.py": "4ce9506d6d8524a315a9e9af9f8c6f894369958b20395b331e7809fba9f7d14f",
+      "动机搜寻模块/headfigure_sixdomain_phase_20260824/code/phase_statistics.py": "20c8978e01d5e59ea34ff3b97261989af4a19187fa38125bece7647a71f97894",
+      "算法设计模块/code/baseline/train.py": "4381e0c1dc90dd9929e6c0abff8c70ff9d5272aec2e5e1dd139f95195686bd51",
+      "算法设计模块/code/baseline/models/sb_model.py": "81c75cbc5863445cb08399f6f9360d64056aaabac166cc488cd696a17b7ce840",
+      "算法设计模块/code/baseline/models/ncsn_networks.py": "bb599862eda4051d7e941a9f8e0d2c36aacdf25140577bb7ccd1025b38d1acef",
+      "动机搜寻模块/code/measure_path_geometry.py": "43e21f769588f2bc8ad6167f3135c6d0a10917621ab9cd95ac117c6b5fa10483"
+    }
+  },
+  "pre_effect_revision": "After protocol freeze but before any six-domain model effect was read, the statistics runner was completed with the already frozen adjudication gates, M16 reporting, and persistence of bootstrap phase draws; no formula, threshold, sample, checkpoint, or training setting changed.",
+  "domains": [
+    "FoggyCityscapes",
+    "LowLightTrafficData",
+    "RainCityscapes",
+    "RainDS-syn",
+    "RSCityscapes",
+    "SnowTrafficData"
+  ],
+  "why_six_domains_cn": "原始数据和早期训练制度一直包含 RainDS-syn。2026-08-24 五域版本是一次人为冻结的权威子协议，并非 RainDS-syn 数据缺失或科学无效。本协议作为新的六域总体从头重训，禁止把旧五域 checkpoint 与新增域直接拼接。",
+  "data": {
+    "source_inventory": {
+      "FoggyCityscapes": 4575,
+      "LowLightTrafficData": 736,
+      "RainCityscapes": 1188,
+      "RainDS-syn": 200,
+      "RSCityscapes": 1188,
+      "SnowTrafficData": 1266
+    },
+    "balanced_bottleneck": "RainDS-syn has exactly 200 identities",
+    "trainA_per_domain": 120,
+    "trainB_per_domain": 120,
+    "heldoutA_per_domain": 80,
+    "training_total_A": 720,
+    "heldout_total_A": 480,
+    "selection": "sha256(protocol_id|domain|stem|role); heldout first, trainA disjoint; prior five-domain phase identities excluded from heldout where applicable",
+    "training_loader": "unaligned with randomized B",
+    "pairing_used_for_training": false,
+    "target_content_read_for_measurement": false,
+    "heldout_status": "EXPANDED_INTERNAL_HELDOUT_NOT_EXTERNAL_OR_SEALED"
+  },
+  "training": {
+    "seed": 2051,
+    "resolution": 128,
+    "batch_size": 1,
+    "num_threads": 0,
+    "no_flip": true,
+    "learning_rate": 0.0001,
+    "lambda_GAN": 1.0,
+    "lambda_SB": 1.0,
+    "lambda_NCE": 1.0,
+    "tau": 0.01,
+    "num_timesteps": 5,
+    "single_epochs": 6,
+    "aio_epochs": 1,
+    "exposure_alignment": "Single e1 and AIO e1 each expose the focal domain about 120 times",
+    "optimizer_clock_alignment": "Single e6 and AIO e1 each contain 720 optimizer steps",
+    "arms": [
+      "six task-specific Single models, checkpoints e1..e6",
+      "one six-domain AIO model, checkpoint e1"
+    ]
+  },
+  "measurement": {
+    "bridge_time_indices": [1, 2, 3],
+    "bridge_time_values_expected": [0.5, 0.74, 0.86],
+    "proposal_M": 32,
+    "prefix_control_M": 16,
+    "common_random_numbers": true,
+    "ages": [1, 2, 3, 4, 5, 6],
+    "image_rows_expected": 8640,
+    "reciprocal_KDD": "0.5 * [(1-cos(mu_A(X_A),mu_S,e(X_A))) + (1-cos(mu_A(X_S,e),mu_S,e(X_S,e)))]",
+    "effective_age": "argmin_e mean_image reciprocal_KDD(d,t,e)",
+    "off_trajectory_control": "min KDD versus max(proposal floor, Single age-span), retained as a boundary rather than a required positive result"
+  },
+  "primary_statistic": {
+    "name_cn": "交叉拟合共享时钟遗憾",
+    "name_en": "cross-fitted shared-clock regret",
+    "full_sample_definition": "G(t)=min_c D^-1 sum_d [K_d,t(c)-min_e K_d,t(e)]",
+    "crossfit_definition": "select common clock c and domain clocks e_d on fold A, evaluate D^-1 sum_d [K_B,d,t(c)-K_B,d,t(e_d)] on fold B; swap folds and average",
+    "folding": "within each domain, deterministic SHA-256 balanced 40/40 split",
+    "inference": "5000 independent within-domain train-fold and evaluation-fold bootstrap resamples; refit clocks on every draw",
+    "support_gate": [
+      "cross-fitted regret > 0 at all three bridge times",
+      "one-sided 95% bootstrap lower bound > 0 at at least two of three bridge times",
+      "positive bootstrap fraction >= 0.95 at at least two of three bridge times",
+      "at least three distinct full-sample domain phases at at least two of three bridge times"
+    ]
+  },
+  "secondary_statistics": {
+    "phase_distribution": "nonparametric bootstrap distribution of argmin age for each domain and bridge time",
+    "phase_wasserstein_energy": "D^-1 sum_d W2^2(Pi_d,t, WassersteinBarycenter_d Pi_d,t), computed by one-dimensional quantile averaging",
+    "phase_reliability_ratio": "between-domain phase variance / (between-domain phase variance + mean within-domain bootstrap phase variance)",
+    "domain_time_phase_shear": "mean over adjacent bridge-time intervals of across-domain variance in bootstrap-mean phase increments",
+    "no_softmin_temperature": true
+  },
+  "adjudication": {
+    "supported": "SUPPORTED_SIXDOMAIN_SHARED_CLOCK_REGRET",
+    "partial": "PARTIAL_SIXDOMAIN_PHASE_STRUCTURE",
+    "failed": "NOT_REPLICATED_SIXDOMAIN",
+    "engineering_hold": "HOLD_ENGINEERING",
+    "rain_ds_boundary": "RainDS-syn exhausts the 200-image local source at 120 trainA + 80 heldoutA; no external confirmation remains"
+  },
+  "headfigure_plan": [
+    "A: six task-specific clocks versus one shared AIO clock",
+    "B: six reciprocal-KDD age profiles at the representative bridge time",
+    "C: six-domain by bridge-time effective phase field with bootstrap certainty",
+    "D: cross-fitted shared-clock regret and bootstrap intervals",
+    "E: phase-Wasserstein dispersion and reliability",
+    "F: tangential phase-regret versus off-trajectory residual boundary"
+  ],
+  "forbidden_post_effect_changes": [
+    "drop RainDS-syn",
+    "change 120/80 split after reading effects",
+    "change seed 2051",
+    "change AIO e1 or Single e1..e6",
+    "change bridge times or M to strengthen the figure",
+    "replace reciprocal KDD",
+    "tune the shared-clock regret formula",
+    "call image bootstrap a training-seed replication",
+    "claim quality harm or method effectiveness"
+  ]
+}
