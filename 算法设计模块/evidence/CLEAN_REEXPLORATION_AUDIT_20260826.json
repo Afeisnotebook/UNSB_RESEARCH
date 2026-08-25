@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "QUARANTINED_FORENSIC_RUN_NOT_A_TRAINING_BASE",
+  "source": {
+    "archive": "clean_reexploration_work_20260826.zip",
+    "archive_sha256": "45697e5b75e69042e07e4d755f5edb351198903a4eae641b15af3a2fd19a86cd",
+    "nested_return_sha256": "d793432abf5d3179a8637eb5cf4a8c38d9ef9a6757235a6ebd205dac465bf919",
+    "nested_manifest_files": 45,
+    "nested_manifest_mismatches": 0,
+    "per_image_rows": 23040,
+    "nonfinite_rows": 0,
+    "exact_duplicate_rows": 0
+  },
+  "e200": {
+    "canonical_plain": {
+      "macro_psnr": 13.603177819
+    },
+    "dt": {
+      "macro_psnr": 13.622403315,
+      "delta_psnr": 0.019225496,
+      "ci95": [-0.047833, 0.087462],
+      "positive_domains": 2
+    },
+    "hj": {
+      "macro_psnr": 13.439539657,
+      "delta_psnr": -0.163638162,
+      "ci95": [-0.236263, -0.095298],
+      "positive_domains": 1
+    },
+    "hnek_full": {
+      "macro_psnr": 13.869453703,
+      "delta_psnr": 0.266275884,
+      "ci95": [0.183742, 0.346857],
+      "positive_domains": 4,
+      "interpretation": "single-seed paired-development forensic signal only"
+    }
+  },
+  "blocking_gates": {
+    "evaluator_oracle": "MISSING",
+    "sampler_config_oracle": "MISSING",
+    "canonical_replay": "MISSING",
+    "common_full_state_forks": "FAIL",
+    "online_controller_history": "FAIL_EMPTY",
+    "paired_target_access_ledger": "FAIL_NO_REAL_ALLOWED_READS",
+    "method_resume": "FAIL_INCOMPLETE",
+    "repair_return": "MISSING",
+    "training_frozen_marker": "MISSING"
+  },
+  "scientific_effect": "DOES_NOT_UPDATE_CURRENT_STATE"
+}

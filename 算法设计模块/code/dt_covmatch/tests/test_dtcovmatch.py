@@ -207,6 +207,29 @@ def test_dtcovmatch_enabled_forward_and_backward():
     assert net.proj.weight.grad.abs().sum().item() > 0.0
 
 
+def test_injected_teacher_is_exact_frozen_canonical_state():
+    torch.manual_seed(7)
+    live = _FakeG(latent_dim=4)
+    canonical = _FakeG(latent_dim=4)
+    canonical_state = {
+        key: value.detach().clone() for key, value in canonical.state_dict().items()
+    }
+    alg = DTCovMatch(
+        netG=live,
+        config=DTCovMatchConfig(lambda_value=0.001, latent_dim=4),
+    )
+
+    teacher = alg.inject_teacher(canonical_state)
+    for key, value in teacher.state_dict().items():
+        assert torch.equal(value, canonical_state[key])
+    assert all(not parameter.requires_grad for parameter in teacher.parameters())
+    assert len(alg._teacher_netG_sha256) == 64
+
+    with torch.no_grad():
+        live.proj.weight.add_(1.0)
+    assert torch.equal(teacher.proj.weight, canonical_state["proj.weight"])
+
+
 def test_domain_key_and_time_norm():
     assert domain_key_from_path("/data/RainDS-syn__0001.png") == "rainds-syn"
     assert domain_key_from_path("/data/FoggyCityscapes__0001.png") == "foggycityscapes"

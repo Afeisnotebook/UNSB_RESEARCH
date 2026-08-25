@@ -122,6 +122,19 @@ def install_hnek_search_generator(net_g, *, num_timesteps: int, cfg: HnekSearchC
     generator._hnek_search_num_timesteps = int(num_timesteps)
     generator._hnek_search_gamma = float(cfg.gamma)
 
+    generator.forward = types.MethodType(_make_hnek_search_forward(), generator)
+    after_keys = tuple(generator.state_dict().keys())
+    after_count = sum(parameter.numel() for parameter in generator.parameters())
+    if before_keys != after_keys or before_count != after_count:
+        raise RuntimeError("adapter changed generator state identity")
+    return {
+        "num_timesteps": int(num_timesteps),
+        "parameter_count": before_count,
+        "state_keys": before_keys,
+    }
+
+
+def _make_hnek_search_forward():
     def hnek_search_forward(self, x, time_cond, z, layers=None, encode_only=False):
         requested_layers = [] if layers is None else layers
         result = self._hnek_search_original_forward(
@@ -139,16 +152,7 @@ def install_hnek_search_generator(net_g, *, num_timesteps: int, cfg: HnekSearchC
             x, residual, horizon, gamma=self._hnek_search_gamma
         )
 
-    generator.forward = types.MethodType(hnek_search_forward, generator)
-    after_keys = tuple(generator.state_dict().keys())
-    after_count = sum(parameter.numel() for parameter in generator.parameters())
-    if before_keys != after_keys or before_count != after_count:
-        raise RuntimeError("adapter changed generator state identity")
-    return {
-        "num_timesteps": int(num_timesteps),
-        "parameter_count": before_count,
-        "state_keys": before_keys,
-    }
+    return hnek_search_forward
 
 
 def _residual_pair(model, *, detach: bool, cfg: HnekSearchConfig):
@@ -245,8 +249,45 @@ def install_hnek_search_model(model, cfg: HnekSearchConfig):
         model._hnek_search_original_compute_G_loss = model.compute_G_loss
         model.compute_E_loss = types.MethodType(hnek_search_compute_E_loss, model)
         model.compute_G_loss = types.MethodType(hnek_search_compute_G_loss, model)
+    model.hnek_active = True
     model._hnek_search_install_record = record
     return record
+
+
+def set_hnek_search_active(model, active: bool) -> None:
+    """Toggle an installed HNEK adapter without changing learned state.
+
+    The switch is deliberately parameter-free and idempotent. It is suitable
+    for a target-blind handoff only when ``hnek_active`` and the controller
+    state are saved in the same full-state checkpoint.
+    """
+    if not hasattr(model, "_hnek_search_cfg"):
+        raise RuntimeError("HNEK search model adapter is not installed")
+
+    cfg = model._hnek_search_cfg
+    generator = _inner(model.netG)
+    active = bool(active)
+
+    if cfg.partial != "entropy_only":
+        if not hasattr(generator, "_hnek_search_original_forward"):
+            raise RuntimeError("HNEK generator adapter is not installed")
+        generator.forward = (
+            types.MethodType(_make_hnek_search_forward(), generator)
+            if active
+            else generator._hnek_search_original_forward
+        )
+
+    if cfg.partial in ("all", "entropy_only"):
+        if not hasattr(model, "_hnek_search_original_compute_E_loss"):
+            raise RuntimeError("HNEK objective adapter is not installed")
+        if active:
+            model.compute_E_loss = types.MethodType(hnek_search_compute_E_loss, model)
+            model.compute_G_loss = types.MethodType(hnek_search_compute_G_loss, model)
+        else:
+            model.compute_E_loss = model._hnek_search_original_compute_E_loss
+            model.compute_G_loss = model._hnek_search_original_compute_G_loss
+
+    model.hnek_active = active
 
 
 def hnek_search_installation_status(model) -> dict:
@@ -260,4 +301,5 @@ def hnek_search_installation_status(model) -> dict:
         "coord": None if cfg is None else cfg.coord,
         "horizon_mode": None if cfg is None else cfg.horizon_mode,
         "partial": None if cfg is None else cfg.partial,
+        "active": bool(getattr(model, "hnek_active", False)),
     }

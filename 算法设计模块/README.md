@@ -2,6 +2,8 @@
 
 > 本模块是无配对 All-in-One 多天气图像恢复在 Schrödinger Bridge（UNSB）框架上的算法设计与实验收口，全部为 clean-room 实现 + 统一 harness 证据。口径：single seed=2026 paired-development，**非 confirmatory**。权威现状先读 [../CURRENT_STATE_CN.md](../CURRENT_STATE_CN.md)。
 
+> 2026-08-26 clean re-exploration 包的复核结论见 [docs/CLEAN_REEXPLORATION_AUDIT_20260826.md](docs/CLEAN_REEXPLORATION_AUDIT_20260826.md)。该包是初轮取证与未完成修复，不是新的训练基座；其 `+0.2663 dB` HNEK FULL 数字不替代本页既有开发结论。
+
 ## 一、目标（一句话）
 
 在无配对、多天气统一恢复的 UNSB（Schrödinger Bridge）上，筛选一个真正「桥原生」的改进候选，然后用跨 seed 与未触碰数据尝试证伪，而不是停留在通用训练技巧或用开发集数字预告投稿级贡献。

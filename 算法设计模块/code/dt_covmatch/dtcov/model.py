@@ -264,3 +264,7 @@ class SBModelDTCovMatch(SBModel):
                 sb_entropy_grad_norm=self._dtcov_sb_grad_norm,
             )
         self._dtcov_step_in_epoch = 0
+
+    def set_train_epoch(self, epoch):
+        """Map physical epoch to DT active age (physical e21 -> age 1)."""
+        self._dtcov_epoch = max(0, int(epoch) - 20)

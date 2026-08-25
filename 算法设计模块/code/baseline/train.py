@@ -47,6 +47,8 @@ if __name__ == '__main__':
         visualizer.reset()              # reset the visualizer: make sure it saves the results to HTML at least once every epoch
 
         dataset.set_epoch(epoch)
+        dataset2.set_epoch(epoch)
+        model.set_train_epoch(epoch)
         for i, (data,data2) in enumerate(zip(dataset,dataset2)):  # inner loop within one epoch
             iter_start_time = time.time()  # timer for computation per iteration
             if total_iters % opt.print_freq == 0:

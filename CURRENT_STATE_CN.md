@@ -1,6 +1,6 @@
 # UNSB 当前科学状态与最后一轮启动契约
 
-> 更新：2026-08-24
+> 更新：2026-08-26
 > 用途：本文是仓库的首要状态入口。当历史文档与本文冲突时，以本文、各模块最新裁决和机器可读 evidence 为准。
 
 ## 1. 当前不可混淆的结论
@@ -17,6 +17,8 @@
 
 HNEK 表中的 95% CI `[0.5916, 0.9933]` 是固定 seed=2026 与开发集条件下的配对样本 bootstrap，**不包含训练 seed 之间的不确定性**，也不能抵消 9 个变体搜索与开发集反复使用带来的选择偏差。
 
+2026-08-26 收到的 `clean_reexploration_work_20260826.zip` 另有一轮数值：plain `13.6032`、DT `+0.0192`、HJ `-0.1636`、HNEK FULL `+0.2663 dB`。该轮的文件哈希和逐图统计自洽，但未通过 canonical/evaluator/sampler/controller/access/resume 门禁，**只作为失败运行取证，不更新上表的科学结论，也不得作为最后一轮训练父节点**。详见 [算法设计模块/docs/CLEAN_REEXPLORATION_AUDIT_20260826.md](./算法设计模块/docs/CLEAN_REEXPLORATION_AUDIT_20260826.md)。
+
 ## 2. 当前总裁决
 
 1. 仓库目前**没有一个已经跨 seed、未触碰确认集验证的最终算法**。
@@ -32,6 +34,8 @@ HNEK 表中的 95% CI `[0.5916, 0.9933]` 是固定 seed=2026 与开发集条件�
 - 从全新 clone 运行根目录测试、harness 自测和全量 Python 编译。
 - 固定源码 commit、数据 manifest hash、训练/评估配置和每个 seed 的输出目录。
 - 评估禁用 test-time UA/TTO；默认 `ua_scheme none`。
+- 先用历史 authoritative checkpoint 做 evaluator oracle，再用 authoritative loader/config 做 sampler replay；plain 无法回到预注册容差时不得启动方法 lane。
+- HNEK/HJ/DT 必须分别从 canonical pre-e1/pre-e5/post-e20 **完整 full-state** 分叉，继承 RNG、sampler、optimizer、scheduler 和 global step；同 seed 重新初始化不等于共同父节点。
 
 ### Gate 1：同 seed 跨环境复现
 
@@ -99,6 +103,7 @@ HNEK 表中的 95% CI `[0.5916, 0.9933]` 是固定 seed=2026 与开发集条件�
 - 原始数据、大型 checkpoint、大部分 raw JSONL 与历史 orchestration scripts 未上传；因此当前仓库是**可审计研究基座**，不是一键端到端复现包。
 - `PATH_MAP.json`、`CODE_IDENTITY.json`、`DATA_MANIFEST.json` 和 `MANIFEST.sha256` 中的 `/home/yc/...` 是原环境 provenance，不是新机器的默认路径。
 - 新环境必须重建路径映射并核对 manifest/hash，不得通过创建同名空目录绕过检查。
+- 2026-08-26 clean re-exploration 包没有完成 repair return；包内 runner 和初轮 checkpoint 被隔离为历史取证材料，未直接并入可执行基座。
 
 ## 7. 克隆后的基座验证
 

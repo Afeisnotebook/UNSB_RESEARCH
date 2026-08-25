@@ -145,6 +145,16 @@ class BaseModel(ABC):
         lr = self.optimizers[0].param_groups[0]['lr']
         print('learning rate = %.7f' % lr)
 
+    def set_train_epoch(self, epoch):
+        """Set the explicit physical epoch used by method-level schedules.
+
+        Plain UNSB has no epoch-gated intervention, so the base implementation
+        is intentionally a no-op. Method wrappers override this hook instead
+        of inferring a physical epoch from scheduler calls or process-local
+        counters, which is essential for checkpoint forks and exact resume.
+        """
+        del epoch
+
     def get_current_visuals(self):
         """Return visualization images. train.py will display these images with visdom, and save the images to a HTML"""
         visual_ret = OrderedDict()

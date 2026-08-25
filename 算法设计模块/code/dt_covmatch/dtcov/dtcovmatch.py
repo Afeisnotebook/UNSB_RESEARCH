@@ -444,6 +444,24 @@ class DTCovMatch:
             self.teacher = teacher
         return self.teacher
 
+    def inject_teacher(self, state_dict: dict) -> torch.nn.Module:
+        """Install an immutable teacher from an explicit canonical netG state.
+
+        This must be used for the DT fork: lazily cloning the already-diverged
+        live generator would silently change the method being tested.
+        """
+        import copy
+
+        source = self.netG.module if isinstance(self.netG, torch.nn.DataParallel) else self.netG
+        teacher = copy.deepcopy(source)
+        teacher.load_state_dict(state_dict, strict=True)
+        teacher.eval()
+        for parameter in teacher.parameters():
+            parameter.requires_grad_(False)
+        self.teacher = teacher
+        self._teacher_netG_sha256 = _state_dict_sha256(teacher.state_dict())
+        return teacher
+
     def _current_and_teacher_stats(
         self,
         X_g: torch.Tensor,
@@ -553,3 +571,21 @@ class DTCovMatch:
             "t_norm": float(t_norm),
         }
         return loss, diag
+
+
+def _state_dict_sha256(state_dict: dict) -> str:
+    """Return a stable SHA-256 over tensor names, dtypes, shapes and bytes."""
+    import hashlib
+
+    digest = hashlib.sha256()
+    for key in sorted(state_dict):
+        tensor = state_dict[key].detach().cpu().contiguous()
+        digest.update(key.encode("utf-8"))
+        digest.update(b"\x00")
+        digest.update(str(tensor.dtype).encode("ascii"))
+        digest.update(b"\x00")
+        digest.update(str(tuple(tensor.shape)).encode("ascii"))
+        digest.update(b"\x00")
+        digest.update(tensor.numpy().tobytes())
+        digest.update(b"\x00")
+    return digest.hexdigest()
