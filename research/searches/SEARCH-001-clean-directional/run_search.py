@@ -205,6 +205,8 @@ def run_lane(
     end_step = min(target_steps, stop_after) if stop_after is not None else target_steps
     started = time.time()
     losses = []
+    completed_step = start_step
+    last_saved_step = start_step if latest.is_file() else -1
     for zero_step in range(start_step, end_step):
         if args.deadline and time.time() >= args.deadline:
             break
@@ -214,6 +216,7 @@ def run_lane(
         model.set_input(stream_a.next(), stream_b.next())
         model.optimize_parameters()
         completed = zero_step + 1
+        completed_step = completed
         if completed % (6 * per_domain) == 0:
             model.update_learning_rate()
         if completed % args.log_every == 0 or completed in eval_steps:
@@ -226,6 +229,7 @@ def run_lane(
                 stream_a=stream_a, stream_b=stream_b,
                 metadata={"protocol": protocol, "schedule_steps": schedule_steps},
             )
+            last_saved_step = completed
             save_checkpoint(
                 latest,
                 model=model, spec=spec, step=completed, target_steps=target_steps,
@@ -243,7 +247,20 @@ def run_lane(
                 metrics["step"] = completed
                 metrics["spec"] = spec.to_dict()
                 write_json(metric_path, metrics)
-    final_step = start_step if end_step <= start_step else min(end_step, zero_step + 1)
+    if completed_step > last_saved_step:
+        save_checkpoint(
+            lane_dir / f"step_{completed_step}.pt",
+            model=model, spec=spec, step=completed_step, target_steps=target_steps,
+            stream_a=stream_a, stream_b=stream_b,
+            metadata={"protocol": protocol, "schedule_steps": schedule_steps},
+        )
+        save_checkpoint(
+            latest,
+            model=model, spec=spec, step=completed_step, target_steps=target_steps,
+            stream_a=stream_a, stream_b=stream_b,
+            metadata={"protocol": protocol, "schedule_steps": schedule_steps},
+        )
+    final_step = completed_step
     write_json(
         lane_dir / "RUN_STATE.json",
         {
@@ -391,19 +408,37 @@ def stage3(args, protocol, rows, stage2_specs, stage2_rank) -> tuple[dict, list[
     by_name = {spec.name: spec for spec in stage2_specs}
     winner = by_name[winner_name]
     specs = [LaneSpec("plain"), winner]
-    eval_steps = [
+    planned_eval_steps = [
         step for step in range(args.stage2_steps + args.stage3_eval_interval, args.stage3_steps + 1, args.stage3_eval_interval)
     ]
-    # Include the stage-2 matched checkpoints in the final three-checkpoint trajectory.
-    for spec in specs:
-        initial = stage2_dir / spec.name / f"step_{args.stage2_steps}.pt"
-        run_lane(
-            args=args, protocol=protocol, rows=rows, stage_dir=stage3_dir, spec=spec,
-            per_domain=args.stage2_train_per_domain, target_steps=args.stage3_steps,
-            schedule_steps=args.stage2_steps, eval_steps=eval_steps,
-            eval_start=args.stage2_eval_start, eval_count=args.stage2_eval_per_domain,
-            include_lpips=True, initial_checkpoint=initial,
-        )
+    completed_eval_steps = []
+    last_pair_seconds = None
+    # Extend in matched 2k-update pairs. A time limit is checked only between
+    # pairs, so plain can never consume budget that the candidate does not get.
+    for milestone in planned_eval_steps:
+        if args.deadline is not None:
+            remaining = args.deadline - time.time()
+            if remaining <= 0 or (
+                last_pair_seconds is not None and remaining < last_pair_seconds
+            ):
+                break
+        pair_started = time.time()
+        saved_deadline = args.deadline
+        args.deadline = None
+        try:
+            for spec in specs:
+                initial = stage2_dir / spec.name / f"step_{args.stage2_steps}.pt"
+                run_lane(
+                    args=args, protocol=protocol, rows=rows, stage_dir=stage3_dir, spec=spec,
+                    per_domain=args.stage2_train_per_domain, target_steps=milestone,
+                    schedule_steps=args.stage2_steps, eval_steps=[milestone],
+                    eval_start=args.stage2_eval_start, eval_count=args.stage2_eval_per_domain,
+                    include_lpips=True, initial_checkpoint=initial,
+                )
+        finally:
+            args.deadline = saved_deadline
+        completed_eval_steps.append(milestone)
+        last_pair_seconds = time.time() - pair_started
     trajectory = []
     # Stage 2's last checkpoints plus every extension checkpoint are all matched.
     for step in args.stage2_eval:
@@ -411,7 +446,7 @@ def stage3(args, protocol, rows, stage2_specs, stage2_rank) -> tuple[dict, list[
         plain = read_metrics(stage2_dir, LaneSpec("plain"), step)
         if method and plain:
             trajectory.append(compare(method, plain, step=step))
-    for step in eval_steps:
+    for step in completed_eval_steps:
         method = read_metrics(stage3_dir, winner, step)
         plain = read_metrics(stage3_dir, LaneSpec("plain"), step)
         if method and plain:
@@ -597,7 +632,7 @@ def parse_args():
     args.manifest = args.manifest.resolve()
     args.train_view = args.train_view.resolve()
     args.data_root = args.data_root.resolve()
-    args.deadline = time.time() + args.max_hours * 3600 if args.max_hours > 0 else None
+    args.deadline = None
     return args
 
 
@@ -627,6 +662,7 @@ def main() -> int:
         stage2_specs, stage2_rank = load_stage2_specs(args)
     if args.stage == "stage2":
         return 0
+    args.deadline = time.time() + args.max_hours * 3600 if args.max_hours > 0 else None
     candidate, _ = stage3(args, protocol, rows, stage2_specs, stage2_rank)
     print(json.dumps(candidate, ensure_ascii=False, indent=2))
     return 0

@@ -2,6 +2,7 @@
   "schema_version": 1,
   "experiments": [
     {"id":"EXP-L0-CANONICAL-MICRO-20260826","level":"L0","entity":"canonical","status":"pass"},
+    {"id":"EXP-L0-SEARCH-001-GATE-20260826","level":"L0","entity":"SEARCH-001","status":"pass"},
     {"id":"EXP-L1-MOTIVATION-WINDOW-20260824","level":"L1","entity":"MOT-001","status":"closed"},
     {"id":"EXP-L1-MOTIVATION-HEADFIGURE-20260824","level":"L1","entity":"MOT-001","status":"completed"},
     {"id":"EXP-L1-DT-HJ-CLEAN-CORE-20260824","level":"L1","entity":["CAND-001","CAND-002"],"status":"completed"},

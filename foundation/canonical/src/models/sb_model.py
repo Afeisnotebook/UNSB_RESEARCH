@@ -58,7 +58,7 @@ class SBModel(BaseModel):
             '--search_ptq_seed', type=int, default=2026,
             help='seed for deterministic within-block PTQ shuffling',
         )
-        
+
         parser.set_defaults(pool_size=0)  # no image pooling
 
         opt, _ = parser.parse_known_args()
@@ -324,13 +324,13 @@ class SBModel(BaseModel):
         time_idx = self._sample_training_time_idx(T)
         self.time_idx = time_idx
         self.timestep     = times[time_idx]
-        
+
         with torch.no_grad():
             self.netG.eval()
             rollout_net = self._rollout_generator()
             rollout_net.eval()
             for t in range(self.time_idx.int().item()+1):
-                
+
                 if t > 0:
                     delta = times[t] - times[t-1]
                     denom = times[-1] - times[t-1]

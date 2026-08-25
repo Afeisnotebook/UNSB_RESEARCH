@@ -4,10 +4,10 @@
     {
       "id": "SEARCH-001",
       "slug": "clean-directional",
-      "status": "implemented_unrun",
+      "status": "engineering_gate_pass",
       "path": "research/searches/SEARCH-001-clean-directional",
       "candidate_families": ["CAND-001", "CAND-002", "CAND-003", "CAND-004"],
-      "next_gate": "engineering_gate"
+      "next_gate": "stage1_direction_screen"
     }
   ]
 }

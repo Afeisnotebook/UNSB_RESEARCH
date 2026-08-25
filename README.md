@@ -24,7 +24,7 @@ paper / figure / release / handoff
 - `MOT-001` 支持“共享训练改变条件路径几何”的现象级动机，不支持固定普适窗口。
 - DT、HJ 已在 clean deterministic 口径下关闭为当前主方法。
 - HNEK `gamma=0.25` 是单 seed paired-development 候选，尚未确认。
-- commit `495a092` 保存了新一轮 DCUM/LBST/PTQ/AEB 与状态恢复代码；它们已由 `SEARCH-001` 接入分级搜索，但尚未产生实验裁决，不改变上述科学状态。
+- DCUM/LBST/PTQ/AEB 与状态恢复代码已由 `SEARCH-001` 接入分级搜索；L0 工程门禁已通过，但尚未产生效果裁决，不改变上述科学状态。
 
 机器状态见 [PROJECT_STATE.json](./PROJECT_STATE.json)，人类可读摘要见 [CURRENT_STATE_CN.md](./CURRENT_STATE_CN.md)。
 

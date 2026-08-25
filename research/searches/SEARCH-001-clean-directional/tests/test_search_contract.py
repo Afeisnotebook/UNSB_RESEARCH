@@ -3,6 +3,8 @@ from __future__ import annotations
 import random
 from types import SimpleNamespace
 
+import torch
+
 from src.evaluate import select_discovery_rows
 from src.protocol import LaneSpec, frozen_lanes, synthesize
 from src.runtime import install_import_paths
@@ -25,6 +27,24 @@ def test_ptq_has_exact_fifty_step_mass_and_seeded_order():
     second = [model._ptq_index(step, 5) for step in range(50)]
     assert first == second
     assert [first.count(index) for index in range(5)] == [25, 12, 6, 4, 3]
+
+
+def test_lbst_teacher_can_be_constructed_and_is_frozen():
+    install_import_paths()
+    from models.sb_model import SBModel
+
+    model = object.__new__(SBModel)
+    model.opt = SimpleNamespace(search_lbst=True)
+    model.device = torch.device("cpu")
+    model.netG = torch.nn.Linear(3, 2)
+    model._lbst_netG = None
+    teacher = model._ensure_lbst_teacher()
+    assert teacher is not model.netG
+    assert all(not parameter.requires_grad for parameter in teacher.parameters())
+    assert all(
+        torch.equal(left, right)
+        for left, right in zip(model.netG.parameters(), teacher.parameters())
+    )
 
 
 def test_dcum_never_crosses_domain_or_reuses_stem():

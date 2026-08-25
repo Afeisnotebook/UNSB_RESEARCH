@@ -4,4 +4,4 @@
 
 当前搜索：
 
-- [SEARCH-001 clean directional](./SEARCH-001-clean-directional/README.md)：plain 与 DT/HJ/HNEK anchors，加 DCUM/LBST/PTQ/AEB 新机制；当前为 `IMPLEMENTED_UNRUN`。
+- [SEARCH-001 clean directional](./SEARCH-001-clean-directional/README.md)：plain 与 DT/HJ/HNEK anchors，加 DCUM/LBST/PTQ/AEB 新机制；L0 工程门禁已通过，下一步为 stage1。

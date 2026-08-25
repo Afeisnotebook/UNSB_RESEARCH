@@ -1,6 +1,8 @@
 # SEARCH-001: clean directional search
 
-这是最后一轮 clean UNSB 的冻结分级搜索控制器。当前状态为 `IMPLEMENTED_UNRUN`：实现已经进入仓库，但尚无登记在 `experiments/` 的运行证据，因此不能据此改变任何候选的科学状态。
+这是最后一轮 clean UNSB 的冻结分级搜索控制器。L0 工程门禁已在
+[`EXP-L0-SEARCH-001-GATE-20260826`](../../../experiments/L0-contract/EXP-L0-SEARCH-001-GATE-20260826/README.md)
+通过；这只允许进入 stage1，不改变任何候选的科学状态。
 
 ## 冻结内容
 

@@ -1,12 +1,13 @@
 {
   "id": "SEARCH-001",
   "schema": "clean-unsb-directional-v1",
-  "status": "implemented_unrun",
-  "source_commit": "495a092",
+  "status": "engineering_gate_pass",
+  "source_commit": "6b89c1d5568b4a067cfe8ba2cde471fb581ef7ee",
   "runner": "research/searches/SEARCH-001-clean-directional/run_search.py",
   "candidate_families": ["CAND-001", "CAND-002", "CAND-003", "CAND-004"],
   "new_mechanisms": ["lbst", "ptq", "dcum", "aeb"],
   "stages": ["engineering_gate", "direction_screen", "full_view", "extension", "verify4090"],
   "confirmation_access": false,
-  "next_gate": "run_engineering_gate_and_register_as_L0_experiment"
+  "engineering_gate_experiment": "EXP-L0-SEARCH-001-GATE-20260826",
+  "next_gate": "run_stage1_direction_screen"
 }

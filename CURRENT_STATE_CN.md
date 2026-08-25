@@ -14,8 +14,8 @@
 | CAND-002 HJ-PatchNCE | CLOSED_NEGATIVE | 相对 plain 的 clean 收益基本消失 |
 | CAND-003 HNEK | DEVELOPMENT_FROZEN | `gamma=0.25` 单 seed 开发候选，未确认 |
 | CAND-004 search mechanisms | IMPLEMENTED | DCUM/LBST/PTQ/AEB 已接入 SEARCH-001，尚无实验裁决 |
-| SEARCH-001 clean directional | IMPLEMENTED_UNRUN | 搜索协议与工程门禁已实现，尚未登记运行证据 |
+| SEARCH-001 clean directional | ENGINEERING_GATE_PASS | full-state/resume/评估/PTQ 门禁已登记，下一步为 stage1 |
 
 ## 下一门禁
 
-先在本地真实数据上运行 `SEARCH-001 --stage gate`，登记为新的 L0 实验；通过后才进入 stage1 方向筛选。昂贵训练必须由显式决策推进，历史 PNG 字节重放不是新 canonical 的前置条件。
+`SEARCH-001 --stage gate` 已在本地真实数据上通过并登记为 L0 实验；现在进入 stage1 方向筛选。历史 PNG 字节重放不是新 canonical 的前置条件。

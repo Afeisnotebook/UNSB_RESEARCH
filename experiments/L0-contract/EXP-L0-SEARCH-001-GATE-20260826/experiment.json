@@ -1,0 +1,10 @@
+{
+  "id": "EXP-L0-SEARCH-001-GATE-20260826",
+  "level": "L0",
+  "entity": "SEARCH-001",
+  "status": "pass",
+  "source_commit": "6b89c1d5568b4a067cfe8ba2cde471fb581ef7ee",
+  "protocol_lock": "PROTOCOL_LOCK.json",
+  "evidence": "ENGINEERING_GATE.json",
+  "confirmation20_opened": false
+}

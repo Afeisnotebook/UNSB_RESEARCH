@@ -15,10 +15,10 @@
     "CAND-004": "implemented_unadjudicated"
   },
   "active_searches": {
-    "SEARCH-001": "implemented_unrun"
+    "SEARCH-001": "engineering_gate_pass"
   },
   "pre_restructure_search_work_commit": "495a092",
-  "next_gate": "run_SEARCH-001_engineering_gate_and_register_L0_evidence",
+  "next_gate": "run_SEARCH-001_stage1_direction_screen",
   "human_current_state": "decisions/CURRENT.md",
   "decision_ledger": "decisions/DECISION_LEDGER.json"
 }
