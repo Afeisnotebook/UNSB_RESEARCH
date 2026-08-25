@@ -1,5 +1,14 @@
 # Harness（统一底座）
 
+## 接任摘要
+
+| 问题 | 回答 |
+|---|---|
+| 是什么 | 与模型解耦的数据身份、配置 hash、RNG 隔离、checkpoint 审计和配对统计工具。 |
+| 当前结论 | CPU 自测 12/12；适合所有新候选复用，但不能替代真实 GPU smoke 或训练 seed 确认。 |
+| 时间线位置 | T1 早期实验纪律萌芽，T5–T7 随 deterministic canonical 固化。 |
+| 先看哪里 | 先运行 `python foundation/harness/self_test.py`，再按下方模块职责接入新实验。 |
+
 这是 DT/HJ 重构前必须依赖的工程底座。CPU 核心已通过 `self_test.py`（12/12）。自测使用临时元数据 fixture，不依赖旧 `/home/yc` 数据或 checkpoint。
 
 ## 模块

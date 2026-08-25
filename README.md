@@ -21,7 +21,7 @@ paper / figure / release / handoff
 ## 当前快照
 
 - 新 deterministic canonical 已可作为后续探索基座。
-- `MOT-001` 支持“共享训练改变条件路径几何”的现象级动机，不支持固定普适窗口。
+- `MOT-001` 支持“共享训练改变条件路径几何”的现象级动机；六域单 seed 进一步观察到正的 shared-clock regret，但不支持固定普适窗口、因果伤害或算法有效性。
 - DT、HJ 已在 clean deterministic 口径下关闭为当前主方法。
 - HNEK `gamma=0.25` 是单 seed paired-development 候选，尚未确认。
 - DCUM/LBST/PTQ/AEB 与状态恢复代码已由 `SEARCH-001` 接入分级搜索；L0 工程门禁已通过，但尚未产生效果裁决，不改变上述科学状态。
@@ -30,14 +30,14 @@ paper / figure / release / handoff
 
 ## 五分钟入口
 
-1. [当前裁决全文](./decisions/CURRENT.md)
-2. [确定性 canonical](./foundation/canonical/README.md)
-3. [核心动机 MOT-001](./research/motivations/MOT-001-aio-path-geometry/README.md)
-4. [候选注册表](./research/candidates/README.md)
-5. [当前搜索控制器](./research/searches/README.md)
-6. [实验放大路径](./experiments/README.md)
-7. [决策账本](./decisions/README.md)
-8. [最终产出](./outputs/README.md)
+1. [接任指南：先看什么、结论是什么、代码在哪里](./TAKEOVER_GUIDE_CN.md)
+2. [项目总时间线](./project/TIMELINE.md)
+3. [当前裁决全文](./decisions/CURRENT.md)
+4. [确定性 canonical](./foundation/canonical/README.md)
+5. [核心动机 MOT-001](./research/motivations/MOT-001-aio-path-geometry/READING_GUIDE_CN.md)
+6. [候选注册表](./research/candidates/README.md)
+7. [当前搜索控制器](./research/searches/README.md)
+8. [实验放大路径](./experiments/README.md)
 
 ## 目录职责
 
@@ -50,6 +50,8 @@ paper / figure / release / handoff
 | `decisions/` | 当前状态和不可变决策记录 |
 | `outputs/` | 论文、最终图、发布包和 handoff 索引 |
 | `archive/` | 早期探索、旧 prompt、被取代计划和旧布局说明 |
+
+每个一级模块和当前研究实体的 README 都采用同一套接任摘要：**是什么、当前结论、时间线位置、阅读/行动入口**。新增模块时请沿用 [说明规范](./project/README.md#模块说明规范)。
 
 ## 基座验证
 

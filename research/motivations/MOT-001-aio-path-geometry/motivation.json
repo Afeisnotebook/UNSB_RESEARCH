@@ -2,7 +2,14 @@
   "id": "MOT-001",
   "title": "All-in-One shared training changes conditional path geometry",
   "status": "supported_with_limits",
-  "supported_claim": "Shared training changes conditional restoration-path geometry with phase, seed and domain dependence.",
+  "timeline_phase": "T4-T6",
+  "supported_claim": "Shared training changes conditional restoration-path geometry with phase, seed and domain dependence; a frozen six-domain single-training-seed experiment also shows positive held-out shared-clock regret.",
   "rejected_claim": "There is a universal fixed over-compression window shared by all seeds and domains.",
+  "limitations": [
+    "The six-domain expansion uses one new training seed (2051).",
+    "Image-level bootstrap does not establish training-seed stability.",
+    "Positive shared-clock regret is observational path-geometry mismatch, not causal restoration harm.",
+    "No candidate algorithm is validated by this motivation evidence."
+  ],
   "experiments": ["EXP-L1-MOTIVATION-WINDOW-20260824", "EXP-L1-MOTIVATION-HEADFIGURE-20260824", "EXP-L2-MOTIVATION-SIXDOMAIN-20260824"]
 }

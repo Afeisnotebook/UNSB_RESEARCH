@@ -19,6 +19,11 @@
   },
   "pre_restructure_search_work_commit": "495a092",
   "next_gate": "run_SEARCH-001_stage1_direction_screen",
+  "documentation": {
+    "takeover_guide": "TAKEOVER_GUIDE_CN.md",
+    "timeline": "project/TIMELINE.md",
+    "module_standard": "project/README.md"
+  },
   "human_current_state": "decisions/CURRENT.md",
   "decision_ledger": "decisions/DECISION_LEDGER.json"
 }

@@ -1,5 +1,14 @@
 # MOT-001：All-in-One 条件路径几何
 
+## 接任摘要
+
+| 问题 | 回答 |
+|---|---|
+| 是什么 | plain UNSB 的 Single-task/AIO 对照动机，测量共享训练是否改变模型诱导的条件路径几何。 |
+| 当前结论 | `SUPPORTED_WITH_LIMITS`：五域多 seed 支持阶段/域/seed 依赖差异并关闭固定窗口；六域 seed=2051 支持正的 held-out shared-clock regret。 |
+| 时间线位置 | T0 原始 AIO 退化 → T4 五域重启 → T6 六域放大。 |
+| 先看哪里 | [中文阅读指南](./READING_GUIDE_CN.md) → [六域冻结报告](../../../experiments/L2-medium-4090/EXP-L2-MOTIVATION-SIXDOMAIN-20260824/source_snapshot/final_delivery/reports/UNSB_SIXDOMAIN_PHASE_FINAL_CN.md) → [当前裁决](../../../decisions/CURRENT.md)。 |
+
 > **当前中文阅读入口：** [READING_GUIDE_CN.md](./READING_GUIDE_CN.md)。它统一解释五域多 seed 证据、六域扩大实验、共享时钟遗憾、头图各面板及允许/禁止表述。
 
 > 本 README 的“唯一对照”和五域内容描述最初的多 seed 主线；后续六域扩展恢复了 RainDS-syn，但仍属于同一个 MOT-001 观察性问题。两条证据链的关系以阅读指南和最新 `decisions/CURRENT.md` 为准。

@@ -1,5 +1,14 @@
 # SEARCH-001: clean directional search
 
+## 接任摘要
+
+| 问题 | 回答 |
+|---|---|
+| 是什么 | plain/DT/HJ/HNEK anchors 与 DCUM/LBST/PTQ/AEB 的冻结分级搜索、合成和排序控制器。 |
+| 当前结论 | `ENGINEERING_GATE_PASS`：full-state twin、resume、重复 discovery 评估与 PTQ mass 通过；下一步 stage1，尚无候选效果裁决。 |
+| 时间线位置 | T8→NEXT，位于 L0 工程验收之后、L1 方向筛选之前。 |
+| 先看哪里 | 本文冻结内容 → `src/protocol.py` → [L0 gate](../../../experiments/L0-contract/EXP-L0-SEARCH-001-GATE-20260826/README.md) → 未来新建的 stage1 EXP。 |
+
 这是最后一轮 clean UNSB 的冻结分级搜索控制器。L0 工程门禁已在
 [`EXP-L0-SEARCH-001-GATE-20260826`](../../../experiments/L0-contract/EXP-L0-SEARCH-001-GATE-20260826/README.md)
 通过；这只允许进入 stage1，不改变任何候选的科学状态。

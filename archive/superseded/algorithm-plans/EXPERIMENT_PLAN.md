@@ -1,6 +1,6 @@
 # 机制定位与自适应介入实验计划（相对 +0.8875 dB 为基准）
 
-> **已停止的历史计划：** 其 +0.8875 dB 基准已被确定性 clean rerun 撤销。不要按本文重启 DT/HJ 调参；当前计划见 [../../CURRENT_STATE_CN.md](../../CURRENT_STATE_CN.md)。
+> **已停止的历史计划：** 其 +0.8875 dB 基准已被确定性 clean rerun 撤销。不要按本文重启 DT/HJ 调参；当前状态见 [CURRENT_STATE_CN.md](../../../CURRENT_STATE_CN.md)。
 
 所有实验单 seed=2026、128×128、统一 harness；只关/改一个变量，记录 eval-off 收益。
 

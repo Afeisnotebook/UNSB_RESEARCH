@@ -1,5 +1,11 @@
 # Figure index
 
+## 接任摘要
+
+| 是什么 | 当前结论 | 时间线位置 | 数字真源 |
+|---|---|---|---|
+| 面向阅读/写作的稳定图像副本 | 当前主图是六域 path phase/shared-clock regret；允许观察性动机表述 | T6 | [EXP-L2 六域实验](../../experiments/L2-medium-4090/EXP-L2-MOTIVATION-SIXDOMAIN-20260824/README.md) |
+
 本目录保存面向读者和论文写作的稳定图像副本；数字真源、统计裁决与冻结协议仍属于对应的 `experiments/` 记录。
 
 ## 当前 MOT-001 六域头图

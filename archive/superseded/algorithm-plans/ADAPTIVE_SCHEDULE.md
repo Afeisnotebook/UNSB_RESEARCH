@@ -1,6 +1,6 @@
 # 自适应介入 schedule（DT 已实现）
 
-> **历史实验文档：** 该 schedule 建立在确定性修复前的 DT 正基线上。clean deterministic rerun 中 DT 相对 plain 为 −0.2677 dB，因此本文不是当前推荐计划。见 [FINAL_STATUS.md](./FINAL_STATUS.md)。
+> **历史实验文档：** 该 schedule 建立在确定性修复前的 DT 正基线上。clean deterministic rerun 中 DT 相对 plain 为 −0.2677 dB，因此本文不是当前推荐计划。见 [decisions/CURRENT.md](../../../decisions/CURRENT.md)。
 
 ## 目标
 

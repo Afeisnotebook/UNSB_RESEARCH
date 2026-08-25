@@ -1,10 +1,19 @@
 # 算法设计模块（Algorithm Design）
 
-> 本模块是无配对 All-in-One 多天气图像恢复在 Schrödinger Bridge（UNSB）框架上的算法设计与实验收口，全部为 clean-room 实现 + 统一 harness 证据。口径：single seed=2026 paired-development，**非 confirmatory**。权威现状先读 [../CURRENT_STATE_CN.md](../CURRENT_STATE_CN.md)。
+## 接任摘要
 
-> 2026-08-26 clean re-exploration 包的复核结论见 [docs/CLEAN_REEXPLORATION_AUDIT_20260826.md](docs/CLEAN_REEXPLORATION_AUDIT_20260826.md)。该包是初轮取证与未完成修复，不是新的训练基座；其 `+0.2663 dB` HNEK FULL 数字不替代本页既有开发结论。
+| 问题 | 回答 |
+|---|---|
+| 是什么 | 迁移前算法设计模块的历史总览，保留当时 DT/HJ/HNEK 的收口叙事。 |
+| 当前结论 | 数字仅作 single-seed paired-development provenance；当前代码、实验和状态已经迁入 lifecycle 目录。 |
+| 时间线位置 | T1–T5，T8 时退出当前入口。 |
+| 先看哪里 | [当前状态](../../../CURRENT_STATE_CN.md) → [候选索引](../../../research/candidates/README.md) → [互动形成史](../../../research/synthesis/DT_HJ_HNEK_CODEX_INTERACTION_HISTORY_CN.md)。 |
 
-> 当前仓库本身已冻结为新的确定性基座，见 [docs/CLEAN_DETERMINISTIC_BASELINE_20260826.md](docs/CLEAN_DETERMINISTIC_BASELINE_20260826.md)。DT、HJ、HNEK 的人机互动形成过程见 [docs/DT_HJ_HNEK_CODEX_INTERACTION_HISTORY_CN.md](docs/DT_HJ_HNEK_CODEX_INTERACTION_HISTORY_CN.md)。
+> 本模块是无配对 All-in-One 多天气图像恢复在 Schrödinger Bridge（UNSB）框架上的算法设计与实验收口，全部为 clean-room 实现 + 统一 harness 证据。口径：single seed=2026 paired-development，**非 confirmatory**。权威现状先读 [当前状态](../../../CURRENT_STATE_CN.md)。
+
+> 2026-08-26 clean re-exploration 包的复核结论见 [当前审计记录](../../../decisions/records/DEC-20260826-CLEAN-REEXPLORATION-AUDIT.md)。该包是初轮取证与未完成修复，不是新的训练基座；其 `+0.2663 dB` HNEK FULL 数字不替代本页既有开发结论。
+
+> 当前仓库本身已冻结为新的确定性基座，见 [canonical 验收](../../../foundation/canonical/CANONICAL_BASELINE.md)。DT、HJ、HNEK 的人机互动形成过程见 [当前互动史](../../../research/synthesis/DT_HJ_HNEK_CODEX_INTERACTION_HISTORY_CN.md)。
 
 ## 一、目标（一句话）
 

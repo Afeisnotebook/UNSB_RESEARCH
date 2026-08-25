@@ -1,5 +1,14 @@
 # 早期搜寻模块（Early Search）
 
+## 接任摘要
+
+| 问题 | 回答 |
+|---|---|
+| 是什么 | 原论文复现、AIO 退化、covariance proxy、TTO/UA 反证和 DT 前身的考古汇总。 |
+| 当前结论 | 保留原始动机、术语护栏和负结果；旧 PSNR/旧实现不能覆盖 deterministic clean 裁决。 |
+| 时间线位置 | T0–T2（2026-06-22 至 07-26）。 |
+| 先看哪里 | 本文 → [详细时间线](./docs/TIMELINE.md) → [证据](./docs/EVIDENCE.md) → [已淘汰路线](./docs/SUPERSEDED.md)。 |
+
 > 本模块只汇总服务器上早期探索里**真正有价值、且没有被后面两个模块覆盖或证伪**的部分。它是整条研究的“考古层”，不是成果全集。
 
 ## 一、模块定位
@@ -98,4 +107,4 @@
 3. [docs/EVIDENCE.md](./docs/EVIDENCE.md) → 关键证据与来源路径。
 4. [docs/SUPERSEDED.md](./docs/SUPERSEDED.md) → 哪些方向已经死掉、为什么死掉。
 
-若要看最终结论：回到仓库根目录，进入 [动机搜寻模块](../动机搜寻模块/) 和 [算法设计模块](../算法设计模块/)。
+若要看当前结论：回到[仓库接任指南](../../TAKEOVER_GUIDE_CN.md)，再进入 [MOT-001](../../research/motivations/MOT-001-aio-path-geometry/README.md)、[候选索引](../../research/candidates/README.md) 和 [当前裁决](../../decisions/CURRENT.md)。
