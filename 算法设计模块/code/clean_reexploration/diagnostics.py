@@ -65,7 +65,7 @@ def energy_distance(a: np.ndarray, b: np.ndarray) -> float:
     a = np.asarray(a, dtype=np.float64)
     b = np.asarray(b, dtype=np.float64)
     if a.ndim == 1:
-        a = a[:, None]
+        return _energy_distance_scalar_1d(a, b)
     if b.ndim == 1:
         b = b[:, None]
 
@@ -81,6 +81,40 @@ def energy_distance(a: np.ndarray, b: np.ndarray) -> float:
     term1 = 2.0 * np.mean(ab)
     term2 = np.sum(aa - np.diag(np.diag(aa))) / (n * (n - 1))
     term3 = np.sum(bb - np.diag(np.diag(bb))) / (m * (m - 1))
+    return float(max(0.0, term1 - term2 - term3))
+
+
+def _mean_abs_pairwise_scalar(x: np.ndarray) -> float:
+    """Mean absolute pairwise distance within a sorted scalar sample."""
+    x = np.sort(x)
+    n = x.size
+    if n < 2:
+        return 0.0
+    idx = np.arange(n, dtype=np.float64)
+    # sum_{i<j}(x_j - x_i) = sum_k (2k - n + 1) * x_k
+    total = float(np.sum((2.0 * idx - (n - 1.0)) * x))
+    return 2.0 * total / (n * (n - 1.0))
+
+
+def _mean_abs_cross_scalar(a: np.ndarray, b: np.ndarray) -> float:
+    """Mean absolute cross distance between two scalar samples."""
+    a = np.sort(a)
+    b = np.sort(b)
+    na, nb = a.size, b.size
+    if na == 0 or nb == 0:
+        return 0.0
+    prefix = np.concatenate(([0.0], np.cumsum(a)))
+    k = np.searchsorted(a, b, side="right")
+    left = b * k - prefix[k]
+    right = (prefix[-1] - prefix[k]) - b * (na - k)
+    return float(np.sum(left + right) / (na * nb))
+
+
+def _energy_distance_scalar_1d(a: np.ndarray, b: np.ndarray) -> float:
+    """Energy distance for scalar samples without forming an O(n^2) matrix."""
+    term1 = 2.0 * _mean_abs_cross_scalar(a, b)
+    term2 = _mean_abs_pairwise_scalar(a)
+    term3 = _mean_abs_pairwise_scalar(b)
     return float(max(0.0, term1 - term2 - term3))
 
 

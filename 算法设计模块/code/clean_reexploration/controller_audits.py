@@ -28,6 +28,8 @@ RUNS_ROOT = RUNTIME_ROOT / "runs"
 sys.path.insert(0, str(CODE_ROOT / "baseline"))
 sys.path.insert(0, str(CODE_ROOT))
 
+from clean_reexploration.controllers import point_estimate
+
 
 def _load_panel_rows(panel: dict, training_manifest: list[dict]) -> list[dict]:
     by_key = {(f["domain"], f["side"], f["stem"]): f for f in training_manifest if f["side"] in ("A", "B")}

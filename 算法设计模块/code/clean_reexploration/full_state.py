@@ -45,7 +45,7 @@ def _restore_rng_bundle(bundle: dict) -> None:
     np.random.set_state(bundle["numpy"])
     torch.random.set_rng_state(torch.as_tensor(bundle["torch_cpu"], dtype=torch.uint8))
     if torch.cuda.is_available():
-        states = [torch.as_tensor(s, dtype=torch.uint8).cuda() for s in bundle["torch_cuda"]]
+        states = [torch.ByteTensor(s) for s in bundle["torch_cuda"]]
         torch.cuda.set_rng_state_all(states)
 
 
