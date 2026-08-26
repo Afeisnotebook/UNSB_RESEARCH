@@ -222,13 +222,20 @@ def option_args(
             str(max(1, int(total_steps * 0.50))),
         ]
     elif spec.model == "hj":
-        hj_start = int(total_steps * 0.20)
+        if "finite" in spec.name:
+            # Preserve the validated local exposure window when the train view grows:
+            # 1.6 data epochs of warmup, then 6.4 epochs of HJ steering.
+            hj_start = (steps_per_epoch * 8) // 5
+            hj_duration = (steps_per_epoch * 32) // 5
+        else:
+            hj_start = int(total_steps * 0.20)
+            hj_duration = max(1, total_steps - hj_start)
         args += [
             "--hj_enable", "true", "--hj_layers", "0", "--hj_direction", "joint",
             "--hj_probe_mode", "central_consensus", "--hj_strength", "0.5",
             "--hj_boundary_scale", "0.001", "--hj_min_risk", "0.05",
             "--hj_search_start_step", str(hj_start),
-            "--hj_search_duration_steps", str(max(1, total_steps - hj_start)),
+            "--hj_search_duration_steps", str(hj_duration),
         ]
     elif spec.model == "hnek_search":
         args += [

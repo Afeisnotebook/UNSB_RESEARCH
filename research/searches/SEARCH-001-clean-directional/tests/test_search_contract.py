@@ -7,7 +7,7 @@ import torch
 
 from src.evaluate import select_discovery_rows
 from src.protocol import LaneSpec, frozen_lanes, synthesize
-from src.runtime import install_import_paths
+from src.runtime import install_import_paths, option_args
 
 
 def test_frozen_lane_pool_is_exact():
@@ -82,3 +82,20 @@ def test_synthesis_preserves_single_legacy_owner():
     assert combined.model == "hj"
     assert combined.mechanisms == ("aeb",)
     assert combined.estimated_g_flops_multiplier == 2
+
+
+def test_finite_hj_window_scales_with_data_exposure_not_total_budget(tmp_path):
+    spec = LaneSpec("hj_finite", model="hj", family="dthj_derived")
+    values = option_args(
+        spec,
+        dataroot=tmp_path,
+        checkpoint_dir=tmp_path,
+        steps_per_epoch=600,
+        total_steps=120000,
+        seed=2026,
+        gpu=0,
+    )
+    start = values[values.index("--hj_search_start_step") + 1]
+    duration = values[values.index("--hj_search_duration_steps") + 1]
+    assert start == "960"
+    assert duration == "3840"

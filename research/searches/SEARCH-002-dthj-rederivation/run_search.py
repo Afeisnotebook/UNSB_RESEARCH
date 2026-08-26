@@ -210,6 +210,51 @@ def run_hj_handoff(args, protocol, rows) -> dict:
     return report
 
 
+def run_verify4090(args, protocol, rows) -> dict:
+    """Fresh matched full-view verification of the frozen finite-horizon HJ candidate."""
+    output_root = args.output / "verify4090"
+    specs = (
+        LaneSpec("plain"),
+        LaneSpec("hj_finite", model="hj", family="dthj_derived", estimated_g_flops_multiplier=3.0),
+    )
+    comparisons = []
+    final_schedule = max(args.verify_milestones)
+    for milestone in args.verify_milestones:
+        metrics = {}
+        for spec in specs:
+            search001.run_lane(
+                args=args,
+                protocol=protocol,
+                rows=rows,
+                stage_dir=output_root,
+                spec=spec,
+                per_domain=100,
+                target_steps=milestone,
+                schedule_steps=final_schedule,
+                eval_steps=[milestone],
+                eval_start=10,
+                eval_count=70,
+                include_lpips=True,
+            )
+            metrics[spec.name] = search001.read_metrics(output_root, spec, milestone)
+        comparisons.append(search001.compare(
+            metrics["hj_finite"], metrics["plain"], step=milestone
+        ))
+        write_json(output_root / "VERIFY4090_PROGRESS.json", {
+            "candidate": "finite-horizon HJ then plain handoff",
+            "train_per_domain": 100,
+            "active_optimizer_steps": "[960,4800)",
+            "comparisons": comparisons,
+            "confirmation20_opened": False,
+            "protocol": protocol,
+        })
+    return {
+        "candidate": "finite-horizon HJ then plain handoff",
+        "comparisons": comparisons,
+        "confirmation20_opened": False,
+    }
+
+
 def spec_from_row(row: dict) -> LaneSpec:
     value = dict(row["spec"])
     value["mechanisms"] = tuple(value["mechanisms"])
@@ -292,7 +337,10 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--stage",
-        choices=["gate", "screen", "hj_validate", "hj_handoff", "full", "extend", "all"],
+        choices=[
+            "gate", "screen", "hj_validate", "hj_handoff", "full", "extend",
+            "verify4090", "all",
+        ],
         default="screen",
     )
     parser.add_argument("--manifest", type=Path, default=Path(r"E:\UNSB_Expl\FOUR_METHOD_MOTIVATION_20260813\frozen\DATA_MANIFEST.csv"))
@@ -324,6 +372,9 @@ def parse_args():
     parser.add_argument("--extend-steps", type=int, default=8000)
     parser.add_argument("--extend-interval", type=int, default=2000)
     parser.add_argument("--handoff-steps", type=int, default=1600)
+    parser.add_argument(
+        "--verify-milestones", type=int, nargs="+", default=[30000, 60000, 120000]
+    )
     return parser.parse_args()
 
 
@@ -343,6 +394,9 @@ def main():
         print(json.dumps(report, ensure_ascii=False, indent=2))
     if args.stage in {"hj_handoff", "all"}:
         report = run_hj_handoff(args, protocol, rows)
+        print(json.dumps(report, ensure_ascii=False, indent=2))
+    if args.stage in {"verify4090", "all"}:
+        report = run_verify4090(args, protocol, rows)
         print(json.dumps(report, ensure_ascii=False, indent=2))
     if args.stage in {"full", "all"}:
         run_full(args, protocol, rows)
