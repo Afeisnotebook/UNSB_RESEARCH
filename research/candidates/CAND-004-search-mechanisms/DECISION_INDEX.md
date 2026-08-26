@@ -1,3 +1,3 @@
 # Decisions
 
-尚无正式裁决。
+- `DEC-20260826-SEARCH-001-LOCAL-WINNER`

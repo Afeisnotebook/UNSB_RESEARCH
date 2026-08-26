@@ -5,9 +5,9 @@
 | 问题 | 回答 |
 |---|---|
 | 是什么 | DCUM、LBST、PTQ、AEB 四条新机制及候选完整状态恢复接口的孵化身份。 |
-| 当前结论 | `IMPLEMENTED`，SEARCH-001 L0 工程门已通过；没有 PSNR/SSIM 效果裁决，不能进入论文方法结论。 |
-| 时间线位置 | T8，在新 canonical 接受后登记并接入最后一轮分级搜索。 |
-| 先看哪里 | [形成史](./LINEAGE.md) → [SEARCH-001](../../searches/SEARCH-001-clean-directional/README.md) → [L0 工程门](../../../experiments/L0-contract/EXP-L0-SEARCH-001-GATE-20260826/README.md)。 |
+| 当前结论 | `CLOSED_NEGATIVE`：四条 standalone lane 均未保持正的晚期轨迹，DCUM 合成也未通过完整视图复赛。 |
+| 时间线位置 | T8 接入搜索，T9 由 SEARCH-001 本地实验裁决。 |
+| 先看哪里 | [SEARCH-001 报告](../../../experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/REPORT.md) → [完整轨迹](../../../experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/RESULTS.json) → [形成史](./LINEAGE.md)。 |
 
 这是对 commit `495a092` 中、生命周期重构开始前已存在代码的登记，不是算法有效性裁决。
 
@@ -15,4 +15,4 @@
 
 实现位置：DCUM 在 `foundation/canonical/src/data/unaligned_dataset.py`；LBST/PTQ/AEB 在 `foundation/canonical/src/models/sb_model.py`；lane、排序与状态编排在 `research/searches/SEARCH-001-clean-directional/`。
 
-当前状态：`IMPLEMENTED`。四条新 lane 及 plain、DT、HJ、HNEK anchors 已在 [SEARCH-001](../../searches/SEARCH-001-clean-directional/README.md) 中冻结；在 L0 工程门禁、正式实验记录和决策完成前，不进入 HNEK/DT/HJ 的现有裁决，也不写入论文输出。
+当前状态：`CLOSED_NEGATIVE`。DCUM 有短程正信号，但单独晚期反转，HNEK+DCUM 在 stage2 的最后三点均值为 `-0.381743 dB`；LBST、PTQ、AEB 及 DCUM+AEB 均为负。实现保留作可追溯研究资产，但不作为 4090 首发候选。

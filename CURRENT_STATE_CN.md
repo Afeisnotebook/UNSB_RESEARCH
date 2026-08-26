@@ -12,12 +12,12 @@
 | MOT-001 | SUPPORTED_WITH_LIMITS | 共享训练改变路径几何；六域观察到正的 shared-clock regret；固定窗口不成立 |
 | CAND-001 DT-CovMatch | CLOSED_NEGATIVE | clean deterministic rerun 未保住历史收益 |
 | CAND-002 HJ-PatchNCE | CLOSED_NEGATIVE | 相对 plain 的 clean 收益基本消失 |
-| CAND-003 HNEK | DEVELOPMENT_FROZEN | `gamma=0.25` 单 seed 开发候选，未确认 |
-| CAND-004 search mechanisms | IMPLEMENTED | DCUM/LBST/PTQ/AEB 已接入 SEARCH-001，尚无实验裁决 |
-| SEARCH-001 clean directional | ENGINEERING_GATE_PASS | full-state/resume/评估/PTQ 门禁已登记，下一步为 stage1 |
+| CAND-003 HNEK | DEVELOPMENT_FROZEN / positive_but_fragile | SEARCH-001 本地总冠军；最后三点均值仅 `+0.006322 dB`，未确认 |
+| CAND-004 search mechanisms | CLOSED_NEGATIVE | DCUM/LBST/PTQ/AEB 当前固定实现未形成稳定长程收益 |
+| SEARCH-001 clean directional | LOCAL_COMPLETE_CANDIDATE_FROZEN | 唯一候选已冻结；下一步为 matched 4090 验证 |
 
 ## 下一门禁
 
-`SEARCH-001 --stage gate` 已在本地真实数据上通过并登记为 L0 实验；现在进入 stage1 方向筛选。历史 PNG 字节重放不是新 canonical 的前置条件。
+SEARCH-001 已在本地真实数据上完成。冻结候选为 HNEK `gamma=0.25 + residual + physical + all`；接下来只与 matched plain 在 4090 上运行 seed=2026 的 30k/60k/120k 固定里程碑，不根据中间结果改算法。confirmation20 在候选冻结前保持封存。完整结果见 [本地搜索报告](./experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/REPORT.md)。
 
 六域动机结果使用单一新训练 seed=2051：三个 bridge time 的 cross-fit regret 分别为 `0.0201 / 0.0369 / 0.0164`，图像级 bootstrap 区间均在零以上。它支持域依赖有效相位和共享时钟错配的观察性表述，不支持跨训练 seed 稳定、因果恢复伤害或任何候选算法已经解决该问题。入口见 [MOT-001 阅读指南](./research/motivations/MOT-001-aio-path-geometry/READING_GUIDE_CN.md)。

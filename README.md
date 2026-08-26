@@ -22,9 +22,10 @@ paper / figure / release / handoff
 
 - 新 deterministic canonical 已可作为后续探索基座。
 - `MOT-001` 支持“共享训练改变条件路径几何”的现象级动机；六域单 seed 进一步观察到正的 shared-clock regret，但不支持固定普适窗口、因果伤害或算法有效性。
-- DT、HJ 已在 clean deterministic 口径下关闭为当前主方法。
-- HNEK `gamma=0.25` 是单 seed paired-development 候选，尚未确认。
-- DCUM/LBST/PTQ/AEB 与状态恢复代码已由 `SEARCH-001` 接入分级搜索；L0 工程门禁已通过，但尚未产生效果裁决，不改变上述科学状态。
+- SEARCH-001 已完成本地八 lane、两条合成、完整视图复赛和 12k 延长；confirmation20 全程封存。
+- HNEK `gamma=0.25` 是本地总冠军，但最后三个 matched checkpoint 均值只有 `+0.006322 dB`，状态为 `POSITIVE_BUT_FRAGILE`，尚未做 4090/跨 seed 确认。
+- DT 有中段信号但长程反转，列为递补二；HJ 小视图末点强但轨迹振荡，未获完整视图名额。
+- DCUM/LBST/PTQ/AEB 的当前固定实现均未形成稳定长程收益；HNEK+DCUM 为递补一。
 
 机器状态见 [PROJECT_STATE.json](./PROJECT_STATE.json)，人类可读摘要见 [CURRENT_STATE_CN.md](./CURRENT_STATE_CN.md)。
 

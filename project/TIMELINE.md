@@ -13,7 +13,8 @@
 | T6 动机放大 | 08-24–08-26 | 五域三 split 复核，并恢复 RainDS 做六域 held-out phase/shared-clock 统计 | `SUPPORTED_SIXDOMAIN_SHARED_CLOCK_REGRET`；仍只有训练 seed=2051，不是因果或方法证明 | [阅读指南](../research/motivations/MOT-001-aio-path-geometry/READING_GUIDE_CN.md)、[六域实验](../experiments/L2-medium-4090/EXP-L2-MOTIVATION-SIXDOMAIN-20260824/README.md) |
 | T7 新基座验收 | 08-25–08-26 | 审核 clean re-exploration 包，拒绝门禁不全的运行；对新 canonical 做本地真实数据微验证 | 包内结果不更新科学结论；新 deterministic canonical 被接受 | [包审计](../decisions/records/DEC-20260826-CLEAN-REEXPLORATION-AUDIT.md)、[基座验收](../decisions/records/DEC-20260826-NEW-CANONICAL-ACCEPTANCE.md) |
 | T8 生命周期化与新搜索 | 08-26 | 仓库重构；接入 DCUM/LBST/PTQ/AEB 和 SEARCH-001；完成 L0 工程门 | 新机制 `IMPLEMENTED`、搜索 `ENGINEERING_GATE_PASS`，均无效果裁决 | [SEARCH-001](../research/searches/SEARCH-001-clean-directional/README.md)、[L0 gate](../experiments/L0-contract/EXP-L0-SEARCH-001-GATE-20260826/README.md) |
-| NEXT 最后一轮 | T8 之后 | stage1 方向筛选，再按 L1→L2→L3→L4 逐级放大 | 只有新 EXP 与 DEC 能更新状态；不得把正在运行的目录当作结论 | [实验路径](../experiments/README.md)、[当前门禁](../decisions/CURRENT.md) |
+| T9 本地方向再搜索 | 08-26 | 八 lane、两条合成、完整视图复赛；首名与 plain 等量延长至 12k | HNEK 以最后三点 `+0.006322 dB` 冻结为 `positive_but_fragile`；新机制当前实现关闭 | [L1 完整实验](../experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/README.md)、[本地裁决](../decisions/records/DEC-20260826-SEARCH-001-LOCAL-WINNER.md) |
+| NEXT 4090 验证 | T9 之后 | HNEK 与 matched plain，seed=2026，固定 30k/60k/120k | 不看中间结果改算法；候选冻结后才打开 confirmation20 | [唯一候选](../experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/CANDIDATE.json)、[当前门禁](../decisions/CURRENT.md) |
 
 ## 三条主线如何汇合
 
@@ -25,6 +26,7 @@ T3 SB-native 重估                         ──→ HNEK
 T4–T6 plain-only 动机重建 ───────────────→ 候选应解释的新验收对象
                          ↓ T7 新 canonical
                          ↓ T8 SEARCH-001 与最后一轮分级探索
+                         ↓ T9 HNEK 本地脆弱正向候选
 ```
 
 “动机成立”不推出“候选有效”；“工程门通过”也不推出“效果成立”。两者都必须在独立冻结实验中连接到决策。

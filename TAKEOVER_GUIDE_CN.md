@@ -7,8 +7,8 @@
 1. 新 deterministic canonical 已通过本地真实数据微验证，是后续实验的共同父节点。
 2. 动机已从“固定 Epoch 4–5 过度压缩”修正为：AIO 共享训练伴随域、bridge time、训练阶段和 seed 依赖的路径几何不同步。六域单训练种子实验进一步观察到正的 held-out shared-clock regret；它不是因果伤害或算法有效性证明。
 3. DT 与 HJ 在 clean deterministic 单 seed 对比中没有保住历史收益，当前均为 `CLOSED_NEGATIVE`。
-4. HNEK `gamma=0.25` 是唯一 development-frozen 老候选；`+0.7884 dB` 仅来自一个训练 seed 和反复使用的开发集，尚未确认。
-5. DCUM/LBST/PTQ/AEB 与 `SEARCH-001` 已通过 L0 工程门；这只说明实现和恢复契约可运行，不说明方法有效。
+4. SEARCH-001 已完成本地统一竞争；HNEK `gamma=0.25` 是唯一候选，但最后三点均值仅 `+0.006322 dB`，分类为 `positive_but_fragile`，尚未确认。
+5. DCUM/LBST/PTQ/AEB 当前固定实现没有保持长程正收益；HNEK+DCUM 与 DT 是递补，HJ 因轨迹振荡未晋级。
 
 完整边界以 [当前科学裁决](./decisions/CURRENT.md) 为准。
 
@@ -19,8 +19,8 @@
 | `project/` | 生命周期、ID、状态和迁移规则 | 研究对象按 MOT→CAND→SEARCH→EXP→DEC→OUTPUT 流转 | T7–T8 固化 | [项目治理](./project/README.md) |
 | `foundation/` | 全候选共享的 canonical 和 harness | 新确定性基座 READY | T5 发现问题，T7 接受新基座 | [Foundation](./foundation/README.md) |
 | `research/motivations/` | 为什么值得继续研究 | 固定窗口关闭；路径几何不同步获有限支持 | T0 原始动机，T4–T6 重建 | [动机索引](./research/motivations/README.md) |
-| `research/candidates/` | DT/HJ/HNEK 与新机制的身份、代码和演进 | DT/HJ 关闭，HNEK 开发冻结，新机制未裁决 | T1–T3、T5、T8 | [候选索引](./research/candidates/README.md) |
-| `research/searches/` | 冻结的筛选/合成控制器 | SEARCH-001 仅通过工程门 | T8→下一阶段 | [搜索索引](./research/searches/README.md) |
+| `research/candidates/` | DT/HJ/HNEK 与新机制的身份、代码和演进 | HNEK 为本地脆弱总冠军；新机制当前实现关闭 | T1–T3、T5、T8–T9 | [候选索引](./research/candidates/README.md) |
+| `research/searches/` | 冻结的筛选/合成控制器 | SEARCH-001 本地完成，待 4090 | T8–T9→下一阶段 | [搜索索引](./research/searches/README.md) |
 | `research/synthesis/` | 跨候选的形成史与叙事综合 | 用于解释思路，不直接改变科学状态 | 覆盖 T0–T5 | [综合说明](./research/synthesis/README.md) |
 | `experiments/` | 不可变协议、运行身份、证据和统计 | 已有 L0–L2；L3/L4 尚未形成新记录 | T4–T8 | [实验路径](./experiments/README.md) |
 | `decisions/` | 当前裁决和不可变决策记录 | 是“能否继续、以何种身份继续”的真源 | 全时段，当前截至 T8 | [决策入口](./decisions/README.md) |

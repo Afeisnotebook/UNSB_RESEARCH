@@ -1,3 +1,4 @@
 # Experiments
 
 - `EXP-L2-HNEK-SEARCH-E200-20260824`
+- `EXP-L1-SEARCH-001-DIRECTIONAL-20260826`：SEARCH-001 本地总冠军，`positive_but_fragile`

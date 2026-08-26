@@ -12,13 +12,13 @@
     "CAND-001": "closed_negative",
     "CAND-002": "closed_negative",
     "CAND-003": "development_frozen",
-    "CAND-004": "implemented_unadjudicated"
+    "CAND-004": "closed_negative"
   },
   "active_searches": {
-    "SEARCH-001": "engineering_gate_pass"
+    "SEARCH-001": "local_complete_candidate_frozen"
   },
   "pre_restructure_search_work_commit": "495a092",
-  "next_gate": "run_SEARCH-001_stage1_direction_screen",
+  "next_gate": "verify_SEARCH-001_winner_on_4090",
   "documentation": {
     "takeover_guide": "TAKEOVER_GUIDE_CN.md",
     "timeline": "project/TIMELINE.md",

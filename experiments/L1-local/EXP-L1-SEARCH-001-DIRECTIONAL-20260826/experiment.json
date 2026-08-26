@@ -1,0 +1,12 @@
+{
+  "id": "EXP-L1-SEARCH-001-DIRECTIONAL-20260826",
+  "level": "L1",
+  "entity": "SEARCH-001",
+  "candidates": ["CAND-001", "CAND-002", "CAND-003", "CAND-004"],
+  "status": "completed_development",
+  "source_commit": "25c34697e5f71e4d1dceb9b2e217be54e8874732",
+  "protocol": "PROTOCOL_LOCK.json",
+  "results": "RESULTS.json",
+  "candidate": "CANDIDATE.json",
+  "confirmation20_opened": false
+}

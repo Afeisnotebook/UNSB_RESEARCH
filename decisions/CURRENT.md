@@ -3,6 +3,20 @@
 > 更新：2026-08-26
 > 用途：本文是仓库的首要状态入口。当历史文档与本文冲突时，以本文、各模块最新裁决和机器可读 evidence 为准。
 
+## 0. SEARCH-001 最新裁决
+
+2026-08-26，SEARCH-001 在新的 deterministic canonical 上完成八条初筛 lane、两条合成、完整视图复赛以及总冠军/plain 到 12k updates 的等量延长。`confirmation20_opened=false`。
+
+| 对象 | 最新状态 | 核心证据 |
+|---|---|---|
+| HNEK | **DEVELOPMENT_FROZEN** / `positive_but_fragile` | stage2 最后三点 `+0.339392 dB`；8k/10k/12k 均值仅 `+0.006322 dB`；最终 3/6 域正 |
+| DT | 递补二，当前仍不重开调参 | 2k 为 `+0.566439 dB`、5/6 域正，但 3k/4k 反转，最后三点 `-0.586284 dB` |
+| HJ | 本轮淘汰 | 1200 点 `+0.804544 dB`、6/6 域正，但 800 点 `-0.724102 dB`，小视图均值仅 `+0.042388 dB` |
+| LBST/PTQ/DCUM/AEB | **CLOSED_NEGATIVE**（当前实现） | 无 standalone lane 保持正的晚期轨迹；DCUM 合成也未通过 stage2 |
+| HNEK+DCUM | 递补一 | stage1 第一，但 stage2 最后三点 `-0.381743 dB`，4k `-2.506480 dB` |
+
+唯一候选是 HNEK `gamma=0.25 + residual + physical + all`。下一门禁是 seed=2026、matched plain、30k/60k/120k 的 4090 固定里程碑验证；不得根据中间 paired PSNR 改算法。该结论取代下文较早的“development frozen”运行状态，但不改写历史实验本身。详见 [完整本地报告](../experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/REPORT.md) 和 [DEC-20260826-SEARCH-001-LOCAL-WINNER](./records/DEC-20260826-SEARCH-001-LOCAL-WINNER.md)。
+
 ## 1. 当前不可混淆的结论
 
 | 问题 | 当前结论 | 证据边界 |
@@ -14,7 +28,7 @@
 | `U / U_reg` 是什么 | 方向分歧/空间方向分散程度 | 不是 true posterior covariance，不是 calibrated uncertainty |
 | DT-CovMatch | 早期非确定实现有正数字，但确定性 clean rerun 为 **−0.2677 dB** | 不再作为当前有效方法 |
 | HJ-PatchNCE | clean rerun 相对 plain 为 **+0.0381 dB** | 视为基本消失；`true−roll` 不等于方法相对 plain 有效 |
-| HNEK `gamma=0.25` | e200 单 seed paired-development 为 **+0.7884 dB**，4/5 域正，LowLight −0.1813 dB | 唯一存活的**开发候选**，不是已确认算法 |
+| HNEK `gamma=0.25` | 历史 e200 为 **+0.7884 dB**；最新 SEARCH-001 延长的最后三点均值为 **+0.006322 dB** | 本地总冠军但 `positive_but_fragile`，不是已确认算法 |
 
 HNEK 表中的 95% CI `[0.5916, 0.9933]` 是固定 seed=2026 与开发集条件下的配对样本 bootstrap，**不包含训练 seed 之间的不确定性**，也不能抵消 9 个变体搜索与开发集反复使用带来的选择偏差。
 
@@ -25,8 +39,8 @@ MOT-001 六域结果的完整解释见 [阅读指南](../research/motivations/MO
 ## 2. 当前总裁决
 
 1. 仓库目前**没有一个已经跨 seed、未触碰确认集验证的最终算法**。
-2. DT/HJ 的历史正收益已被确定性 clean rerun 降级为历史轨迹现象，不能作为最后一轮的默认起点。
-3. `hnek_g0.25` 是当前唯一值得带入最后一轮的方法候选，但首先要尝试证伪，不是继续给它补动机。
+2. DT/HJ 都参加了 SEARCH-001 同基座竞争：DT 保留为递补二，HJ 因冻结排序落败；两者都不获得保护或调参名额。
+3. `hnek_g0.25` 是当前唯一值得带上 4090 的方法候选，但本地最后三点几乎与 plain 打平，必须首先尝试证伪。
 4. 动机模块支持“共享训练改变条件方向几何，且差异具有阶段/seed/域依赖”；六域扩大实验还支持单训练 seed 下正的 held-out shared-clock regret。它不支持固定窗口、跨 seed 稳定、因果恢复伤害或已知机制靶点。
 5. 最后方法必须对 Schrödinger Bridge 本身形成可辨认贡献；不再把通用 routing、gradient surgery、confidence weighting 或额外网络包装成 SB 贡献。
 

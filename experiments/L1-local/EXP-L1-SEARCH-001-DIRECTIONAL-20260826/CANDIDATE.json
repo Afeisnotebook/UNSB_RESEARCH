@@ -1,0 +1,94 @@
+{
+  "schema": "clean-unsb-candidate-v1",
+  "status": "positive_but_fragile",
+  "selected": {
+    "candidate_id": "CAND-003",
+    "name": "hnek_anchor",
+    "model": "hnek_search",
+    "family": "legacy",
+    "mechanisms": [],
+    "estimated_generator_compute_multiplier": 1.0,
+    "configuration": {
+      "hnek_gamma": 0.25,
+      "hnek_coord": "residual",
+      "hnek_horizon_mode": "physical",
+      "hnek_partial": "all"
+    }
+  },
+  "configuration": {
+    "name": "hnek_anchor",
+    "model": "hnek_search",
+    "mechanisms": [],
+    "family": "legacy",
+    "estimated_g_flops_multiplier": 1.0
+  },
+  "source": {
+    "commit": "25c34697e5f71e4d1dceb9b2e217be54e8874732",
+    "runner": "research/searches/SEARCH-001-clean-directional/run_search.py",
+    "experiment": "EXP-L1-SEARCH-001-DIRECTIONAL-20260826",
+    "seed": 2026,
+    "confirmation20_opened": false
+  },
+  "selection_evidence": {
+    "stage2_late_three_macro_psnr_delta": 0.339392,
+    "final_three": {
+      "steps": [8000, 10000, 12000],
+      "macro_psnr_delta": [0.392588, -0.429242, 0.055621],
+      "mean_macro_psnr_delta": 0.006322
+    },
+    "final": {
+      "step": 12000,
+      "candidate_macro_psnr": 16.591822,
+      "plain_macro_psnr": 16.536201,
+      "macro_psnr_delta": 0.055621,
+      "macro_ssim_delta": 0.011853,
+      "macro_lpips_delta": -0.022790,
+      "positive_domains": 3,
+      "worst_domain_delta": -1.101658,
+      "domain_psnr_delta": {
+        "FoggyCityscapes": -0.594715,
+        "LowLightTrafficData": 0.923339,
+        "RSCityscapes": -1.101658,
+        "RainCityscapes": -0.416354,
+        "RainDS-syn": 1.450027,
+        "SnowTrafficData": 0.073086
+      }
+    }
+  },
+  "cost": {
+    "local_updates": 12000,
+    "generator_compute_multiplier": 1.0,
+    "classification": "not_compute_only"
+  },
+  "risks": [
+    "single development training seed only",
+    "macro and per-domain trajectories oscillate strongly",
+    "final worst-domain delta is slightly below the -1 dB guardrail",
+    "the final-three mean is effectively a near tie with plain",
+    "local 128x128 development evidence is not a 4090 confirmation"
+  ],
+  "alternatives": [
+    {
+      "rank": 2,
+      "name": "legacy_new_synthesis",
+      "configuration": "HNEK plus DCUM",
+      "stage2_late_three_macro_psnr_delta": -0.381743,
+      "reason": "best stage1 lane, but reversed sharply by step 4000"
+    },
+    {
+      "rank": 3,
+      "name": "dt_anchor",
+      "configuration": "clean DT-CovMatch anchor",
+      "stage2_late_three_macro_psnr_delta": -0.586284,
+      "reason": "clean positive checkpoint at step 2000, but not sustained"
+    }
+  ],
+  "verify4090": {
+    "seed": 2026,
+    "matched_plain": true,
+    "milestones": [30000, 60000, 120000],
+    "intermediate_algorithm_changes_allowed": false,
+    "command": "python research/searches/SEARCH-001-clean-directional/run_search.py --stage verify4090 --candidate experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/CANDIDATE.json --manifest <DATA_MANIFEST.csv> --train-view <allinone_100> --data-root <full_dataset> --output runs/verify4090_hnek_s2026 --seed 2026 --gpu 0",
+    "confirmation_boundary": "keep confirmation20 sealed throughout search and milestone training; open it only after the 4090 candidate is frozen"
+  }
+}

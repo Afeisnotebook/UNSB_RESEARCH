@@ -1,13 +1,17 @@
 {
   "id": "SEARCH-001",
   "schema": "clean-unsb-directional-v1",
-  "status": "engineering_gate_pass",
-  "source_commit": "6b89c1d5568b4a067cfe8ba2cde471fb581ef7ee",
+  "status": "local_complete_candidate_frozen",
+  "source_commit": "25c34697e5f71e4d1dceb9b2e217be54e8874732",
   "runner": "research/searches/SEARCH-001-clean-directional/run_search.py",
   "candidate_families": ["CAND-001", "CAND-002", "CAND-003", "CAND-004"],
   "new_mechanisms": ["lbst", "ptq", "dcum", "aeb"],
   "stages": ["engineering_gate", "direction_screen", "full_view", "extension", "verify4090"],
   "confirmation_access": false,
   "engineering_gate_experiment": "EXP-L0-SEARCH-001-GATE-20260826",
-  "next_gate": "run_stage1_direction_screen"
+  "result_experiment": "EXP-L1-SEARCH-001-DIRECTIONAL-20260826",
+  "winner": "CAND-003",
+  "classification": "positive_but_fragile",
+  "candidate_file": "experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/CANDIDATE.json",
+  "next_gate": "verify4090_hnek_seed2026"
 }

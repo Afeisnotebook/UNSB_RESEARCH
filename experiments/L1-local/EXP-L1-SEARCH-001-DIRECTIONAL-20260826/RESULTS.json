@@ -1,0 +1,1117 @@
+{
+    "schema": "clean-unsb-directional-results-v1",
+    "source_commit": "25c34697e5f71e4d1dceb9b2e217be54e8874732",
+    "seed": 2026,
+    "stages": {
+        "direction_screen": [
+            {
+                "rank": 1,
+                "name": "legacy_new_synthesis",
+                "spec": {
+                    "name": "legacy_new_synthesis",
+                    "model": "hnek_search",
+                    "mechanisms": [
+                        "dcum"
+                    ],
+                    "family": "synthesis",
+                    "estimated_g_flops_multiplier": 1.0
+                },
+                "late_three_macro_psnr_delta": 0.504675,
+                "peak_to_final_rollback": 0.477862,
+                "trajectory": [
+                    {
+                        "step": 400,
+                        "macro_psnr": 15.212144,
+                        "plain_macro_psnr": 14.361533,
+                        "macro_psnr_delta": 0.85061,
+                        "macro_ssim_delta": 0.039099,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 5,
+                        "worst_domain_delta": -1.35267,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 1.646262,
+                            "LowLightTrafficData": -1.35267,
+                            "RSCityscapes": 1.534149,
+                            "RainCityscapes": 2.1819,
+                            "RainDS-syn": 0.110547,
+                            "SnowTrafficData": 0.983474
+                        }
+                    },
+                    {
+                        "step": 800,
+                        "macro_psnr": 15.037111,
+                        "plain_macro_psnr": 14.746445,
+                        "macro_psnr_delta": 0.290666,
+                        "macro_ssim_delta": 0.029969,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 5,
+                        "worst_domain_delta": -1.670889,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.766092,
+                            "LowLightTrafficData": -1.670889,
+                            "RSCityscapes": 0.710028,
+                            "RainCityscapes": 0.890144,
+                            "RainDS-syn": 0.54235,
+                            "SnowTrafficData": 0.506273
+                        }
+                    },
+                    {
+                        "step": 1200,
+                        "macro_psnr": 14.666888,
+                        "plain_macro_psnr": 14.294139,
+                        "macro_psnr_delta": 0.372749,
+                        "macro_ssim_delta": 0.029477,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 5,
+                        "worst_domain_delta": -0.710831,
+                        "guardrails_pass": true,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.332711,
+                            "LowLightTrafficData": -0.710831,
+                            "RSCityscapes": 0.081564,
+                            "RainCityscapes": 0.324036,
+                            "RainDS-syn": 1.223013,
+                            "SnowTrafficData": 0.985999
+                        }
+                    }
+                ]
+            },
+            {
+                "rank": 2,
+                "name": "hnek_anchor",
+                "spec": {
+                    "name": "hnek_anchor",
+                    "model": "hnek_search",
+                    "mechanisms": [],
+                    "family": "legacy",
+                    "estimated_g_flops_multiplier": 1.0
+                },
+                "late_three_macro_psnr_delta": 0.428165,
+                "peak_to_final_rollback": 0.233938,
+                "trajectory": [
+                    {
+                        "step": 400,
+                        "macro_psnr": 15.012877,
+                        "plain_macro_psnr": 14.361533,
+                        "macro_psnr_delta": 0.651343,
+                        "macro_ssim_delta": 0.030321,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 5,
+                        "worst_domain_delta": -2.03049,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.986352,
+                            "LowLightTrafficData": -2.03049,
+                            "RSCityscapes": 1.606026,
+                            "RainCityscapes": 2.214619,
+                            "RainDS-syn": 0.144138,
+                            "SnowTrafficData": 0.987415
+                        }
+                    },
+                    {
+                        "step": 800,
+                        "macro_psnr": 14.96219,
+                        "plain_macro_psnr": 14.746445,
+                        "macro_psnr_delta": 0.215745,
+                        "macro_ssim_delta": 0.011933,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -2.491928,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 1.963526,
+                            "LowLightTrafficData": -2.491928,
+                            "RSCityscapes": 1.870298,
+                            "RainCityscapes": 2.172433,
+                            "RainDS-syn": -1.933112,
+                            "SnowTrafficData": -0.286745
+                        }
+                    },
+                    {
+                        "step": 1200,
+                        "macro_psnr": 14.711545,
+                        "plain_macro_psnr": 14.294139,
+                        "macro_psnr_delta": 0.417406,
+                        "macro_ssim_delta": -0.006854,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -1.173017,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 2.002704,
+                            "LowLightTrafficData": -1.173017,
+                            "RSCityscapes": 1.317945,
+                            "RainCityscapes": 1.510957,
+                            "RainDS-syn": -0.945073,
+                            "SnowTrafficData": -0.209082
+                        }
+                    }
+                ]
+            },
+            {
+                "rank": 3,
+                "name": "dt_anchor",
+                "spec": {
+                    "name": "dt_anchor",
+                    "model": "dtcov",
+                    "mechanisms": [],
+                    "family": "legacy",
+                    "estimated_g_flops_multiplier": 1.0
+                },
+                "late_three_macro_psnr_delta": 0.329262,
+                "peak_to_final_rollback": 0.0,
+                "trajectory": [
+                    {
+                        "step": 400,
+                        "macro_psnr": 14.470707,
+                        "plain_macro_psnr": 14.361533,
+                        "macro_psnr_delta": 0.109174,
+                        "macro_ssim_delta": 0.013842,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 4,
+                        "worst_domain_delta": -0.065265,
+                        "guardrails_pass": true,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -0.065265,
+                            "LowLightTrafficData": 0.403968,
+                            "RSCityscapes": 0.024466,
+                            "RainCityscapes": -0.017915,
+                            "RainDS-syn": 0.22224,
+                            "SnowTrafficData": 0.087548
+                        }
+                    },
+                    {
+                        "step": 800,
+                        "macro_psnr": 14.891884,
+                        "plain_macro_psnr": 14.746445,
+                        "macro_psnr_delta": 0.145439,
+                        "macro_ssim_delta": 0.005819,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -0.3065,
+                        "guardrails_pass": true,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.556607,
+                            "LowLightTrafficData": -0.143021,
+                            "RSCityscapes": 0.468166,
+                            "RainCityscapes": 0.433386,
+                            "RainDS-syn": -0.3065,
+                            "SnowTrafficData": -0.136002
+                        }
+                    },
+                    {
+                        "step": 1200,
+                        "macro_psnr": 15.027313,
+                        "plain_macro_psnr": 14.294139,
+                        "macro_psnr_delta": 0.733174,
+                        "macro_ssim_delta": -0.008963,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -1.757112,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 2.355517,
+                            "LowLightTrafficData": -1.147528,
+                            "RSCityscapes": 2.514468,
+                            "RainCityscapes": 2.500225,
+                            "RainDS-syn": -1.757112,
+                            "SnowTrafficData": -0.066529
+                        }
+                    }
+                ]
+            },
+            {
+                "rank": 4,
+                "name": "hj_anchor",
+                "spec": {
+                    "name": "hj_anchor",
+                    "model": "hj",
+                    "mechanisms": [],
+                    "family": "legacy",
+                    "estimated_g_flops_multiplier": 1.0
+                },
+                "late_three_macro_psnr_delta": 0.042388,
+                "peak_to_final_rollback": 0.0,
+                "trajectory": [
+                    {
+                        "step": 400,
+                        "macro_psnr": 14.408256,
+                        "plain_macro_psnr": 14.361533,
+                        "macro_psnr_delta": 0.046723,
+                        "macro_ssim_delta": -0.028589,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 5,
+                        "worst_domain_delta": -1.260049,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.070003,
+                            "LowLightTrafficData": -1.260049,
+                            "RSCityscapes": 0.189083,
+                            "RainCityscapes": 0.64912,
+                            "RainDS-syn": 0.354959,
+                            "SnowTrafficData": 0.277222
+                        }
+                    },
+                    {
+                        "step": 800,
+                        "macro_psnr": 14.022344,
+                        "plain_macro_psnr": 14.746445,
+                        "macro_psnr_delta": -0.724102,
+                        "macro_ssim_delta": 0.000686,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 1,
+                        "worst_domain_delta": -1.518209,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.261262,
+                            "LowLightTrafficData": -0.010939,
+                            "RSCityscapes": -1.17896,
+                            "RainCityscapes": -1.518209,
+                            "RainDS-syn": 0.441145,
+                            "SnowTrafficData": -0.816383
+                        }
+                    },
+                    {
+                        "step": 1200,
+                        "macro_psnr": 15.098683,
+                        "plain_macro_psnr": 14.294139,
+                        "macro_psnr_delta": 0.804544,
+                        "macro_ssim_delta": 0.017074,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 6,
+                        "worst_domain_delta": 0.104812,
+                        "guardrails_pass": true,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.104812,
+                            "LowLightTrafficData": 0.48917,
+                            "RSCityscapes": 0.295758,
+                            "RainCityscapes": 0.281358,
+                            "RainDS-syn": 2.343672,
+                            "SnowTrafficData": 1.312492
+                        }
+                    }
+                ]
+            },
+            {
+                "rank": 5,
+                "name": "dcum",
+                "spec": {
+                    "name": "dcum",
+                    "model": "sb",
+                    "mechanisms": [
+                        "dcum"
+                    ],
+                    "family": "new",
+                    "estimated_g_flops_multiplier": 1.0
+                },
+                "late_three_macro_psnr_delta": 0.040764,
+                "peak_to_final_rollback": 0.979437,
+                "trajectory": [
+                    {
+                        "step": 400,
+                        "macro_psnr": 14.796202,
+                        "plain_macro_psnr": 14.361533,
+                        "macro_psnr_delta": 0.434668,
+                        "macro_ssim_delta": -0.004118,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 6,
+                        "worst_domain_delta": 0.108576,
+                        "guardrails_pass": true,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.108576,
+                            "LowLightTrafficData": 0.470304,
+                            "RSCityscapes": 0.154549,
+                            "RainCityscapes": 0.367337,
+                            "RainDS-syn": 0.77324,
+                            "SnowTrafficData": 0.734005
+                        }
+                    },
+                    {
+                        "step": 800,
+                        "macro_psnr": 14.978837,
+                        "plain_macro_psnr": 14.746445,
+                        "macro_psnr_delta": 0.232392,
+                        "macro_ssim_delta": 0.00781,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 4,
+                        "worst_domain_delta": -0.312124,
+                        "guardrails_pass": true,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.594261,
+                            "LowLightTrafficData": -0.312124,
+                            "RSCityscapes": 0.511591,
+                            "RainCityscapes": 0.584519,
+                            "RainDS-syn": -0.117492,
+                            "SnowTrafficData": 0.133597
+                        }
+                    },
+                    {
+                        "step": 1200,
+                        "macro_psnr": 13.74937,
+                        "plain_macro_psnr": 14.294139,
+                        "macro_psnr_delta": -0.544769,
+                        "macro_ssim_delta": -0.033072,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -1.827192,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.737569,
+                            "LowLightTrafficData": -1.145051,
+                            "RSCityscapes": 0.267394,
+                            "RainCityscapes": 0.11611,
+                            "RainDS-syn": -1.827192,
+                            "SnowTrafficData": -1.417443
+                        }
+                    }
+                ]
+            },
+            {
+                "rank": 6,
+                "name": "aeb",
+                "spec": {
+                    "name": "aeb",
+                    "model": "sb",
+                    "mechanisms": [
+                        "aeb"
+                    ],
+                    "family": "new",
+                    "estimated_g_flops_multiplier": 2.0
+                },
+                "late_three_macro_psnr_delta": -0.457913,
+                "peak_to_final_rollback": 0.561619,
+                "trajectory": [
+                    {
+                        "step": 400,
+                        "macro_psnr": 14.170134,
+                        "plain_macro_psnr": 14.361533,
+                        "macro_psnr_delta": -0.191399,
+                        "macro_ssim_delta": -0.018782,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 5,
+                        "worst_domain_delta": -2.400842,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.073984,
+                            "LowLightTrafficData": -2.400842,
+                            "RSCityscapes": 0.287576,
+                            "RainCityscapes": 0.624298,
+                            "RainDS-syn": 0.109593,
+                            "SnowTrafficData": 0.156996
+                        }
+                    },
+                    {
+                        "step": 800,
+                        "macro_psnr": 14.317122,
+                        "plain_macro_psnr": 14.746445,
+                        "macro_psnr_delta": -0.429323,
+                        "macro_ssim_delta": -0.058752,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -1.693751,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.598052,
+                            "LowLightTrafficData": -1.693751,
+                            "RSCityscapes": 0.479445,
+                            "RainCityscapes": 0.458239,
+                            "RainDS-syn": -1.678221,
+                            "SnowTrafficData": -0.739701
+                        }
+                    },
+                    {
+                        "step": 1200,
+                        "macro_psnr": 13.541121,
+                        "plain_macro_psnr": 14.294139,
+                        "macro_psnr_delta": -0.753018,
+                        "macro_ssim_delta": -0.029819,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 2,
+                        "worst_domain_delta": -2.283969,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.901676,
+                            "LowLightTrafficData": 0.262464,
+                            "RSCityscapes": -2.276455,
+                            "RainCityscapes": -2.283969,
+                            "RainDS-syn": 1.856691,
+                            "SnowTrafficData": -0.175164
+                        }
+                    }
+                ]
+            },
+            {
+                "rank": 7,
+                "name": "lbst",
+                "spec": {
+                    "name": "lbst",
+                    "model": "sb",
+                    "mechanisms": [
+                        "lbst"
+                    ],
+                    "family": "new",
+                    "estimated_g_flops_multiplier": 1.0
+                },
+                "late_three_macro_psnr_delta": -0.553965,
+                "peak_to_final_rollback": 1.786975,
+                "trajectory": [
+                    {
+                        "step": 400,
+                        "macro_psnr": 14.520361,
+                        "plain_macro_psnr": 14.361533,
+                        "macro_psnr_delta": 0.158828,
+                        "macro_ssim_delta": -0.030041,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -1.410014,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 1.503014,
+                            "LowLightTrafficData": -1.370712,
+                            "RSCityscapes": 1.308126,
+                            "RainCityscapes": 1.287975,
+                            "RainDS-syn": -1.410014,
+                            "SnowTrafficData": -0.365422
+                        }
+                    },
+                    {
+                        "step": 800,
+                        "macro_psnr": 14.553868,
+                        "plain_macro_psnr": 14.746445,
+                        "macro_psnr_delta": -0.192577,
+                        "macro_ssim_delta": -0.009984,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 2,
+                        "worst_domain_delta": -0.473628,
+                        "guardrails_pass": true,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -0.364062,
+                            "LowLightTrafficData": 0.016136,
+                            "RSCityscapes": -0.473628,
+                            "RainCityscapes": -0.356347,
+                            "RainDS-syn": 0.421741,
+                            "SnowTrafficData": -0.399302
+                        }
+                    },
+                    {
+                        "step": 1200,
+                        "macro_psnr": 12.665992,
+                        "plain_macro_psnr": 14.294139,
+                        "macro_psnr_delta": -1.628147,
+                        "macro_ssim_delta": -0.058361,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 0,
+                        "worst_domain_delta": -2.460417,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.961733,
+                            "LowLightTrafficData": -0.461245,
+                            "RSCityscapes": -2.086051,
+                            "RainCityscapes": -2.460417,
+                            "RainDS-syn": -0.846192,
+                            "SnowTrafficData": -1.953243
+                        }
+                    }
+                ]
+            },
+            {
+                "rank": 8,
+                "name": "new_new_synthesis",
+                "spec": {
+                    "name": "new_new_synthesis",
+                    "model": "sb",
+                    "mechanisms": [
+                        "dcum",
+                        "aeb"
+                    ],
+                    "family": "synthesis",
+                    "estimated_g_flops_multiplier": 2.0
+                },
+                "late_three_macro_psnr_delta": -0.574288,
+                "peak_to_final_rollback": 1.240908,
+                "trajectory": [
+                    {
+                        "step": 400,
+                        "macro_psnr": 14.419351,
+                        "plain_macro_psnr": 14.361533,
+                        "macro_psnr_delta": 0.057817,
+                        "macro_ssim_delta": -0.019565,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 4,
+                        "worst_domain_delta": -0.818247,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.317772,
+                            "LowLightTrafficData": -0.818247,
+                            "RSCityscapes": 0.350509,
+                            "RainCityscapes": 0.455946,
+                            "RainDS-syn": -0.157026,
+                            "SnowTrafficData": 0.197951
+                        }
+                    },
+                    {
+                        "step": 800,
+                        "macro_psnr": 14.148854,
+                        "plain_macro_psnr": 14.746445,
+                        "macro_psnr_delta": -0.597591,
+                        "macro_ssim_delta": -0.017965,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 2,
+                        "worst_domain_delta": -1.663872,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.532237,
+                            "LowLightTrafficData": 0.130953,
+                            "RSCityscapes": -1.653646,
+                            "RainCityscapes": -1.663872,
+                            "RainDS-syn": 1.392353,
+                            "SnowTrafficData": -0.259096
+                        }
+                    },
+                    {
+                        "step": 1200,
+                        "macro_psnr": 13.111048,
+                        "plain_macro_psnr": 14.294139,
+                        "macro_psnr_delta": -1.183091,
+                        "macro_ssim_delta": -0.069179,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 2,
+                        "worst_domain_delta": -2.485312,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.969822,
+                            "LowLightTrafficData": 0.153226,
+                            "RSCityscapes": -2.423446,
+                            "RainCityscapes": -2.485312,
+                            "RainDS-syn": 1.016698,
+                            "SnowTrafficData": -1.38989
+                        }
+                    }
+                ]
+            },
+            {
+                "rank": 9,
+                "name": "ptq",
+                "spec": {
+                    "name": "ptq",
+                    "model": "sb",
+                    "mechanisms": [
+                        "ptq"
+                    ],
+                    "family": "new",
+                    "estimated_g_flops_multiplier": 1.0
+                },
+                "late_three_macro_psnr_delta": -0.727328,
+                "peak_to_final_rollback": 2.255005,
+                "trajectory": [
+                    {
+                        "step": 400,
+                        "macro_psnr": 14.927679,
+                        "plain_macro_psnr": 14.361533,
+                        "macro_psnr_delta": 0.566146,
+                        "macro_ssim_delta": -0.009916,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 4,
+                        "worst_domain_delta": -0.697856,
+                        "guardrails_pass": true,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 1.161764,
+                            "LowLightTrafficData": -0.697856,
+                            "RSCityscapes": 1.123012,
+                            "RainCityscapes": 1.333127,
+                            "RainDS-syn": -0.062566,
+                            "SnowTrafficData": 0.539395
+                        }
+                    },
+                    {
+                        "step": 800,
+                        "macro_psnr": 13.687174,
+                        "plain_macro_psnr": 14.746445,
+                        "macro_psnr_delta": -1.059271,
+                        "macro_ssim_delta": -0.088343,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 1,
+                        "worst_domain_delta": -1.94216,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.666705,
+                            "LowLightTrafficData": -1.047589,
+                            "RSCityscapes": -1.744936,
+                            "RainCityscapes": -1.94216,
+                            "RainDS-syn": 0.539035,
+                            "SnowTrafficData": -0.493272
+                        }
+                    },
+                    {
+                        "step": 1200,
+                        "macro_psnr": 12.60528,
+                        "plain_macro_psnr": 14.294139,
+                        "macro_psnr_delta": -1.688859,
+                        "macro_ssim_delta": -0.085553,
+                        "macro_lpips_delta": null,
+                        "positive_domains": 2,
+                        "worst_domain_delta": -3.566817,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -2.874216,
+                            "LowLightTrafficData": 0.773424,
+                            "RSCityscapes": -3.35293,
+                            "RainCityscapes": -3.566817,
+                            "RainDS-syn": 0.850304,
+                            "SnowTrafficData": -1.96292
+                        }
+                    }
+                ]
+            }
+        ],
+        "full_view": [
+            {
+                "rank": 1,
+                "name": "hnek_anchor",
+                "spec": {
+                    "name": "hnek_anchor",
+                    "model": "hnek_search",
+                    "mechanisms": [],
+                    "family": "legacy",
+                    "estimated_g_flops_multiplier": 1.0
+                },
+                "late_three_macro_psnr_delta": 0.339392,
+                "peak_to_final_rollback": 1.666399,
+                "trajectory": [
+                    {
+                        "step": 1000,
+                        "macro_psnr": 14.812693,
+                        "plain_macro_psnr": 14.166921,
+                        "macro_psnr_delta": 0.645772,
+                        "macro_ssim_delta": 0.017187,
+                        "macro_lpips_delta": -0.09186,
+                        "positive_domains": 4,
+                        "worst_domain_delta": -1.177593,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 1.50127,
+                            "LowLightTrafficData": -1.177593,
+                            "RSCityscapes": 1.781198,
+                            "RainCityscapes": 1.98086,
+                            "RainDS-syn": -0.868249,
+                            "SnowTrafficData": 0.657146
+                        }
+                    },
+                    {
+                        "step": 2000,
+                        "macro_psnr": 14.24347,
+                        "plain_macro_psnr": 13.46689,
+                        "macro_psnr_delta": 0.776581,
+                        "macro_ssim_delta": 0.046376,
+                        "macro_lpips_delta": -0.104106,
+                        "positive_domains": 4,
+                        "worst_domain_delta": -1.739115,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 1.700499,
+                            "LowLightTrafficData": -1.739115,
+                            "RSCityscapes": 1.696844,
+                            "RainCityscapes": 2.613162,
+                            "RainDS-syn": -0.524366,
+                            "SnowTrafficData": 0.912461
+                        }
+                    },
+                    {
+                        "step": 3000,
+                        "macro_psnr": 15.492653,
+                        "plain_macro_psnr": 14.538655,
+                        "macro_psnr_delta": 0.953997,
+                        "macro_ssim_delta": 0.050096,
+                        "macro_lpips_delta": -0.108639,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -1.320824,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.25357,
+                            "LowLightTrafficData": 2.094361,
+                            "RSCityscapes": -1.320824,
+                            "RainCityscapes": -0.868936,
+                            "RainDS-syn": 5.370874,
+                            "SnowTrafficData": 1.70208
+                        }
+                    },
+                    {
+                        "step": 4000,
+                        "macro_psnr": 13.952916,
+                        "plain_macro_psnr": 14.665317,
+                        "macro_psnr_delta": -0.712401,
+                        "macro_ssim_delta": 0.011854,
+                        "macro_lpips_delta": -0.082906,
+                        "positive_domains": 2,
+                        "worst_domain_delta": -2.326449,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.056465,
+                            "LowLightTrafficData": 2.197347,
+                            "RSCityscapes": -1.654235,
+                            "RainCityscapes": -1.887429,
+                            "RainDS-syn": 0.452823,
+                            "SnowTrafficData": -2.326449
+                        }
+                    }
+                ]
+            },
+            {
+                "rank": 2,
+                "name": "legacy_new_synthesis",
+                "spec": {
+                    "name": "legacy_new_synthesis",
+                    "model": "hnek_search",
+                    "mechanisms": [
+                        "dcum"
+                    ],
+                    "family": "synthesis",
+                    "estimated_g_flops_multiplier": 1.0
+                },
+                "late_three_macro_psnr_delta": -0.381743,
+                "peak_to_final_rollback": 3.427192,
+                "trajectory": [
+                    {
+                        "step": 1000,
+                        "macro_psnr": 14.742171,
+                        "plain_macro_psnr": 14.166921,
+                        "macro_psnr_delta": 0.57525,
+                        "macro_ssim_delta": 0.014258,
+                        "macro_lpips_delta": -0.087527,
+                        "positive_domains": 4,
+                        "worst_domain_delta": -1.996167,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 1.943902,
+                            "LowLightTrafficData": -1.996167,
+                            "RSCityscapes": 2.206514,
+                            "RainCityscapes": 2.528965,
+                            "RainDS-syn": -1.410921,
+                            "SnowTrafficData": 0.179208
+                        }
+                    },
+                    {
+                        "step": 2000,
+                        "macro_psnr": 14.387602,
+                        "plain_macro_psnr": 13.46689,
+                        "macro_psnr_delta": 0.920712,
+                        "macro_ssim_delta": 0.020847,
+                        "macro_lpips_delta": -0.051937,
+                        "positive_domains": 4,
+                        "worst_domain_delta": -3.545983,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 3.129879,
+                            "LowLightTrafficData": -2.210937,
+                            "RSCityscapes": 3.840333,
+                            "RainCityscapes": 4.110071,
+                            "RainDS-syn": -3.545983,
+                            "SnowTrafficData": 0.200911
+                        }
+                    },
+                    {
+                        "step": 3000,
+                        "macro_psnr": 14.979194,
+                        "plain_macro_psnr": 14.538655,
+                        "macro_psnr_delta": 0.440539,
+                        "macro_ssim_delta": 0.002787,
+                        "macro_lpips_delta": -0.057655,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -1.926698,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -0.653506,
+                            "LowLightTrafficData": 1.243767,
+                            "RSCityscapes": -1.926698,
+                            "RainCityscapes": -1.309817,
+                            "RainDS-syn": 3.622408,
+                            "SnowTrafficData": 1.667081
+                        }
+                    },
+                    {
+                        "step": 4000,
+                        "macro_psnr": 12.158837,
+                        "plain_macro_psnr": 14.665317,
+                        "macro_psnr_delta": -2.50648,
+                        "macro_ssim_delta": -0.037681,
+                        "macro_lpips_delta": -0.007741,
+                        "positive_domains": 1,
+                        "worst_domain_delta": -5.23965,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -3.275018,
+                            "LowLightTrafficData": 2.808103,
+                            "RSCityscapes": -3.477617,
+                            "RainCityscapes": -5.23965,
+                            "RainDS-syn": -1.939814,
+                            "SnowTrafficData": -3.914884
+                        }
+                    }
+                ]
+            },
+            {
+                "rank": 3,
+                "name": "dt_anchor",
+                "spec": {
+                    "name": "dt_anchor",
+                    "model": "dtcov",
+                    "mechanisms": [],
+                    "family": "legacy",
+                    "estimated_g_flops_multiplier": 1.0
+                },
+                "late_three_macro_psnr_delta": -0.586284,
+                "peak_to_final_rollback": 2.085619,
+                "trajectory": [
+                    {
+                        "step": 1000,
+                        "macro_psnr": 13.747593,
+                        "plain_macro_psnr": 14.166921,
+                        "macro_psnr_delta": -0.419328,
+                        "macro_ssim_delta": -0.007606,
+                        "macro_lpips_delta": 0.043207,
+                        "positive_domains": 0,
+                        "worst_domain_delta": -1.201708,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -0.372981,
+                            "LowLightTrafficData": -0.073689,
+                            "RSCityscapes": -0.232674,
+                            "RainCityscapes": -0.279737,
+                            "RainDS-syn": -1.201708,
+                            "SnowTrafficData": -0.355179
+                        }
+                    },
+                    {
+                        "step": 2000,
+                        "macro_psnr": 14.033328,
+                        "plain_macro_psnr": 13.46689,
+                        "macro_psnr_delta": 0.566439,
+                        "macro_ssim_delta": 0.017145,
+                        "macro_lpips_delta": -0.010878,
+                        "positive_domains": 5,
+                        "worst_domain_delta": -0.300942,
+                        "guardrails_pass": true,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.805121,
+                            "LowLightTrafficData": 0.439659,
+                            "RSCityscapes": 0.874557,
+                            "RainCityscapes": 0.88572,
+                            "RainDS-syn": -0.300942,
+                            "SnowTrafficData": 0.694519
+                        }
+                    },
+                    {
+                        "step": 3000,
+                        "macro_psnr": 13.732546,
+                        "plain_macro_psnr": 14.538655,
+                        "macro_psnr_delta": -0.80611,
+                        "macro_ssim_delta": -0.03736,
+                        "macro_lpips_delta": -0.014069,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -4.897598,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -3.271321,
+                            "LowLightTrafficData": 2.40566,
+                            "RSCityscapes": -4.897598,
+                            "RainCityscapes": -4.868818,
+                            "RainDS-syn": 5.156524,
+                            "SnowTrafficData": 0.638895
+                        }
+                    },
+                    {
+                        "step": 4000,
+                        "macro_psnr": 13.146136,
+                        "plain_macro_psnr": 14.665317,
+                        "macro_psnr_delta": -1.51918,
+                        "macro_ssim_delta": -0.05867,
+                        "macro_lpips_delta": 0.047984,
+                        "positive_domains": 1,
+                        "worst_domain_delta": -2.844077,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.995781,
+                            "LowLightTrafficData": 1.164016,
+                            "RSCityscapes": -1.587223,
+                            "RainCityscapes": -2.844077,
+                            "RainDS-syn": -2.337836,
+                            "SnowTrafficData": -1.514181
+                        }
+                    }
+                ]
+            }
+        ],
+        "extension": [
+            {
+                "rank": 1,
+                "name": "hnek_anchor",
+                "spec": {
+                    "name": "hnek_anchor",
+                    "model": "hnek_search",
+                    "mechanisms": [],
+                    "family": "legacy",
+                    "estimated_g_flops_multiplier": 1.0
+                },
+                "late_three_macro_psnr_delta": 0.006322,
+                "peak_to_final_rollback": 0.898376,
+                "trajectory": [
+                    {
+                        "step": 1000,
+                        "macro_psnr": 14.812693,
+                        "plain_macro_psnr": 14.166921,
+                        "macro_psnr_delta": 0.645772,
+                        "macro_ssim_delta": 0.017187,
+                        "macro_lpips_delta": -0.09186,
+                        "positive_domains": 4,
+                        "worst_domain_delta": -1.177593,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 1.50127,
+                            "LowLightTrafficData": -1.177593,
+                            "RSCityscapes": 1.781198,
+                            "RainCityscapes": 1.98086,
+                            "RainDS-syn": -0.868249,
+                            "SnowTrafficData": 0.657146
+                        }
+                    },
+                    {
+                        "step": 2000,
+                        "macro_psnr": 14.24347,
+                        "plain_macro_psnr": 13.46689,
+                        "macro_psnr_delta": 0.776581,
+                        "macro_ssim_delta": 0.046376,
+                        "macro_lpips_delta": -0.104106,
+                        "positive_domains": 4,
+                        "worst_domain_delta": -1.739115,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 1.700499,
+                            "LowLightTrafficData": -1.739115,
+                            "RSCityscapes": 1.696844,
+                            "RainCityscapes": 2.613162,
+                            "RainDS-syn": -0.524366,
+                            "SnowTrafficData": 0.912461
+                        }
+                    },
+                    {
+                        "step": 3000,
+                        "macro_psnr": 15.492653,
+                        "plain_macro_psnr": 14.538655,
+                        "macro_psnr_delta": 0.953997,
+                        "macro_ssim_delta": 0.050096,
+                        "macro_lpips_delta": -0.108639,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -1.320824,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.25357,
+                            "LowLightTrafficData": 2.094361,
+                            "RSCityscapes": -1.320824,
+                            "RainCityscapes": -0.868936,
+                            "RainDS-syn": 5.370874,
+                            "SnowTrafficData": 1.70208
+                        }
+                    },
+                    {
+                        "step": 4000,
+                        "macro_psnr": 13.952916,
+                        "plain_macro_psnr": 14.665317,
+                        "macro_psnr_delta": -0.712401,
+                        "macro_ssim_delta": 0.011854,
+                        "macro_lpips_delta": -0.082906,
+                        "positive_domains": 2,
+                        "worst_domain_delta": -2.326449,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.056465,
+                            "LowLightTrafficData": 2.197347,
+                            "RSCityscapes": -1.654235,
+                            "RainCityscapes": -1.887429,
+                            "RainDS-syn": 0.452823,
+                            "SnowTrafficData": -2.326449
+                        }
+                    },
+                    {
+                        "step": 6000,
+                        "macro_psnr": 12.569153,
+                        "plain_macro_psnr": 14.407592,
+                        "macro_psnr_delta": -1.838439,
+                        "macro_ssim_delta": 0.004674,
+                        "macro_lpips_delta": -0.083068,
+                        "positive_domains": 2,
+                        "worst_domain_delta": -7.468228,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -5.198394,
+                            "LowLightTrafficData": 4.401929,
+                            "RSCityscapes": -7.468228,
+                            "RainCityscapes": -7.356245,
+                            "RainDS-syn": 4.903534,
+                            "SnowTrafficData": -0.313228
+                        }
+                    },
+                    {
+                        "step": 8000,
+                        "macro_psnr": 14.262463,
+                        "plain_macro_psnr": 13.869875,
+                        "macro_psnr_delta": 0.392588,
+                        "macro_ssim_delta": 0.025987,
+                        "macro_lpips_delta": -0.091111,
+                        "positive_domains": 4,
+                        "worst_domain_delta": -1.535237,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": 0.057721,
+                            "LowLightTrafficData": 2.274515,
+                            "RSCityscapes": -1.535237,
+                            "RainCityscapes": -0.873629,
+                            "RainDS-syn": 1.699382,
+                            "SnowTrafficData": 0.732777
+                        }
+                    },
+                    {
+                        "step": 10000,
+                        "macro_psnr": 16.231434,
+                        "plain_macro_psnr": 16.660676,
+                        "macro_psnr_delta": -0.429242,
+                        "macro_ssim_delta": 0.007403,
+                        "macro_lpips_delta": -0.060517,
+                        "positive_domains": 2,
+                        "worst_domain_delta": -1.971833,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -1.971833,
+                            "LowLightTrafficData": 1.502865,
+                            "RSCityscapes": -1.662706,
+                            "RainCityscapes": -0.826829,
+                            "RainDS-syn": 1.940881,
+                            "SnowTrafficData": -1.557832
+                        }
+                    },
+                    {
+                        "step": 12000,
+                        "macro_psnr": 16.591822,
+                        "plain_macro_psnr": 16.536201,
+                        "macro_psnr_delta": 0.055621,
+                        "macro_ssim_delta": 0.011853,
+                        "macro_lpips_delta": -0.02279,
+                        "positive_domains": 3,
+                        "worst_domain_delta": -1.101658,
+                        "guardrails_pass": false,
+                        "domain_psnr_delta": {
+                            "FoggyCityscapes": -0.594715,
+                            "LowLightTrafficData": 0.923339,
+                            "RSCityscapes": -1.101658,
+                            "RainCityscapes": -0.416354,
+                            "RainDS-syn": 1.450027,
+                            "SnowTrafficData": 0.073086
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "confirmation20_opened": false
+}
