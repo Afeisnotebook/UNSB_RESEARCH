@@ -32,7 +32,8 @@ def lanes() -> list[LaneSpec]:
     return [
         LaneSpec("plain"),
         LaneSpec("lttr_tangent", model="lttr", family="dthj_derived", estimated_g_flops_multiplier=3.0),
-        LaneSpec("lttr_safe", model="lttr", family="dthj_derived", estimated_g_flops_multiplier=3.0),
+        LaneSpec("lttr_pulse", model="lttr", family="dthj_derived", estimated_g_flops_multiplier=3.0),
+        LaneSpec("lttr_direction", model="lttr", family="dthj_derived", estimated_g_flops_multiplier=3.0),
     ]
 
 

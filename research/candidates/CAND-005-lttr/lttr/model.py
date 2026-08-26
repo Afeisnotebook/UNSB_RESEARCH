@@ -24,7 +24,9 @@ class SBModelLTTR(SBModel):
     def modify_commandline_options(parser, is_train=True):
         parser = SBModel.modify_commandline_options(parser, is_train)
         parser.add_argument("--lttr_enable", type=str2bool, nargs="?", const=True, default=False)
-        parser.add_argument("--lttr_mode", choices=["tangent", "safe"], default="safe")
+        parser.add_argument(
+            "--lttr_mode", choices=["tangent", "safe", "direction"], default="safe"
+        )
         parser.add_argument("--lttr_lambda", type=float, default=0.001)
         parser.add_argument("--lttr_region_patch", type=int, default=32)
         parser.add_argument("--lttr_direction_margin", type=float, default=0.5)

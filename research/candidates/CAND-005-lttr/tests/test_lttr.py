@@ -53,3 +53,16 @@ def test_safe_mode_penalizes_mean_direction_reversal():
     )
     assert diag["direction"].item() > 0.0
     assert safe.item() > tangent_only.item()
+
+
+def test_direction_mode_drops_failed_tangent_matching_term():
+    x = torch.zeros(1, 3, 4, 4)
+    teacher = _stats(x, 1.1 * torch.ones_like(x), 0.9 * torch.ones_like(x))
+    current = _stats(x, -0.8 * torch.ones_like(x), -1.2 * torch.ones_like(x))
+    direction, diag = lttr_loss(
+        current=current, teacher=teacher, source=x, mode="direction",
+        config=LTTRConfig(region_patch=2),
+    )
+    assert diag["tangent"].item() > 0.0
+    assert diag["direction"].item() > 0.0
+    assert torch.equal(direction.detach(), diag["direction"])

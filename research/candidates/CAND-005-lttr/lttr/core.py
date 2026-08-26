@@ -113,7 +113,7 @@ def lttr_loss(
 ) -> tuple[torch.Tensor, dict[str, torch.Tensor]]:
     """Compute scale-safe tangent preservation and optional reversal barrier."""
     mode = str(mode).lower()
-    if mode not in {"tangent", "safe"}:
+    if mode not in {"tangent", "safe", "direction"}:
         raise ValueError(f"unknown LTTR mode: {mode}")
     eps = float(config.eps)
     weight = _risk_weight(teacher, source, eps)
@@ -129,7 +129,7 @@ def lttr_loss(
     direction_loss = tangent_loss.new_zeros(())
     cosine_mean = tangent_loss.new_ones(())
     reversal_rate = tangent_loss.new_zeros(())
-    if mode == "safe":
+    if mode in {"safe", "direction"}:
         patch = int(config.region_patch)
         current_mean = _region_pool(current.mean_residual, patch)
         teacher_mean = _region_pool(teacher.mean_residual.detach(), patch)
@@ -147,7 +147,12 @@ def lttr_loss(
             reliable.sum().clamp_min(1.0)
         )
 
-    total = tangent_loss + float(config.direction_weight) * direction_loss
+    if mode == "tangent":
+        total = tangent_loss
+    elif mode == "direction":
+        total = direction_loss
+    else:
+        total = tangent_loss + float(config.direction_weight) * direction_loss
     diagnostics = {
         "total": total.detach(),
         "tangent": tangent_loss.detach(),

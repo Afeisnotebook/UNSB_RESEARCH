@@ -25,7 +25,8 @@
 
 总损失为 `L_UNSB + 0.001 * schedule * (L_tangent + 0.25 L_safe)`。schedule 继承历史有效的短窗口原则：总更新量 20% 时激活，覆盖 50% 更新量，窗口内 20% ramp、40% hold、40% cosine decay，之后回到 plain continuation。推理完全关闭 LTTR。
 
-两条冻结 lane：
+初始 `lttr_tangent` 长窗口在真实筛选中 400 步为正、800/1200 明显反转，因此保留为已证伪机制对照，并派生两条结构修正：
 
-- `lttr_tangent`：只有 latent tangent chart；
-- `lttr_safe`：tangent chart 加 one-sided direction barrier。
+- `lttr_tangent`：50% 更新量内匹配 latent tangent chart；负对照；
+- `lttr_pulse`：同一 tangent chart 只启用一个真实数据 epoch，然后完全 plain；
+- `lttr_direction`：删除 tangent matching，只保留 one-sided direction barrier。
