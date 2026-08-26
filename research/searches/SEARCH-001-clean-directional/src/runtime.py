@@ -233,6 +233,16 @@ def option_args(
             "--hnek_gamma", "0.25", "--hnek_coord", "residual",
             "--hnek_horizon_mode", "physical", "--hnek_partial", "all",
         ]
+    elif spec.model == "lttr":
+        mode = "tangent" if "tangent" in spec.name else "safe"
+        args += [
+            "--lttr_enable", "true", "--lttr_mode", mode,
+            "--lttr_lambda", "0.001", "--lttr_region_patch", "32",
+            "--lttr_direction_margin", "0.5", "--lttr_direction_weight", "0.25",
+            "--lttr_start_step", str(int(total_steps * 0.20)),
+            "--lttr_duration_steps", str(max(1, int(total_steps * 0.50))),
+            "--lttr_latent_seed", str(seed),
+        ]
     return args
 
 

@@ -156,6 +156,8 @@ def prepare_lane(
     stream_b = SerializableDataStream(dataset_b, seed=args.seed + 202)
     model = build_model(opt, stream_a.next(), stream_b.next())
     load_model_state(model, e0["model"], load_extra=False)
+    if spec.model == "lttr":
+        model.reset_lttr_teacher()
     stream_a.load_state_dict(e0["stream_a"])
     stream_b.load_state_dict(e0["stream_b"])
     restore_rng(e0["rng"])

@@ -11,6 +11,14 @@
       "winner": "CAND-003",
       "classification": "positive_but_fragile",
       "next_gate": "verify4090_hnek_seed2026"
+    },
+    {
+      "id": "SEARCH-002",
+      "slug": "dthj-rederivation",
+      "status": "implemented_preflight_gate_pass",
+      "path": "research/searches/SEARCH-002-dthj-rederivation",
+      "candidate_families": ["CAND-005"],
+      "next_gate": "formal_gate_and_screen"
     }
   ]
 }

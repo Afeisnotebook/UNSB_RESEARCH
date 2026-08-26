@@ -1,0 +1,10 @@
+{
+  "id": "SEARCH-002",
+  "schema": "clean-unsb-dthj-rederivation-v1",
+  "status": "implemented_preflight_gate_pass",
+  "runner": "research/searches/SEARCH-002-dthj-rederivation/run_search.py",
+  "candidate_families": ["CAND-005"],
+  "lanes": ["plain", "lttr_tangent", "lttr_safe"],
+  "confirmation_access": false,
+  "next_gate": "commit_code_then_run_formal_gate_and_screen"
+}
