@@ -119,6 +119,56 @@ def load_ranking(path: Path) -> list[dict]:
     return json.loads(path.read_text(encoding="utf-8"))["ranking"]
 
 
+def run_hj_validation(args, protocol, rows) -> dict:
+    """Re-evaluate the existing matched HJ/plain checkpoints on unseen discovery70."""
+    source_root = args.legacy_search_output / "stage1_direction_screen"
+    output_root = args.output / "hj_checkpoint_validation"
+    e0 = search001.torch.load(source_root / "e0.pt", map_location="cpu", weights_only=False)
+    metrics = {}
+    for spec in (LaneSpec("plain"), LaneSpec("hj_anchor", model="hj", family="legacy")):
+        model, stream_a, stream_b = search001.prepare_lane(
+            args=args,
+            rows=rows,
+            stage_dir=output_root / "build",
+            spec=spec,
+            per_domain=25,
+            target_steps=1200,
+            schedule_steps=1200,
+            e0=e0,
+        )
+        search001.load_checkpoint(
+            source_root / spec.name / "step_1200.pt",
+            model=model,
+            spec=spec,
+            stream_a=stream_a,
+            stream_b=stream_b,
+        )
+        value = search001.evaluate(
+            model,
+            rows=rows,
+            data_root=args.data_root,
+            start_per_domain=10,
+            count_per_domain=70,
+            eval_seed=args.seed,
+            include_lpips=True,
+        )
+        value["checkpoint"] = str(source_root / spec.name / "step_1200.pt")
+        value["spec"] = spec.to_dict()
+        write_json(output_root / f"{spec.name}_discovery70.json", value)
+        metrics[spec.name] = value
+        del model
+        search001.torch.cuda.empty_cache()
+    comparison = search001.compare(metrics["hj_anchor"], metrics["plain"], step=1200)
+    report = {
+        "purpose": "independent expansion of the screen discovery10 signal",
+        "comparison": comparison,
+        "confirmation20_opened": False,
+        "protocol": protocol,
+    }
+    write_json(output_root / "HJ_CHECKPOINT_VALIDATION.json", report)
+    return report
+
+
 def spec_from_row(row: dict) -> LaneSpec:
     value = dict(row["spec"])
     value["mechanisms"] = tuple(value["mechanisms"])
@@ -199,11 +249,20 @@ def run_extend(args, protocol, rows) -> dict:
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--stage", choices=["gate", "screen", "full", "extend", "all"], default="screen")
+    parser.add_argument(
+        "--stage",
+        choices=["gate", "screen", "hj_validate", "full", "extend", "all"],
+        default="screen",
+    )
     parser.add_argument("--manifest", type=Path, default=Path(r"E:\UNSB_Expl\FOUR_METHOD_MOTIVATION_20260813\frozen\DATA_MANIFEST.csv"))
     parser.add_argument("--train-view", type=Path, default=Path(r"E:\UNSB_Expl\FOUR_METHOD_MOTIVATION_20260813\frozen\data_views_v2\allinone_100"))
     parser.add_argument("--data-root", type=Path, default=Path(r"E:\UNSB_abl\full_dataset"))
     parser.add_argument("--output", type=Path, default=REPO_ROOT / "runs" / "dthj_rederivation_20260827")
+    parser.add_argument(
+        "--legacy-search-output",
+        type=Path,
+        default=Path(r"E:\UNSB_Expl\runs\directional_search_20260826"),
+    )
     parser.add_argument("--seed", type=int, default=2026)
     parser.add_argument("--gpu", type=int, default=0)
     parser.add_argument("--allow-manifest-mismatch", action="store_true")
@@ -237,6 +296,9 @@ def main():
         run_gate(args, protocol, rows)
     if args.stage in {"screen", "all"}:
         run_screen(args, protocol, rows)
+    if args.stage in {"hj_validate", "all"}:
+        report = run_hj_validation(args, protocol, rows)
+        print(json.dumps(report, ensure_ascii=False, indent=2))
     if args.stage in {"full", "all"}:
         run_full(args, protocol, rows)
     if args.stage in {"extend", "all"}:
