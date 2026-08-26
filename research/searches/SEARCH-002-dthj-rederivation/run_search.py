@@ -169,6 +169,47 @@ def run_hj_validation(args, protocol, rows) -> dict:
     return report
 
 
+def run_hj_handoff(args, protocol, rows) -> dict:
+    """Continue the validated HJ checkpoint with the projection window closed."""
+    source_root = args.legacy_search_output / "stage1_direction_screen"
+    output_root = args.output / "hj_finite_handoff"
+    metrics = {}
+    specs = (LaneSpec("plain"), LaneSpec("hj_anchor", model="hj", family="legacy"))
+    for spec in specs:
+        search001.run_lane(
+            args=args,
+            protocol=protocol,
+            rows=rows,
+            stage_dir=output_root,
+            spec=spec,
+            per_domain=25,
+            target_steps=args.handoff_steps,
+            schedule_steps=1200,
+            eval_steps=[args.handoff_steps],
+            eval_start=10,
+            eval_count=70,
+            include_lpips=True,
+            initial_checkpoint=source_root / spec.name / "step_1200.pt",
+        )
+        metrics[spec.name] = search001.read_metrics(output_root, spec, args.handoff_steps)
+    comparison = search001.compare(
+        metrics["hj_anchor"], metrics["plain"], step=args.handoff_steps
+    )
+    report = {
+        "algorithm": "finite-horizon HJ then plain handoff",
+        "active_optimizer_steps": "[240,1200)",
+        "handoff_step": 1200,
+        "comparison": comparison,
+        "source_checkpoints": {
+            spec.name: str(source_root / spec.name / "step_1200.pt") for spec in specs
+        },
+        "confirmation20_opened": False,
+        "protocol": protocol,
+    }
+    write_json(output_root / f"HJ_HANDOFF_STEP_{args.handoff_steps}.json", report)
+    return report
+
+
 def spec_from_row(row: dict) -> LaneSpec:
     value = dict(row["spec"])
     value["mechanisms"] = tuple(value["mechanisms"])
@@ -251,7 +292,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--stage",
-        choices=["gate", "screen", "hj_validate", "full", "extend", "all"],
+        choices=["gate", "screen", "hj_validate", "hj_handoff", "full", "extend", "all"],
         default="screen",
     )
     parser.add_argument("--manifest", type=Path, default=Path(r"E:\UNSB_Expl\FOUR_METHOD_MOTIVATION_20260813\frozen\DATA_MANIFEST.csv"))
@@ -282,6 +323,7 @@ def parse_args():
     parser.add_argument("--full-eval", type=int, nargs="+", default=[1000, 2000, 3000, 4000])
     parser.add_argument("--extend-steps", type=int, default=8000)
     parser.add_argument("--extend-interval", type=int, default=2000)
+    parser.add_argument("--handoff-steps", type=int, default=1600)
     return parser.parse_args()
 
 
@@ -298,6 +340,9 @@ def main():
         run_screen(args, protocol, rows)
     if args.stage in {"hj_validate", "all"}:
         report = run_hj_validation(args, protocol, rows)
+        print(json.dumps(report, ensure_ascii=False, indent=2))
+    if args.stage in {"hj_handoff", "all"}:
+        report = run_hj_handoff(args, protocol, rows)
         print(json.dumps(report, ensure_ascii=False, indent=2))
     if args.stage in {"full", "all"}:
         run_full(args, protocol, rows)

@@ -14,7 +14,11 @@ _FOUNDATION_ROOT = os.path.join(_REPO_ROOT, "foundation")
 if _FOUNDATION_ROOT not in sys.path:
     sys.path.insert(0, _FOUNDATION_ROOT)
 
-from .core import StructureProjectConfig, structure_project_nce_step
+from .core import (
+    StructureProjectConfig,
+    finite_step_window_active,
+    structure_project_nce_step,
+)
 from harness.diagnostics import EpochDiagnostics
 
 
@@ -55,6 +59,10 @@ class SBModelHJPatchNCE(SBModel):
         parser.add_argument(
             "--hj_search_start_step", type=int, default=-1,
             help="search-runner override for the first active optimizer step",
+        )
+        parser.add_argument(
+            "--hj_search_duration_steps", type=int, default=0,
+            help="finite HJ steering duration; <=0 keeps the historical open-ended window",
         )
         return parser
 
@@ -98,7 +106,11 @@ class SBModelHJPatchNCE(SBModel):
     def _hj_active(self):
         search_start = int(getattr(self.opt, "hj_search_start_step", -1))
         if search_start >= 0:
-            time_ready = int(getattr(self, "_search_global_step", 0)) >= search_start
+            time_ready = finite_step_window_active(
+                int(getattr(self, "_search_global_step", 0)),
+                search_start,
+                int(getattr(self.opt, "hj_search_duration_steps", 0)),
+            )
         else:
             time_ready = self.hj_epoch >= int(getattr(self.opt, "hj_start_epoch", 5))
         return (

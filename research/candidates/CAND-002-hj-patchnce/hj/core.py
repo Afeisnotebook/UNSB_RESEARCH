@@ -18,6 +18,16 @@ from .projection import (
 from .structure import source_structure_direction
 
 
+def finite_step_window_active(step: int, start: int, duration: int) -> bool:
+    """Return whether ``step`` is inside a deterministic half-open HJ window.
+
+    A non-positive duration preserves the historical open-ended behavior.
+    """
+    if step < start:
+        return False
+    return duration <= 0 or step < start + duration
+
+
 @dataclass
 class StructureProjectConfig:
     """Frozen best-branch defaults for continuous layer0-HJ."""

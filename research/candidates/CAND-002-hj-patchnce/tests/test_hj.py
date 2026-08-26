@@ -10,7 +10,11 @@ import torch
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
-from hj.core import StructureProjectConfig, structure_project_nce_step  # noqa: E402
+from hj.core import (  # noqa: E402
+    StructureProjectConfig,
+    finite_step_window_active,
+    structure_project_nce_step,
+)
 from hj.projection import (  # noqa: E402
     apply_absolute_evidence_gate,
     apply_factorial_structure_control,
@@ -127,3 +131,11 @@ def test_active_step_runs_and_is_finite():
     assert torch.isfinite(projected)
     assert diag["probe_agreement"] >= 0.0
     assert diag["risk_mean"] >= 0.0
+
+
+def test_finite_step_window_hands_off_at_exact_boundary():
+    assert not finite_step_window_active(239, start=240, duration=960)
+    assert finite_step_window_active(240, start=240, duration=960)
+    assert finite_step_window_active(1199, start=240, duration=960)
+    assert not finite_step_window_active(1200, start=240, duration=960)
+    assert finite_step_window_active(1200, start=240, duration=0)
