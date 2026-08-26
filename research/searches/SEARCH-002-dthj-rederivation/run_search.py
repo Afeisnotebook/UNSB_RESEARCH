@@ -89,7 +89,10 @@ def run_gate(args, protocol, rows) -> dict:
 def run_screen(args, protocol, rows) -> list[dict]:
     root = args.output / "screen"
     summaries = []
+    selected = set(args.screen_lanes or [lane.name for lane in lanes()])
     for lane in lanes():
+        if lane.name not in selected:
+            continue
         summary = search001.run_lane(
             args=args, protocol=protocol, rows=rows, stage_dir=root, spec=lane,
             per_domain=args.screen_train_per_domain, target_steps=args.screen_steps,
@@ -210,6 +213,12 @@ def parse_args():
     parser.add_argument("--screen-eval", type=int, nargs="+", default=[400, 800, 1200])
     parser.add_argument("--screen-train-per-domain", type=int, default=25)
     parser.add_argument("--screen-eval-per-domain", type=int, default=10)
+    parser.add_argument(
+        "--screen-lanes",
+        nargs="+",
+        choices=[lane.name for lane in lanes()],
+        help="Run only the named screening lanes; useful for stopping falsified lanes without spending their remaining budget.",
+    )
     parser.add_argument("--full-steps", type=int, default=4000)
     parser.add_argument("--full-eval", type=int, nargs="+", default=[1000, 2000, 3000, 4000])
     parser.add_argument("--extend-steps", type=int, default=8000)
