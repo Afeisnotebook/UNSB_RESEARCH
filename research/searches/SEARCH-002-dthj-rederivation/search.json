@@ -1,10 +1,13 @@
 {
   "id": "SEARCH-002",
   "schema": "clean-unsb-dthj-rederivation-v1",
-  "status": "implemented_preflight_gate_pass",
+  "status": "local_complete_candidate_frozen",
   "runner": "research/searches/SEARCH-002-dthj-rederivation/run_search.py",
-  "candidate_families": ["CAND-005"],
-  "lanes": ["plain", "lttr_tangent", "lttr_pulse", "lttr_direction"],
+  "candidate_families": ["CAND-001", "CAND-002", "CAND-005"],
+  "lanes": ["plain", "lttr_tangent", "lttr_pulse", "lttr_direction", "hj_checkpoint_validation", "hj_finite"],
   "confirmation_access": false,
-  "next_gate": "commit_code_then_run_formal_gate_and_screen"
+  "result_experiment": "EXP-L1-SEARCH-002-DTHJ-20260827",
+  "winner": "CAND-002/ITER-007-finite-horizon-handoff",
+  "classification": "positive_but_fragile",
+  "next_gate": "verify4090_hj_finite_seed2026_at_30k_60k_120k"
 }

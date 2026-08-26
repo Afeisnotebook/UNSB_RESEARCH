@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-08-26",
+  "updated": "2026-08-27",
   "layout_version": 2,
   "canonical": {
     "path": "foundation/canonical",
@@ -10,17 +10,17 @@
   "active_motivations": ["MOT-001"],
   "candidates": {
     "CAND-001": "closed_negative",
-    "CAND-002": "closed_negative",
-    "CAND-003": "development_frozen",
+    "CAND-002": "development_frozen_positive_but_fragile",
+    "CAND-003": "fallback_1_positive_but_fragile",
     "CAND-004": "closed_negative",
-    "CAND-005": "implemented"
+    "CAND-005": "closed_negative"
   },
   "active_searches": {
     "SEARCH-001": "local_complete_candidate_frozen",
-    "SEARCH-002": "implemented_preflight_gate_pass"
+    "SEARCH-002": "local_complete_candidate_frozen"
   },
   "pre_restructure_search_work_commit": "495a092",
-  "next_gate": "run_SEARCH-002_formal_gate_and_screen",
+  "next_gate": "verify_finite_horizon_HJ_vs_plain_on_4090_at_30k_60k_120k",
   "documentation": {
     "takeover_guide": "TAKEOVER_GUIDE_CN.md",
     "timeline": "project/TIMELINE.md",

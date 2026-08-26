@@ -14,7 +14,8 @@
 | T7 新基座验收 | 08-25–08-26 | 审核 clean re-exploration 包，拒绝门禁不全的运行；对新 canonical 做本地真实数据微验证 | 包内结果不更新科学结论；新 deterministic canonical 被接受 | [包审计](../decisions/records/DEC-20260826-CLEAN-REEXPLORATION-AUDIT.md)、[基座验收](../decisions/records/DEC-20260826-NEW-CANONICAL-ACCEPTANCE.md) |
 | T8 生命周期化与新搜索 | 08-26 | 仓库重构；接入 DCUM/LBST/PTQ/AEB 和 SEARCH-001；完成 L0 工程门 | 新机制 `IMPLEMENTED`、搜索 `ENGINEERING_GATE_PASS`，均无效果裁决 | [SEARCH-001](../research/searches/SEARCH-001-clean-directional/README.md)、[L0 gate](../experiments/L0-contract/EXP-L0-SEARCH-001-GATE-20260826/README.md) |
 | T9 本地方向再搜索 | 08-26 | 八 lane、两条合成、完整视图复赛；首名与 plain 等量延长至 12k | HNEK 以最后三点 `+0.006322 dB` 冻结为 `positive_but_fragile`；新机制当前实现关闭 | [L1 完整实验](../experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/README.md)、[本地裁决](../decisions/records/DEC-20260826-SEARCH-001-LOCAL-WINNER.md) |
-| NEXT 4090 验证 | T9 之后 | HNEK 与 matched plain，seed=2026，固定 30k/60k/120k | 不看中间结果改算法；候选冻结后才打开 confirmation20 | [唯一候选](../experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/CANDIDATE.json)、[当前门禁](../decisions/CURRENT.md) |
+| T10 DT/HJ 方向重推导 | 08-27 | 证伪输出空间 LTTR；用独立 discovery70 扩展 HJ 强 checkpoint；实现有限期 HJ→plain handoff | HJ discovery70 `+0.710548 dB`、6/6 域正，handoff 后仍正；finite-horizon HJ 取代 HNEK 成为脆弱第一候选 | [SEARCH-002 实验](../experiments/L1-local/EXP-L1-SEARCH-002-DTHJ-20260827/README.md)、[候选裁决](../decisions/records/DEC-20260827-HJ-FINITE-HORIZON-LOCAL-CANDIDATE.md) |
+| NEXT 4090 验证 | T10 之后 | finite-horizon HJ 与 matched plain，seed=2026，固定 30k/60k/120k；HJ 仅 `[960,4800)` active | 不看中间结果改算法；候选冻结后才打开 confirmation20 | [唯一候选](../experiments/L1-local/EXP-L1-SEARCH-002-DTHJ-20260827/CANDIDATE.json)、[当前门禁](../decisions/CURRENT.md) |
 
 ## 三条主线如何汇合
 
@@ -27,6 +28,7 @@ T4–T6 plain-only 动机重建 ───────────────→
                          ↓ T7 新 canonical
                          ↓ T8 SEARCH-001 与最后一轮分级探索
                          ↓ T9 HNEK 本地脆弱正向候选
+                         ↓ T10 finite-horizon HJ 取代为当前第一候选
 ```
 
 “动机成立”不推出“候选有效”；“工程门通过”也不推出“效果成立”。两者都必须在独立冻结实验中连接到决策。

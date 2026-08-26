@@ -1,0 +1,65 @@
+{
+  "schema": "clean-unsb-candidate-v1",
+  "status": "positive_but_fragile",
+  "selected": {
+    "candidate_id": "CAND-002",
+    "name": "hj_finite",
+    "iteration": "ITER-007-finite-horizon-handoff",
+    "model": "hj",
+    "algorithm": "finite-horizon HJ direction steering followed by plain UNSB"
+  },
+  "configuration": {
+    "hj_layers": "0",
+    "hj_direction": "joint",
+    "hj_probe_mode": "central_consensus",
+    "hj_strength": 0.5,
+    "hj_boundary_scale": 0.001,
+    "hj_min_risk": 0.05,
+    "window_in_data_epochs": {"warmup": 1.6, "steering": 6.4, "handoff_epoch": 8.0},
+    "local_active_optimizer_steps": [240, 1200],
+    "full_view_active_optimizer_steps": [960, 4800],
+    "inference": "plain UNSB; no HJ branch"
+  },
+  "source": {
+    "algorithm_commit": "32efcda5e111c60765d3f67d158426a670ad5db8",
+    "verification_runner_commit": "3724d50",
+    "runner": "research/searches/SEARCH-002-dthj-rederivation/run_search.py",
+    "experiment": "EXP-L1-SEARCH-002-DTHJ-20260827",
+    "seed": 2026,
+    "confirmation20_opened": false
+  },
+  "selection_evidence": {
+    "discovery70_step1200": {"macro_psnr_delta": 0.7105475743627707, "macro_ssim_delta": 0.02031639544736774, "macro_lpips_delta": -0.03490031780231573, "positive_domains": 6, "worst_domain_delta": 0.17475430149938376},
+    "handoff_step1600": {"macro_psnr_delta": 0.6609749063416697, "macro_ssim_delta": 0.04019621885603386, "macro_lpips_delta": -0.03794745107491815, "positive_domains": 5, "worst_domain_delta": -1.0805495803093823},
+    "collapse_resistance_step2000": {"macro_psnr_delta": 3.791830252757036, "candidate_macro_psnr": 15.47856821515203, "plain_macro_psnr": 11.686737962394995, "interpretation": "relative gain is inflated by matched plain collapse; use only as basin-stability evidence"}
+  },
+  "cost": {
+    "active_window_generator_compute_multiplier_estimate": 3.0,
+    "post_handoff_compute_multiplier": 1.0,
+    "inference_compute_multiplier": 1.0,
+    "classification": "not_compute_only"
+  },
+  "risks": [
+    "single development training seed only",
+    "small 25-image-per-domain training view",
+    "discovery data has been used for selection",
+    "trajectory is non-monotone before the handoff",
+    "LowLight becomes negative after the handoff",
+    "step-2000 relative delta is inflated by matched plain collapse",
+    "confirmation20 remains sealed and no cross-seed claim is allowed"
+  ],
+  "alternatives": [
+    {"rank": 2, "candidate_id": "CAND-003", "name": "HNEK gamma=0.25", "reason": "previous local winner, but final-three mean was only +0.006322 dB"},
+    {"rank": 3, "candidate_id": "CAND-001", "name": "DT-CovMatch", "reason": "positive checkpoints but poor domain coverage and no sustained full-view result"}
+  ],
+  "verify4090": {
+    "seed": 2026,
+    "matched_plain": true,
+    "train_per_domain": 100,
+    "active_optimizer_steps": [960, 4800],
+    "milestones": [30000, 60000, 120000],
+    "intermediate_algorithm_changes_allowed": false,
+    "command": "python research/searches/SEARCH-002-dthj-rederivation/run_search.py --stage verify4090 --manifest <DATA_MANIFEST.csv> --train-view <allinone_100> --data-root <full_dataset> --output runs/verify4090_hj_finite_s2026 --seed 2026 --gpu 0 --verify-milestones 30000 60000 120000",
+    "confirmation_boundary": "keep confirmation20 sealed until the candidate and all milestones are frozen"
+  }
+}

@@ -1,11 +1,12 @@
 {
   "schema_version": 1,
-  "updated": "2026-08-26",
+  "updated": "2026-08-27",
   "records": [
     {"id":"DEC-20260824-ALGORITHM-STATUS","path":"decisions/records/DEC-20260824-ALGORITHM-STATUS.md","outcomes":{"CAND-001":"closed_negative","CAND-002":"closed_negative","CAND-003":"development_frozen"}},
     {"id":"DEC-20260824-BASELINE-SELECTION","path":"decisions/records/DEC-20260824-BASELINE-SELECTION.md","status":"historical_context"},
     {"id":"DEC-20260826-CLEAN-REEXPLORATION-AUDIT","path":"decisions/records/DEC-20260826-CLEAN-REEXPLORATION-AUDIT.md","outcome":"package_forensic_only"},
     {"id":"DEC-20260826-NEW-CANONICAL-ACCEPTANCE","path":"decisions/records/DEC-20260826-NEW-CANONICAL-ACCEPTANCE.md","outcome":"canonical_ready"},
-    {"id":"DEC-20260826-SEARCH-001-LOCAL-WINNER","path":"decisions/records/DEC-20260826-SEARCH-001-LOCAL-WINNER.md","outcomes":{"SEARCH-001":"local_complete_candidate_frozen","CAND-003":"development_frozen","CAND-004":"closed_negative"},"classification":"positive_but_fragile"}
+    {"id":"DEC-20260826-SEARCH-001-LOCAL-WINNER","path":"decisions/records/DEC-20260826-SEARCH-001-LOCAL-WINNER.md","outcomes":{"SEARCH-001":"local_complete_candidate_frozen","CAND-003":"development_frozen","CAND-004":"closed_negative"},"classification":"positive_but_fragile"},
+    {"id":"DEC-20260827-HJ-FINITE-HORIZON-LOCAL-CANDIDATE","path":"decisions/records/DEC-20260827-HJ-FINITE-HORIZON-LOCAL-CANDIDATE.md","outcomes":{"SEARCH-002":"local_complete_candidate_frozen","CAND-002":"development_frozen","CAND-003":"fallback_1","CAND-005":"closed_negative"},"classification":"positive_but_fragile"}
   ]
 }

@@ -1,9 +1,17 @@
 # UNSB 当前科学状态与最后一轮启动契约
 
-> 更新：2026-08-26
+> 更新：2026-08-27
 > 用途：本文是仓库的首要状态入口。当历史文档与本文冲突时，以本文、各模块最新裁决和机器可读 evidence 为准。
 
-## 0. SEARCH-001 最新裁决
+## 0. SEARCH-002 最新裁决
+
+2026-08-27，SEARCH-002 没有围绕旧 DT/HJ 做超参网格，而是先重推导输出空间 LTTR，再回到实际 HJ backward 方向对象。LTTR tangent、one-epoch pulse、direction barrier 均在 800 步反转，当前实现关闭。
+
+原 HJ 的 SEARCH-001 step1200 checkpoint 在未参与 screen 的 discovery70（420 张）上相对 matched plain 为 `+0.710548 dB`，6/6 域正，SSIM `+0.020316`，LPIPS `-0.034900`，最差域 `+0.174754 dB`。将 HJ 固定为 `[1.6,8.0)` 真实数据 epoch 的有限方向导航并在 step1200 handoff 给 plain 后，step1600 仍为 `+0.660975 dB`。step2000 的 `+3.791830 dB` 主要由 matched plain 坍塌放大，只作为盆地稳定性诊断。
+
+因此 CAND-002 `ITER-007-finite-horizon-handoff` 以 `positive_but_fragile` 冻结为当前第一候选；HNEK 降为递补一。下一门禁是 full-view、seed=2026、matched plain 的 4090 30k/60k/120k，HJ 窗口固定为 `[960,4800)` updates，禁止按中间 PSNR 改动。详见 [SEARCH-002 报告](../experiments/L1-local/EXP-L1-SEARCH-002-DTHJ-20260827/REPORT.md) 和 [最新决策](./records/DEC-20260827-HJ-FINITE-HORIZON-LOCAL-CANDIDATE.md)。
+
+## 0.1 SEARCH-001 历史裁决
 
 2026-08-26，SEARCH-001 在新的 deterministic canonical 上完成八条初筛 lane、两条合成、完整视图复赛以及总冠军/plain 到 12k updates 的等量延长。`confirmation20_opened=false`。
 
@@ -15,7 +23,7 @@
 | LBST/PTQ/DCUM/AEB | **CLOSED_NEGATIVE**（当前实现） | 无 standalone lane 保持正的晚期轨迹；DCUM 合成也未通过 stage2 |
 | HNEK+DCUM | 递补一 | stage1 第一，但 stage2 最后三点 `-0.381743 dB`，4k `-2.506480 dB` |
 
-唯一候选是 HNEK `gamma=0.25 + residual + physical + all`。下一门禁是 seed=2026、matched plain、30k/60k/120k 的 4090 固定里程碑验证；不得根据中间 paired PSNR 改算法。该结论取代下文较早的“development frozen”运行状态，但不改写历史实验本身。详见 [完整本地报告](../experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/REPORT.md) 和 [DEC-20260826-SEARCH-001-LOCAL-WINNER](./records/DEC-20260826-SEARCH-001-LOCAL-WINNER.md)。
+SEARCH-001 当时选择 HNEK 的裁决保留为历史事实，但已被上述 SEARCH-002 裁决取代。详见 [完整本地报告](../experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/REPORT.md) 和 [DEC-20260826-SEARCH-001-LOCAL-WINNER](./records/DEC-20260826-SEARCH-001-LOCAL-WINNER.md)。
 
 ## 1. 当前不可混淆的结论
 
@@ -27,8 +35,8 @@
 | 六域 shared-clock regret | seed=2051 下三个 bridge time 均为正：`0.0201 / 0.0369 / 0.0164` | held-out 图像 cross-fit + bootstrap；不包含训练 seed 不确定性，不等于因果恢复伤害 |
 | `U / U_reg` 是什么 | 方向分歧/空间方向分散程度 | 不是 true posterior covariance，不是 calibrated uncertainty |
 | DT-CovMatch | 早期非确定实现有正数字，但确定性 clean rerun 为 **−0.2677 dB** | 不再作为当前有效方法 |
-| HJ-PatchNCE | clean rerun 相对 plain 为 **+0.0381 dB** | 视为基本消失；`true−roll` 不等于方法相对 plain 有效 |
-| HNEK `gamma=0.25` | 历史 e200 为 **+0.7884 dB**；最新 SEARCH-001 延长的最后三点均值为 **+0.006322 dB** | 本地总冠军但 `positive_but_fragile`，不是已确认算法 |
+| HJ-PatchNCE | 旧 continuous clean rerun仅 **+0.0381 dB**；finite-horizon discovery70 为 **+0.710548 dB** | 新 iteration 为当前 `positive_but_fragile` 候选；不是已确认算法 |
+| HNEK `gamma=0.25` | 历史 e200 为 **+0.7884 dB**；SEARCH-001 延长的最后三点均值为 **+0.006322 dB** | 递补一，不是已确认算法 |
 
 HNEK 表中的 95% CI `[0.5916, 0.9933]` 是固定 seed=2026 与开发集条件下的配对样本 bootstrap，**不包含训练 seed 之间的不确定性**，也不能抵消 9 个变体搜索与开发集反复使用带来的选择偏差。
 
@@ -39,8 +47,8 @@ MOT-001 六域结果的完整解释见 [阅读指南](../research/motivations/MO
 ## 2. 当前总裁决
 
 1. 仓库目前**没有一个已经跨 seed、未触碰确认集验证的最终算法**。
-2. DT/HJ 都参加了 SEARCH-001 同基座竞争：DT 保留为递补二，HJ 因冻结排序落败；两者都不获得保护或调参名额。
-3. `hnek_g0.25` 是当前唯一值得带上 4090 的方法候选，但本地最后三点几乎与 plain 打平，必须首先尝试证伪。
+2. DT/HJ 都参加过 SEARCH-001；SEARCH-002 没有给旧算法保护名额，而是用独立 discovery70 验证 HJ 的强 checkpoint，并把它改成固定 finite-horizon handoff。
+3. 当前第一候选是 finite-horizon HJ；HNEK 为递补一。两者都只是单 seed development 信号，4090 应先证伪 HJ。
 4. 动机模块支持“共享训练改变条件方向几何，且差异具有阶段/seed/域依赖”；六域扩大实验还支持单训练 seed 下正的 held-out shared-clock regret。它不支持固定窗口、跨 seed 稳定、因果恢复伤害或已知机制靶点。
 5. 最后方法必须对 Schrödinger Bridge 本身形成可辨认贡献；不再把通用 routing、gradient surgery、confidence weighting 或额外网络包装成 SB 贡献。
 
@@ -89,7 +97,7 @@ MOT-001 六域结果的完整解释见 [阅读指南](../research/motivations/MO
 - `true posterior covariance`
 - `calibrated predictive uncertainty`
 - `fixed over-compression window`
-- `DT/HJ has stable gains under the clean deterministic protocol`
+- `HJ has stable gains across seeds / is confirmed under the clean deterministic protocol`
 - `hnek_g0.25 is confirmed / generalized / robust`
 - 用固定 seed 的图像级 CI 替代训练 seed 级稳定性
 - 用开发集反复搜索后的结果宣称 confirmatory

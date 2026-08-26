@@ -1,0 +1,53 @@
+{
+  "schema": "clean-unsb-search002-results-v1",
+  "seed": 2026,
+  "screen_discovery10": {
+    "hj_anchor": [
+      {"step": 400, "macro_psnr_delta": 0.046722881767465196, "macro_ssim_delta": -0.02858882149060571, "positive_domains": 5, "worst_domain_delta": -1.2600492752636772},
+      {"step": 800, "macro_psnr_delta": -0.7241015361516396, "macro_ssim_delta": 0.0006863345702489143, "positive_domains": 1, "worst_domain_delta": -1.5182094915968491},
+      {"step": 1200, "macro_psnr_delta": 0.804543923243358, "macro_ssim_delta": 0.017074174682299326, "positive_domains": 6, "worst_domain_delta": 0.10481247893367573}
+    ],
+    "lttr_falsification": {
+      "tangent": [{"step": 400, "macro_psnr_delta": 0.339361805}, {"step": 800, "macro_psnr_delta": -1.097963358}, {"step": 1200, "macro_psnr_delta": -1.53180198}],
+      "one_epoch_pulse": [{"step": 400, "macro_psnr_delta": 0.263722759684738}, {"step": 800, "macro_psnr_delta": -1.75717539821815}],
+      "direction_barrier": [{"step": 400, "macro_psnr_delta": 0.10961650705163}, {"step": 800, "macro_psnr_delta": -0.807077168651206}]
+    }
+  },
+  "expanded_discovery70": [
+    {
+      "step": 1200,
+      "phase": "HJ active-window endpoint",
+      "plain_macro_psnr": 14.11214821044865,
+      "candidate_macro_psnr": 14.82269578481142,
+      "macro_psnr_delta": 0.7105475743627707,
+      "macro_ssim_delta": 0.02031639544736774,
+      "macro_lpips_delta": -0.03490031780231573,
+      "positive_domains": 6,
+      "worst_domain_delta": 0.17475430149938376,
+      "domain_psnr_delta": {"FoggyCityscapes": 0.20668258800730577, "LowLightTrafficData": 0.44670926913661013, "RSCityscapes": 0.17475430149938376, "RainCityscapes": 0.19332120938539532, "RainDS-syn": 2.1435599913604264, "SnowTrafficData": 1.0982580867875136}
+    },
+    {
+      "step": 1600,
+      "phase": "400 plain updates after handoff",
+      "plain_macro_psnr": 13.497781810020186,
+      "candidate_macro_psnr": 14.158756716361856,
+      "macro_psnr_delta": 0.6609749063416697,
+      "macro_ssim_delta": 0.04019621885603386,
+      "macro_lpips_delta": -0.03794745107491815,
+      "positive_domains": 5,
+      "worst_domain_delta": -1.0805495803093823
+    },
+    {
+      "step": 2000,
+      "phase": "800 plain updates after handoff; matched plain collapse diagnostic",
+      "plain_macro_psnr": 11.686737962394995,
+      "candidate_macro_psnr": 15.47856821515203,
+      "macro_psnr_delta": 3.791830252757036,
+      "macro_ssim_delta": 0.1046659589523361,
+      "macro_lpips_delta": -0.0387044963382539,
+      "positive_domains": 5,
+      "worst_domain_delta": -1.748773210766572
+    }
+  ],
+  "confirmation20_opened": false
+}

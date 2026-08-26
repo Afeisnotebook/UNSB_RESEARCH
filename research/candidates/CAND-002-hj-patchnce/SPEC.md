@@ -22,9 +22,18 @@ HJ 不是新标量 loss，而是一个 forward 不变、backward 定向的梯度
 
 不新增参数；`t=0`（关闭干预）时 `projected_loss == raw_loss`。
 
-## 训练期协议（要保住收益的协议）
+## 当前训练期协议：有限期方向导航
 
-- 连续 layer0-HJ 到 200：`nce_uncert_mode=structure_project`，`nce_structure_layers=0`，`start_epoch=5`，`schedule=constant`。
+- HJ forward 恒等、只改变 layer-0 PatchNCE backward 的核心公式不变。
+- 先 pure UNSB 运行 1.6 个真实数据 epoch；随后启用 HJ 6.4 个 epoch；第 8.0 epoch 起永久关闭 HJ，后续完全 plain。
+- 本地每域 25 张时窗口为 `[240,1200)` optimizer updates；每域 100 张时按数据曝光缩放为 `[960,4800)`，不随 30k/60k/120k 总预算拉长。
+- handoff 后训练和推理计算均回到 plain；不根据 paired PSNR 重新开启 HJ。
+
+该协议来自 `EXP-L1-SEARCH-002-DTHJ-20260827`：1200 步 discovery70 为 `+0.710548 dB`、6/6 域正，关闭 HJ 后到 1600 仍为 `+0.660975 dB`。它仍是单 seed development 证据。
+
+## 历史 continuous 协议
+
+- 连续 layer0-HJ 到 200：`nce_uncert_mode=structure_project`，`nce_structure_layers=0`，`start_epoch=5`，`schedule=constant`。该版本已关闭，仅保留为形成史。
 - 确定性环境：`--deterministic --deterministic_strict --no_flip`，`CUBLAS_WORKSPACE_CONFIG=:4096:8`，`PYTHONHASHSEED=0`。
 - 评估：`--nce_uncert_mode none --eval --serial_batches --no_flip`，关闭一切训练干预。
 

@@ -1,0 +1,17 @@
+{
+  "id": "EXP-L1-SEARCH-002-DTHJ-20260827",
+  "level": "L1",
+  "entity": "SEARCH-002",
+  "candidates": ["CAND-001", "CAND-002", "CAND-005"],
+  "status": "completed_development_candidate_frozen",
+  "source_commits": {
+    "screen_checkpoint": "25c34697e5f71e4d1dceb9b2e217be54e8874732",
+    "independent_validation": "3f6257ada65f920ef7b059d4eb38105c4ba8bdf4",
+    "finite_handoff": "32efcda5e111c60765d3f67d158426a670ad5db8",
+    "verify4090_runner": "3724d50"
+  },
+  "protocol": "PROTOCOL_LOCK.json",
+  "results": "RESULTS.json",
+  "candidate": "CANDIDATE.json",
+  "confirmation20_opened": false
+}
