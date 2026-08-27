@@ -1,0 +1,357 @@
+{
+  "schema": "clean-unsb-search003-checkpoint-inventory-v1",
+  "checkpoints": [
+    {
+      "probe": "dt",
+      "stage": "small",
+      "step": 400,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_400.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\dt_anchor\\step_400.pt",
+      "decisive": true
+    },
+    {
+      "probe": "dt",
+      "stage": "small",
+      "step": 800,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_800.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\dt_anchor\\step_800.pt",
+      "decisive": true
+    },
+    {
+      "probe": "dt",
+      "stage": "small",
+      "step": 1200,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_1200.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\dt_anchor\\step_1200.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hj",
+      "stage": "small",
+      "step": 400,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_400.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\hj_anchor\\step_400.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hj",
+      "stage": "small",
+      "step": 800,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_800.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\hj_anchor\\step_800.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hj",
+      "stage": "small",
+      "step": 1200,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_1200.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\hj_anchor\\step_1200.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "small",
+      "step": 400,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_400.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\hnek_anchor\\step_400.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "small",
+      "step": 800,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_800.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\hnek_anchor\\step_800.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "small",
+      "step": 1200,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_1200.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\hnek_anchor\\step_1200.pt",
+      "decisive": true
+    },
+    {
+      "probe": "lbst",
+      "stage": "small",
+      "step": 400,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_400.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\lbst\\step_400.pt",
+      "decisive": false
+    },
+    {
+      "probe": "lbst",
+      "stage": "small",
+      "step": 800,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_800.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\lbst\\step_800.pt",
+      "decisive": false
+    },
+    {
+      "probe": "lbst",
+      "stage": "small",
+      "step": 1200,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_1200.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\lbst\\step_1200.pt",
+      "decisive": false
+    },
+    {
+      "probe": "ptq",
+      "stage": "small",
+      "step": 400,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_400.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\ptq\\step_400.pt",
+      "decisive": false
+    },
+    {
+      "probe": "ptq",
+      "stage": "small",
+      "step": 800,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_800.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\ptq\\step_800.pt",
+      "decisive": false
+    },
+    {
+      "probe": "ptq",
+      "stage": "small",
+      "step": 1200,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_1200.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\ptq\\step_1200.pt",
+      "decisive": false
+    },
+    {
+      "probe": "dcum",
+      "stage": "small",
+      "step": 400,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_400.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\dcum\\step_400.pt",
+      "decisive": false
+    },
+    {
+      "probe": "dcum",
+      "stage": "small",
+      "step": 800,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_800.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\dcum\\step_800.pt",
+      "decisive": false
+    },
+    {
+      "probe": "dcum",
+      "stage": "small",
+      "step": 1200,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_1200.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\dcum\\step_1200.pt",
+      "decisive": false
+    },
+    {
+      "probe": "aeb",
+      "stage": "small",
+      "step": 400,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_400.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\aeb\\step_400.pt",
+      "decisive": false
+    },
+    {
+      "probe": "aeb",
+      "stage": "small",
+      "step": 800,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_800.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\aeb\\step_800.pt",
+      "decisive": false
+    },
+    {
+      "probe": "aeb",
+      "stage": "small",
+      "step": 1200,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\plain\\step_1200.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage1_direction_screen\\aeb\\step_1200.pt",
+      "decisive": false
+    },
+    {
+      "probe": "lttr_tangent",
+      "stage": "small",
+      "step": 400,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\screen\\plain\\step_400.pt",
+      "method": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\screen\\lttr_tangent\\step_400.pt",
+      "decisive": false
+    },
+    {
+      "probe": "lttr_tangent",
+      "stage": "small",
+      "step": 800,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\screen\\plain\\step_800.pt",
+      "method": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\screen\\lttr_tangent\\step_800.pt",
+      "decisive": false
+    },
+    {
+      "probe": "lttr_direction",
+      "stage": "small",
+      "step": 400,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\screen\\plain\\step_400.pt",
+      "method": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\screen\\lttr_direction\\step_400.pt",
+      "decisive": false
+    },
+    {
+      "probe": "lttr_direction",
+      "stage": "small",
+      "step": 800,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\screen\\plain\\step_800.pt",
+      "method": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\screen\\lttr_direction\\step_800.pt",
+      "decisive": false
+    },
+    {
+      "probe": "dt",
+      "stage": "full",
+      "step": 1000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\plain\\step_1000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\dt_anchor\\step_1000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "dt",
+      "stage": "full",
+      "step": 2000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\plain\\step_2000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\dt_anchor\\step_2000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "dt",
+      "stage": "full",
+      "step": 3000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\plain\\step_3000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\dt_anchor\\step_3000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "dt",
+      "stage": "full",
+      "step": 4000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\plain\\step_4000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\dt_anchor\\step_4000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "full",
+      "step": 1000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\plain\\step_1000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\hnek_anchor\\step_1000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "full",
+      "step": 2000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\plain\\step_2000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\hnek_anchor\\step_2000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "full",
+      "step": 3000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\plain\\step_3000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\hnek_anchor\\step_3000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "full",
+      "step": 4000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\plain\\step_4000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage2_full_view\\hnek_anchor\\step_4000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "extension",
+      "step": 6000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage3_extension\\plain\\step_6000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage3_extension\\hnek_anchor\\step_6000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "extension",
+      "step": 8000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage3_extension\\plain\\step_8000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage3_extension\\hnek_anchor\\step_8000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "extension",
+      "step": 10000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage3_extension\\plain\\step_10000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage3_extension\\hnek_anchor\\step_10000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "extension",
+      "step": 12000,
+      "per_domain": 100,
+      "plain": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage3_extension\\plain\\step_12000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\directional_search_20260826\\stage3_extension\\hnek_anchor\\step_12000.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hj_handoff",
+      "stage": "small_handoff",
+      "step": 1600,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\hj_finite_handoff\\plain\\step_1600.pt",
+      "method": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\hj_finite_handoff\\hj_anchor\\step_1600.pt",
+      "decisive": true
+    },
+    {
+      "probe": "hj_handoff",
+      "stage": "small_handoff",
+      "step": 2000,
+      "per_domain": 25,
+      "plain": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\hj_finite_handoff\\plain\\step_2000.pt",
+      "method": "E:\\UNSB_Expl\\runs\\dthj_rederivation_20260826\\hj_finite_handoff\\hj_anchor\\step_2000.pt",
+      "decisive": true
+    }
+  ],
+  "confirmation20_opened": false
+}

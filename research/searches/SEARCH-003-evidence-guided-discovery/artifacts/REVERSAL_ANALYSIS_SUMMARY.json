@@ -1,0 +1,720 @@
+{
+  "atlas_rows": 87,
+  "probes": {
+    "dt": {
+      "atlas_rows": 32,
+      "historical_positive_observed": true,
+      "historical_negative_observed": true,
+      "reversal_observed": true,
+      "historical_delta_by_step": {
+        "2000": 0.5664387691901851,
+        "3000": -0.8061096369180163,
+        "4000": -1.5191804097664345,
+        "400": 0.10917357593990573,
+        "800": 0.14543930394158444,
+        "1200": 0.7331735673304909
+      }
+    },
+    "hj": {
+      "atlas_rows": 24,
+      "historical_positive_observed": true,
+      "historical_negative_observed": true,
+      "reversal_observed": true,
+      "historical_delta_by_step": {
+        "400": 0.046722881767465196,
+        "800": -0.7241015361516396,
+        "1200": 0.804543923243358
+      }
+    },
+    "hnek": {
+      "atlas_rows": 31,
+      "historical_positive_observed": true,
+      "historical_negative_observed": true,
+      "reversal_observed": true,
+      "historical_delta_by_step": {
+        "2000": 0.7765809379673883,
+        "3000": 0.9539973769102481,
+        "4000": -0.7124013497625032,
+        "400": 0.6513432796626883,
+        "800": 0.21574533343390812,
+        "1200": 0.4174055544665798
+      }
+    }
+  },
+  "shared_signal_gate_passed": false,
+  "eligible_shared_signals": [],
+  "eligible_method_signals": {
+    "dt": [
+      {
+        "feature": "loss_delta::G_GAN",
+        "direction": -1,
+        "n": 6,
+        "balanced_accuracy": 0.75,
+        "spearman": 0.5428571428571429,
+        "leave_one_method_out": {
+          "dt": 0.75
+        },
+        "finite_fold_mean": 0.75,
+        "finite_fold_min": 0.75,
+        "finite_fold_count": 1,
+        "required_method_fold_count": 1,
+        "domain_balanced_accuracy": {
+          "FoggyCityscapes": 0.75,
+          "LowLightTrafficData": 0.375,
+          "RSCityscapes": 0.6666666666666666,
+          "RainCityscapes": 0.75,
+          "RainDS-syn": 0.3333333333333333,
+          "SnowTrafficData": 1.0
+        },
+        "supporting_domains": [
+          "FoggyCityscapes",
+          "RSCityscapes",
+          "RainCityscapes",
+          "SnowTrafficData"
+        ],
+        "supporting_domain_count": 4
+      }
+    ],
+    "hj": [
+      {
+        "feature": "loss_delta::NCE",
+        "direction": -1,
+        "n": 6,
+        "balanced_accuracy": 0.75,
+        "spearman": 0.8857142857142858,
+        "leave_one_method_out": {
+          "hj": 0.75
+        },
+        "finite_fold_mean": 0.75,
+        "finite_fold_min": 0.75,
+        "finite_fold_count": 1,
+        "required_method_fold_count": 1,
+        "domain_balanced_accuracy": {
+          "FoggyCityscapes": 0.7,
+          "LowLightTrafficData": null,
+          "RSCityscapes": 0.75,
+          "RainCityscapes": 0.7,
+          "RainDS-syn": 0.8333333333333333,
+          "SnowTrafficData": 0.75
+        },
+        "supporting_domains": [
+          "FoggyCityscapes",
+          "RSCityscapes",
+          "RainCityscapes",
+          "RainDS-syn",
+          "SnowTrafficData"
+        ],
+        "supporting_domain_count": 5
+      },
+      {
+        "feature": "loss_delta::G",
+        "direction": -1,
+        "n": 6,
+        "balanced_accuracy": 0.75,
+        "spearman": 0.7714285714285715,
+        "leave_one_method_out": {
+          "hj": 0.75
+        },
+        "finite_fold_mean": 0.75,
+        "finite_fold_min": 0.75,
+        "finite_fold_count": 1,
+        "required_method_fold_count": 1,
+        "domain_balanced_accuracy": {
+          "FoggyCityscapes": 0.7,
+          "LowLightTrafficData": null,
+          "RSCityscapes": 0.75,
+          "RainCityscapes": 0.7,
+          "RainDS-syn": 0.8333333333333333,
+          "SnowTrafficData": 0.75
+        },
+        "supporting_domains": [
+          "FoggyCityscapes",
+          "RSCityscapes",
+          "RainCityscapes",
+          "RainDS-syn",
+          "SnowTrafficData"
+        ],
+        "supporting_domain_count": 5
+      },
+      {
+        "feature": "loss_delta::NCE_Y",
+        "direction": -1,
+        "n": 6,
+        "balanced_accuracy": 0.75,
+        "spearman": 0.5428571428571429,
+        "leave_one_method_out": {
+          "hj": 0.75
+        },
+        "finite_fold_mean": 0.75,
+        "finite_fold_min": 0.75,
+        "finite_fold_count": 1,
+        "required_method_fold_count": 1,
+        "domain_balanced_accuracy": {
+          "FoggyCityscapes": 0.7,
+          "LowLightTrafficData": null,
+          "RSCityscapes": 0.75,
+          "RainCityscapes": 0.7,
+          "RainDS-syn": 0.8333333333333333,
+          "SnowTrafficData": 0.75
+        },
+        "supporting_domains": [
+          "FoggyCityscapes",
+          "RSCityscapes",
+          "RainCityscapes",
+          "RainDS-syn",
+          "SnowTrafficData"
+        ],
+        "supporting_domain_count": 5
+      },
+      {
+        "feature": "loss_delta::SB",
+        "direction": 1,
+        "n": 6,
+        "balanced_accuracy": 0.75,
+        "spearman": 0.3714285714285715,
+        "leave_one_method_out": {
+          "hj": 0.75
+        },
+        "finite_fold_mean": 0.75,
+        "finite_fold_min": 0.75,
+        "finite_fold_count": 1,
+        "required_method_fold_count": 1,
+        "domain_balanced_accuracy": {
+          "FoggyCityscapes": 0.7,
+          "LowLightTrafficData": null,
+          "RSCityscapes": 0.75,
+          "RainCityscapes": 0.7,
+          "RainDS-syn": 0.8333333333333333,
+          "SnowTrafficData": 0.75
+        },
+        "supporting_domains": [
+          "FoggyCityscapes",
+          "RSCityscapes",
+          "RainCityscapes",
+          "RainDS-syn",
+          "SnowTrafficData"
+        ],
+        "supporting_domain_count": 5
+      }
+    ],
+    "hnek": []
+  },
+  "eligible_method_signals_by_horizon": {
+    "1": {
+      "dt": [],
+      "hj": [],
+      "hnek": []
+    },
+    "8": {
+      "dt": [
+        {
+          "feature": "diagnostic::domain_moment::RainDS-syn::rollout_velocity_l2::variance",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 1.0,
+          "spearman": 0.8451542547285165,
+          "leave_one_method_out": {
+            "dt": 1.0
+          },
+          "finite_fold_mean": 1.0,
+          "finite_fold_min": 1.0,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 1.0,
+            "LowLightTrafficData": 0.25,
+            "RSCityscapes": 0.8333333333333333,
+            "RainCityscapes": 1.0,
+            "RainDS-syn": 0.16666666666666666,
+            "SnowTrafficData": 0.9
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        },
+        {
+          "feature": "diagnostic::domain_moment::RainDS-syn::adam_moment_gradient_cosine::variance",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 1.0,
+          "spearman": 0.7775419143502353,
+          "leave_one_method_out": {
+            "dt": 1.0
+          },
+          "finite_fold_mean": 1.0,
+          "finite_fold_min": 1.0,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 1.0,
+            "LowLightTrafficData": 0.25,
+            "RSCityscapes": 0.8333333333333333,
+            "RainCityscapes": 1.0,
+            "RainDS-syn": 0.16666666666666666,
+            "SnowTrafficData": 0.9
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        },
+        {
+          "feature": "diagnostic::domain_moment::RainDS-syn::endpoint_residual_l2::variance",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 1.0,
+          "spearman": 0.7775419143502353,
+          "leave_one_method_out": {
+            "dt": 1.0
+          },
+          "finite_fold_mean": 1.0,
+          "finite_fold_min": 1.0,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 1.0,
+            "LowLightTrafficData": 0.25,
+            "RSCityscapes": 0.8333333333333333,
+            "RainCityscapes": 1.0,
+            "RainDS-syn": 0.16666666666666666,
+            "SnowTrafficData": 0.9
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        },
+        {
+          "feature": "diagnostic::domain_moment::RainDS-syn::generator_grad_norm::variance",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 1.0,
+          "spearman": 0.7775419143502353,
+          "leave_one_method_out": {
+            "dt": 1.0
+          },
+          "finite_fold_mean": 1.0,
+          "finite_fold_min": 1.0,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 1.0,
+            "LowLightTrafficData": 0.25,
+            "RSCityscapes": 0.8333333333333333,
+            "RainCityscapes": 1.0,
+            "RainDS-syn": 0.16666666666666666,
+            "SnowTrafficData": 0.9
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        },
+        {
+          "feature": "diagnostic::domain_moment::SnowTrafficData::adam_moment_gradient_cosine::variance",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 1.0,
+          "spearman": 0.7775419143502353,
+          "leave_one_method_out": {
+            "dt": 1.0
+          },
+          "finite_fold_mean": 1.0,
+          "finite_fold_min": 1.0,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 1.0,
+            "LowLightTrafficData": 0.25,
+            "RSCityscapes": 0.8333333333333333,
+            "RainCityscapes": 1.0,
+            "RainDS-syn": 0.16666666666666666,
+            "SnowTrafficData": 0.9
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        },
+        {
+          "feature": "diagnostic::domain_moment::SnowTrafficData::endpoint_residual_l2::variance",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 1.0,
+          "spearman": 0.7775419143502353,
+          "leave_one_method_out": {
+            "dt": 1.0
+          },
+          "finite_fold_mean": 1.0,
+          "finite_fold_min": 1.0,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 1.0,
+            "LowLightTrafficData": 0.25,
+            "RSCityscapes": 0.8333333333333333,
+            "RainCityscapes": 1.0,
+            "RainDS-syn": 0.16666666666666666,
+            "SnowTrafficData": 0.9
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        },
+        {
+          "feature": "diagnostic::domain_moment::SnowTrafficData::generator_grad_norm::variance",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 1.0,
+          "spearman": 0.7775419143502353,
+          "leave_one_method_out": {
+            "dt": 1.0
+          },
+          "finite_fold_mean": 1.0,
+          "finite_fold_min": 1.0,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 1.0,
+            "LowLightTrafficData": 0.25,
+            "RSCityscapes": 0.8333333333333333,
+            "RainCityscapes": 1.0,
+            "RainDS-syn": 0.16666666666666666,
+            "SnowTrafficData": 0.9
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        },
+        {
+          "feature": "diagnostic::domain_moment::SnowTrafficData::rollout_velocity_l2::variance",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 1.0,
+          "spearman": 0.7775419143502353,
+          "leave_one_method_out": {
+            "dt": 1.0
+          },
+          "finite_fold_mean": 1.0,
+          "finite_fold_min": 1.0,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 1.0,
+            "LowLightTrafficData": 0.25,
+            "RSCityscapes": 0.8333333333333333,
+            "RainCityscapes": 1.0,
+            "RainDS-syn": 0.16666666666666666,
+            "SnowTrafficData": 0.9
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        },
+        {
+          "feature": "loss_delta::D_fake",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.6761234037828132,
+          "leave_one_method_out": {
+            "dt": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.75,
+            "LowLightTrafficData": 0.375,
+            "RSCityscapes": 0.6666666666666666,
+            "RainCityscapes": 0.75,
+            "RainDS-syn": 0.3333333333333333,
+            "SnowTrafficData": 1.0
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        },
+        {
+          "feature": "loss_delta::G_GAN",
+          "direction": -1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.6761234037828132,
+          "leave_one_method_out": {
+            "dt": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.75,
+            "LowLightTrafficData": 0.375,
+            "RSCityscapes": 0.6666666666666666,
+            "RainCityscapes": 0.75,
+            "RainDS-syn": 0.3333333333333333,
+            "SnowTrafficData": 1.0
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        },
+        {
+          "feature": "loss_delta::NCE_Y",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.6761234037828132,
+          "leave_one_method_out": {
+            "dt": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.75,
+            "LowLightTrafficData": 0.375,
+            "RSCityscapes": 0.6666666666666666,
+            "RainCityscapes": 0.75,
+            "RainDS-syn": 0.3333333333333333,
+            "SnowTrafficData": 1.0
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        }
+      ],
+      "hj": [
+        {
+          "feature": "loss_delta::D_fake",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.4285714285714286,
+          "leave_one_method_out": {
+            "hj": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.7,
+            "LowLightTrafficData": null,
+            "RSCityscapes": 0.75,
+            "RainCityscapes": 0.7,
+            "RainDS-syn": 0.5,
+            "SnowTrafficData": 0.75
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        }
+      ]
+    },
+    "32": {
+      "dt": [
+        {
+          "feature": "loss_delta::G_GAN",
+          "direction": -1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.5428571428571429,
+          "leave_one_method_out": {
+            "dt": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.75,
+            "LowLightTrafficData": 0.375,
+            "RSCityscapes": 0.6666666666666666,
+            "RainCityscapes": 0.75,
+            "RainDS-syn": 0.3333333333333333,
+            "SnowTrafficData": 1.0
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        }
+      ],
+      "hj": [
+        {
+          "feature": "loss_delta::NCE",
+          "direction": -1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.8857142857142858,
+          "leave_one_method_out": {
+            "hj": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.7,
+            "LowLightTrafficData": null,
+            "RSCityscapes": 0.75,
+            "RainCityscapes": 0.7,
+            "RainDS-syn": 0.8333333333333333,
+            "SnowTrafficData": 0.75
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "RainDS-syn",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 5
+        },
+        {
+          "feature": "loss_delta::G",
+          "direction": -1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.7714285714285715,
+          "leave_one_method_out": {
+            "hj": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.7,
+            "LowLightTrafficData": null,
+            "RSCityscapes": 0.75,
+            "RainCityscapes": 0.7,
+            "RainDS-syn": 0.8333333333333333,
+            "SnowTrafficData": 0.75
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "RainDS-syn",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 5
+        },
+        {
+          "feature": "loss_delta::NCE_Y",
+          "direction": -1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.5428571428571429,
+          "leave_one_method_out": {
+            "hj": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.7,
+            "LowLightTrafficData": null,
+            "RSCityscapes": 0.75,
+            "RainCityscapes": 0.7,
+            "RainDS-syn": 0.8333333333333333,
+            "SnowTrafficData": 0.75
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "RainDS-syn",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 5
+        },
+        {
+          "feature": "loss_delta::SB",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.3714285714285715,
+          "leave_one_method_out": {
+            "hj": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.7,
+            "LowLightTrafficData": null,
+            "RSCityscapes": 0.75,
+            "RainCityscapes": 0.7,
+            "RainDS-syn": 0.8333333333333333,
+            "SnowTrafficData": 0.75
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "RainDS-syn",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 5
+        }
+      ],
+      "hnek": []
+    }
+  },
+  "confirmation20_opened": false
+}

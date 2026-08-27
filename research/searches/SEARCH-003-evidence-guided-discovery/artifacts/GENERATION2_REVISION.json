@@ -1,0 +1,254 @@
+{
+  "schema": "clean-unsb-search003-generation2-v1",
+  "revision_count": 2,
+  "revisions": [
+    {
+      "parent": "G1-DT-RHGC8",
+      "revision": {
+        "id": "G2-DT-FBGC8",
+        "generation": 2,
+        "name": "Future-Batch Gradient Consensus for DT",
+        "parents": [
+          "G1-DT-RHGC8"
+        ],
+        "observed_failure": "G1-DT-RHGC8 changed from +0.104052 dB at 400 to -0.381266 dB at 800 despite committing 3/100 proposal blocks",
+        "unsb_object": "one-sided alignment of the proposal correction with the next-batch native UNSB generator gradient",
+        "operator": "two-gate target-blind receding-horizon full-state selection",
+        "derivation": "Run B0=Phi_0^8(S) and Bi=Phi_i^8(S). Let delta be the G/F parameter correction theta_i-theta_0 and let g+ be the native UNSB generator gradient at B0 on the next independent unpaired batch. Commit Bi only when -1*(Delta G_GAN)>0 and <delta,g+><0.",
+        "identity_condition": "failure of either the audited lead gate or future-gradient gate commits the exact plain full state",
+        "self_null_condition": "rejected proposal and audit computations contribute no parameters, moments, scheduler, stream, RNG or method co-state",
+        "changes_training_target": false,
+        "changes_gradient_estimator": false,
+        "changes_endpoint_law": false,
+        "paired_target_access": false,
+        "paired_target_proof": "both gates read only unpaired training losses, G/F parameter displacement and a native gradient on the next unpaired batch",
+        "expected_valid_states": "states where the historical short lead and an independent future native descent direction agree",
+        "falsification_test": "from the same e0, kill after the 800-update micro run if final delta is non-positive or guardrails fail; no further revision is allowed",
+        "compute_cost": "plain and proposal 8-update branches plus one native next-batch generator forward/backward per block",
+        "memory_cost": "one live branch plus CPU full-state snapshots",
+        "pseudocode": [
+          "plain = Phi_0^8(S); proposal = Phi_i^8(S)",
+          "lead = direction * (observable(proposal)-observable(plain)) > 0",
+          "g_future = grad L_UNSB(plain; next_unpaired_batch)",
+          "consensus = dot(theta_proposal-theta_plain, g_future) < 0",
+          "commit proposal iff lead and consensus else exact plain"
+        ],
+        "status": "proposed"
+      },
+      "parent_step_400": {
+        "step": 400,
+        "macro_psnr": 14.465584892429098,
+        "plain_macro_psnr": 14.361533234539438,
+        "macro_psnr_delta": 0.10405165788965931,
+        "final_psnr": 14.465584892429098,
+        "macro_ssim_delta": -0.0012533098459244219,
+        "macro_lpips_delta": null,
+        "positive_domains": 4,
+        "worst_domain_delta": -0.02061029063183284,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 0.2276534285039915,
+            "ssim": -0.001664984226226851,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -0.02061029063183284,
+            "ssim": -0.0023889362812042347,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 0.12958630538847515,
+            "ssim": -0.007701978087425232,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 0.16896076295167894,
+            "ssim": -0.00538138151168821,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": -0.019819569157006,
+            "ssim": 0.006468525528907809,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.138539310282642,
+            "ssim": 0.0031488955020905207,
+            "lpips": null
+          }
+        },
+        "guardrails_pass": true
+      },
+      "parent_step_800": {
+        "step": 800,
+        "macro_psnr": 14.365178785065552,
+        "plain_macro_psnr": 14.746445065691512,
+        "macro_psnr_delta": -0.3812662806259599,
+        "final_psnr": 14.365178785065552,
+        "macro_ssim_delta": -0.0021716440717379215,
+        "macro_lpips_delta": null,
+        "positive_domains": 2,
+        "worst_domain_delta": -1.3333548549628258,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": -1.140999376955163,
+            "ssim": -0.0030576348304748313,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -0.39748325518282535,
+            "ssim": 0.0019065558910369984,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": -1.2801074593456292,
+            "ssim": -0.026151159405708335,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": -1.3333548549628258,
+            "ssim": -0.01713104546070099,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 1.5931578604866772,
+            "ssim": 0.02464343905448918,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.2711894022040191,
+            "ssim": 0.006759980320930503,
+            "lpips": null
+          }
+        },
+        "guardrails_pass": false
+      }
+    },
+    {
+      "parent": "G1-HJ-RHDFC8",
+      "revision": {
+        "id": "G2-HJ-FBDFC8",
+        "generation": 2,
+        "name": "Future-Batch Gradient Consensus for HJ",
+        "parents": [
+          "G1-HJ-RHDFC8"
+        ],
+        "observed_failure": "G1-HJ-RHDFC8 changed from +0.262050 dB at 400 to -1.542787 dB at 800 despite committing 54/100 proposal blocks",
+        "unsb_object": "one-sided alignment of the proposal correction with the next-batch native UNSB generator gradient",
+        "operator": "two-gate target-blind receding-horizon full-state selection",
+        "derivation": "Run B0=Phi_0^8(S) and Bi=Phi_i^8(S). Let delta be the G/F parameter correction theta_i-theta_0 and let g+ be the native UNSB generator gradient at B0 on the next independent unpaired batch. Commit Bi only when 1*(Delta D_fake)>0 and <delta,g+><0.",
+        "identity_condition": "failure of either the audited lead gate or future-gradient gate commits the exact plain full state",
+        "self_null_condition": "rejected proposal and audit computations contribute no parameters, moments, scheduler, stream, RNG or method co-state",
+        "changes_training_target": false,
+        "changes_gradient_estimator": false,
+        "changes_endpoint_law": false,
+        "paired_target_access": false,
+        "paired_target_proof": "both gates read only unpaired training losses, G/F parameter displacement and a native gradient on the next unpaired batch",
+        "expected_valid_states": "states where the historical short lead and an independent future native descent direction agree",
+        "falsification_test": "from the same e0, kill after the 800-update micro run if final delta is non-positive or guardrails fail; no further revision is allowed",
+        "compute_cost": "plain and proposal 8-update branches plus one native next-batch generator forward/backward per block",
+        "memory_cost": "one live branch plus CPU full-state snapshots",
+        "pseudocode": [
+          "plain = Phi_0^8(S); proposal = Phi_i^8(S)",
+          "lead = direction * (observable(proposal)-observable(plain)) > 0",
+          "g_future = grad L_UNSB(plain; next_unpaired_batch)",
+          "consensus = dot(theta_proposal-theta_plain, g_future) < 0",
+          "commit proposal iff lead and consensus else exact plain"
+        ],
+        "status": "proposed"
+      },
+      "parent_step_400": {
+        "step": 400,
+        "macro_psnr": 14.623583474935453,
+        "plain_macro_psnr": 14.361533234539438,
+        "macro_psnr_delta": 0.26205024039601454,
+        "final_psnr": 14.623583474935453,
+        "macro_ssim_delta": -0.006608607371648256,
+        "macro_lpips_delta": null,
+        "positive_domains": 5,
+        "worst_domain_delta": -1.0547848505100887,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 0.010972906783655034,
+            "ssim": -0.024858468770980857,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -1.0547848505100887,
+            "ssim": -0.06113671958446504,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 0.14245832257051738,
+            "ssim": -0.026619875431060758,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 0.5670501060531681,
+            "ssim": -3.149211406705543e-05,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 1.0964185368867536,
+            "ssim": 0.03633711040019988,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.8101864205920748,
+            "ssim": 0.0366578012704849,
+            "lpips": null
+          }
+        },
+        "guardrails_pass": false
+      },
+      "parent_step_800": {
+        "step": 800,
+        "macro_psnr": 13.203658296068944,
+        "plain_macro_psnr": 14.746445065691512,
+        "macro_psnr_delta": -1.5427867696225679,
+        "final_psnr": 13.203658296068944,
+        "macro_ssim_delta": -0.05036111325025555,
+        "macro_lpips_delta": null,
+        "positive_domains": 1,
+        "worst_domain_delta": -2.951147137229473,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": -2.505074933385142,
+            "ssim": -0.07556770443916322,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -0.4362525295059232,
+            "ssim": -0.007375425100326516,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": -2.8599186858383447,
+            "ssim": -0.08919047415256504,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": -2.951147137229473,
+            "ssim": -0.08435166478157041,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 0.7353382932866097,
+            "ssim": 0.0007666379213333574,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": -1.2396656250631235,
+            "ssim": -0.046448048949241594,
+            "lpips": null
+          }
+        },
+        "guardrails_pass": false
+      }
+    }
+  ],
+  "new_failure_class": "in_branch_observable_does_not_ensure_future_native_descent",
+  "hyperparameter_search_used": false,
+  "paired_target_access_by_controller": false,
+  "confirmation20_opened": false
+}

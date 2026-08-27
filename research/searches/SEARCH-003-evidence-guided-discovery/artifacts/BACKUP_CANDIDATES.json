@@ -1,0 +1,19 @@
+{
+  "schema": "clean-unsb-search003-backups-v1",
+  "backups": [
+    {
+      "rank": 2,
+      "candidate_id": "G2-HJ-FBDFC8",
+      "variant": "full",
+      "reason_not_selected": "late-three mean and final delta are negative"
+    },
+    {
+      "rank": 3,
+      "candidate_id": "G2-DT-FBGC8",
+      "variant": "full",
+      "reason_not_selected": "second gate changed no decisions; 800 delta is negative"
+    }
+  ],
+  "all_not_promoted": true,
+  "confirmation20_opened": false
+}

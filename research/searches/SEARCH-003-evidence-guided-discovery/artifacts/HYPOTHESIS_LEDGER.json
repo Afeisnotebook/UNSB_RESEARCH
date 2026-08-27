@@ -1,0 +1,483 @@
+{
+  "schema": "clean-unsb-search003-hypotheses-v1",
+  "hypotheses": [
+    {
+      "id": "G1-DT-RHGC",
+      "generation": 1,
+      "name": "Receding-Horizon GAN Consensus for DT",
+      "parents": [
+        "dt"
+      ],
+      "parent_probe": "dt",
+      "observed_failure": "DT locally helps at 3k/H200 but decays by H1000 and becomes harmful at 4k",
+      "evidence": {
+        "feature": "loss_delta::G_GAN",
+        "direction": -1,
+        "balanced_accuracy": 0.75,
+        "spearman": 0.5428571428571429,
+        "supporting_domains": [
+          "FoggyCityscapes",
+          "RSCityscapes",
+          "RainCityscapes",
+          "SnowTrafficData"
+        ],
+        "precursor_horizon": 32,
+        "outcome_horizon": 200
+      },
+      "unsb_object": "full optimizer-state transition under the native GAN component",
+      "operator": "target-blind receding-horizon full-state branch selection",
+      "derivation": "From the same immutable full state S_k, compute B0=Phi_0^32(S_k) and Bi=Phi_dt^32(S_k). Let Delta=G_GAN(Bi)-G_GAN(B0). Commit Bi iff Delta<0; otherwise commit B0.",
+      "identity_condition": "Delta_G_GAN >= 0 commits the exact plain branch",
+      "self_null_condition": "a rejected proposal contributes zero parameters, moments, schedulers, streams or RNG state",
+      "changes_training_target": false,
+      "changes_gradient_estimator": false,
+      "changes_endpoint_law": false,
+      "paired_target_access": false,
+      "paired_target_proof": "the decision reads only branch-averaged unpaired G_GAN; PSNR/SSIM/LPIPS and confirmation identities are absent from the controller interface",
+      "expected_valid_states": "states whose 32-step observable retains its audited lead relationship",
+      "falsification_test": "proposal-only, observable-only/plain, and full selector from the same e0; kill if the selector chooses harmful H200 branches or fails the 2400-step late gate",
+      "compute_cost": "two 32-update branches per committed 32 updates; proposal branch inherits parent-probe cost",
+      "memory_cost": "one live branch at a time plus one CPU full-state snapshot",
+      "pseudocode": [
+        "snapshot = full_state()",
+        "plain = run(snapshot, operator=UNSB, H=32)",
+        "proposal = run(snapshot, operator=dt, H=32)",
+        "commit proposal if mean(G_GAN)_proposal < mean(G_GAN)_plain else plain",
+        "repeat from committed full state"
+      ],
+      "status": "superseded_protocol_alignment",
+      "history": [
+        {
+          "from": "proposed",
+          "to": "superseded_protocol_alignment",
+          "evidence": {
+            "reason": "the 32-update precursor does not divide the frozen 400-update evaluation interval; a separately audited 8-update signal is used",
+            "paired_target_access": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "G1-HJ-RHNC",
+      "generation": 1,
+      "name": "Receding-Horizon Native-NCE Consensus for HJ",
+      "parents": [
+        "hj"
+      ],
+      "parent_probe": "hj",
+      "observed_failure": "HJ's own gate/risk cannot distinguish beneficial and harmful states",
+      "evidence": {
+        "feature": "loss_delta::NCE",
+        "direction": -1,
+        "balanced_accuracy": 0.75,
+        "spearman": 0.8857142857142858,
+        "supporting_domains": [
+          "FoggyCityscapes",
+          "RSCityscapes",
+          "RainCityscapes",
+          "RainDS-syn",
+          "SnowTrafficData"
+        ],
+        "precursor_horizon": 32,
+        "outcome_horizon": 200
+      },
+      "unsb_object": "full optimizer-state transition under the native PatchNCE component",
+      "operator": "target-blind receding-horizon full-state branch selection",
+      "derivation": "From the same immutable full state S_k, compute B0=Phi_0^32(S_k) and Bi=Phi_hj^32(S_k). Let Delta=NCE(Bi)-NCE(B0). Commit Bi iff Delta<0; otherwise commit B0.",
+      "identity_condition": "Delta_NCE >= 0 commits the exact plain branch",
+      "self_null_condition": "a rejected proposal contributes zero parameters, moments, schedulers, streams or RNG state",
+      "changes_training_target": false,
+      "changes_gradient_estimator": false,
+      "changes_endpoint_law": false,
+      "paired_target_access": false,
+      "paired_target_proof": "the decision reads only branch-averaged unpaired NCE; PSNR/SSIM/LPIPS and confirmation identities are absent from the controller interface",
+      "expected_valid_states": "states whose 32-step observable retains its audited lead relationship",
+      "falsification_test": "proposal-only, observable-only/plain, and full selector from the same e0; kill if the selector chooses harmful H200 branches or fails the 2400-step late gate",
+      "compute_cost": "two 32-update branches per committed 32 updates; proposal branch inherits parent-probe cost",
+      "memory_cost": "one live branch at a time plus one CPU full-state snapshot",
+      "pseudocode": [
+        "snapshot = full_state()",
+        "plain = run(snapshot, operator=UNSB, H=32)",
+        "proposal = run(snapshot, operator=hj, H=32)",
+        "commit proposal if mean(NCE)_proposal < mean(NCE)_plain else plain",
+        "repeat from committed full state"
+      ],
+      "status": "superseded_protocol_alignment",
+      "history": [
+        {
+          "from": "proposed",
+          "to": "superseded_protocol_alignment",
+          "evidence": {
+            "reason": "the 32-update precursor does not divide the frozen 400-update evaluation interval; a separately audited 8-update signal is used",
+            "paired_target_access": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "G1-DT-RHGC8",
+      "generation": 1,
+      "name": "Receding-Horizon GAN Consensus for DT",
+      "parents": [
+        "dt"
+      ],
+      "parent_probe": "dt",
+      "observed_failure": "DT locally helps at 3k/H200 but decays by H1000 and becomes harmful at 4k",
+      "evidence": {
+        "feature": "loss_delta::G_GAN",
+        "direction": -1,
+        "balanced_accuracy": 0.75,
+        "spearman": 0.6761234037828132,
+        "supporting_domains": [
+          "FoggyCityscapes",
+          "RSCityscapes",
+          "RainCityscapes",
+          "SnowTrafficData"
+        ],
+        "precursor_horizon": 8,
+        "outcome_horizon": 200
+      },
+      "unsb_object": "full optimizer-state transition under the native GAN component",
+      "operator": "target-blind receding-horizon full-state branch selection",
+      "derivation": "From the same immutable full state S_k, compute B0=Phi_0^8(S_k) and Bi=Phi_dt^8(S_k). Let Delta=G_GAN(Bi)-G_GAN(B0). Commit Bi iff Delta<0; otherwise commit B0.",
+      "identity_condition": "Delta_G_GAN >= 0 commits the exact plain branch",
+      "self_null_condition": "a rejected proposal contributes zero parameters, moments, schedulers, streams or RNG state",
+      "changes_training_target": false,
+      "changes_gradient_estimator": false,
+      "changes_endpoint_law": false,
+      "paired_target_access": false,
+      "paired_target_proof": "the decision reads only branch-averaged unpaired G_GAN; PSNR/SSIM/LPIPS and confirmation identities are absent from the controller interface",
+      "expected_valid_states": "states whose 8-step observable retains its audited lead relationship",
+      "falsification_test": "proposal-only, observable-only/plain, and full selector from the same e0; kill if the selector chooses harmful H200 branches or fails the 2400-step late gate",
+      "compute_cost": "two 8-update branches per committed 8 updates; proposal branch inherits parent-probe cost",
+      "memory_cost": "one live branch at a time plus one CPU full-state snapshot",
+      "pseudocode": [
+        "snapshot = full_state()",
+        "plain = run(snapshot, operator=UNSB, H=8)",
+        "proposal = run(snapshot, operator=dt, H=8)",
+        "commit proposal if direction * (mean(G_GAN)_proposal - mean(G_GAN)_plain) > 0 else plain",
+        "repeat from committed full state"
+      ],
+      "status": "failed_micro_reversal",
+      "history": [
+        {
+          "from": "proposed",
+          "to": "failed_micro_reversal",
+          "evidence": {
+            "step_400": {
+              "step": 400,
+              "macro_psnr": 14.465584892429098,
+              "plain_macro_psnr": 14.361533234539438,
+              "macro_psnr_delta": 0.10405165788965931,
+              "final_psnr": 14.465584892429098,
+              "macro_ssim_delta": -0.0012533098459244219,
+              "macro_lpips_delta": null,
+              "positive_domains": 4,
+              "worst_domain_delta": -0.02061029063183284,
+              "domain_delta": {
+                "FoggyCityscapes": {
+                  "psnr": 0.2276534285039915,
+                  "ssim": -0.001664984226226851,
+                  "lpips": null
+                },
+                "LowLightTrafficData": {
+                  "psnr": -0.02061029063183284,
+                  "ssim": -0.0023889362812042347,
+                  "lpips": null
+                },
+                "RSCityscapes": {
+                  "psnr": 0.12958630538847515,
+                  "ssim": -0.007701978087425232,
+                  "lpips": null
+                },
+                "RainCityscapes": {
+                  "psnr": 0.16896076295167894,
+                  "ssim": -0.00538138151168821,
+                  "lpips": null
+                },
+                "RainDS-syn": {
+                  "psnr": -0.019819569157006,
+                  "ssim": 0.006468525528907809,
+                  "lpips": null
+                },
+                "SnowTrafficData": {
+                  "psnr": 0.138539310282642,
+                  "ssim": 0.0031488955020905207,
+                  "lpips": null
+                }
+              },
+              "guardrails_pass": true
+            },
+            "step_800": {
+              "step": 800,
+              "macro_psnr": 14.365178785065552,
+              "plain_macro_psnr": 14.746445065691512,
+              "macro_psnr_delta": -0.3812662806259599,
+              "final_psnr": 14.365178785065552,
+              "macro_ssim_delta": -0.0021716440717379215,
+              "macro_lpips_delta": null,
+              "positive_domains": 2,
+              "worst_domain_delta": -1.3333548549628258,
+              "domain_delta": {
+                "FoggyCityscapes": {
+                  "psnr": -1.140999376955163,
+                  "ssim": -0.0030576348304748313,
+                  "lpips": null
+                },
+                "LowLightTrafficData": {
+                  "psnr": -0.39748325518282535,
+                  "ssim": 0.0019065558910369984,
+                  "lpips": null
+                },
+                "RSCityscapes": {
+                  "psnr": -1.2801074593456292,
+                  "ssim": -0.026151159405708335,
+                  "lpips": null
+                },
+                "RainCityscapes": {
+                  "psnr": -1.3333548549628258,
+                  "ssim": -0.01713104546070099,
+                  "lpips": null
+                },
+                "RainDS-syn": {
+                  "psnr": 1.5931578604866772,
+                  "ssim": 0.02464343905448918,
+                  "lpips": null
+                },
+                "SnowTrafficData": {
+                  "psnr": 0.2711894022040191,
+                  "ssim": 0.006759980320930503,
+                  "lpips": null
+                }
+              },
+              "guardrails_pass": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "G1-HJ-RHDFC8",
+      "generation": 1,
+      "name": "Receding-Horizon Native-Discriminator Consensus for HJ",
+      "parents": [
+        "hj"
+      ],
+      "parent_probe": "hj",
+      "observed_failure": "HJ's own gate/risk cannot distinguish beneficial and harmful states",
+      "evidence": {
+        "feature": "loss_delta::D_fake",
+        "direction": 1,
+        "balanced_accuracy": 0.75,
+        "spearman": 0.4285714285714286,
+        "supporting_domains": [
+          "FoggyCityscapes",
+          "RSCityscapes",
+          "RainCityscapes",
+          "SnowTrafficData"
+        ],
+        "precursor_horizon": 8,
+        "outcome_horizon": 200
+      },
+      "unsb_object": "full optimizer-state transition under the native fake-discriminator component",
+      "operator": "target-blind receding-horizon full-state branch selection",
+      "derivation": "From the same immutable full state S_k, compute B0=Phi_0^8(S_k) and Bi=Phi_hj^8(S_k). Let Delta=D_fake(Bi)-D_fake(B0). Commit Bi iff Delta>0; otherwise commit B0.",
+      "identity_condition": "Delta_D_fake <= 0 commits the exact plain branch",
+      "self_null_condition": "a rejected proposal contributes zero parameters, moments, schedulers, streams or RNG state",
+      "changes_training_target": false,
+      "changes_gradient_estimator": false,
+      "changes_endpoint_law": false,
+      "paired_target_access": false,
+      "paired_target_proof": "the decision reads only branch-averaged unpaired D_fake; PSNR/SSIM/LPIPS and confirmation identities are absent from the controller interface",
+      "expected_valid_states": "states whose 8-step observable retains its audited lead relationship",
+      "falsification_test": "proposal-only, observable-only/plain, and full selector from the same e0; kill if the selector chooses harmful H200 branches or fails the 2400-step late gate",
+      "compute_cost": "two 8-update branches per committed 8 updates; proposal branch inherits parent-probe cost",
+      "memory_cost": "one live branch at a time plus one CPU full-state snapshot",
+      "pseudocode": [
+        "snapshot = full_state()",
+        "plain = run(snapshot, operator=UNSB, H=8)",
+        "proposal = run(snapshot, operator=hj, H=8)",
+        "commit proposal if direction * (mean(D_fake)_proposal - mean(D_fake)_plain) > 0 else plain",
+        "repeat from committed full state"
+      ],
+      "status": "failed_micro_reversal",
+      "history": [
+        {
+          "from": "proposed",
+          "to": "failed_micro_reversal",
+          "evidence": {
+            "step_400": {
+              "step": 400,
+              "macro_psnr": 14.623583474935453,
+              "plain_macro_psnr": 14.361533234539438,
+              "macro_psnr_delta": 0.26205024039601454,
+              "final_psnr": 14.623583474935453,
+              "macro_ssim_delta": -0.006608607371648256,
+              "macro_lpips_delta": null,
+              "positive_domains": 5,
+              "worst_domain_delta": -1.0547848505100887,
+              "domain_delta": {
+                "FoggyCityscapes": {
+                  "psnr": 0.010972906783655034,
+                  "ssim": -0.024858468770980857,
+                  "lpips": null
+                },
+                "LowLightTrafficData": {
+                  "psnr": -1.0547848505100887,
+                  "ssim": -0.06113671958446504,
+                  "lpips": null
+                },
+                "RSCityscapes": {
+                  "psnr": 0.14245832257051738,
+                  "ssim": -0.026619875431060758,
+                  "lpips": null
+                },
+                "RainCityscapes": {
+                  "psnr": 0.5670501060531681,
+                  "ssim": -3.149211406705543e-05,
+                  "lpips": null
+                },
+                "RainDS-syn": {
+                  "psnr": 1.0964185368867536,
+                  "ssim": 0.03633711040019988,
+                  "lpips": null
+                },
+                "SnowTrafficData": {
+                  "psnr": 0.8101864205920748,
+                  "ssim": 0.0366578012704849,
+                  "lpips": null
+                }
+              },
+              "guardrails_pass": false
+            },
+            "step_800": {
+              "step": 800,
+              "macro_psnr": 13.203658296068944,
+              "plain_macro_psnr": 14.746445065691512,
+              "macro_psnr_delta": -1.5427867696225679,
+              "final_psnr": 13.203658296068944,
+              "macro_ssim_delta": -0.05036111325025555,
+              "macro_lpips_delta": null,
+              "positive_domains": 1,
+              "worst_domain_delta": -2.951147137229473,
+              "domain_delta": {
+                "FoggyCityscapes": {
+                  "psnr": -2.505074933385142,
+                  "ssim": -0.07556770443916322,
+                  "lpips": null
+                },
+                "LowLightTrafficData": {
+                  "psnr": -0.4362525295059232,
+                  "ssim": -0.007375425100326516,
+                  "lpips": null
+                },
+                "RSCityscapes": {
+                  "psnr": -2.8599186858383447,
+                  "ssim": -0.08919047415256504,
+                  "lpips": null
+                },
+                "RainCityscapes": {
+                  "psnr": -2.951147137229473,
+                  "ssim": -0.08435166478157041,
+                  "lpips": null
+                },
+                "RainDS-syn": {
+                  "psnr": 0.7353382932866097,
+                  "ssim": 0.0007666379213333574,
+                  "lpips": null
+                },
+                "SnowTrafficData": {
+                  "psnr": -1.2396656250631235,
+                  "ssim": -0.046448048949241594,
+                  "lpips": null
+                }
+              },
+              "guardrails_pass": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "G2-DT-FBGC8",
+      "generation": 2,
+      "name": "Future-Batch Gradient Consensus for DT",
+      "parents": [
+        "G1-DT-RHGC8"
+      ],
+      "observed_failure": "G1-DT-RHGC8 changed from +0.104052 dB at 400 to -0.381266 dB at 800 despite committing 3/100 proposal blocks",
+      "unsb_object": "one-sided alignment of the proposal correction with the next-batch native UNSB generator gradient",
+      "operator": "two-gate target-blind receding-horizon full-state selection",
+      "derivation": "Run B0=Phi_0^8(S) and Bi=Phi_i^8(S). Let delta be the G/F parameter correction theta_i-theta_0 and let g+ be the native UNSB generator gradient at B0 on the next independent unpaired batch. Commit Bi only when -1*(Delta G_GAN)>0 and <delta,g+><0.",
+      "identity_condition": "failure of either the audited lead gate or future-gradient gate commits the exact plain full state",
+      "self_null_condition": "rejected proposal and audit computations contribute no parameters, moments, scheduler, stream, RNG or method co-state",
+      "changes_training_target": false,
+      "changes_gradient_estimator": false,
+      "changes_endpoint_law": false,
+      "paired_target_access": false,
+      "paired_target_proof": "both gates read only unpaired training losses, G/F parameter displacement and a native gradient on the next unpaired batch",
+      "expected_valid_states": "states where the historical short lead and an independent future native descent direction agree",
+      "falsification_test": "from the same e0, kill after the 800-update micro run if final delta is non-positive or guardrails fail; no further revision is allowed",
+      "compute_cost": "plain and proposal 8-update branches plus one native next-batch generator forward/backward per block",
+      "memory_cost": "one live branch plus CPU full-state snapshots",
+      "pseudocode": [
+        "plain = Phi_0^8(S); proposal = Phi_i^8(S)",
+        "lead = direction * (observable(proposal)-observable(plain)) > 0",
+        "g_future = grad L_UNSB(plain; next_unpaired_batch)",
+        "consensus = dot(theta_proposal-theta_plain, g_future) < 0",
+        "commit proposal iff lead and consensus else exact plain"
+      ],
+      "status": "closed_second_generation_failure",
+      "history": [
+        {
+          "from": "proposed",
+          "to": "closed_second_generation_failure",
+          "evidence": {
+            "summary": "identical to G1 DT at 400/800; final delta -0.381266"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G2-HJ-FBDFC8",
+      "generation": 2,
+      "name": "Future-Batch Gradient Consensus for HJ",
+      "parents": [
+        "G1-HJ-RHDFC8"
+      ],
+      "observed_failure": "G1-HJ-RHDFC8 changed from +0.262050 dB at 400 to -1.542787 dB at 800 despite committing 54/100 proposal blocks",
+      "unsb_object": "one-sided alignment of the proposal correction with the next-batch native UNSB generator gradient",
+      "operator": "two-gate target-blind receding-horizon full-state selection",
+      "derivation": "Run B0=Phi_0^8(S) and Bi=Phi_i^8(S). Let delta be the G/F parameter correction theta_i-theta_0 and let g+ be the native UNSB generator gradient at B0 on the next independent unpaired batch. Commit Bi only when 1*(Delta D_fake)>0 and <delta,g+><0.",
+      "identity_condition": "failure of either the audited lead gate or future-gradient gate commits the exact plain full state",
+      "self_null_condition": "rejected proposal and audit computations contribute no parameters, moments, scheduler, stream, RNG or method co-state",
+      "changes_training_target": false,
+      "changes_gradient_estimator": false,
+      "changes_endpoint_law": false,
+      "paired_target_access": false,
+      "paired_target_proof": "both gates read only unpaired training losses, G/F parameter displacement and a native gradient on the next unpaired batch",
+      "expected_valid_states": "states where the historical short lead and an independent future native descent direction agree",
+      "falsification_test": "from the same e0, kill after the 800-update micro run if final delta is non-positive or guardrails fail; no further revision is allowed",
+      "compute_cost": "plain and proposal 8-update branches plus one native next-batch generator forward/backward per block",
+      "memory_cost": "one live branch plus CPU full-state snapshots",
+      "pseudocode": [
+        "plain = Phi_0^8(S); proposal = Phi_i^8(S)",
+        "lead = direction * (observable(proposal)-observable(plain)) > 0",
+        "g_future = grad L_UNSB(plain; next_unpaired_batch)",
+        "consensus = dot(theta_proposal-theta_plain, g_future) < 0",
+        "commit proposal iff lead and consensus else exact plain"
+      ],
+      "status": "closed_second_generation_failure",
+      "history": [
+        {
+          "from": "proposed",
+          "to": "closed_second_generation_failure",
+          "evidence": {
+            "summary": "full selector passed 400/800 but failed late promotion; late-three mean -0.431388 and final -0.606743"
+          }
+        }
+      ]
+    }
+  ],
+  "confirmation20_opened": false
+}

@@ -1,0 +1,173 @@
+{
+  "plain": [
+    {
+      "step": 400,
+      "macro_psnr": 14.361533234539438,
+      "macro_ssim": 0.49541965226332346
+    },
+    {
+      "step": 800,
+      "macro_psnr": 14.746445065691512,
+      "macro_ssim": 0.4730268393953641
+    },
+    {
+      "step": 1200,
+      "macro_psnr": 14.29413910204166,
+      "macro_ssim": 0.4694817170500755
+    },
+    {
+      "step": 1600,
+      "macro_psnr": 13.648661916603883,
+      "macro_ssim": 0.44294501493374505
+    },
+    {
+      "step": 2000,
+      "macro_psnr": 11.861472412130588,
+      "macro_ssim": 0.3814272282024224
+    },
+    {
+      "step": 2400,
+      "macro_psnr": 13.584461927972706,
+      "macro_ssim": 0.4501673353215058
+    }
+  ],
+  "lanes": {
+    "G2-HJ-FBDFC8::proposal_only": [
+      {
+        "step": 400,
+        "candidate_macro_psnr": 14.700903250960387,
+        "plain_macro_psnr": 14.361533234539438,
+        "macro_psnr_delta": 0.3393700164209488,
+        "macro_ssim_delta": -0.018950741241375635
+      },
+      {
+        "step": 800,
+        "candidate_macro_psnr": 14.705114068432673,
+        "plain_macro_psnr": 14.746445065691512,
+        "macro_psnr_delta": -0.041330997258839375,
+        "macro_ssim_delta": -0.011419447759787205
+      },
+      {
+        "step": 1200,
+        "candidate_macro_psnr": 14.967195193805424,
+        "plain_macro_psnr": 14.29413910204166,
+        "macro_psnr_delta": 0.6730560917637636,
+        "macro_ssim_delta": 0.009326950709025117
+      },
+      {
+        "step": 1600,
+        "candidate_macro_psnr": 12.921451470436557,
+        "plain_macro_psnr": 13.648661916603883,
+        "macro_psnr_delta": -0.7272104461673266,
+        "macro_ssim_delta": -0.021910719573497772
+      },
+      {
+        "step": 2000,
+        "candidate_macro_psnr": 14.37972752529077,
+        "plain_macro_psnr": 11.861472412130588,
+        "macro_psnr_delta": 2.5182551131601816,
+        "macro_ssim_delta": 0.07171410570542025
+      },
+      {
+        "step": 2400,
+        "candidate_macro_psnr": 14.629215758719885,
+        "plain_macro_psnr": 13.584461927972706,
+        "macro_psnr_delta": 1.0447538307471795,
+        "macro_ssim_delta": 0.0009159227212269805
+      }
+    ],
+    "G2-HJ-FBDFC8::full": [
+      {
+        "step": 400,
+        "candidate_macro_psnr": 14.86398163951605,
+        "plain_macro_psnr": 14.361533234539438,
+        "macro_psnr_delta": 0.5024484049766116,
+        "macro_ssim_delta": -0.004038324952125527
+      },
+      {
+        "step": 800,
+        "candidate_macro_psnr": 14.970831642714208,
+        "plain_macro_psnr": 14.746445065691512,
+        "macro_psnr_delta": 0.22438657702269538,
+        "macro_ssim_delta": 2.8865536054023533e-05
+      },
+      {
+        "step": 1200,
+        "candidate_macro_psnr": 13.996139039238306,
+        "plain_macro_psnr": 14.29413910204166,
+        "macro_psnr_delta": -0.29800006280335367,
+        "macro_ssim_delta": -0.016177168240149864
+      },
+      {
+        "step": 1600,
+        "candidate_macro_psnr": 12.109390520577529,
+        "plain_macro_psnr": 13.648661916603883,
+        "macro_psnr_delta": -1.5392713960263542,
+        "macro_ssim_delta": -0.03369223301609359
+      },
+      {
+        "step": 2000,
+        "candidate_macro_psnr": 12.713321496336087,
+        "plain_macro_psnr": 11.861472412130588,
+        "macro_psnr_delta": 0.8518490842054991,
+        "macro_ssim_delta": 0.038277642925580335
+      },
+      {
+        "step": 2400,
+        "candidate_macro_psnr": 12.977718577745707,
+        "plain_macro_psnr": 13.584461927972706,
+        "macro_psnr_delta": -0.6067433502269992,
+        "macro_ssim_delta": -0.00024596725900960514
+      }
+    ],
+    "G2-DT-FBGC8::full": [
+      {
+        "step": 400,
+        "candidate_macro_psnr": 14.465584892429098,
+        "plain_macro_psnr": 14.361533234539438,
+        "macro_psnr_delta": 0.10405165788965931,
+        "macro_ssim_delta": -0.0012533098459244219
+      },
+      {
+        "step": 800,
+        "candidate_macro_psnr": 14.365178785065552,
+        "plain_macro_psnr": 14.746445065691512,
+        "macro_psnr_delta": -0.3812662806259599,
+        "macro_ssim_delta": -0.0021716440717379215
+      }
+    ],
+    "G1-DT-RHGC8::full": [
+      {
+        "step": 400,
+        "candidate_macro_psnr": 14.465584892429098,
+        "plain_macro_psnr": 14.361533234539438,
+        "macro_psnr_delta": 0.10405165788965931,
+        "macro_ssim_delta": -0.0012533098459244219
+      },
+      {
+        "step": 800,
+        "candidate_macro_psnr": 14.365178785065552,
+        "plain_macro_psnr": 14.746445065691512,
+        "macro_psnr_delta": -0.3812662806259599,
+        "macro_ssim_delta": -0.0021716440717379215
+      }
+    ],
+    "G1-HJ-RHDFC8::full": [
+      {
+        "step": 400,
+        "candidate_macro_psnr": 14.623583474935453,
+        "plain_macro_psnr": 14.361533234539438,
+        "macro_psnr_delta": 0.26205024039601454,
+        "macro_ssim_delta": -0.006608607371648256
+      },
+      {
+        "step": 800,
+        "candidate_macro_psnr": 13.203658296068944,
+        "plain_macro_psnr": 14.746445065691512,
+        "macro_psnr_delta": -1.5427867696225679,
+        "macro_ssim_delta": -0.05036111325025555
+      }
+    ]
+  },
+  "confirmation20_opened": false
+}

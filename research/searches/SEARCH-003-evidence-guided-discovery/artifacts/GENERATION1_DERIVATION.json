@@ -1,0 +1,132 @@
+{
+  "schema": "clean-unsb-search003-generation1-v1",
+  "candidate_count": 2,
+  "cards": [
+    {
+      "id": "G1-DT-RHGC8",
+      "generation": 1,
+      "name": "Receding-Horizon GAN Consensus for DT",
+      "parents": [
+        "dt"
+      ],
+      "parent_probe": "dt",
+      "observed_failure": "DT locally helps at 3k/H200 but decays by H1000 and becomes harmful at 4k",
+      "evidence": {
+        "feature": "loss_delta::G_GAN",
+        "direction": -1,
+        "balanced_accuracy": 0.75,
+        "spearman": 0.6761234037828132,
+        "supporting_domains": [
+          "FoggyCityscapes",
+          "RSCityscapes",
+          "RainCityscapes",
+          "SnowTrafficData"
+        ],
+        "precursor_horizon": 8,
+        "outcome_horizon": 200
+      },
+      "unsb_object": "full optimizer-state transition under the native GAN component",
+      "operator": "target-blind receding-horizon full-state branch selection",
+      "derivation": "From the same immutable full state S_k, compute B0=Phi_0^8(S_k) and Bi=Phi_dt^8(S_k). Let Delta=G_GAN(Bi)-G_GAN(B0). Commit Bi iff Delta<0; otherwise commit B0.",
+      "identity_condition": "Delta_G_GAN >= 0 commits the exact plain branch",
+      "self_null_condition": "a rejected proposal contributes zero parameters, moments, schedulers, streams or RNG state",
+      "changes_training_target": false,
+      "changes_gradient_estimator": false,
+      "changes_endpoint_law": false,
+      "paired_target_access": false,
+      "paired_target_proof": "the decision reads only branch-averaged unpaired G_GAN; PSNR/SSIM/LPIPS and confirmation identities are absent from the controller interface",
+      "expected_valid_states": "states whose 8-step observable retains its audited lead relationship",
+      "falsification_test": "proposal-only, observable-only/plain, and full selector from the same e0; kill if the selector chooses harmful H200 branches or fails the 2400-step late gate",
+      "compute_cost": "two 8-update branches per committed 8 updates; proposal branch inherits parent-probe cost",
+      "memory_cost": "one live branch at a time plus one CPU full-state snapshot",
+      "pseudocode": [
+        "snapshot = full_state()",
+        "plain = run(snapshot, operator=UNSB, H=8)",
+        "proposal = run(snapshot, operator=dt, H=8)",
+        "commit proposal if direction * (mean(G_GAN)_proposal - mean(G_GAN)_plain) > 0 else plain",
+        "repeat from committed full state"
+      ],
+      "status": "proposed"
+    },
+    {
+      "id": "G1-HJ-RHDFC8",
+      "generation": 1,
+      "name": "Receding-Horizon Native-Discriminator Consensus for HJ",
+      "parents": [
+        "hj"
+      ],
+      "parent_probe": "hj",
+      "observed_failure": "HJ's own gate/risk cannot distinguish beneficial and harmful states",
+      "evidence": {
+        "feature": "loss_delta::D_fake",
+        "direction": 1,
+        "balanced_accuracy": 0.75,
+        "spearman": 0.4285714285714286,
+        "supporting_domains": [
+          "FoggyCityscapes",
+          "RSCityscapes",
+          "RainCityscapes",
+          "SnowTrafficData"
+        ],
+        "precursor_horizon": 8,
+        "outcome_horizon": 200
+      },
+      "unsb_object": "full optimizer-state transition under the native fake-discriminator component",
+      "operator": "target-blind receding-horizon full-state branch selection",
+      "derivation": "From the same immutable full state S_k, compute B0=Phi_0^8(S_k) and Bi=Phi_hj^8(S_k). Let Delta=D_fake(Bi)-D_fake(B0). Commit Bi iff Delta>0; otherwise commit B0.",
+      "identity_condition": "Delta_D_fake <= 0 commits the exact plain branch",
+      "self_null_condition": "a rejected proposal contributes zero parameters, moments, schedulers, streams or RNG state",
+      "changes_training_target": false,
+      "changes_gradient_estimator": false,
+      "changes_endpoint_law": false,
+      "paired_target_access": false,
+      "paired_target_proof": "the decision reads only branch-averaged unpaired D_fake; PSNR/SSIM/LPIPS and confirmation identities are absent from the controller interface",
+      "expected_valid_states": "states whose 8-step observable retains its audited lead relationship",
+      "falsification_test": "proposal-only, observable-only/plain, and full selector from the same e0; kill if the selector chooses harmful H200 branches or fails the 2400-step late gate",
+      "compute_cost": "two 8-update branches per committed 8 updates; proposal branch inherits parent-probe cost",
+      "memory_cost": "one live branch at a time plus one CPU full-state snapshot",
+      "pseudocode": [
+        "snapshot = full_state()",
+        "plain = run(snapshot, operator=UNSB, H=8)",
+        "proposal = run(snapshot, operator=hj, H=8)",
+        "commit proposal if direction * (mean(D_fake)_proposal - mean(D_fake)_plain) > 0 else plain",
+        "repeat from committed full state"
+      ],
+      "status": "proposed"
+    }
+  ],
+  "route_closures": [
+    {
+      "probe": "hnek",
+      "status": "no_generation1_candidate",
+      "reason": "no legal lead signal and between-time generator-gradient variance does not dominate within-time variance; an adaptive controller or time-importance sampler is not evidence-routed",
+      "variance_evidence": {
+        "cells": [
+          {
+            "step": 2000,
+            "between_time_variance": 1.3466825018868902,
+            "mean_within_time_variance": 60.40083956067271,
+            "between_fraction": 0.02180949869571279
+          },
+          {
+            "step": 3000,
+            "between_time_variance": 10.66922033762945,
+            "mean_within_time_variance": 96.221957894717,
+            "between_fraction": 0.09981385287416382
+          },
+          {
+            "step": 4000,
+            "between_time_variance": 15.989345709753552,
+            "mean_within_time_variance": 84.47797318297226,
+            "between_fraction": 0.15914972038644934
+          }
+        ],
+        "median_between_fraction": 0.09981385287416382,
+        "time_variance_dominant": false
+      }
+    }
+  ],
+  "shared_controller_used": false,
+  "paired_target_access": false,
+  "confirmation20_opened": false
+}

@@ -1,0 +1,31 @@
+{
+  "id": "G2-HJ-FBDFC8",
+  "generation": 2,
+  "name": "Future-Batch Gradient Consensus for HJ",
+  "parents": [
+    "G1-HJ-RHDFC8"
+  ],
+  "observed_failure": "G1-HJ-RHDFC8 changed from +0.262050 dB at 400 to -1.542787 dB at 800 despite committing 54/100 proposal blocks",
+  "unsb_object": "one-sided alignment of the proposal correction with the next-batch native UNSB generator gradient",
+  "operator": "two-gate target-blind receding-horizon full-state selection",
+  "derivation": "Run B0=Phi_0^8(S) and Bi=Phi_i^8(S). Let delta be the G/F parameter correction theta_i-theta_0 and let g+ be the native UNSB generator gradient at B0 on the next independent unpaired batch. Commit Bi only when 1*(Delta D_fake)>0 and <delta,g+><0.",
+  "identity_condition": "failure of either the audited lead gate or future-gradient gate commits the exact plain full state",
+  "self_null_condition": "rejected proposal and audit computations contribute no parameters, moments, scheduler, stream, RNG or method co-state",
+  "changes_training_target": false,
+  "changes_gradient_estimator": false,
+  "changes_endpoint_law": false,
+  "paired_target_access": false,
+  "paired_target_proof": "both gates read only unpaired training losses, G/F parameter displacement and a native gradient on the next unpaired batch",
+  "expected_valid_states": "states where the historical short lead and an independent future native descent direction agree",
+  "falsification_test": "from the same e0, kill after the 800-update micro run if final delta is non-positive or guardrails fail; no further revision is allowed",
+  "compute_cost": "plain and proposal 8-update branches plus one native next-batch generator forward/backward per block",
+  "memory_cost": "one live branch plus CPU full-state snapshots",
+  "pseudocode": [
+    "plain = Phi_0^8(S); proposal = Phi_i^8(S)",
+    "lead = direction * (observable(proposal)-observable(plain)) > 0",
+    "g_future = grad L_UNSB(plain; next_unpaired_batch)",
+    "consensus = dot(theta_proposal-theta_plain, g_future) < 0",
+    "commit proposal iff lead and consensus else exact plain"
+  ],
+  "status": "proposed"
+}

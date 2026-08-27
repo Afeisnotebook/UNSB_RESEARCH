@@ -1,0 +1,29 @@
+{
+  "id": "SEARCH-003",
+  "slug": "evidence-guided-discovery",
+  "status": "closed_current_protocol",
+  "source_commit": "649b7ec2bd520ccb174b73c5b5187f7ce08ebb22",
+  "stages": [
+    "engineering_gate",
+    "generation0_reversal_atlas",
+    "generation1_derivation",
+    "small_view_discovery",
+    "full_view_competition",
+    "local_seed_validation"
+  ],
+  "completed_stages": [
+    "engineering_gate",
+    "generation0_reversal_atlas",
+    "generation1_derivation",
+    "generation2_revision",
+    "small_view_discovery"
+  ],
+  "not_started_by_gate": [
+    "full_view_competition",
+    "local_seed_validation"
+  ],
+  "outcome": "weak_fallback_no_sustained_route1_candidate",
+  "frozen_candidate": "G2-HJ-FBDFC8::proposal_only",
+  "promotion_passed": false,
+  "confirmation20_opened": false
+}

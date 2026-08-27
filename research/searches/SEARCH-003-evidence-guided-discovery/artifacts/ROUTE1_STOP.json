@@ -1,0 +1,11 @@
+{
+  "schema": "clean-unsb-search003-route1-stop-v1",
+  "route1_sustained_candidate_found": false,
+  "reason": "target-blind local UNSB loss/gradient consistency delayed or reshaped reversal but did not ensure sustained paired restoration quality",
+  "honest_stop_category": "correction_valid_on_unpaired_native_objective_but_not_equivalent_to_psnr",
+  "third_generation_allowed": false,
+  "full_view_started": false,
+  "seed_2027_started": false,
+  "confirmation20_opened": false,
+  "next_route": "plan gap-aware handoff separately; do not mutate SEARCH-003"
+}

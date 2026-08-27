@@ -1,0 +1,21 @@
+{
+  "schema": "clean-unsb-scientific-status-v1",
+  "protocol_status": [
+    "active",
+    "closed_current_protocol",
+    "superseded"
+  ],
+  "mechanism_status": [
+    "open",
+    "supported_with_limits",
+    "mechanism_falsified"
+  ],
+  "trajectory_status": [
+    "not_audited",
+    "reversal_observed",
+    "locally_sustained",
+    "seed_sustained"
+  ],
+  "legacy_closed_negative_is_scientifically_ambiguous": true,
+  "confirmation20_opened": false
+}

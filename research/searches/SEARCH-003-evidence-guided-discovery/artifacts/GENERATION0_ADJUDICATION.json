@@ -1,0 +1,395 @@
+{
+  "schema": "clean-unsb-search003-generation0-adjudication-v1",
+  "complete": true,
+  "missing_decisive_cells": [],
+  "probes": {
+    "dt": {
+      "decisive_cells": [
+        {
+          "probe": "dt",
+          "stage": "full",
+          "step": 2000,
+          "horizon": 200,
+          "plain_state_proposal_delta": -0.7818371968892777,
+          "own_state_proposal_delta": 0.0,
+          "plain_state_positive_domains": 2,
+          "own_state_positive_domains": 0,
+          "plain_state_correction_cosine": -0.7379868842946281,
+          "own_state_correction_cosine": 0.0,
+          "plain_state_correction_ratio": 1.1187735649325614,
+          "own_state_correction_ratio": 0.0,
+          "causal_case": "operator_locally_harmful",
+          "phase": "pre"
+        },
+        {
+          "probe": "dt",
+          "stage": "full",
+          "step": 3000,
+          "horizon": 200,
+          "plain_state_proposal_delta": 0.05672282718116861,
+          "own_state_proposal_delta": 0.6878795029138569,
+          "plain_state_positive_domains": 3,
+          "own_state_positive_domains": 4,
+          "plain_state_correction_cosine": -0.41296445601021664,
+          "own_state_correction_cosine": -0.7283293887096309,
+          "plain_state_correction_ratio": 1.0249700076653863,
+          "own_state_correction_ratio": 1.1661903494058745,
+          "causal_case": "operator_locally_sustainable",
+          "phase": "near"
+        },
+        {
+          "probe": "dt",
+          "stage": "full",
+          "step": 4000,
+          "horizon": 200,
+          "plain_state_proposal_delta": -1.7665752192394848,
+          "own_state_proposal_delta": -0.31201755359980154,
+          "plain_state_positive_domains": 2,
+          "own_state_positive_domains": 2,
+          "plain_state_correction_cosine": -0.46728665796624413,
+          "own_state_correction_cosine": -0.35641241997150425,
+          "plain_state_correction_ratio": 1.1638004896221303,
+          "own_state_correction_ratio": 1.583409985126278,
+          "causal_case": "operator_locally_harmful",
+          "phase": "post"
+        }
+      ],
+      "verdict": "reversal_observed_operator_rewrite_route",
+      "mechanism_falsified": false,
+      "reversal_observed": true,
+      "closed_current_protocol": false,
+      "variance_claim": "not_identifiable_from_single_seed_counterfactuals"
+    },
+    "hj": {
+      "decisive_cells": [
+        {
+          "probe": "hj",
+          "stage": "small",
+          "step": 400,
+          "horizon": 200,
+          "plain_state_proposal_delta": 0.5941103389801103,
+          "own_state_proposal_delta": -0.29326916619339016,
+          "plain_state_positive_domains": 5,
+          "own_state_positive_domains": 0,
+          "plain_state_correction_cosine": -0.5010514237488088,
+          "own_state_correction_cosine": -0.5258423278696169,
+          "plain_state_correction_ratio": 0.9243637100367306,
+          "own_state_correction_ratio": 1.0684182006598841,
+          "causal_case": "state_feedback_missing",
+          "phase": "pre"
+        },
+        {
+          "probe": "hj",
+          "stage": "small",
+          "step": 800,
+          "horizon": 200,
+          "plain_state_proposal_delta": 0.19218123257458508,
+          "own_state_proposal_delta": 0.23922387123400668,
+          "plain_state_positive_domains": 5,
+          "own_state_positive_domains": 5,
+          "plain_state_correction_cosine": -0.5246562208368429,
+          "own_state_correction_cosine": -0.6424754087289858,
+          "plain_state_correction_ratio": 0.995526764542619,
+          "own_state_correction_ratio": 1.000178177691804,
+          "causal_case": "operator_locally_sustainable",
+          "phase": "near"
+        },
+        {
+          "probe": "hj",
+          "stage": "small",
+          "step": 1200,
+          "horizon": 200,
+          "plain_state_proposal_delta": 0.022472699961650022,
+          "own_state_proposal_delta": -0.21025732140154219,
+          "plain_state_positive_domains": 4,
+          "own_state_positive_domains": 2,
+          "plain_state_correction_cosine": -0.49096234925179083,
+          "own_state_correction_cosine": -0.5916674739481783,
+          "plain_state_correction_ratio": 0.992533749932239,
+          "own_state_correction_ratio": 1.1018100629317373,
+          "causal_case": "state_feedback_missing",
+          "phase": "post"
+        }
+      ],
+      "verdict": "reversal_observed_state_feedback_route",
+      "mechanism_falsified": false,
+      "reversal_observed": true,
+      "closed_current_protocol": false,
+      "variance_claim": "not_identifiable_from_single_seed_counterfactuals"
+    },
+    "hnek": {
+      "decisive_cells": [
+        {
+          "probe": "hnek",
+          "stage": "full",
+          "step": 2000,
+          "horizon": 200,
+          "plain_state_proposal_delta": -1.1640682325563407,
+          "own_state_proposal_delta": 0.7140498129964783,
+          "plain_state_positive_domains": 1,
+          "own_state_positive_domains": 5,
+          "plain_state_correction_cosine": -0.6368337936659646,
+          "own_state_correction_cosine": -0.6771815650247841,
+          "plain_state_correction_ratio": 1.2866964637048541,
+          "own_state_correction_ratio": 1.062862452222609,
+          "causal_case": "benefit_requires_method_state",
+          "phase": "pre"
+        },
+        {
+          "probe": "hnek",
+          "stage": "full",
+          "step": 3000,
+          "horizon": 200,
+          "plain_state_proposal_delta": -0.8266670282569919,
+          "own_state_proposal_delta": 0.1723982948476177,
+          "plain_state_positive_domains": 1,
+          "own_state_positive_domains": 3,
+          "plain_state_correction_cosine": -0.5017402680737002,
+          "own_state_correction_cosine": -0.5030513824062927,
+          "plain_state_correction_ratio": 1.3764288634635895,
+          "own_state_correction_ratio": 1.5409920015907572,
+          "causal_case": "benefit_requires_method_state",
+          "phase": "near"
+        },
+        {
+          "probe": "hnek",
+          "stage": "full",
+          "step": 4000,
+          "horizon": 200,
+          "plain_state_proposal_delta": -1.2272415081727672,
+          "own_state_proposal_delta": 1.007929028095278,
+          "plain_state_positive_domains": 3,
+          "own_state_positive_domains": 6,
+          "plain_state_correction_cosine": -0.6406886852302093,
+          "own_state_correction_cosine": -0.7149697550853987,
+          "plain_state_correction_ratio": 1.102621886321277,
+          "own_state_correction_ratio": 1.1894209663896051,
+          "causal_case": "benefit_requires_method_state",
+          "phase": "post"
+        }
+      ],
+      "verdict": "state_dependent_route",
+      "mechanism_falsified": false,
+      "reversal_observed": true,
+      "closed_current_protocol": false,
+      "variance_claim": "not_identifiable_from_single_seed_counterfactuals"
+    }
+  },
+  "target_blind_signal_gate": {
+    "shared_signal_gate_passed": false,
+    "eligible_shared_signals": [],
+    "consequence": "shared_controller_route_closed_unless_decisive_audit_adds_evidence",
+    "eligible_method_signals": {
+      "dt": [
+        {
+          "feature": "loss_delta::G_GAN",
+          "direction": -1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.5428571428571429,
+          "leave_one_method_out": {
+            "dt": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.75,
+            "LowLightTrafficData": 0.375,
+            "RSCityscapes": 0.6666666666666666,
+            "RainCityscapes": 0.75,
+            "RainDS-syn": 0.3333333333333333,
+            "SnowTrafficData": 1.0
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 4
+        }
+      ],
+      "hj": [
+        {
+          "feature": "loss_delta::NCE",
+          "direction": -1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.8857142857142858,
+          "leave_one_method_out": {
+            "hj": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.7,
+            "LowLightTrafficData": null,
+            "RSCityscapes": 0.75,
+            "RainCityscapes": 0.7,
+            "RainDS-syn": 0.8333333333333333,
+            "SnowTrafficData": 0.75
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "RainDS-syn",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 5
+        },
+        {
+          "feature": "loss_delta::G",
+          "direction": -1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.7714285714285715,
+          "leave_one_method_out": {
+            "hj": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.7,
+            "LowLightTrafficData": null,
+            "RSCityscapes": 0.75,
+            "RainCityscapes": 0.7,
+            "RainDS-syn": 0.8333333333333333,
+            "SnowTrafficData": 0.75
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "RainDS-syn",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 5
+        },
+        {
+          "feature": "loss_delta::NCE_Y",
+          "direction": -1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.5428571428571429,
+          "leave_one_method_out": {
+            "hj": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.7,
+            "LowLightTrafficData": null,
+            "RSCityscapes": 0.75,
+            "RainCityscapes": 0.7,
+            "RainDS-syn": 0.8333333333333333,
+            "SnowTrafficData": 0.75
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "RainDS-syn",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 5
+        },
+        {
+          "feature": "loss_delta::SB",
+          "direction": 1,
+          "n": 6,
+          "balanced_accuracy": 0.75,
+          "spearman": 0.3714285714285715,
+          "leave_one_method_out": {
+            "hj": 0.75
+          },
+          "finite_fold_mean": 0.75,
+          "finite_fold_min": 0.75,
+          "finite_fold_count": 1,
+          "required_method_fold_count": 1,
+          "domain_balanced_accuracy": {
+            "FoggyCityscapes": 0.7,
+            "LowLightTrafficData": null,
+            "RSCityscapes": 0.75,
+            "RainCityscapes": 0.7,
+            "RainDS-syn": 0.8333333333333333,
+            "SnowTrafficData": 0.75
+          },
+          "supporting_domains": [
+            "FoggyCityscapes",
+            "RSCityscapes",
+            "RainCityscapes",
+            "RainDS-syn",
+            "SnowTrafficData"
+          ],
+          "supporting_domain_count": 5
+        }
+      ],
+      "hnek": []
+    }
+  },
+  "observed_branch_delta_ranges": {
+    "dt::H1": [
+      0.0,
+      0.0
+    ],
+    "dt::H8": [
+      -0.01572628146487709,
+      0.001634158139182773
+    ],
+    "dt::H32": [
+      -0.049672762166805384,
+      0.18026623446589873
+    ],
+    "dt::H200": [
+      -1.9417744708506088,
+      0.6878795029138569
+    ],
+    "dt::H1000": [
+      0.024192248778675207,
+      0.024192248778675207
+    ],
+    "hj::H8": [
+      -0.12954600767215396,
+      0.5503897553214134
+    ],
+    "hj::H32": [
+      -0.17914661380457275,
+      0.16337066349051454
+    ],
+    "hj::H200": [
+      -0.29326916619339016,
+      0.5941103389801103
+    ],
+    "hnek::H1": [
+      0.4385344884871323,
+      0.6997163791403125
+    ],
+    "hnek::H8": [
+      0.21802647743656323,
+      0.6564641016724124
+    ],
+    "hnek::H32": [
+      0.21964956935333468,
+      0.8027510007780183
+    ],
+    "hnek::H200": [
+      -1.2272415081727672,
+      1.007929028095278
+    ],
+    "hnek::H1000": [
+      1.6404712357015327,
+      1.6404712357015327
+    ]
+  },
+  "paired_metrics_available_to_controller": false,
+  "confirmation20_opened": false
+}

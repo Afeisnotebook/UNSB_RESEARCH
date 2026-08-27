@@ -1,0 +1,170 @@
+{
+  "schema": "clean-unsb-search003-protocol-v1",
+  "source_commit": "649b7ec2bd520ccb174b73c5b5187f7ce08ebb22",
+  "manifest_sha256": "1a66cf71420ebb996abce23eecb7e555a6d9d93a39b6b8c3fc17dbf0ead42b7b",
+  "seed": 2026,
+  "counterfactual_horizons": [
+    1,
+    8,
+    32
+  ],
+  "decisive_horizon": 200,
+  "signal_balanced_accuracy_min": 0.65,
+  "signal_spearman_min": 0.3,
+  "signal_domain_agreement_min": 4,
+  "max_generation1_candidates": 6,
+  "max_generations_per_mechanism": 2,
+  "small_steps": 2400,
+  "small_eval_steps": [
+    400,
+    800,
+    1200,
+    1600,
+    2000,
+    2400
+  ],
+  "full_steps": 6000,
+  "full_eval_steps": [
+    1000,
+    2000,
+    3000,
+    4000,
+    5000,
+    6000
+  ],
+  "extension_steps": 12000,
+  "extension_eval_steps": [
+    8000,
+    10000,
+    12000
+  ],
+  "confirmation20_opened": false,
+  "probes": [
+    {
+      "name": "plain",
+      "model": "sb",
+      "mechanisms": [],
+      "family": "baseline",
+      "failure_object": "none",
+      "trainable_candidate": false
+    },
+    {
+      "name": "dt",
+      "model": "dtcov",
+      "mechanisms": [],
+      "family": "probe",
+      "failure_object": "anchored_functional_bias",
+      "trainable_candidate": false
+    },
+    {
+      "name": "hj",
+      "model": "hj",
+      "mechanisms": [],
+      "family": "probe",
+      "failure_object": "gradient_component_reversal",
+      "trainable_candidate": false
+    },
+    {
+      "name": "hnek",
+      "model": "hnek_search",
+      "mechanisms": [],
+      "family": "probe",
+      "failure_object": "bridge_coordinate_conditioning",
+      "trainable_candidate": false
+    },
+    {
+      "name": "lbst",
+      "model": "sb",
+      "mechanisms": [
+        "lbst"
+      ],
+      "family": "probe",
+      "failure_object": "rollout_distribution_velocity",
+      "trainable_candidate": false
+    },
+    {
+      "name": "ptq",
+      "model": "sb",
+      "mechanisms": [
+        "ptq"
+      ],
+      "family": "probe",
+      "failure_object": "time_sampling_measure",
+      "trainable_candidate": false
+    },
+    {
+      "name": "dcum",
+      "model": "sb",
+      "mechanisms": [
+        "dcum"
+      ],
+      "family": "probe",
+      "failure_object": "domain_sampling_measure",
+      "trainable_candidate": false
+    },
+    {
+      "name": "aeb",
+      "model": "sb",
+      "mechanisms": [
+        "aeb"
+      ],
+      "family": "probe",
+      "failure_object": "latent_endpoint_variance",
+      "trainable_candidate": false
+    },
+    {
+      "name": "lttr",
+      "model": "lttr",
+      "mechanisms": [],
+      "family": "probe",
+      "failure_object": "anchored_output_bias",
+      "trainable_candidate": false
+    },
+    {
+      "name": "ta_kck",
+      "model": "sb",
+      "mechanisms": [],
+      "family": "negative_control",
+      "failure_object": "historical_path_constraint",
+      "trainable_candidate": false
+    }
+  ],
+  "runtime_git_commit": "649b7ec2bd520ccb174b73c5b5187f7ce08ebb22",
+  "manifest": "E:\\UNSB_Expl\\FOUR_METHOD_MOTIVATION_20260813\\frozen\\DATA_MANIFEST.csv",
+  "train_view": "E:\\UNSB_Expl\\FOUR_METHOD_MOTIVATION_20260813\\frozen\\data_views_v2\\allinone_100",
+  "data_root": "E:\\UNSB_abl\\full_dataset",
+  "runs_root": "E:\\UNSB_Expl\\runs",
+  "domain_split_counts": {
+    "FoggyCityscapes": {
+      "train": 100,
+      "discovery": 80,
+      "confirmation": 20
+    },
+    "LowLightTrafficData": {
+      "train": 100,
+      "discovery": 80,
+      "confirmation": 20
+    },
+    "RSCityscapes": {
+      "train": 100,
+      "discovery": 80,
+      "confirmation": 20
+    },
+    "RainCityscapes": {
+      "train": 100,
+      "discovery": 80,
+      "confirmation": 20
+    },
+    "RainDS-syn": {
+      "train": 100,
+      "discovery": 80,
+      "confirmation": 20
+    },
+    "SnowTrafficData": {
+      "train": 100,
+      "discovery": 80,
+      "confirmation": 20
+    }
+  },
+  "paired_metrics_available_only_after_branch": true
+}

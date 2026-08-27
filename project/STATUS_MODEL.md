@@ -8,6 +8,17 @@
 
 `INCUBATING`、`IMPLEMENTED`、`DEVELOPMENT_FROZEN`、`HELD`、`CLOSED_NEGATIVE`、`CONFIRMED`、`ARCHIVED`。
 
+`CLOSED_NEGATIVE` 仅为旧版兼容状态，不能继续承担科学结论。SEARCH-003
+起采用三个正交证据字段：
+
+- `protocol_status`: `active`、`closed_current_protocol`、`superseded`；
+- `mechanism_status`: `open`、`supported_with_limits`、`mechanism_falsified`；
+- `trajectory_status`: `not_audited`、`reversal_observed`、`locally_sustained`、`seed_sustained`。
+
+例如，一个固定实现可以同时是 `closed_current_protocol` 和
+`reversal_observed`，但其父机制仍为 `open`。只有针对机制本身的判死实验通过，才允许
+写 `mechanism_falsified`；“长程相对收益反转”本身不足以推出该结论。
+
 ## Local result classification
 
 `STRONG_LOCAL_SIGNAL`、`POSITIVE_BUT_FRAGILE`、`WEAK_FALLBACK`、`COMPUTE_ONLY_SIGNAL`。

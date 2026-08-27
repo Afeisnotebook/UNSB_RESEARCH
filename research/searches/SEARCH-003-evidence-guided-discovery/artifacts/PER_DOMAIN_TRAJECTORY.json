@@ -1,0 +1,646 @@
+{
+  "schema": "clean-unsb-search003-domain-trajectory-v1",
+  "lanes": {
+    "G2-HJ-FBDFC8::proposal_only": [
+      {
+        "step": 400,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 1.5574475639984797,
+            "ssim": -0.022483345866203264,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -1.6149496267513541,
+            "ssim": -0.03229259103536608,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 1.3194502708666516,
+            "ssim": -0.014364042878150907,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 1.7602864284520408,
+            "ssim": -0.0067774087190627386,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": -1.1328591525555343,
+            "ssim": -0.01765420734882356,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.14684461451541608,
+            "ssim": -0.020132851600646928,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 800,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 0.4928750098548562,
+            "ssim": -0.02236151397228242,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -1.1707489961119304,
+            "ssim": 0.0003221690654754972,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 0.6550159820327934,
+            "ssim": -0.024682679772377036,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 0.6095341345786291,
+            "ssim": -0.031602722406387285,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": -0.538644972134561,
+            "ssim": 0.007702770829200789,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": -0.2960171417728148,
+            "ssim": 0.002105289697647117,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 1200,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 0.6554984102349266,
+            "ssim": 0.007263231277465865,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": 0.062157847722110304,
+            "ssim": -0.00893775522708895,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 0.5580562954254837,
+            "ssim": -0.0008673757314682229,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 0.6679102011325035,
+            "ssim": 0.0007937073707580122,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 1.4014955927224086,
+            "ssim": 0.03836652636528015,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.6932182033451753,
+            "ssim": 0.019343370199203402,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 1600,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": -0.41260946355629713,
+            "ssim": -0.026024001836776722,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -1.3256448962939569,
+            "ssim": -0.02294335365295408,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": -0.6047824265625117,
+            "ssim": -0.015619242191314664,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": -0.781580718265193,
+            "ssim": -0.032904556393623385,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": -0.47403087848006287,
+            "ssim": -0.004722854495048501,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": -0.764614293845927,
+            "ssim": -0.029250308871269226,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 2000,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 5.47964186592575,
+            "ssim": 0.12684774994850162,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -2.746183644696954,
+            "ssim": -0.031701329350471485,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 5.181722005392782,
+            "ssim": 0.10483043789863583,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 6.051462959160807,
+            "ssim": 0.15278802514076234,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": -2.193737841136736,
+            "ssim": 0.015562152862548861,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 3.3366253343154426,
+            "ssim": 0.061957597732543945,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 2400,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 3.724849698132015,
+            "ssim": 0.038951206207275324,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -1.7096682741533922,
+            "ssim": -0.04698686897754667,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 3.610065030513585,
+            "ssim": 0.05202308893203733,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 4.503884296188485,
+            "ssim": 0.046196225285530024,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": -3.7526845606995334,
+            "ssim": -0.051790568232536305,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": -0.10792320549809631,
+            "ssim": -0.032897546887397766,
+            "lpips": null
+          }
+        }
+      }
+    ],
+    "G2-HJ-FBDFC8::full": [
+      {
+        "step": 400,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 1.2197502386479115,
+            "ssim": 0.003777760267257735,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -1.7567774797327687,
+            "ssim": -0.08267709016799929,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 1.3260594561430175,
+            "ssim": 0.004498884081840515,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 1.7020505059202815,
+            "ssim": 0.02096057236194615,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 0.04097926096491378,
+            "ssim": 0.007255601882934559,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.48262844791632986,
+            "ssim": 0.021954321861267112,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 800,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 0.07265754485107045,
+            "ssim": -0.01589790582656858,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": 0.1381698893677239,
+            "ssim": 0.03734763562679294,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 0.11119479826927403,
+            "ssim": -0.02519136369228364,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": -0.08368615475341024,
+            "ssim": -0.026231417059898343,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 0.6301718178313429,
+            "ssim": 0.022993385791778564,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.4778115665701641,
+            "ssim": 0.007152858376503035,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 1200,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": -0.3859837339525338,
+            "ssim": -0.01941629946231843,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -0.38618932529093364,
+            "ssim": -0.038227157294750236,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": -0.797283506151226,
+            "ssim": -0.02738866508007054,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": -0.821757861768079,
+            "ssim": -0.03383570611476899,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 0.7726553714504831,
+            "ssim": 0.02563790678977962,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": -0.16944132110781673,
+            "ssim": -0.003833088278770491,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 1600,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": -1.4526450431446012,
+            "ssim": -0.036695370078086875,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -0.6038776689641736,
+            "ssim": -0.02787582129240035,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": -1.4151805799612394,
+            "ssim": -0.018039557337760914,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": -1.9225157273267328,
+            "ssim": -0.04573371708393098,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": -2.08717883918964,
+            "ssim": -0.027213966846466042,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": -1.7542305175717257,
+            "ssim": -0.04659496545791625,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 2000,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 1.0540828757118312,
+            "ssim": 0.0470581829547882,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -1.2480045864869282,
+            "ssim": -0.022369548678398132,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 0.34553065161393626,
+            "ssim": 0.026240551471710172,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 1.2198334195872427,
+            "ssim": 0.06640344858169556,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 1.6202260590175115,
+            "ssim": 0.05879991650581362,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 2.1194260857893994,
+            "ssim": 0.0535333067178726,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 2400,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": -0.4190054593634578,
+            "ssim": -0.009958338737487804,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": 1.5429653846269922,
+            "ssim": 0.06865088194608693,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": -1.3587985882035003,
+            "ssim": -0.037017041444778465,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": -2.552257408140008,
+            "ssim": -0.07346566319465642,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 0.29851435304393803,
+            "ssim": 0.04683875441551211,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": -1.151878383325963,
+            "ssim": 0.0034756034612656306,
+            "lpips": null
+          }
+        }
+      }
+    ],
+    "G1-HJ-RHDFC8::full": [
+      {
+        "step": 400,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 0.010972906783655034,
+            "ssim": -0.024858468770980857,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -1.0547848505100887,
+            "ssim": -0.06113671958446504,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 0.14245832257051738,
+            "ssim": -0.026619875431060758,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 0.5670501060531681,
+            "ssim": -3.149211406705543e-05,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 1.0964185368867536,
+            "ssim": 0.03633711040019988,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.8101864205920748,
+            "ssim": 0.0366578012704849,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 800,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": -2.505074933385142,
+            "ssim": -0.07556770443916322,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -0.4362525295059232,
+            "ssim": -0.007375425100326516,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": -2.8599186858383447,
+            "ssim": -0.08919047415256504,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": -2.951147137229473,
+            "ssim": -0.08435166478157041,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 0.7353382932866097,
+            "ssim": 0.0007666379213333574,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": -1.2396656250631235,
+            "ssim": -0.046448048949241594,
+            "lpips": null
+          }
+        }
+      }
+    ],
+    "G2-DT-FBGC8::full": [
+      {
+        "step": 400,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 0.2276534285039915,
+            "ssim": -0.001664984226226851,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -0.02061029063183284,
+            "ssim": -0.0023889362812042347,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 0.12958630538847515,
+            "ssim": -0.007701978087425232,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 0.16896076295167894,
+            "ssim": -0.00538138151168821,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": -0.019819569157006,
+            "ssim": 0.006468525528907809,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.138539310282642,
+            "ssim": 0.0031488955020905207,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 800,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": -1.140999376955163,
+            "ssim": -0.0030576348304748313,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -0.39748325518282535,
+            "ssim": 0.0019065558910369984,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": -1.2801074593456292,
+            "ssim": -0.026151159405708335,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": -1.3333548549628258,
+            "ssim": -0.01713104546070099,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 1.5931578604866772,
+            "ssim": 0.02464343905448918,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.2711894022040191,
+            "ssim": 0.006759980320930503,
+            "lpips": null
+          }
+        }
+      }
+    ],
+    "G1-DT-RHGC8::full": [
+      {
+        "step": 400,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": 0.2276534285039915,
+            "ssim": -0.001664984226226851,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -0.02061029063183284,
+            "ssim": -0.0023889362812042347,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": 0.12958630538847515,
+            "ssim": -0.007701978087425232,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": 0.16896076295167894,
+            "ssim": -0.00538138151168821,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": -0.019819569157006,
+            "ssim": 0.006468525528907809,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.138539310282642,
+            "ssim": 0.0031488955020905207,
+            "lpips": null
+          }
+        }
+      },
+      {
+        "step": 800,
+        "domain_delta": {
+          "FoggyCityscapes": {
+            "psnr": -1.140999376955163,
+            "ssim": -0.0030576348304748313,
+            "lpips": null
+          },
+          "LowLightTrafficData": {
+            "psnr": -0.39748325518282535,
+            "ssim": 0.0019065558910369984,
+            "lpips": null
+          },
+          "RSCityscapes": {
+            "psnr": -1.2801074593456292,
+            "ssim": -0.026151159405708335,
+            "lpips": null
+          },
+          "RainCityscapes": {
+            "psnr": -1.3333548549628258,
+            "ssim": -0.01713104546070099,
+            "lpips": null
+          },
+          "RainDS-syn": {
+            "psnr": 1.5931578604866772,
+            "ssim": 0.02464343905448918,
+            "lpips": null
+          },
+          "SnowTrafficData": {
+            "psnr": 0.2711894022040191,
+            "ssim": 0.006759980320930503,
+            "lpips": null
+          }
+        }
+      }
+    ]
+  },
+  "confirmation20_opened": false
+}
