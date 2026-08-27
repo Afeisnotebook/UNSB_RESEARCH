@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-08-27",
+  "updated": "2026-08-28",
   "layout_version": 2,
   "canonical": {
     "path": "foundation/canonical",
@@ -10,17 +10,19 @@
   "active_motivations": ["MOT-001"],
   "candidates": {
     "CAND-001": "closed_negative",
-    "CAND-002": "development_frozen_positive_but_fragile",
-    "CAND-003": "fallback_1_positive_but_fragile",
+    "CAND-002": "historical_positive_window_not_currently_promoted",
+    "CAND-003": "historical_oscillatory_fallback_not_currently_promoted",
     "CAND-004": "closed_negative",
     "CAND-005": "closed_negative"
   },
   "active_searches": {
     "SEARCH-001": "local_complete_candidate_frozen",
-    "SEARCH-002": "local_complete_candidate_frozen"
+    "SEARCH-002": "historical_finite_horizon_subroute_complete",
+    "SEARCH-003": "controller_subroute_complete_no_sustained_candidate",
+    "SEARCH-005": "route1_complete_no_sustained_candidate_weak_fallback_frozen"
   },
   "pre_restructure_search_work_commit": "495a092",
-  "next_gate": "verify_finite_horizon_HJ_vs_plain_on_4090_at_30k_60k_120k",
+  "next_gate": "explicitly_choose_conditional_PCOA_4090_falsification_or_plan_route2_gap_aware_handoff",
   "documentation": {
     "takeover_guide": "TAKEOVER_GUIDE_CN.md",
     "timeline": "project/TIMELINE.md",

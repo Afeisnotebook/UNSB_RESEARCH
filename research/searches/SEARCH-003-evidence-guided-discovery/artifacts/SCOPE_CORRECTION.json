@@ -1,0 +1,24 @@
+{
+  "schema": "clean-unsb-search003-scope-correction-v1",
+  "date": "2026-08-27",
+  "original_stop_artifact": "ROUTE1_STOP.json",
+  "corrected_stop_scope": "controller_subroute_only",
+  "executed_candidate_class": "target_blind_whole_branch_selector",
+  "allowed_claim": "two generations of target-blind DT/HJ whole-branch selection did not retain a smooth long-horizon benefit under the frozen local protocol",
+  "forbidden_claims": [
+    "all algorithms lack long-horizon retention",
+    "DT, HJ or HNEK mechanisms are falsified",
+    "route1 operator discovery is exhausted",
+    "gap-aware handoff is necessarily the next route"
+  ],
+  "untested_route1_classes": [
+    "update_operator",
+    "unbiased_estimator",
+    "bridge_coordinate",
+    "moving_reference_constraint",
+    "adaptive_rollout_dynamics",
+    "coupled_training_dynamics"
+  ],
+  "superseding_search": "SEARCH-005",
+  "confirmation20_opened": false
+}

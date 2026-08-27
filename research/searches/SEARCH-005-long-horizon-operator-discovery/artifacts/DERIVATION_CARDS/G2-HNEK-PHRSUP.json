@@ -1,0 +1,47 @@
+{
+  "candidate_id": "G2-HNEK-PHRSUP",
+  "name": "Physical-Horizon Rate-Safe Update Projection",
+  "candidate_type": "operator",
+  "generation": 2,
+  "parent_candidate": "G1-HNEK-PHCRP",
+  "parent_evidence": [
+    "PHCRP step400 PSNR delta=+0.033024 but SSIM delta=-0.038526",
+    "PHCRP step800 PSNR delta=-0.578581 with 1/6 positive domains",
+    "PHCRP pathwise projection exactly eliminates its residual-scaling defect",
+    "direct deterministic mean-endpoint contraction therefore repairs the observable while damaging content transport"
+  ],
+  "causal_failure_class": "correct_physical_observable_applied_to_the_wrong_endpoint_object",
+  "unsb_object": "first-order change of the pathwise horizon-scaling violation under the native Adam generator update",
+  "mathematical_update": "Let phi=max(0,log(e_i)-log(e_{i-1}h_i/h_{i-1})) on the current unpaired rollout, a=grad_theta phi, g0=grad_theta L_UNSB and M be Adam's positive diagonal gradient-to-update metric. Use g*=argmin_g ||g-g0||_M subject to <a,g>_M>=0: g*=g0 if <a,g0>_M>=0, otherwise g*=g0-(<a,g0>_M/<a,a>_M)a.",
+  "derivation": [
+    "The actual optimizer displacement is -M g, so the first-order defect change is -<a,g>_M.",
+    "The halfspace <a,g>_M>=0 contains exactly the generator gradients whose Adam step does not increase the observed physical violation to first order.",
+    "Metric projection is identity for a safe native update and whenever phi=0; it uses neither an exit time nor a tunable strength.",
+    "Cauchy-Schwarz gives <g0,g*>_M=||g0||_M^2-<a,g0>_M^2/||a||_M^2>=0, so the projected gradient cannot become native ascent.",
+    "The endpoint forward, bridge rollout and inference law are all exactly plain. Only an unsafe native generator update component is removed.",
+    "D, E and F retain their native updates; all path histories are transient within the current forward pass."
+  ],
+  "long_horizon_property": "a per-state constrained native update that is exact identity whenever the native Adam step is physically rate-safe",
+  "identity_condition": "phi=0 or <grad(phi),grad(L_UNSB)>_M>=0",
+  "self_null_condition": "the pathwise scaling defect is absent or the native update already leaves it nonincreasing",
+  "unbiased_or_invariance_property": "plain endpoint law and every native rate-safe update are invariant; native stationary points remain stationary",
+  "paired_target_access": false,
+  "paired_target_proof": "phi reads only consecutive unpaired rollout states, native endpoints and physical horizons",
+  "uses_fixed_window": false,
+  "uses_whole_state_branch_selection": false,
+  "changes_training_target": false,
+  "changes_gradient_estimator": true,
+  "changes_endpoint_law": false,
+  "expected_valid_states": "states where native UNSB updates reinforce an already observed slow-decaying deterministic endpoint residual",
+  "falsification_test": "close the PHCRP/PHRSUP mechanism after this generation if endpoint identity, exact zero intervention, projection inequalities or resume fail, or if the 400/800 micro trajectory remains late-negative",
+  "compute_cost": "one additional backward of a scalar defect through the already-computed endpoint graph; no additional generator forward",
+  "memory_cost": "one defect-gradient copy plus native generator gradients",
+  "allowed_claim": "tests whether a valid physical path observable can safely constrain coupled UNSB dynamics without altering outputs",
+  "forbidden_claims": [
+    "a hidden HNEK schedule",
+    "guaranteed PSNR improvement",
+    "second-order long-horizon stability",
+    "all endpoint-law-preserving projections are safe",
+    "route1 is exhausted if this candidate fails"
+  ]
+}

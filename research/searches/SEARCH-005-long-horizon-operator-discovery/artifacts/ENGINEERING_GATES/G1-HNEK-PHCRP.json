@@ -1,0 +1,41 @@
+{
+  "schema": "clean-unsb-search005-generation1-gate-v1",
+  "candidate_id": "G1-HNEK-PHCRP",
+  "passed": true,
+  "network_state_keys_identical": true,
+  "three_training_rollout_histories_complete": true,
+  "pathwise_physical_cap_enforced": true,
+  "forward_diagnostics": {
+    "active_fraction": 0.0,
+    "mean_scale": 1.0,
+    "minimum_scale": 1.0,
+    "maximum_scale": 1.0,
+    "mean_raw_energy": 0.01731540821492672,
+    "mean_accepted_energy": 0.01731540821492672,
+    "mean_physical_cap": 0.01731540821492672,
+    "maximum_cap_ratio": 1.0,
+    "physical_horizon": 0.25999999046325684
+  },
+  "zero_intervention_full_update_exact": true,
+  "zero_intervention_components": {
+    "model_and_optimizer": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "full_state_resume_exact": true,
+  "resume_components": {
+    "full_model_optimizer_and_operator": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "installation_status": {
+    "installed": true,
+    "active": true,
+    "trajectory_state_persistent_across_updates": false,
+    "paired_target_access": false
+  },
+  "paired_target_readable_by_candidate": false,
+  "confirmation20_opened": false
+}

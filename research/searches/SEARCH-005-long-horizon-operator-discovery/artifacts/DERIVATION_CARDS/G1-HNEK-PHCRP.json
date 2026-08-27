@@ -1,0 +1,47 @@
+{
+  "candidate_id": "G1-HNEK-PHCRP",
+  "name": "Pathwise Horizon-Consistent Residual Projection",
+  "candidate_type": "coordinate",
+  "generation": 1,
+  "parent_probes": ["hnek", "dt", "bcavp"],
+  "parent_evidence": [
+    "HNEK full100 sign sequence +,+,+,-,-,+,-,+ through 12000",
+    "G1-HNEK-ELIPRC endpoint-invariant entropy coordinate step800=-2.053182",
+    "G1-DT-HNEK-BCAVP clean-base odd-latent variance=2.366437e-17",
+    "clean generator therefore requires deterministic rollout-state rather than latent-state calibration"
+  ],
+  "causal_failure_class": "fixed_residual_exponent_cannot_follow_the_deterministic_endpoint_residual_scaling_of_each_bridge_trajectory",
+  "unsb_object": "pathwise squared remaining endpoint displacement over the nonuniform physical bridge horizon",
+  "mathematical_update": "At bridge point i let P_i=G_theta(X_i,z_i), e_i=mean((P_i-X_i)^2), h_i=1-t_i. Set q_0=e_0 and for i>0 c_i=q_{i-1}h_i/h_{i-1}, a_i=min(1,sqrt(c_i/e_i)), Y_i=X_i+a_i(P_i-X_i), q_i=e_i*a_i^2. The same trajectory recursion is used in training rollout, the differentiable final endpoint and inference.",
+  "derivation": [
+    "For a restricted Brownian bridge, the expected squared remaining displacement has first-order physical scaling O(h).",
+    "The admissible pathwise cone q_i<=q_{i-1}h_i/h_{i-1} enforces no-slower-than-linear decay without fixing HNEK's exponent gamma.",
+    "a_i is the Euclidean projection of the native residual onto the current cone ball; it is determined by the current trajectory and physical grid, not optimizer time.",
+    "If the native endpoint residual already decays at least linearly, a_i=1 and the implementation returns the native endpoint byte-for-byte.",
+    "When the raw residual energy follows h^beta, the induced local scale is exactly the missing physical exponent: a_i^2=(h_i/h_{i-1})^(1-beta) when beta<1.",
+    "The first bridge point is exact plain, so the algorithm introduces no external reference endpoint and no plain-output anchor."
+  ],
+  "long_horizon_property": "the coordinate is recomputed on every actual bridge trajectory and self-nulls at every point where native physical scaling is sufficient",
+  "identity_condition": "e_i<=q_{i-1}h_i/h_{i-1}, with the entire first bridge point always identity",
+  "self_null_condition": "the current native remaining-displacement energy decays at least as fast as the physical remaining horizon",
+  "unbiased_or_invariance_property": "native endpoints inside the pathwise physical cone and every t=0 endpoint are exact fixed points",
+  "paired_target_access": false,
+  "paired_target_proof": "the recursion reads only current rollout states, native endpoints and the fixed physical time grid",
+  "uses_fixed_window": false,
+  "uses_whole_state_branch_selection": false,
+  "changes_training_target": false,
+  "changes_gradient_estimator": false,
+  "changes_endpoint_law": true,
+  "expected_valid_states": "deterministic clean-UNSB trajectories whose endpoint residual sometimes decays more slowly than the remaining physical horizon",
+  "falsification_test": "kill if pathwise cap, first-point identity, native-cone self-null, train/inference equivalence, zero-intervention or full-state resume fails; permit one causal revision only if a 400/800/1200 trajectory lowers the physical defect but remains late-negative",
+  "compute_cost": "one native generator call plus scalar residual projection; no extra generator forward",
+  "memory_cost": "three per-forward trajectory histories during training and one during inference; no persistent learned state",
+  "allowed_claim": "tests whether fixed HNEK can be replaced by a trajectory-native self-null physical coordinate on the deterministic clean base",
+  "forbidden_claims": [
+    "a scheduled HNEK exponent",
+    "a paired quality threshold",
+    "an exit controller",
+    "matching plain outputs",
+    "all deterministic endpoint contractions are safe"
+  ]
+}

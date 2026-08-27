@@ -1,0 +1,144 @@
+{
+  "schema": "clean-unsb-search005-candidate-decisions-v1",
+  "decisions": [
+    {
+      "candidate_id": "G1-HNEK-ELIPRC",
+      "decision": "close_generation1",
+      "stage": "micro_800",
+      "evidence": {
+        "step400_psnr_delta": -0.132450546,
+        "step800_psnr_delta": -2.053245411,
+        "step800_positive_domains": 1
+      },
+      "reason": "endpoint-law-invariant rate correction was already negative at 400 and deteriorated sharply by 800; the original local energy observable did not identify a safe long-horizon direction",
+      "route1_exhausted": false
+    },
+    {
+      "candidate_id": "G1-HJ-ACMP",
+      "decision": "revise_once",
+      "stage": "micro_800",
+      "evidence": {
+        "step400_psnr_delta": 0.560465,
+        "step800_psnr_delta": -0.640036,
+        "step800_positive_domains": 1
+      },
+      "reason": "projected HJ correction produced the strongest 400-step benefit but lost future-batch consensus by 800; revise once to independent future-batch consensus",
+      "revision_candidate": "G2-HJ-FBCMP",
+      "route1_exhausted": false
+    },
+    {
+      "candidate_id": "G2-HJ-FBCMP",
+      "decision": "close_mechanism_after_two_generations",
+      "stage": "micro_800",
+      "evidence": {
+        "step400_psnr_delta": -0.336315,
+        "step800_psnr_delta": -0.659328,
+        "step800_positive_domains": 1
+      },
+      "reason": "independent future-batch consensus removed the early benefit instead of retaining it; HJ correction agreement was not a safe persistent update criterion",
+      "route1_exhausted": false
+    },
+    {
+      "candidate_id": "G1-DT-HNEK-BCAVP",
+      "decision": "mechanism_absent_on_clean_base",
+      "stage": "engineering_gate",
+      "evidence": {
+        "odd_latent_variance": 2.366437008444369e-17,
+        "physical_cap": 0.002599999774247408,
+        "active_fraction": 0.0
+      },
+      "reason": "the deterministic clean generator has no measurable odd-latent defect, so the exact self-null operator is a no-op and a micro run would only duplicate plain",
+      "micro_run_started": false,
+      "route1_exhausted": false
+    },
+    {
+      "candidate_id": "G1-HNEK-PHCRP",
+      "decision": "revise_once",
+      "stage": "micro_800",
+      "evidence": {
+        "step400_psnr_delta": 0.033024417,
+        "step400_ssim_delta": -0.038526141,
+        "step800_psnr_delta": -0.578581166,
+        "step800_positive_domains": 1
+      },
+      "reason": "the physical defect was reduced by construction but direct mean-endpoint contraction damaged content structure; revise the same observable into an endpoint-law-invariant constrained update",
+      "revision_candidate": "G2-HNEK-PHRSUP",
+      "route1_exhausted": false
+    },
+    {
+      "candidate_id": "G2-HNEK-PHRSUP",
+      "decision": "close_mechanism_after_two_generations",
+      "stage": "micro_800",
+      "evidence": {
+        "step400_psnr_delta": 0.356291382,
+        "step800_psnr_delta": -0.644552,
+        "step800_positive_domains": 2,
+        "sampled_unsafe_native_alignments": 0
+      },
+      "reason": "the pathwise physical violation did not predict the quality reversal: sampled violating batches already had native gradients that reduced the defect, while quality still reversed",
+      "route1_exhausted": false
+    },
+    {
+      "candidate_id": "G1-DT-CNDRP",
+      "decision": "revise_once",
+      "stage": "micro_800",
+      "evidence": {
+        "step800_psnr_delta": -0.004515,
+        "step800_positive_domains": 4,
+        "step800_ssim_delta": -0.017178,
+        "coordinate_minimum_scale_order": 1e-6
+      },
+      "reason": "the method is the closest long-horizon tie but coordinatewise scaling distorts functional block geometry; revise to one positive scalar per parameter tensor",
+      "revision_candidate": "G2-DT-BCNRP",
+      "route1_exhausted": false
+    },
+    {
+      "candidate_id": "G2-DT-BCNRP",
+      "decision": "close_mechanism_after_two_generations",
+      "stage": "micro_800",
+      "evidence": {
+        "step400_psnr_delta": 0.045926051,
+        "step800_psnr_delta": -0.470403092,
+        "step800_positive_domains": 1,
+        "step800_ssim_delta": -0.011419582
+      },
+      "reason": "block geometry avoided coordinate rotation but DT sensitivity still primarily slowed native learning and did not preserve late quality",
+      "route1_exhausted": false
+    },
+    {
+      "candidate_id": "G1-GAME-PCOA",
+      "decision": "revise_once",
+      "stage": "small_view_2400",
+      "evidence": {
+        "step800_psnr_delta": 0.0754884602,
+        "step1200_psnr_delta": 0.1926885402,
+        "step1600_psnr_delta": -0.5698067582,
+        "step2400_psnr_delta": -0.8607762987,
+        "generator_correction_native_ratio_801_1200": 0.3119,
+        "generator_correction_native_ratio_1201_1600": 0.4743,
+        "entropy_predictability_1201_1600": 0.6334
+      },
+      "reason": "PCOA changed the coupled-game phase but its full innovation mixed angular correction with radial native-update changes; revise once to an exactly norm-preserving orthogonal phase operator",
+      "revision_candidate": "G2-GAME-NPOOA",
+      "route1_exhausted": false
+    },
+    {
+      "candidate_id": "G2-GAME-NPOOA",
+      "decision": "close_mechanism_after_two_generations",
+      "stage": "micro_800",
+      "evidence": {
+        "step400_psnr_delta": 0.2314113089,
+        "step400_positive_domains": 5,
+        "step400_ssim_delta": 0.0001390636,
+        "step800_psnr_delta": -0.9663962268,
+        "step800_positive_domains": 1,
+        "step800_ssim_delta": -0.0685126312,
+        "native_update_norm_preserved": true
+      },
+      "reason": "exactly removing radial acceleration retained and strengthened the 400-step signal but caused a larger 800-step reversal; predictable angular rotation alone is not a safe long-horizon UNSB update",
+      "route1_exhausted": true
+    }
+  ],
+  "paired_target_access": false,
+  "confirmation20_opened": false
+}

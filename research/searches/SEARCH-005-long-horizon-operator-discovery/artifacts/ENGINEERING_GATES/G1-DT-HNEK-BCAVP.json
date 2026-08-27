@@ -1,0 +1,41 @@
+{
+  "schema": "clean-unsb-search005-generation1-gate-v1",
+  "candidate_id": "G1-DT-HNEK-BCAVP",
+  "passed": true,
+  "network_state_keys_identical": true,
+  "physical_variance_cap_enforced": true,
+  "forward_rng_bundle_preserved": true,
+  "forward_diagnostics": {
+    "active_fraction": 0.0,
+    "mean_scale": 1.0,
+    "minimum_scale": 1.0,
+    "maximum_scale": 1.0,
+    "mean_variance": 2.366437008444369e-17,
+    "mean_cap": 0.002599999774247408,
+    "maximum_projected_ratio": 9.101681573404994e-15,
+    "physical_horizon": 0.25999999046325684
+  },
+  "zero_intervention_full_update_exact": true,
+  "zero_intervention_components": {
+    "model_and_optimizer": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "full_state_resume_exact": true,
+  "resume_components": {
+    "full_model_optimizer_and_operator": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "installation_status": {
+    "installed": true,
+    "active": true,
+    "tau": 0.01,
+    "num_timesteps": 5,
+    "parameter_count": 14684419
+  },
+  "paired_target_readable_by_candidate": false,
+  "confirmation20_opened": false
+}

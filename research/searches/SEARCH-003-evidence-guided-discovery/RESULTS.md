@@ -2,7 +2,9 @@
 
 ## Decision
 
-SEARCH-003 closed the current route-1 protocol without a sustained candidate.
+SEARCH-003 closed the current target-blind controller subroute without a
+sustained candidate. It did not exhaust route-1 mathematical operator
+discovery; see [SCOPE_CORRECTION.md](SCOPE_CORRECTION.md).
 The unique frozen output is `G2-HJ-FBDFC8::proposal_only`, classified
 `weak_fallback`; it is not promoted to the full 100-image/domain view, extra
 seeds or 4090 validation.
@@ -52,8 +54,9 @@ Therefore the honest stop category is:
 `correction_valid_on_unpaired_native_objective_but_not_equivalent_to_psnr`.
 
 Per the two-generation limit, no third controller, threshold, fixed window or
-PSNR-driven exit was fitted.  A gap-aware handoff is a separate route-2 task,
-not a hidden continuation of SEARCH-003.
+PSNR-driven exit was fitted. A gap-aware handoff remains a separate route-2
+task, but is not implied as the next route by this result. Evidence-routed
+operator discovery continues in SEARCH-005.
 
 ## Reproducibility and access controls
 

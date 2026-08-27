@@ -22,7 +22,10 @@
     "full_view_competition",
     "local_seed_validation"
   ],
-  "outcome": "weak_fallback_no_sustained_route1_candidate",
+  "outcome": "weak_fallback_no_sustained_controller_subroute_candidate",
+  "executed_candidate_class": "target_blind_whole_branch_selector",
+  "route1_operator_discovery_exhausted": false,
+  "superseded_for_operator_discovery_by": "SEARCH-005",
   "frozen_candidate": "G2-HJ-FBDFC8::proposal_only",
   "promotion_passed": false,
   "confirmation20_opened": false

@@ -1,0 +1,50 @@
+{
+  "candidate_id": "G1-GAME-PCOA",
+  "name": "Predictability-Calibrated Optimistic Adam",
+  "candidate_type": "coupled_dynamics",
+  "generation": 1,
+  "parent_probes": ["hj", "hnek", "dt", "plain_game"],
+  "parent_evidence": [
+    "HJ component handoff found D/E/full transfer harmful after a locally positive G state",
+    "HNEK full100 changes sign repeatedly through 12000 rather than at one monotone exit point",
+    "PHRSUP found the native gradient already reduced the selected local defect while long-horizon quality still reversed",
+    "DT/HJ/HNEK update-local repairs therefore do not explain coupled last-iterate oscillation"
+  ],
+  "literature_basis": [
+    "Daskalakis et al., Training GANs with Optimism, arXiv:1711.00141",
+    "Liang and Stokes, Interaction Matters, AISTATS 2019, PMLR 89"
+  ],
+  "causal_failure_class": "alternating_G_D_E_game_rotation_not_identifiable_from_a_single_local_endpoint_defect",
+  "unsb_object": "native Adam displacement field of the coupled generator, discriminator and entropy-critic game",
+  "mathematical_update": "For each player p in {G,D,E}, let u_t^p be its native Adam displacement and u_{t-1}^p the previous native displacement. Set rho_t^p=clip(<u_t^p,u_{t-1}^p>/||u_{t-1}^p||^2,0,1) and apply u_*^p=u_t^p+rho_t^p(u_t^p-u_{t-1}^p). F retains native Adam.",
+  "derivation": [
+    "Optimistic mirror descent uses 2u_t-u_{t-1} and has last-iterate convergence in bilinear zero-sum games where ordinary gradient dynamics cycle.",
+    "The current clean UNSB game is stochastic and three-player, so unconditional optimism is not justified on every batch.",
+    "rho is the clipped least-squares coefficient with which the previous native displacement predicts the current one; it recovers OMD when predictability is one and returns native Adam under anti-alignment or no predictive power.",
+    "If the native displacement field is unchanged, u_t-u_{t-1}=0 and the optimistic correction self-nulls exactly even though rho=1.",
+    "The first update is native, optimizer moments remain the canonical Adam moments, and only parameter displacement is reflected.",
+    "Applying the same rule to G, D and E addresses game interaction; F is not an adversarial player and remains native."
+  ],
+  "long_horizon_property": "reduces to optimistic last-iterate dynamics in a predictable rotational game and self-nulls under stable, nonpredictive or anti-aligned native displacement fields",
+  "identity_condition": "first step, rho=0, or u_t=u_{t-1}",
+  "self_null_condition": "the native game field is stable or its previous displacement is not a useful current predictor",
+  "unbiased_or_invariance_property": "native objectives, endpoint law, Adam moment recurrences and every fixed point are unchanged",
+  "paired_target_access": false,
+  "paired_target_proof": "rho uses only current and previous native optimizer displacements",
+  "uses_fixed_window": false,
+  "uses_whole_state_branch_selection": false,
+  "changes_training_target": false,
+  "changes_gradient_estimator": false,
+  "changes_endpoint_law": false,
+  "expected_valid_states": "predictable rotational G-D-E dynamics where local mechanism-specific corrections are later counteracted by opponent adaptation",
+  "falsification_test": "kill if first-step identity, stable-field self-null, full optimizer-state resume or paired blindness fails; permit one revision only if optimism measurably reduces update-field rotation but 400/800 quality remains late-negative",
+  "compute_cost": "native forward/backward count; one additional parameter snapshot and vector correction per G/D/E update",
+  "memory_cost": "one previous native displacement plus one transient parameter snapshot per G/D/E parameter",
+  "allowed_claim": "tests whether long-horizon reversal is primarily a coupled-game last-iterate problem rather than an endpoint defect",
+  "forbidden_claims": [
+    "global convergence for nonconvex three-player UNSB",
+    "equivalence to simultaneous bilinear OMD",
+    "a paired early-stop controller",
+    "a tuned optimism strength"
+  ]
+}

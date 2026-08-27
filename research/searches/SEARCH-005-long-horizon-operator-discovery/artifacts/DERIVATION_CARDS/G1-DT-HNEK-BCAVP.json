@@ -1,0 +1,48 @@
+{
+  "candidate_id": "G1-DT-HNEK-BCAVP",
+  "name": "Brownian-Consistent Antithetic Variance Projection",
+  "candidate_type": "coordinate",
+  "generation": 1,
+  "parent_probes": ["dt", "hnek", "aeb"],
+  "parent_evidence": [
+    "DT-FULL-3000-NEG::variance_fraction=0.739145",
+    "DT-FULL-4000-NEG::variance_fraction=0.804189",
+    "HNEK full100 sign sequence +,+,+,-,-,+,-,+ through 12000",
+    "AEB small25 deltas=-0.1914,-0.4293,-0.7530",
+    "HNEK+DCUM full100 step4000=-2.506480"
+  ],
+  "causal_failure_class": "fixed_physical_endpoint_contraction_cannot_distinguish_excess_latent_variance_from_mean_transport",
+  "unsb_object": "odd-latent conditional endpoint variance under the physical restricted bridge horizon",
+  "mathematical_update": "Let P+=G_theta(X_t,z), P-=G_theta(X_t,-z), M=(P++P-)/2 and D=(P+-P-)/2. For h=1-t and v=mean(D^2), set a=min(1,sqrt(tau*h/v)) and return Y=M+aD, with an explicit Y=P+ branch when v<=tau*h.",
+  "derivation": [
+    "The parameter-dependent Gaussian part of the restricted bridge objective has per-coordinate form E[d^2]-2*tau*h*H(d), whose variance stationary point is tau*h.",
+    "D isolates the antithetic odd-latent component while M retains the endpoint mean and therefore the learned mean transport.",
+    "Multiplication by a is the Euclidean projection of D onto the per-sample second-moment ball mean(D^2)<=tau*h.",
+    "If the native endpoint already satisfies the physical variance budget, the explicit inactive branch returns P+ byte-for-byte; no clock, window or controller is involved.",
+    "Unlike AEB, the operator does not force D to zero. Unlike fixed HNEK, it never contracts the endpoint mean and contracts stochastic variation only when the current state violates the native physical budget.",
+    "The -z forward reuses the +z dropout RNG bundle and restores the main RNG stream, so the estimate changes neither the official random stream nor the paired protocol."
+  ],
+  "long_horizon_property": "a statewise projection with an exact feasible-set identity; it can repeatedly engage and self-null as the coupled UNSB state changes",
+  "identity_condition": "mean(((G(x,z)-G(x,-z))/2)^2)<=tau*(1-t)",
+  "self_null_condition": "the physical odd-latent variance defect is nonpositive on the current bridge state",
+  "unbiased_or_invariance_property": "the antithetic endpoint mean M is invariant; feasible native endpoints are exact fixed points",
+  "paired_target_access": false,
+  "paired_target_proof": "the projection reads only x, t, tau, z and two current-generator endpoints",
+  "uses_fixed_window": false,
+  "uses_whole_state_branch_selection": false,
+  "changes_training_target": false,
+  "changes_gradient_estimator": false,
+  "changes_endpoint_law": true,
+  "expected_valid_states": "states whose odd-latent endpoint variance intermittently exceeds the physical Brownian budget while mean transport remains useful",
+  "falsification_test": "kill if the variance cap, mean invariance, exact self-null, RNG preservation or full-state resume fails; close or revise once if a matched 400/800/1200 micro trajectory is not late-positive",
+  "compute_cost": "one additional generator endpoint forward for each endpoint call; approximately 2x generator forward compute",
+  "memory_cost": "one additional endpoint activation graph during active endpoint calls",
+  "allowed_claim": "tests whether DT's endpoint-dispersion evidence and HNEK's physical horizon can form a statewise self-null endpoint coordinate",
+  "forbidden_claims": [
+    "full conditional covariance estimation",
+    "all latent variance is Brownian noise",
+    "a paired quality controller",
+    "a learned exit threshold",
+    "route1 is exhausted if this candidate fails"
+  ]
+}

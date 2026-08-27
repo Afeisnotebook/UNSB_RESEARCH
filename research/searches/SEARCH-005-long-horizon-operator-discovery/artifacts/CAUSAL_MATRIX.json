@@ -1,0 +1,511 @@
+{
+  "schema": "clean-unsb-search005-causal-matrix-v1",
+  "propagation_rows": [
+    {
+      "checkpoint_id": "DT-FULL-3000-NEG",
+      "probe": "dt",
+      "stage": "full100",
+      "step": 3000,
+      "historical_accumulated_delta": -0.80611,
+      "pulse_steps": 8,
+      "immediate_native_view_delta": -0.011390480053556473,
+      "final_horizon": 200,
+      "final_native_view_delta": 0.9048362059391799,
+      "final_positive_domains": 3,
+      "final_worst_domain_delta": -3.155492815271913,
+      "final_guardrails_pass": false,
+      "gap_retention_ratio": 7.045713838065163,
+      "initial_direction_cosine": 0.12782550473471843,
+      "direction_memory_lost": true,
+      "gap_amplified": true,
+      "retention_class": "negative_impulse_rotated_by_native_flow",
+      "paired_metrics_available_to_algorithm": false
+    },
+    {
+      "checkpoint_id": "DT-FULL-4000-NEG",
+      "probe": "dt",
+      "stage": "full100",
+      "step": 4000,
+      "historical_accumulated_delta": -1.51918,
+      "pulse_steps": 8,
+      "immediate_native_view_delta": 0.0,
+      "final_horizon": 200,
+      "final_native_view_delta": 0.0,
+      "final_positive_domains": 0,
+      "final_worst_domain_delta": 0.0,
+      "final_guardrails_pass": true,
+      "gap_retention_ratio": 0.0,
+      "initial_direction_cosine": 0.0,
+      "direction_memory_lost": true,
+      "gap_amplified": false,
+      "retention_class": "operator_exactly_null",
+      "paired_metrics_available_to_algorithm": false
+    },
+    {
+      "checkpoint_id": "HJ-SMALL-1200-POS",
+      "probe": "hj",
+      "stage": "small25",
+      "step": 1200,
+      "historical_accumulated_delta": 0.804544,
+      "pulse_steps": 8,
+      "immediate_native_view_delta": 0.5503897553214134,
+      "final_horizon": 200,
+      "final_native_view_delta": 0.06406928611328055,
+      "final_positive_domains": 5,
+      "final_worst_domain_delta": -0.10637172539006912,
+      "final_guardrails_pass": true,
+      "gap_retention_ratio": 12.98549821244631,
+      "initial_direction_cosine": 0.03601710918151478,
+      "direction_memory_lost": true,
+      "gap_amplified": true,
+      "retention_class": "positive_impulse_strongly_attenuated",
+      "paired_metrics_available_to_algorithm": false
+    },
+    {
+      "checkpoint_id": "HJ-SMALL-800-NEG",
+      "probe": "hj",
+      "stage": "small25",
+      "step": 800,
+      "historical_accumulated_delta": -0.724102,
+      "pulse_steps": 8,
+      "immediate_native_view_delta": 0.03136916605757811,
+      "final_horizon": 200,
+      "final_native_view_delta": 0.03342510580257141,
+      "final_positive_domains": 4,
+      "final_worst_domain_delta": -0.28799367556285915,
+      "final_guardrails_pass": true,
+      "gap_retention_ratio": 9.782213788733662,
+      "initial_direction_cosine": 0.10314931217819269,
+      "direction_memory_lost": true,
+      "gap_amplified": true,
+      "retention_class": "positive_impulse_retained",
+      "paired_metrics_available_to_algorithm": false
+    },
+    {
+      "checkpoint_id": "HNEK-FULL-3000-POS",
+      "probe": "hnek",
+      "stage": "full100",
+      "step": 3000,
+      "historical_accumulated_delta": 0.953997,
+      "pulse_steps": 8,
+      "immediate_native_view_delta": 0.8698700801238388,
+      "final_horizon": 200,
+      "final_native_view_delta": -0.0717732947998293,
+      "final_positive_domains": 2,
+      "final_worst_domain_delta": -0.44354851246898264,
+      "final_guardrails_pass": true,
+      "gap_retention_ratio": 10.449676053725371,
+      "initial_direction_cosine": 0.04226892843345545,
+      "direction_memory_lost": true,
+      "gap_amplified": true,
+      "retention_class": "positive_impulse_reversed_by_native_flow",
+      "paired_metrics_available_to_algorithm": false
+    },
+    {
+      "checkpoint_id": "HNEK-FULL-4000-NEG",
+      "probe": "hnek",
+      "stage": "full100",
+      "step": 4000,
+      "historical_accumulated_delta": -0.712401,
+      "pulse_steps": 8,
+      "immediate_native_view_delta": -0.05817968519181704,
+      "final_horizon": 200,
+      "final_native_view_delta": -0.3369276758223023,
+      "final_positive_domains": 2,
+      "final_worst_domain_delta": -1.329190028538303,
+      "final_guardrails_pass": false,
+      "gap_retention_ratio": 13.299757788560736,
+      "initial_direction_cosine": 0.04067164211487953,
+      "direction_memory_lost": true,
+      "gap_amplified": true,
+      "retention_class": "negative_impulse_remains_harmful",
+      "paired_metrics_available_to_algorithm": false
+    }
+  ],
+  "component_attribution": [
+    {
+      "checkpoint_id": "HJ-SMALL-1200-POS",
+      "probe": "hj",
+      "arm": "gf_parameters",
+      "native_steps": 32,
+      "macro_psnr_delta": -0.05139348345942807,
+      "positive_domains": 2,
+      "worst_domain_delta": -0.20931581414427214
+    },
+    {
+      "checkpoint_id": "HJ-SMALL-1200-POS",
+      "probe": "hj",
+      "arm": "gf_parameters_moments",
+      "native_steps": 32,
+      "macro_psnr_delta": -0.03377472833550499,
+      "positive_domains": 3,
+      "worst_domain_delta": -0.19174632145788095
+    },
+    {
+      "checkpoint_id": "HJ-SMALL-1200-POS",
+      "probe": "hj",
+      "arm": "de_parameters_moments",
+      "native_steps": 32,
+      "macro_psnr_delta": -0.1827603667119746,
+      "positive_domains": 1,
+      "worst_domain_delta": -0.33738858249217785
+    },
+    {
+      "checkpoint_id": "HJ-SMALL-1200-POS",
+      "probe": "hj",
+      "arm": "all_networks",
+      "native_steps": 32,
+      "macro_psnr_delta": -0.1650555166794554,
+      "positive_domains": 2,
+      "worst_domain_delta": -0.4115010655980491
+    },
+    {
+      "checkpoint_id": "HJ-SMALL-1200-POS",
+      "probe": "hj",
+      "arm": "full_state",
+      "native_steps": 32,
+      "macro_psnr_delta": -0.18441087007013124,
+      "positive_domains": 0,
+      "worst_domain_delta": -0.33126276662840404
+    },
+    {
+      "checkpoint_id": "HNEK-FULL-3000-POS",
+      "probe": "hnek",
+      "arm": "gf_parameters",
+      "native_steps": 32,
+      "macro_psnr_delta": 0.8615448777656631,
+      "positive_domains": 4,
+      "worst_domain_delta": -1.2113988161160183
+    },
+    {
+      "checkpoint_id": "HNEK-FULL-3000-POS",
+      "probe": "hnek",
+      "arm": "gf_parameters_moments",
+      "native_steps": 32,
+      "macro_psnr_delta": 1.6412739487467967,
+      "positive_domains": 6,
+      "worst_domain_delta": 0.8332066083012943
+    },
+    {
+      "checkpoint_id": "HNEK-FULL-3000-POS",
+      "probe": "hnek",
+      "arm": "de_parameters_moments",
+      "native_steps": 32,
+      "macro_psnr_delta": 0.2941084080354823,
+      "positive_domains": 3,
+      "worst_domain_delta": -0.2733909308488389
+    },
+    {
+      "checkpoint_id": "HNEK-FULL-3000-POS",
+      "probe": "hnek",
+      "arm": "all_networks",
+      "native_steps": 32,
+      "macro_psnr_delta": 1.79173663409005,
+      "positive_domains": 5,
+      "worst_domain_delta": -0.8956055519927322
+    },
+    {
+      "checkpoint_id": "HNEK-FULL-3000-POS",
+      "probe": "hnek",
+      "arm": "full_state",
+      "native_steps": 32,
+      "macro_psnr_delta": 2.0741318654297416,
+      "positive_domains": 4,
+      "worst_domain_delta": -2.1548106386749915
+    }
+  ],
+  "bias_variance": [
+    {
+      "checkpoint_id": "DT-FULL-3000-NEG",
+      "probe": "dt",
+      "step": 3000,
+      "replicates": 8,
+      "variance_fraction": 0.7391451814213728,
+      "variance_dominated": false,
+      "mean_same_batch_native_cosine": -0.0012515878794213857,
+      "mean_next_batch_native_cosine": 0.012837986454421817,
+      "exact_zero_samples": 4,
+      "network_variance_fraction": {
+        "G": 0.7391451814213728,
+        "F": 0.0,
+        "D": 0.0,
+        "E": 0.0
+      }
+    },
+    {
+      "checkpoint_id": "DT-FULL-4000-NEG",
+      "probe": "dt",
+      "step": 4000,
+      "replicates": 8,
+      "variance_fraction": 0.8041893273051772,
+      "variance_dominated": true,
+      "mean_same_batch_native_cosine": -0.012828000645824782,
+      "mean_next_batch_native_cosine": -0.009929999696420975,
+      "exact_zero_samples": 4,
+      "network_variance_fraction": {
+        "G": 0.8041893273051772,
+        "F": 0.0,
+        "D": 0.0,
+        "E": 0.0
+      }
+    },
+    {
+      "checkpoint_id": "HJ-SMALL-1200-POS",
+      "probe": "hj",
+      "step": 1200,
+      "replicates": 8,
+      "variance_fraction": 0.8579682992992089,
+      "variance_dominated": true,
+      "mean_same_batch_native_cosine": -0.050843019155225926,
+      "mean_next_batch_native_cosine": -0.013076911462303756,
+      "exact_zero_samples": 0,
+      "network_variance_fraction": {
+        "G": 0.8580580193707511,
+        "F": 0.7656408773460509,
+        "D": 0.0,
+        "E": 0.0
+      }
+    },
+    {
+      "checkpoint_id": "HNEK-FULL-3000-POS",
+      "probe": "hnek",
+      "step": 3000,
+      "replicates": 8,
+      "variance_fraction": 0.7273996530409182,
+      "variance_dominated": false,
+      "mean_same_batch_native_cosine": -0.5990904239651278,
+      "mean_next_batch_native_cosine": -0.26812967758874784,
+      "exact_zero_samples": 0,
+      "network_variance_fraction": {
+        "G": 0.7216432281696459,
+        "F": 0.7343045044189317,
+        "D": 0.7890092261587947,
+        "E": 0.6839891199172452
+      }
+    }
+  ],
+  "failure_classes": [
+    {
+      "id": "FC-TRANSPORT-ROTATION-AMPLIFICATION",
+      "status": "supported_cross_probe",
+      "evidence": [
+        "DT-FULL-3000-NEG",
+        "HJ-SMALL-1200-POS",
+        "HJ-SMALL-800-NEG",
+        "HNEK-FULL-3000-POS",
+        "HNEK-FULL-4000-NEG"
+      ],
+      "statement": "native UNSB dynamics amplify the parameter-state gap while losing the initial beneficial correction direction",
+      "candidate_routing": "coupled_dynamics_or_stability_constrained_operator"
+    },
+    {
+      "id": "FC-POSITIVE-IMPULSE-NOT-INVARIANT",
+      "status": "supported",
+      "evidence": [
+        "HNEK-FULL-3000-POS",
+        "HJ-SMALL-1200-POS"
+      ],
+      "statement": "an immediately beneficial correction is not an invariant or contractive direction of the later native flow",
+      "candidate_routing": "invariant_preserving_operator_not_exit_policy"
+    },
+    {
+      "id": "FC-COUPLED-COSTATE",
+      "status": "heterogeneous_probe_specific",
+      "evidence": [
+        "HJ-SMALL-1200-POS::gf_parameters",
+        "HJ-SMALL-1200-POS::gf_parameters_moments",
+        "HJ-SMALL-1200-POS::de_parameters_moments",
+        "HJ-SMALL-1200-POS::all_networks",
+        "HJ-SMALL-1200-POS::full_state",
+        "HNEK-FULL-3000-POS::gf_parameters",
+        "HNEK-FULL-3000-POS::gf_parameters_moments",
+        "HNEK-FULL-3000-POS::de_parameters_moments",
+        "HNEK-FULL-3000-POS::all_networks",
+        "HNEK-FULL-3000-POS::full_state"
+      ],
+      "statement": "co-state propagation is mechanism-specific: HJ transfers become harmful, while HNEK G/F parameters plus moments preserve a strong short-horizon benefit",
+      "candidate_routing": "probe_specific_coupled_dynamics_not_unified_handoff"
+    },
+    {
+      "id": "FC-DT-INTERMITTENT-NULL",
+      "status": "supported",
+      "evidence": [
+        "DT-FULL-4000-NEG"
+      ],
+      "statement": "the current DT statistic makes the correction exactly zero in some late states while remaining active in nearby states",
+      "candidate_routing": "audit_moving_statistic_before_derivation"
+    },
+    {
+      "id": "FC-STOCHASTIC-VARIANCE",
+      "status": "supported_method_specific",
+      "evidence": [
+        "DT-FULL-4000-NEG",
+        "HJ-SMALL-1200-POS"
+      ],
+      "statement": "HJ step1200 and DT step4000 are variance dominated across independent unpaired batches; HNEK and DT step3000 remain elevated but below the frozen threshold",
+      "candidate_routing": "unbiased_or_mean_preserving_variance_reduction_only_for_supported_probes"
+    }
+  ],
+  "search003_retrospective_contradictions": [
+    {
+      "probe": "hj",
+      "stage": "small",
+      "step": 400,
+      "source_state": "hj",
+      "horizon": 8,
+      "historical_macro_psnr_delta": 0.046722881767465196,
+      "continuous_probe_vs_native_branch_delta": -0.12954600767215396,
+      "contradiction_class": "beneficial_state_with_current_operator_harm",
+      "correction_norm": 0.3618221016138855,
+      "correction_reference_cosine": -0.6803548648738121,
+      "next_native_cosine": null,
+      "paired_label_available_only_after_branch": true
+    },
+    {
+      "probe": "hj",
+      "stage": "small",
+      "step": 800,
+      "source_state": "hj",
+      "horizon": 8,
+      "historical_macro_psnr_delta": -0.7241015361516396,
+      "continuous_probe_vs_native_branch_delta": 0.03136916605757811,
+      "contradiction_class": "harmful_accumulated_state_with_current_operator_benefit",
+      "correction_norm": 0.23380781597041436,
+      "correction_reference_cosine": -0.513702070019366,
+      "next_native_cosine": null,
+      "paired_label_available_only_after_branch": true
+    },
+    {
+      "probe": "hj",
+      "stage": "small",
+      "step": 400,
+      "source_state": "hj",
+      "horizon": 32,
+      "historical_macro_psnr_delta": 0.046722881767465196,
+      "continuous_probe_vs_native_branch_delta": -0.0042054249068446126,
+      "contradiction_class": "beneficial_state_with_current_operator_harm",
+      "correction_norm": 0.9253161075365447,
+      "correction_reference_cosine": -0.5497472187511526,
+      "next_native_cosine": null,
+      "paired_label_available_only_after_branch": true
+    },
+    {
+      "probe": "hj",
+      "stage": "small",
+      "step": 1200,
+      "source_state": "hj",
+      "horizon": 32,
+      "historical_macro_psnr_delta": 0.804543923243358,
+      "continuous_probe_vs_native_branch_delta": -0.11934263585532534,
+      "contradiction_class": "beneficial_state_with_current_operator_harm",
+      "correction_norm": 0.49661081023804854,
+      "correction_reference_cosine": -0.6332524603667883,
+      "next_native_cosine": null,
+      "paired_label_available_only_after_branch": true
+    },
+    {
+      "probe": "hj",
+      "stage": "small",
+      "step": 400,
+      "source_state": "hj",
+      "horizon": 200,
+      "historical_macro_psnr_delta": 0.046722881767465196,
+      "continuous_probe_vs_native_branch_delta": -0.29326916619339016,
+      "contradiction_class": "beneficial_state_with_current_operator_harm",
+      "correction_norm": 2.066149533628618,
+      "correction_reference_cosine": -0.5258423278696169,
+      "next_native_cosine": null,
+      "paired_label_available_only_after_branch": true
+    },
+    {
+      "probe": "hj",
+      "stage": "small",
+      "step": 800,
+      "source_state": "hj",
+      "horizon": 200,
+      "historical_macro_psnr_delta": -0.7241015361516396,
+      "continuous_probe_vs_native_branch_delta": 0.23922387123400668,
+      "contradiction_class": "harmful_accumulated_state_with_current_operator_benefit",
+      "correction_norm": 1.529318413941805,
+      "correction_reference_cosine": -0.6424754087289858,
+      "next_native_cosine": null,
+      "paired_label_available_only_after_branch": true
+    },
+    {
+      "probe": "hj",
+      "stage": "small",
+      "step": 1200,
+      "source_state": "hj",
+      "horizon": 200,
+      "historical_macro_psnr_delta": 0.804543923243358,
+      "continuous_probe_vs_native_branch_delta": -0.21025732140154219,
+      "contradiction_class": "beneficial_state_with_current_operator_harm",
+      "correction_norm": 1.2581664422762338,
+      "correction_reference_cosine": -0.5916674739481783,
+      "next_native_cosine": null,
+      "paired_label_available_only_after_branch": true
+    },
+    {
+      "probe": "dt",
+      "stage": "full",
+      "step": 3000,
+      "source_state": "dt",
+      "horizon": 200,
+      "historical_macro_psnr_delta": -0.8061096369180163,
+      "continuous_probe_vs_native_branch_delta": 0.6878795029138569,
+      "contradiction_class": "harmful_accumulated_state_with_current_operator_benefit",
+      "correction_norm": 2.2175475512047442,
+      "correction_reference_cosine": -0.7283293887096309,
+      "next_native_cosine": null,
+      "paired_label_available_only_after_branch": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "full",
+      "step": 4000,
+      "source_state": "hnek",
+      "horizon": 1,
+      "historical_macro_psnr_delta": -0.7124013497625032,
+      "continuous_probe_vs_native_branch_delta": 0.4385344884871323,
+      "contradiction_class": "harmful_accumulated_state_with_current_operator_benefit",
+      "correction_norm": 0.006508116285628941,
+      "correction_reference_cosine": -0.10942324526122521,
+      "next_native_cosine": 0.02836798349353609,
+      "paired_label_available_only_after_branch": true
+    },
+    {
+      "probe": "hnek",
+      "stage": "full",
+      "step": 4000,
+      "source_state": "hnek",
+      "horizon": 200,
+      "historical_macro_psnr_delta": -0.7124013497625032,
+      "continuous_probe_vs_native_branch_delta": 1.007929028095278,
+      "contradiction_class": "harmful_accumulated_state_with_current_operator_benefit",
+      "correction_norm": 2.3051645009246786,
+      "correction_reference_cosine": -0.7149697550853987,
+      "next_native_cosine": null,
+      "paired_label_available_only_after_branch": true
+    },
+    {
+      "probe": "dt",
+      "stage": "full",
+      "step": 3000,
+      "source_state": "dt",
+      "horizon": 1000,
+      "historical_macro_psnr_delta": -0.8061096369180163,
+      "continuous_probe_vs_native_branch_delta": 0.024192248778675207,
+      "contradiction_class": "harmful_accumulated_state_with_current_operator_benefit",
+      "correction_norm": 4.099808485294567,
+      "correction_reference_cosine": -0.6702483594388489,
+      "next_native_cosine": null,
+      "paired_label_available_only_after_branch": true
+    }
+  ],
+  "candidate_generation_allowed": true,
+  "candidate_generation_blockers": [],
+  "generation_rule": "derive at most one minimal operator for each probe-specific supported failure mechanism; do not force a shared controller",
+  "forbidden_inference": "the eight-step pulse is a finite-difference diagnostic and not a fixed-window candidate",
+  "paired_metrics_available_to_algorithm": false,
+  "confirmation20_opened": false
+}

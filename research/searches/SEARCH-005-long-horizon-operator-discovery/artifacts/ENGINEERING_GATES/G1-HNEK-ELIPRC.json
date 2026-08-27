@@ -1,0 +1,33 @@
+{
+  "schema": "clean-unsb-search005-generation1-gate-v1",
+  "candidate_id": "G1-HNEK-ELIPRC",
+  "passed": true,
+  "endpoint_forward_byte_identical": true,
+  "network_state_keys_identical": true,
+  "zero_intervention_full_update_exact": true,
+  "zero_intervention_components": {
+    "model_and_optimizer": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "full_state_resume_exact": true,
+  "resume_components": {
+    "model_and_optimizer": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "installation_status": {
+    "installed": true,
+    "generator_wrapped": false,
+    "compute_wrapped": true,
+    "gamma": 0.5,
+    "coord": "residual",
+    "horizon_mode": "physical",
+    "partial": "entropy_only",
+    "active": true
+  },
+  "paired_target_readable_by_candidate": false,
+  "confirmation20_opened": false
+}

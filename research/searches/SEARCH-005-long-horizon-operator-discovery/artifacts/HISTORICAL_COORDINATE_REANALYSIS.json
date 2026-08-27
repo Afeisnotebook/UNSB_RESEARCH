@@ -1,0 +1,39 @@
+{
+  "schema": "clean-unsb-search005-historical-coordinate-reanalysis-v1",
+  "source_runs": [
+    "runs/directional_search_20260826/stage1_direction_screen/RANKING.json",
+    "runs/directional_search_20260826/stage2_full_view/RANKING.json",
+    "runs/directional_search_20260826/stage3_extension/RANKING.json"
+  ],
+  "small25_macro_psnr_delta": {
+    "hnek_anchor": {"400": 0.6513, "800": 0.2157, "1200": 0.4174},
+    "dcum": {"400": 0.4347, "800": 0.2324, "1200": -0.5448},
+    "hnek_plus_dcum": {"400": 0.8506, "800": 0.2907, "1200": 0.3727},
+    "aeb": {"400": -0.1914, "800": -0.4293, "1200": -0.7530}
+  },
+  "full100_hnek_macro_psnr_delta": {
+    "1000": 0.6457720669,
+    "2000": 0.7765809380,
+    "3000": 0.9539973769,
+    "4000": -0.7124013498,
+    "6000": -1.8384387278,
+    "8000": 0.3925880481,
+    "10000": -0.4292424716,
+    "12000": 0.0556209967
+  },
+  "full100_hnek_plus_dcum_macro_psnr_delta": {
+    "1000": 0.5752502777,
+    "2000": 0.9207122948,
+    "3000": 0.4405390575,
+    "4000": -2.5064798466
+  },
+  "causal_reading": [
+    "HNEK is not a monotone early-positive/late-negative schedule: its sign changes repeatedly through 12000 updates.",
+    "A fixed residual exponent is always active and cannot return to the native endpoint law when its physical defect is absent.",
+    "DCUM is not a safe repair: it turns negative alone by 1200 and amplifies the HNEK full-view 4000-step failure from -0.7124 to -2.5065 dB.",
+    "AEB is a negative control showing that unconditional removal of all odd-latent endpoint variation is too strong.",
+    "The next admissible construction should retain the endpoint mean, constrain only physically excessive stochastic variation, and self-null per state rather than per training window."
+  ],
+  "paired_metrics_used_by_candidate": false,
+  "confirmation20_opened": false
+}

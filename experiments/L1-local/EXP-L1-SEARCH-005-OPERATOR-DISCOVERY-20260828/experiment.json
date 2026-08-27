@@ -1,0 +1,13 @@
+{
+  "id": "EXP-L1-SEARCH-005-OPERATOR-DISCOVERY-20260828",
+  "level": "L1",
+  "entity": "SEARCH-005",
+  "status": "completed_no_sustained_candidate",
+  "source_anchor": "3674a390e9fde997ec1261660c2a96f2a7d49aa6",
+  "code_identity": "../../../research/searches/SEARCH-005-long-horizon-operator-discovery/artifacts/CODE_IDENTITY.json",
+  "external_run_root": "E:\\UNSB_Expl\\runs\\long_horizon_operator_discovery_20260827",
+  "seed": 2026,
+  "train_per_domain": 25,
+  "discovery_per_domain": 10,
+  "confirmation20_opened": false
+}

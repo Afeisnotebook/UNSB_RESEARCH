@@ -1,0 +1,19 @@
+{
+  "schema": "clean-unsb-search005-backups-v1",
+  "backups": [
+    {
+      "rank": 2,
+      "candidate_id": "G1-DT-CNDRP",
+      "classification": "near_neutral_micro_backup",
+      "evidence": "800-step delta -0.0045 dB with 4/6 positive domains; SSIM and worst-domain guards fail; its G2 block revision is worse"
+    },
+    {
+      "rank": 3,
+      "candidate_id": "historical_hnek_anchor",
+      "classification": "long_horizon_oscillatory_probe",
+      "evidence": "full100 final delta +0.0556 dB and 8k/10k/12k mean +0.0063 dB, but repeated sign changes and no smooth retention"
+    }
+  ],
+  "all_not_promoted": true,
+  "confirmation20_opened": false
+}

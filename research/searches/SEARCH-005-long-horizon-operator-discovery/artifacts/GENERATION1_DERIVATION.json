@@ -1,0 +1,16 @@
+{
+  "schema": "clean-unsb-search005-generation1-derivation-v1",
+  "candidate_count": 6,
+  "candidate_ids": [
+    "G1-DT-CNDRP",
+    "G1-HJ-ACMP",
+    "G1-HNEK-ELIPRC",
+    "G1-DT-HNEK-BCAVP",
+    "G1-HNEK-PHCRP",
+    "G1-GAME-PCOA"
+  ],
+  "shared_controller_generated": false,
+  "fixed_window_generated": false,
+  "paired_target_access": false,
+  "confirmation20_opened": false
+}

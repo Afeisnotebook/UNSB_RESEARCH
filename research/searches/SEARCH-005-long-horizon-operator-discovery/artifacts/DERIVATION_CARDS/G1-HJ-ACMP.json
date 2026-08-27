@@ -1,0 +1,48 @@
+{
+  "candidate_id": "G1-HJ-ACMP",
+  "name": "Antithetic Constrained Metric Projection",
+  "candidate_type": "operator",
+  "generation": 1,
+  "parent_probes": [
+    "hj"
+  ],
+  "parent_evidence": [
+    "HJ-SMALL-1200-POS::pulse8=+0.550390",
+    "HJ-SMALL-1200-POS::H200=+0.064069",
+    "HJ-SMALL-1200-POS::gap_ratio=12.985::direction_cosine=0.036",
+    "HJ-SMALL-1200-POS::variance_fraction=0.857968",
+    "HJ component attribution::all arms negative at native horizon 32"
+  ],
+  "causal_failure_class": "high_variance_hj_correction_not_stable_under_native_adversarial_flow",
+  "unsb_object": "generator update jointly constrained by native total and adversarial-plus-SB gradients",
+  "mathematical_update": "Let c_bar be the average HJ-minus-plain gradient correction from antithetic latent views z and -z.  Project c_bar continuously in the Adam metric onto C={c:<g_UNSB,c>>=0 and <g_Adv+SB,c>>=0}, then bound its metric norm by ||g_UNSB||.  Set g_new=g_UNSB+c_projected.",
+  "derivation": [
+    "Because z and -z have the same marginal law, antithetic averaging preserves the mean raw HJ correction while cancelling odd latent variation.",
+    "Metric projection changes the correction geometrically instead of accepting or rejecting a whole branch.",
+    "The two half-space constraints make the correction a first-order descent contribution for both the full native objective and its adversarial/SB component.",
+    "The native-norm trust region prevents a high-variance PatchNCE correction from dominating the coupled G/D/E dynamics.",
+    "If the raw correction already satisfies the constraints it is retained; if not, it is rotated to the closest feasible correction rather than delayed by a schedule."
+  ],
+  "long_horizon_property": "every applied correction is continuously constrained to native and bridge/adversarial descent half-spaces and cannot exceed the native update scale",
+  "identity_condition": "zero raw HJ correction produces exact plain UNSB gradient",
+  "self_null_condition": "when structure conflict vanishes, c_bar=0 and the projection is exactly inactive",
+  "unbiased_or_invariance_property": "antithetic averaging preserves the raw HJ correction expectation under symmetric latent sampling",
+  "paired_target_access": false,
+  "paired_target_proof": "all gradients use unpaired UNSB batches, source structure and internal latent/patch randomness",
+  "uses_fixed_window": false,
+  "uses_whole_state_branch_selection": false,
+  "changes_training_target": false,
+  "changes_gradient_estimator": true,
+  "changes_endpoint_law": false,
+  "expected_valid_states": "states where HJ has nonzero structural conflict but its raw correction is noisy or fights adversarial/SB balance",
+  "falsification_test": "kill if antithetic variance is not reduced, constraints fail numerically, or the 800-step micro run still shows strong rotation/amplification with no positive trajectory",
+  "compute_cost": "multiple generator backward passes and two-metric half-space projection; no duplicated optimizer branch",
+  "memory_cost": "plain, bridge/adversarial and two HJ correction gradients",
+  "allowed_claim": "tests a continuously safe reconstruction of the HJ correction field",
+  "forbidden_claims": [
+    "future PSNR prediction",
+    "exit detection",
+    "unbiasedness with respect to plain UNSB",
+    "all HJ failures share one cause"
+  ]
+}

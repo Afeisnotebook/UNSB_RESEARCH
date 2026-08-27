@@ -1,0 +1,34 @@
+{
+  "id": "SEARCH-005",
+  "slug": "long-horizon-operator-discovery",
+  "status": "route1_complete_no_sustained_candidate",
+  "source_commit": "3674a390e9fde997ec1261660c2a96f2a7d49aa6",
+  "route": "route1_mathematical_operator_discovery",
+  "objective": "discover an evidence-routed UNSB mathematical update that retains beneficial behavior over long training",
+  "allowed_candidate_types": [
+    "operator",
+    "estimator",
+    "coordinate",
+    "coupled_dynamics"
+  ],
+  "forbidden_candidate_types": [
+    "controller",
+    "schedule",
+    "whole_state_branch_selector",
+    "handoff"
+  ],
+  "max_generation1_candidates": 6,
+  "max_revisions_per_failure_class": 1,
+  "long_run_formula_review_required_after_updates": 800,
+  "confirmation20_opened": false,
+  "predecessor_evidence": "SEARCH-003",
+  "next_stage": "freeze_weak_fallback_and_plan_route2_separately",
+  "route1_outcome": {
+    "generation1_mechanisms_tested": 6,
+    "causal_revisions_tested": 4,
+    "small_view_promotion_count": 0,
+    "full_view_started": false,
+    "seed_validation_started": false,
+    "honest_stop_reason": "signals were found, but no target-blind self-null or invariant mathematical correction preserved them through the registered local horizon"
+  }
+}

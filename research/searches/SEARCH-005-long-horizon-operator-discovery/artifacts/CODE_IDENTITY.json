@@ -1,0 +1,17 @@
+{
+  "schema": "clean-unsb-search005-code-identity-v1",
+  "launch_head": "3674a390e9fde997ec1261660c2a96f2a7d49aa6",
+  "launch_head_role": "clean canonical source anchor; SEARCH-005 code was an uncommitted worktree at experiment launch",
+  "operator_files_exact_for_reported_runs": {
+    "src/operators.py": "877d084e1d8bf72b2710f93559e45b844e1283134d3465af7b43c3c89d517ad6",
+    "src/model_operators.py": "c731c7a087adc7c9b23017233b21a7e7521bbba2bf69f4e9dcc88560e3bcb141",
+    "src/candidate_runtime.py": "70ba71007c1432e0ad20eb5a3e24fd1d529758b062cc39a1cc0f4fd5cf4b19ee"
+  },
+  "final_orchestration_files": {
+    "src/experiment.py": "f3f064c34df0d2478a06c1ae60cdb59cd74a79ac10f3182ce839c9d2adae3f10",
+    "run_search.py": "6aee56a9ac931b445232b353f0582965b79ff5355d5f2620153b5cbc3650374a"
+  },
+  "orchestration_note": "full100 and generalized evaluation entrypoints were added after local runs; defaults for the reported micro/small runs remain unchanged",
+  "final_git_identity": "the commit that adds this file; see git history rather than a circular self-hash",
+  "confirmation20_opened": false
+}

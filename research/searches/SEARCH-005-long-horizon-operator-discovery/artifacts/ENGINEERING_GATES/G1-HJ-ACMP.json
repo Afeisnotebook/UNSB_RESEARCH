@@ -1,0 +1,39 @@
+{
+  "schema": "clean-unsb-search005-generation1-gate-v1",
+  "candidate_id": "G1-HJ-ACMP",
+  "passed": true,
+  "endpoint_forward_byte_identical": true,
+  "network_state_keys_identical": true,
+  "zero_intervention_full_update_exact": true,
+  "zero_intervention_components": {
+    "model_and_optimizer": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "full_state_resume_exact": true,
+  "resume_components": {
+    "model_and_optimizer": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "projection_constraints_safe": true,
+  "sample_operator_diagnostics": {
+    "step": 1,
+    "antithetic_energy_ratio": 0.9320611658519217,
+    "raw_metric_norm": 2.1088507377049326,
+    "projected_metric_norm": 2.09679920784254,
+    "native_metric_alignment": 1247.9051014811262,
+    "bridge_metric_alignment": 1357.3068354338945,
+    "mean_trust_scale": 0.5117589602966246,
+    "active_constraint_tensors": {
+      "native": 36,
+      "bridge_adversarial": 13
+    },
+    "mean_gate_active": 0.1044921875,
+    "mean_probe_agreement": 0.9970703125
+  },
+  "paired_target_readable_by_candidate": false,
+  "confirmation20_opened": false
+}

@@ -1,0 +1,818 @@
+{
+  "schema": "clean-unsb-search005-hypothesis-ledger-v1",
+  "route": "route1_mathematical_operator_discovery",
+  "entries": [
+    {
+      "candidate_id": "G1-DT-CNDRP",
+      "generation": 1,
+      "parent_probes": [
+        "dt"
+      ],
+      "causal_failure_class": "variance_dominated_intermittent_absolute_teacher_regularizer",
+      "mathematical_update": "For two independent antithetic U-statistic replicates s_r=log(eps+U_r), let a_r=grad_theta s_r and a_bar=(a_1+a_2)/2.  Per Adam coordinate j let v_j=(a_1j-a_2j)^2/2 and p_j=(v_j+eps_j)/(a_bar_j^2+v_j+eps_j), then use g_new,j=p_j*g0,j.",
+      "identity_condition": "a_bar=0 gives P=I exactly",
+      "paired_target_access": false,
+      "uses_fixed_window": false,
+      "engineering_gate": {
+        "schema": "clean-unsb-search005-generation1-gate-v1",
+        "candidate_id": "G1-DT-CNDRP",
+        "passed": true,
+        "endpoint_forward_byte_identical": true,
+        "network_state_keys_identical": true,
+        "zero_intervention_full_update_exact": true,
+        "zero_intervention_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "full_state_resume_exact": true,
+        "resume_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "sample_operator_diagnostics": {
+          "step": 1,
+          "log_dispersion_first": -13.815510749816895,
+          "log_dispersion_second": -13.815510749816895,
+          "mean_scale": 1.0,
+          "minimum_scale": 0.9999998807907104,
+          "relative_gradient_change": 3.672142605495328e-11
+        },
+        "paired_target_readable_by_candidate": false,
+        "confirmation20_opened": false
+      },
+      "experiment_stage": "micro_800",
+      "experiment_summary": {
+        "completed_horizon": 800,
+        "late_available_mean_delta": -0.011046727632303188,
+        "final_delta": -0.0045150314827751,
+        "final_positive_domains": 4,
+        "final_worst_domain_delta": -1.6160393983663965,
+        "final_ssim_delta": -0.017173014084498006,
+        "absolute_peak_to_final_rollback": 0.0,
+        "guardrails_pass_at_final": false
+      },
+      "decision": {
+        "candidate_id": "G1-DT-CNDRP",
+        "decision": "revise_once",
+        "stage": "micro_800",
+        "evidence": {
+          "step800_psnr_delta": -0.004515,
+          "step800_positive_domains": 4,
+          "step800_ssim_delta": -0.017178,
+          "coordinate_minimum_scale_order": 1e-06
+        },
+        "reason": "the method is the closest long-horizon tie but coordinatewise scaling distorts functional block geometry; revise to one positive scalar per parameter tensor",
+        "revision_candidate": "G2-DT-BCNRP",
+        "route1_exhausted": false
+      }
+    },
+    {
+      "candidate_id": "G1-DT-HNEK-BCAVP",
+      "generation": 1,
+      "parent_probes": [
+        "dt",
+        "hnek",
+        "aeb"
+      ],
+      "causal_failure_class": "fixed_physical_endpoint_contraction_cannot_distinguish_excess_latent_variance_from_mean_transport",
+      "mathematical_update": "Let P+=G_theta(X_t,z), P-=G_theta(X_t,-z), M=(P++P-)/2 and D=(P+-P-)/2. For h=1-t and v=mean(D^2), set a=min(1,sqrt(tau*h/v)) and return Y=M+aD, with an explicit Y=P+ branch when v<=tau*h.",
+      "identity_condition": "mean(((G(x,z)-G(x,-z))/2)^2)<=tau*(1-t)",
+      "paired_target_access": false,
+      "uses_fixed_window": false,
+      "engineering_gate": {
+        "schema": "clean-unsb-search005-generation1-gate-v1",
+        "candidate_id": "G1-DT-HNEK-BCAVP",
+        "passed": true,
+        "network_state_keys_identical": true,
+        "physical_variance_cap_enforced": true,
+        "forward_rng_bundle_preserved": true,
+        "forward_diagnostics": {
+          "active_fraction": 0.0,
+          "mean_scale": 1.0,
+          "minimum_scale": 1.0,
+          "maximum_scale": 1.0,
+          "mean_variance": 2.366437008444369e-17,
+          "mean_cap": 0.002599999774247408,
+          "maximum_projected_ratio": 9.101681573404994e-15,
+          "physical_horizon": 0.25999999046325684
+        },
+        "zero_intervention_full_update_exact": true,
+        "zero_intervention_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "full_state_resume_exact": true,
+        "resume_components": {
+          "full_model_optimizer_and_operator": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "installation_status": {
+          "installed": true,
+          "active": true,
+          "tau": 0.01,
+          "num_timesteps": 5,
+          "parameter_count": 14684419
+        },
+        "paired_target_readable_by_candidate": false,
+        "confirmation20_opened": false
+      },
+      "experiment_stage": null,
+      "experiment_summary": null,
+      "decision": {
+        "candidate_id": "G1-DT-HNEK-BCAVP",
+        "decision": "mechanism_absent_on_clean_base",
+        "stage": "engineering_gate",
+        "evidence": {
+          "odd_latent_variance": 2.366437008444369e-17,
+          "physical_cap": 0.002599999774247408,
+          "active_fraction": 0.0
+        },
+        "reason": "the deterministic clean generator has no measurable odd-latent defect, so the exact self-null operator is a no-op and a micro run would only duplicate plain",
+        "micro_run_started": false,
+        "route1_exhausted": false
+      }
+    },
+    {
+      "candidate_id": "G1-GAME-PCOA",
+      "generation": 1,
+      "parent_probes": [
+        "hj",
+        "hnek",
+        "dt",
+        "plain_game"
+      ],
+      "causal_failure_class": "alternating_G_D_E_game_rotation_not_identifiable_from_a_single_local_endpoint_defect",
+      "mathematical_update": "For each player p in {G,D,E}, let u_t^p be its native Adam displacement and u_{t-1}^p the previous native displacement. Set rho_t^p=clip(<u_t^p,u_{t-1}^p>/||u_{t-1}^p||^2,0,1) and apply u_*^p=u_t^p+rho_t^p(u_t^p-u_{t-1}^p). F retains native Adam.",
+      "identity_condition": "first step, rho=0, or u_t=u_{t-1}",
+      "paired_target_access": false,
+      "uses_fixed_window": false,
+      "engineering_gate": {
+        "schema": "clean-unsb-search005-generation1-gate-v1",
+        "candidate_id": "G1-GAME-PCOA",
+        "passed": true,
+        "endpoint_forward_byte_identical": true,
+        "network_state_keys_identical": true,
+        "first_active_update_exactly_plain": true,
+        "first_step_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true,
+          "all_player_predictability_zero": true
+        },
+        "zero_intervention_full_update_exact": true,
+        "zero_intervention_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "full_state_resume_exact": true,
+        "resume_components": {
+          "full_model_optimizer_and_operator": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "predictability_coefficients_valid": true,
+        "sample_operator_diagnostics": {
+          "G": {
+            "predictability": 0.2250886708498001,
+            "current_native_update_norm": 0.22025930881500244,
+            "previous_native_update_norm": 0.14737924933433533,
+            "innovation_norm": 0.2458793967962265,
+            "optimistic_correction_norm": 0.05534466356039047
+          },
+          "D": {
+            "predictability": 0.22470355033874512,
+            "current_native_update_norm": 0.1445753276348114,
+            "previous_native_update_norm": 0.1693878024816513,
+            "innovation_norm": 0.19157183170318604,
+            "optimistic_correction_norm": 0.043046869337558746
+          },
+          "E": {
+            "predictability": 0.07981152832508087,
+            "current_native_update_norm": 0.1580369770526886,
+            "previous_native_update_norm": 0.17013037204742432,
+            "innovation_norm": 0.22203567624092102,
+            "optimistic_correction_norm": 0.017721006646752357
+          }
+        },
+        "installation_status": {
+          "installed": true,
+          "active": true,
+          "players": [
+            "G",
+            "D",
+            "E"
+          ],
+          "feature_sampler_native": true,
+          "changes_endpoint_law": false,
+          "paired_target_access": false
+        },
+        "paired_target_readable_by_candidate": false,
+        "confirmation20_opened": false
+      },
+      "experiment_stage": "small_view_2400",
+      "experiment_summary": {
+        "completed_horizon": 2400,
+        "late_available_mean_delta": 0.12435018703476253,
+        "final_delta": -0.8607762987337892,
+        "final_positive_domains": 2,
+        "final_worst_domain_delta": -2.057948853559477,
+        "final_ssim_delta": -0.017233610649903586,
+        "absolute_peak_to_final_rollback": 2.0982478966602116,
+        "guardrails_pass_at_final": false
+      },
+      "decision": {
+        "candidate_id": "G1-GAME-PCOA",
+        "decision": "revise_once",
+        "stage": "small_view_2400",
+        "evidence": {
+          "step800_psnr_delta": 0.0754884602,
+          "step1200_psnr_delta": 0.1926885402,
+          "step1600_psnr_delta": -0.5698067582,
+          "step2400_psnr_delta": -0.8607762987,
+          "generator_correction_native_ratio_801_1200": 0.3119,
+          "generator_correction_native_ratio_1201_1600": 0.4743,
+          "entropy_predictability_1201_1600": 0.6334
+        },
+        "reason": "PCOA changed the coupled-game phase but its full innovation mixed angular correction with radial native-update changes; revise once to an exactly norm-preserving orthogonal phase operator",
+        "revision_candidate": "G2-GAME-NPOOA",
+        "route1_exhausted": false
+      }
+    },
+    {
+      "candidate_id": "G1-HJ-ACMP",
+      "generation": 1,
+      "parent_probes": [
+        "hj"
+      ],
+      "causal_failure_class": "high_variance_hj_correction_not_stable_under_native_adversarial_flow",
+      "mathematical_update": "Let c_bar be the average HJ-minus-plain gradient correction from antithetic latent views z and -z.  Project c_bar continuously in the Adam metric onto C={c:<g_UNSB,c>>=0 and <g_Adv+SB,c>>=0}, then bound its metric norm by ||g_UNSB||.  Set g_new=g_UNSB+c_projected.",
+      "identity_condition": "zero raw HJ correction produces exact plain UNSB gradient",
+      "paired_target_access": false,
+      "uses_fixed_window": false,
+      "engineering_gate": {
+        "schema": "clean-unsb-search005-generation1-gate-v1",
+        "candidate_id": "G1-HJ-ACMP",
+        "passed": true,
+        "endpoint_forward_byte_identical": true,
+        "network_state_keys_identical": true,
+        "zero_intervention_full_update_exact": true,
+        "zero_intervention_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "full_state_resume_exact": true,
+        "resume_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "projection_constraints_safe": true,
+        "sample_operator_diagnostics": {
+          "step": 1,
+          "antithetic_energy_ratio": 0.9320611658519217,
+          "raw_metric_norm": 2.1088507377049326,
+          "projected_metric_norm": 2.09679920784254,
+          "native_metric_alignment": 1247.9051014811262,
+          "bridge_metric_alignment": 1357.3068354338945,
+          "mean_trust_scale": 0.5117589602966246,
+          "active_constraint_tensors": {
+            "native": 36,
+            "bridge_adversarial": 13
+          },
+          "mean_gate_active": 0.1044921875,
+          "mean_probe_agreement": 0.9970703125
+        },
+        "paired_target_readable_by_candidate": false,
+        "confirmation20_opened": false
+      },
+      "experiment_stage": "micro_800",
+      "experiment_summary": {
+        "completed_horizon": 800,
+        "late_available_mean_delta": -0.039768370455724344,
+        "final_delta": -0.6400259623034579,
+        "final_positive_domains": 1,
+        "final_worst_domain_delta": -1.5988120911720323,
+        "final_ssim_delta": -0.03656596516569455,
+        "absolute_peak_to_final_rollback": 0.815603352543393,
+        "guardrails_pass_at_final": false
+      },
+      "decision": {
+        "candidate_id": "G1-HJ-ACMP",
+        "decision": "revise_once",
+        "stage": "micro_800",
+        "evidence": {
+          "step400_psnr_delta": 0.560465,
+          "step800_psnr_delta": -0.640036,
+          "step800_positive_domains": 1
+        },
+        "reason": "projected HJ correction produced the strongest 400-step benefit but lost future-batch consensus by 800; revise once to independent future-batch consensus",
+        "revision_candidate": "G2-HJ-FBCMP",
+        "route1_exhausted": false
+      }
+    },
+    {
+      "candidate_id": "G1-HNEK-ELIPRC",
+      "generation": 1,
+      "parent_probes": [
+        "hnek"
+      ],
+      "causal_failure_class": "useful_physical_coordinate_entangled_with_endpoint_law_and_adversarial_costate",
+      "mathematical_update": "Keep Y=G_theta(X_t,z) exactly unchanged.  For h=1-t>0 present the entropy critic with R_h=(Y-X_t)/sqrt(h), use the physical entropy coefficient h from the restricted UNSB objective, and leave GAN, PatchNCE, transport cost and rollout/inference endpoint transitions unchanged.",
+      "identity_condition": "at h=1, R_h=Y-X_t; disabling the coordinate recovers byte-identical plain forward",
+      "paired_target_access": false,
+      "uses_fixed_window": false,
+      "engineering_gate": {
+        "schema": "clean-unsb-search005-generation1-gate-v1",
+        "candidate_id": "G1-HNEK-ELIPRC",
+        "passed": true,
+        "endpoint_forward_byte_identical": true,
+        "network_state_keys_identical": true,
+        "zero_intervention_full_update_exact": true,
+        "zero_intervention_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "full_state_resume_exact": true,
+        "resume_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "installation_status": {
+          "installed": true,
+          "generator_wrapped": false,
+          "compute_wrapped": true,
+          "gamma": 0.5,
+          "coord": "residual",
+          "horizon_mode": "physical",
+          "partial": "entropy_only",
+          "active": true
+        },
+        "paired_target_readable_by_candidate": false,
+        "confirmation20_opened": false
+      },
+      "experiment_stage": "micro_800",
+      "experiment_summary": {
+        "completed_horizon": 800,
+        "late_available_mean_delta": -1.0928252713943927,
+        "final_delta": -2.0531820127392564,
+        "final_positive_domains": 1,
+        "final_worst_domain_delta": -3.154231273540846,
+        "final_ssim_delta": -0.07743580391009647,
+        "absolute_peak_to_final_rollback": 1.5358016515376534,
+        "guardrails_pass_at_final": false
+      },
+      "decision": {
+        "candidate_id": "G1-HNEK-ELIPRC",
+        "decision": "close_generation1",
+        "stage": "micro_800",
+        "evidence": {
+          "step400_psnr_delta": -0.132450546,
+          "step800_psnr_delta": -2.053245411,
+          "step800_positive_domains": 1
+        },
+        "reason": "endpoint-law-invariant rate correction was already negative at 400 and deteriorated sharply by 800; the original local energy observable did not identify a safe long-horizon direction",
+        "route1_exhausted": false
+      }
+    },
+    {
+      "candidate_id": "G1-HNEK-PHCRP",
+      "generation": 1,
+      "parent_probes": [
+        "hnek",
+        "dt",
+        "bcavp"
+      ],
+      "causal_failure_class": "fixed_residual_exponent_cannot_follow_the_deterministic_endpoint_residual_scaling_of_each_bridge_trajectory",
+      "mathematical_update": "At bridge point i let P_i=G_theta(X_i,z_i), e_i=mean((P_i-X_i)^2), h_i=1-t_i. Set q_0=e_0 and for i>0 c_i=q_{i-1}h_i/h_{i-1}, a_i=min(1,sqrt(c_i/e_i)), Y_i=X_i+a_i(P_i-X_i), q_i=e_i*a_i^2. The same trajectory recursion is used in training rollout, the differentiable final endpoint and inference.",
+      "identity_condition": "e_i<=q_{i-1}h_i/h_{i-1}, with the entire first bridge point always identity",
+      "paired_target_access": false,
+      "uses_fixed_window": false,
+      "engineering_gate": {
+        "schema": "clean-unsb-search005-generation1-gate-v1",
+        "candidate_id": "G1-HNEK-PHCRP",
+        "passed": true,
+        "network_state_keys_identical": true,
+        "three_training_rollout_histories_complete": true,
+        "pathwise_physical_cap_enforced": true,
+        "forward_diagnostics": {
+          "active_fraction": 0.0,
+          "mean_scale": 1.0,
+          "minimum_scale": 1.0,
+          "maximum_scale": 1.0,
+          "mean_raw_energy": 0.01731540821492672,
+          "mean_accepted_energy": 0.01731540821492672,
+          "mean_physical_cap": 0.01731540821492672,
+          "maximum_cap_ratio": 1.0,
+          "physical_horizon": 0.25999999046325684
+        },
+        "zero_intervention_full_update_exact": true,
+        "zero_intervention_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "full_state_resume_exact": true,
+        "resume_components": {
+          "full_model_optimizer_and_operator": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "installation_status": {
+          "installed": true,
+          "active": true,
+          "trajectory_state_persistent_across_updates": false,
+          "paired_target_access": false
+        },
+        "paired_target_readable_by_candidate": false,
+        "confirmation20_opened": false
+      },
+      "experiment_stage": "micro_800",
+      "experiment_summary": {
+        "completed_horizon": 800,
+        "late_available_mean_delta": -0.27277837468438015,
+        "final_delta": -0.5785811663799496,
+        "final_positive_domains": 1,
+        "final_worst_domain_delta": -1.5182677348590765,
+        "final_ssim_delta": -0.021570083995660128,
+        "absolute_peak_to_final_rollback": 0.22669375223906485,
+        "guardrails_pass_at_final": false
+      },
+      "decision": {
+        "candidate_id": "G1-HNEK-PHCRP",
+        "decision": "revise_once",
+        "stage": "micro_800",
+        "evidence": {
+          "step400_psnr_delta": 0.033024417,
+          "step400_ssim_delta": -0.038526141,
+          "step800_psnr_delta": -0.578581166,
+          "step800_positive_domains": 1
+        },
+        "reason": "the physical defect was reduced by construction but direct mean-endpoint contraction damaged content structure; revise the same observable into an endpoint-law-invariant constrained update",
+        "revision_candidate": "G2-HNEK-PHRSUP",
+        "route1_exhausted": false
+      }
+    },
+    {
+      "candidate_id": "G2-DT-BCNRP",
+      "generation": 2,
+      "parent_probes": [],
+      "causal_failure_class": "coordinatewise_confidence_metric_preserves_descent_but_distorts_within_block_function_geometry",
+      "mathematical_update": "For each generator parameter tensor block b, form two independent dispersion sensitivities a1_b,a2_b, signal s_b=||(a1_b+a2_b)/2||^2 and variation v_b=||a1_b-a2_b||^2/2. Use the scalar p_b=(v_b+eps_b)/(s_b+v_b+eps_b) and g_new,b=p_b*g0,b.",
+      "identity_condition": "the block's mean DT sensitivity is zero or dominated by independent-replicate variation",
+      "paired_target_access": false,
+      "uses_fixed_window": false,
+      "engineering_gate": {
+        "schema": "clean-unsb-search005-generation1-gate-v1",
+        "candidate_id": "G2-DT-BCNRP",
+        "passed": true,
+        "endpoint_forward_byte_identical": true,
+        "network_state_keys_identical": true,
+        "zero_intervention_full_update_exact": true,
+        "zero_intervention_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "full_state_resume_exact": true,
+        "resume_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "sample_operator_diagnostics": {
+          "step": 1,
+          "log_dispersion_first": -13.815510749816895,
+          "log_dispersion_second": -13.815510749816895,
+          "mean_scale": 0.9999999998960886,
+          "minimum_scale": 0.9999973773956299,
+          "relative_gradient_change": 8.990466928274714e-09
+        },
+        "paired_target_readable_by_candidate": false,
+        "confirmation20_opened": false
+      },
+      "experiment_stage": "micro_800",
+      "experiment_summary": {
+        "completed_horizon": 800,
+        "late_available_mean_delta": -0.2122385200779,
+        "final_delta": -0.4704030916240072,
+        "final_positive_domains": 1,
+        "final_worst_domain_delta": -1.0070937336397012,
+        "final_ssim_delta": -0.011419582366943293,
+        "absolute_peak_to_final_rollback": 0.13141731194014028,
+        "guardrails_pass_at_final": false
+      },
+      "decision": {
+        "candidate_id": "G2-DT-BCNRP",
+        "decision": "close_mechanism_after_two_generations",
+        "stage": "micro_800",
+        "evidence": {
+          "step400_psnr_delta": 0.045926051,
+          "step800_psnr_delta": -0.470403092,
+          "step800_positive_domains": 1,
+          "step800_ssim_delta": -0.011419582
+        },
+        "reason": "block geometry avoided coordinate rotation but DT sensitivity still primarily slowed native learning and did not preserve late quality",
+        "route1_exhausted": false
+      }
+    },
+    {
+      "candidate_id": "G2-GAME-NPOOA",
+      "generation": 2,
+      "parent_probes": [
+        "G1-GAME-PCOA",
+        "plain_game"
+      ],
+      "causal_failure_class": "optimistic_game_phase_correction_amplifies_radial_native_update_changes",
+      "mathematical_update": "For each player p, let u be the current native Adam displacement, v the previous native displacement, rho=clip(<u,v>/||v||^2,0,1), d=u-v, and d_perp=d-<d,u>u/||u||^2. Form w=u+rho*d_perp and apply u_*=||u||w/||w||. F remains native.",
+      "identity_condition": "first step, rho=0, zero native displacement, or collinear consecutive native displacements",
+      "paired_target_access": false,
+      "uses_fixed_window": false,
+      "engineering_gate": {
+        "schema": "clean-unsb-search005-generation2-gate-v1",
+        "candidate_id": "G2-GAME-NPOOA",
+        "passed": true,
+        "endpoint_forward_byte_identical": true,
+        "network_state_keys_identical": true,
+        "first_active_update_exactly_plain": true,
+        "first_step_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true,
+          "all_player_predictability_zero": true
+        },
+        "zero_intervention_full_update_exact": true,
+        "zero_intervention_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "full_state_resume_exact": true,
+        "resume_components": {
+          "full_model_optimizer_and_operator": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "predictability_coefficients_valid": true,
+        "sample_operator_diagnostics": {
+          "G": {
+            "predictability": 0.22529160976409912,
+            "current_native_update_norm": 0.22026054561138153,
+            "previous_native_update_norm": 0.14737924933433533,
+            "innovation_norm": 0.24586251378059387,
+            "orthogonal_innovation_norm": 0.14569510519504547,
+            "phase_correction_norm": 0.03255438059568405,
+            "applied_update_norm": 0.22026054561138153,
+            "norm_ratio": 1.0
+          },
+          "D": {
+            "predictability": 0.22470355033874512,
+            "current_native_update_norm": 0.1445753276348114,
+            "previous_native_update_norm": 0.1693878024816513,
+            "innovation_norm": 0.19157183170318604,
+            "orthogonal_innovation_norm": 0.16341227293014526,
+            "phase_correction_norm": 0.035866376012563705,
+            "applied_update_norm": 0.1445753127336502,
+            "norm_ratio": 0.9999998807907104
+          },
+          "E": {
+            "predictability": 0.07981152832508087,
+            "current_native_update_norm": 0.1580369770526886,
+            "previous_native_update_norm": 0.17013037204742432,
+            "innovation_norm": 0.22203567624092102,
+            "orthogonal_innovation_norm": 0.16950125992298126,
+            "phase_correction_norm": 0.013491155579686165,
+            "applied_update_norm": 0.1580369919538498,
+            "norm_ratio": 1.0000001192092896
+          }
+        },
+        "installation_status": {
+          "installed": true,
+          "active": true,
+          "players": [
+            "G",
+            "D",
+            "E"
+          ],
+          "feature_sampler_native": true,
+          "native_update_norm_preserved": true,
+          "changes_endpoint_law": false,
+          "paired_target_access": false
+        },
+        "paired_target_readable_by_candidate": false,
+        "confirmation20_opened": false,
+        "native_update_norm_preserved": true
+      },
+      "experiment_stage": "micro_800",
+      "experiment_summary": {
+        "completed_horizon": 800,
+        "late_available_mean_delta": -0.3674924589739357,
+        "final_delta": -0.9663962268054078,
+        "final_positive_domains": 1,
+        "final_worst_domain_delta": -1.982143720169562,
+        "final_ssim_delta": -0.06851263120770457,
+        "absolute_peak_to_final_rollback": 0.8128957045108702,
+        "guardrails_pass_at_final": false
+      },
+      "decision": {
+        "candidate_id": "G2-GAME-NPOOA",
+        "decision": "close_mechanism_after_two_generations",
+        "stage": "micro_800",
+        "evidence": {
+          "step400_psnr_delta": 0.2314113089,
+          "step400_positive_domains": 5,
+          "step400_ssim_delta": 0.0001390636,
+          "step800_psnr_delta": -0.9663962268,
+          "step800_positive_domains": 1,
+          "step800_ssim_delta": -0.0685126312,
+          "native_update_norm_preserved": true
+        },
+        "reason": "exactly removing radial acceleration retained and strengthened the 400-step signal but caused a larger 800-step reversal; predictable angular rotation alone is not a safe long-horizon UNSB update",
+        "route1_exhausted": true
+      }
+    },
+    {
+      "candidate_id": "G2-HJ-FBCMP",
+      "generation": 2,
+      "parent_probes": [
+        "hj",
+        "G1-HJ-ACMP"
+      ],
+      "causal_failure_class": "same_batch_first_order_safety_does_not_transfer_across_stochastic_unsb_updates",
+      "mathematical_update": "Let c_k be the antithetic raw HJ correction on independent unpaired batch k and M_k the frozen Adam diagonal metric.  With the previous-batch field c_{k-1}, compute q_k=<c_{k-1},c_k>_M/(||c_{k-1}||_M||c_k||_M+eps), rho_k=[q_k]_+, and m_k=rho_k(c_{k-1}+c_k)/2.  Project m_k onto <g_UNSB,k,c>_M>=0 and <g_Adv+SB,k,c>_M>=0, apply it to G, then store c_k for the next independent batch.  The first update uses m_0=0.",
+      "identity_condition": "no previous field or nonpositive cross-batch cosine gives the exact plain update",
+      "paired_target_access": false,
+      "uses_fixed_window": false,
+      "engineering_gate": {
+        "schema": "clean-unsb-search005-generation1-gate-v1",
+        "candidate_id": "G2-HJ-FBCMP",
+        "passed": true,
+        "endpoint_forward_byte_identical": true,
+        "network_state_keys_identical": true,
+        "zero_intervention_full_update_exact": true,
+        "zero_intervention_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "full_state_resume_exact": true,
+        "resume_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "projection_constraints_safe": true,
+        "sample_operator_diagnostics": {
+          "step": 1,
+          "antithetic_energy_ratio": 0.9320611658519217,
+          "future_batch_cosine": 0.0,
+          "future_consensus_weight": 0.0,
+          "raw_metric_norm": 0.0,
+          "projected_metric_norm": 0.0,
+          "native_metric_alignment": 0.0,
+          "bridge_metric_alignment": 0.0,
+          "mean_trust_scale": 0.5117589602966246,
+          "active_constraint_tensors": {
+            "native": 0,
+            "bridge_adversarial": 0
+          },
+          "mean_gate_active": 0.1044921875,
+          "mean_probe_agreement": 0.9970703125
+        },
+        "paired_target_readable_by_candidate": false,
+        "confirmation20_opened": false
+      },
+      "experiment_stage": "micro_800",
+      "experiment_summary": {
+        "completed_horizon": 800,
+        "late_available_mean_delta": -0.49776602975040696,
+        "final_delta": -0.6592631675101757,
+        "final_positive_domains": 1,
+        "final_worst_domain_delta": -1.1142732214615538,
+        "final_ssim_delta": -0.0028342694044112826,
+        "absolute_peak_to_final_rollback": 0.0,
+        "guardrails_pass_at_final": false
+      },
+      "decision": {
+        "candidate_id": "G2-HJ-FBCMP",
+        "decision": "close_mechanism_after_two_generations",
+        "stage": "micro_800",
+        "evidence": {
+          "step400_psnr_delta": -0.336315,
+          "step800_psnr_delta": -0.659328,
+          "step800_positive_domains": 1
+        },
+        "reason": "independent future-batch consensus removed the early benefit instead of retaining it; HJ correction agreement was not a safe persistent update criterion",
+        "route1_exhausted": false
+      }
+    },
+    {
+      "candidate_id": "G2-HNEK-PHRSUP",
+      "generation": 2,
+      "parent_probes": [],
+      "causal_failure_class": "correct_physical_observable_applied_to_the_wrong_endpoint_object",
+      "mathematical_update": "Let phi=max(0,log(e_i)-log(e_{i-1}h_i/h_{i-1})) on the current unpaired rollout, a=grad_theta phi, g0=grad_theta L_UNSB and M be Adam's positive diagonal gradient-to-update metric. Use g*=argmin_g ||g-g0||_M subject to <a,g>_M>=0: g*=g0 if <a,g0>_M>=0, otherwise g*=g0-(<a,g0>_M/<a,a>_M)a.",
+      "identity_condition": "phi=0 or <grad(phi),grad(L_UNSB)>_M>=0",
+      "paired_target_access": false,
+      "uses_fixed_window": false,
+      "engineering_gate": {
+        "schema": "clean-unsb-search005-generation2-gate-v1",
+        "candidate_id": "G2-HNEK-PHRSUP",
+        "passed": true,
+        "network_state_keys_identical": true,
+        "endpoint_forward_byte_identical": true,
+        "forward_rng_bundle_identical": true,
+        "three_training_rollout_histories_complete": true,
+        "zero_intervention_full_update_exact": true,
+        "zero_intervention_components": {
+          "model_and_optimizer": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "full_state_resume_exact": true,
+        "resume_components": {
+          "full_model_optimizer_and_operator": true,
+          "rng": true,
+          "data_stream_a": true,
+          "data_stream_b": true
+        },
+        "projection_constraints_safe": true,
+        "sample_operator_diagnostics": {
+          "active_fraction": 0.0,
+          "mean_log_violation": 0.0,
+          "defect_loss": -0.0,
+          "projection_active": false,
+          "native_defect_alignment": 0.0,
+          "projected_defect_alignment": 0.0,
+          "native_descent_alignment": 43856808.0,
+          "projection_coefficient": 0.0
+        },
+        "installation_status": {
+          "installed": true,
+          "active": true,
+          "changes_endpoint_law": false,
+          "paired_target_access": false
+        },
+        "paired_target_readable_by_candidate": false,
+        "confirmation20_opened": false
+      },
+      "experiment_stage": "micro_800",
+      "experiment_summary": {
+        "completed_horizon": 800,
+        "late_available_mean_delta": -0.1441303090030317,
+        "final_delta": -0.6445519997010578,
+        "final_positive_domains": 2,
+        "final_worst_domain_delta": -1.7498470646001145,
+        "final_ssim_delta": -0.022713293631871523,
+        "absolute_peak_to_final_rollback": 0.6159315502439782,
+        "guardrails_pass_at_final": false
+      },
+      "decision": {
+        "candidate_id": "G2-HNEK-PHRSUP",
+        "decision": "close_mechanism_after_two_generations",
+        "stage": "micro_800",
+        "evidence": {
+          "step400_psnr_delta": 0.356291382,
+          "step800_psnr_delta": -0.644552,
+          "step800_positive_domains": 2,
+          "sampled_unsafe_native_alignments": 0
+        },
+        "reason": "the pathwise physical violation did not predict the quality reversal: sampled violating batches already had native gradients that reduced the defect, while quality still reversed",
+        "route1_exhausted": false
+      }
+    }
+  ],
+  "generation1_mechanisms": 6,
+  "causal_revisions": 4,
+  "promotion_count": 0,
+  "route1_exhausted_under_registered_cap": true,
+  "confirmation20_opened": false
+}

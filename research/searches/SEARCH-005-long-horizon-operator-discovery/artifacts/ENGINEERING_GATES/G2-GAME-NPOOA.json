@@ -1,0 +1,78 @@
+{
+  "schema": "clean-unsb-search005-generation2-gate-v1",
+  "candidate_id": "G2-GAME-NPOOA",
+  "passed": true,
+  "endpoint_forward_byte_identical": true,
+  "network_state_keys_identical": true,
+  "first_active_update_exactly_plain": true,
+  "first_step_components": {
+    "model_and_optimizer": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true,
+    "all_player_predictability_zero": true
+  },
+  "zero_intervention_full_update_exact": true,
+  "zero_intervention_components": {
+    "model_and_optimizer": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "full_state_resume_exact": true,
+  "resume_components": {
+    "full_model_optimizer_and_operator": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "predictability_coefficients_valid": true,
+  "sample_operator_diagnostics": {
+    "G": {
+      "predictability": 0.22529160976409912,
+      "current_native_update_norm": 0.22026054561138153,
+      "previous_native_update_norm": 0.14737924933433533,
+      "innovation_norm": 0.24586251378059387,
+      "orthogonal_innovation_norm": 0.14569510519504547,
+      "phase_correction_norm": 0.03255438059568405,
+      "applied_update_norm": 0.22026054561138153,
+      "norm_ratio": 1.0
+    },
+    "D": {
+      "predictability": 0.22470355033874512,
+      "current_native_update_norm": 0.1445753276348114,
+      "previous_native_update_norm": 0.1693878024816513,
+      "innovation_norm": 0.19157183170318604,
+      "orthogonal_innovation_norm": 0.16341227293014526,
+      "phase_correction_norm": 0.035866376012563705,
+      "applied_update_norm": 0.1445753127336502,
+      "norm_ratio": 0.9999998807907104
+    },
+    "E": {
+      "predictability": 0.07981152832508087,
+      "current_native_update_norm": 0.1580369770526886,
+      "previous_native_update_norm": 0.17013037204742432,
+      "innovation_norm": 0.22203567624092102,
+      "orthogonal_innovation_norm": 0.16950125992298126,
+      "phase_correction_norm": 0.013491155579686165,
+      "applied_update_norm": 0.1580369919538498,
+      "norm_ratio": 1.0000001192092896
+    }
+  },
+  "installation_status": {
+    "installed": true,
+    "active": true,
+    "players": [
+      "G",
+      "D",
+      "E"
+    ],
+    "feature_sampler_native": true,
+    "native_update_norm_preserved": true,
+    "changes_endpoint_law": false,
+    "paired_target_access": false
+  },
+  "paired_target_readable_by_candidate": false,
+  "confirmation20_opened": false,
+  "native_update_norm_preserved": true
+}

@@ -1,0 +1,45 @@
+{
+  "candidate_id": "G2-GAME-NPOOA",
+  "name": "Norm-Preserving Orthogonal Optimistic Adam",
+  "candidate_type": "coupled_dynamics_revision",
+  "generation": 2,
+  "parent_probes": ["G1-GAME-PCOA", "plain_game"],
+  "parent_evidence": [
+    "PCOA was positive at 400, 800 and 1200 updates but reversed to -0.570 dB at 1600 and -0.861 dB at 2400",
+    "before the 1600 reversal, mean generator correction/native norm rose from 0.312 at 801-1200 to 0.474 at 1201-1600",
+    "entropy-critic predictability reached 0.633 with mean correction/native norm 0.517 at 1201-1600",
+    "PCOA confounded directional game-field rotation with radial changes in native Adam displacement magnitude"
+  ],
+  "causal_failure_class": "optimistic_game_phase_correction_amplifies_radial_native_update_changes",
+  "unsb_object": "direction, but not magnitude, of each native G/D/E Adam displacement",
+  "mathematical_update": "For each player p, let u be the current native Adam displacement, v the previous native displacement, rho=clip(<u,v>/||v||^2,0,1), d=u-v, and d_perp=d-<d,u>u/||u||^2. Form w=u+rho*d_perp and apply u_*=||u||w/||w||. F remains native.",
+  "derivation": [
+    "The component of u-v parallel to u changes step magnitude and caused PCOA to accelerate native update spikes rather than only compensate game rotation.",
+    "The orthogonal component is the first-order change in update direction and is therefore the part attributable to phase curvature of the coupled game field.",
+    "Projecting the proposal back to the native sphere enforces ||u_*||=||u|| exactly, so the operator cannot accelerate or slow any player's native Adam step.",
+    "When consecutive fields are collinear, d_perp=0 and the operator is native even if their magnitudes differ.",
+    "When the field is anti-aligned or nonpredictive, rho=0 and the operator is native; every native stationary point remains fixed.",
+    "The revision has no tunable strength, window, paired target, endpoint anchor or plain-output target."
+  ],
+  "identity_condition": "first step, rho=0, zero native displacement, or collinear consecutive native displacements",
+  "self_null_condition": "no predictable angular change exists in the native game field",
+  "invariance_property": "for every player and update, ||u_*||_2=||u||_2; objectives, endpoint law, Adam moments and fixed points are unchanged",
+  "paired_target_access": false,
+  "paired_target_proof": "the operator uses only current and previous native optimizer displacements",
+  "uses_fixed_window": false,
+  "uses_whole_state_branch_selection": false,
+  "changes_training_target": false,
+  "changes_gradient_estimator": false,
+  "changes_endpoint_law": false,
+  "expected_valid_states": "predictable angular G-D-E game motion where radial optimism, rather than phase correction itself, caused PCOA reversal",
+  "falsification_test": "close the coupled-game mechanism if exact norm preservation passes but the 800-step matched trajectory is negative or the independent 2400-step trajectory still reverses",
+  "compute_cost": "native forward/backward count plus one global dot-product/projection per G/D/E optimizer step",
+  "memory_cost": "one previous native displacement plus one transient parameter snapshot per G/D/E parameter",
+  "allowed_claim": "tests whether a norm-neutral phase correction can retain PCOA's early benefit without its radial amplification",
+  "forbidden_claims": [
+    "a tuned exit rule",
+    "global convergence for nonconvex three-player UNSB",
+    "equivalence to exact extragradient",
+    "paired metric control"
+  ]
+}

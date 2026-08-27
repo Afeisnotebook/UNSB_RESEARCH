@@ -22,10 +22,10 @@ paper / figure / release / handoff
 
 - 新 deterministic canonical 已可作为后续探索基座。
 - `MOT-001` 支持“共享训练改变条件路径几何”的现象级动机；六域单 seed 进一步观察到正的 shared-clock regret，但不支持固定普适窗口、因果伤害或算法有效性。
-- SEARCH-001 已完成本地八 lane、两条合成、完整视图复赛和 12k 延长；confirmation20 全程封存。
-- HNEK `gamma=0.25` 是本地总冠军，但最后三个 matched checkpoint 均值只有 `+0.006322 dB`，状态为 `POSITIVE_BUT_FRAGILE`，尚未做 4090/跨 seed 确认。
-- DT 有中段信号但长程反转，列为递补二；HJ 小视图末点强但轨迹振荡，未获完整视图名额。
-- DCUM/LBST/PTQ/AEB 的当前固定实现均未形成稳定长程收益；HNEK+DCUM 为递补一。
+- SEARCH-005 已完成真正的路线一数学算子发现：6 类初始机制、4 次因果修订均未通过持续收益门禁，confirmation20 全程封存。
+- 唯一冻结项 PCOA 只是 `WEAK_FALLBACK`：400/800/1200 有可复现正窗口，但 1600/2400 反转，不能作为论文算法或自动 4090 候选。
+- SEARCH-001 的 HNEK、SEARCH-002 的 finite-horizon HJ 和 DT 正窗口继续保留为历史证据，不再被描述为当前已晋级第一候选。
+- 当前没有跨 seed、未触碰确认集、长程持续为正的算法；下一步必须显式选择“弱候选高算力证伪”或另立 route-2，不能偷偷回到窗口阈值搜索。
 
 机器状态见 [PROJECT_STATE.json](./PROJECT_STATE.json)，人类可读摘要见 [CURRENT_STATE_CN.md](./CURRENT_STATE_CN.md)。
 

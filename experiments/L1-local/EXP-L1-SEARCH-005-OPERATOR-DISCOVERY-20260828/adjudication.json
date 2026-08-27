@@ -1,0 +1,10 @@
+{
+  "schema": "clean-unsb-exp-l1-search005-adjudication-v1",
+  "outcome": "weak_fallback_no_sustained_route1_candidate",
+  "unique_fallback": "G1-GAME-PCOA",
+  "promotion_passed": false,
+  "full_view_started": false,
+  "additional_seeds_started": false,
+  "confirmation20_opened": false,
+  "decision": "../../../decisions/records/DEC-20260828-SEARCH005-ROUTE1-STOP.md"
+}

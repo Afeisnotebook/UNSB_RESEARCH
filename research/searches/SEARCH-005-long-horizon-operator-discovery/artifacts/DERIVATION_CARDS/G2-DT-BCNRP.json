@@ -1,0 +1,45 @@
+{
+  "candidate_id": "G2-DT-BCNRP",
+  "name": "Block-Confidence Normalized Rate Preconditioner",
+  "candidate_type": "operator",
+  "generation": 2,
+  "parent_candidate": "G1-DT-CNDRP",
+  "parent_evidence": [
+    "CNDRP step400 PSNR delta=-0.017578",
+    "CNDRP step800 PSNR delta=-0.004515 with 4/6 positive domains",
+    "CNDRP step800 SSIM delta=-0.017178 and worst-domain delta=-1.616276",
+    "CNDRP coordinate minimum scales approached 1e-6 with relative gradient changes up to 0.97"
+  ],
+  "causal_failure_class": "coordinatewise_confidence_metric_preserves_descent_but_distorts_within_block_function_geometry",
+  "unsb_object": "native generator gradient under a parameter-block DT sensitivity confidence metric",
+  "mathematical_update": "For each generator parameter tensor block b, form two independent dispersion sensitivities a1_b,a2_b, signal s_b=||(a1_b+a2_b)/2||^2 and variation v_b=||a1_b-a2_b||^2/2. Use the scalar p_b=(v_b+eps_b)/(s_b+v_b+eps_b) and g_new,b=p_b*g0,b.",
+  "derivation": [
+    "CNDRP's elementwise metric can change convolutional filter direction even though every coordinate scale is positive.",
+    "A single positive scalar per parameter block preserves every within-block gradient angle exactly while retaining the confidence-normalized DT rate interpretation.",
+    "For any positive diagonal Adam metric M, <g0,p_b g0>_M=p_b||g0||_M^2>0 for a nonzero block, so native descent and stationary points are preserved.",
+    "A reproducible sensitivity signal slows only the affected block; replicate disagreement returns p_b toward one without a threshold.",
+    "The objective, endpoint law, data measure and inference path remain exactly native UNSB."
+  ],
+  "long_horizon_property": "strictly positive block preconditioning preserves native stationary points and cannot reverse a native descent direction",
+  "identity_condition": "the block's mean DT sensitivity is zero or dominated by independent-replicate variation",
+  "self_null_condition": "DT dispersion sensitivity is absent or statistically irreproducible in the current state",
+  "unbiased_or_invariance_property": "native objective, endpoint law and within-block gradient directions are invariant",
+  "paired_target_access": false,
+  "paired_target_proof": "both sensitivity replicates use only unpaired bridge states and isolated generator latents",
+  "uses_fixed_window": false,
+  "uses_whole_state_branch_selection": false,
+  "changes_training_target": false,
+  "changes_gradient_estimator": false,
+  "changes_endpoint_law": false,
+  "expected_valid_states": "states where DT sensitivity is reproducible at network-block scale but coordinate estimates are too noisy",
+  "falsification_test": "close the CNDRP/BCNRP mechanism after this generation if block-direction invariance, exact zero intervention or resume fails, or if its 400/800 micro trajectory is late-negative or still violates structure guardrails",
+  "compute_cost": "two antithetic sensitivity backwards plus the native generator backward",
+  "memory_cost": "two sensitivity gradients and one native gradient",
+  "allowed_claim": "tests whether DT's near-tie can become a structurally safe long-horizon metric at functional block resolution",
+  "forbidden_claims": [
+    "a tuned learning-rate schedule",
+    "posterior covariance estimation",
+    "guaranteed domain balance",
+    "route1 is exhausted if this candidate fails"
+  ]
+}

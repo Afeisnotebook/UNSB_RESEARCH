@@ -1,5 +1,7 @@
 {
-  "schema": "clean-unsb-search003-route1-stop-v1",
+  "schema": "clean-unsb-search003-controller-subroute-stop-v2",
+  "stop_scope": "controller_subroute_only",
+  "route1_operator_discovery_exhausted": false,
   "route1_sustained_candidate_found": false,
   "reason": "target-blind local UNSB loss/gradient consistency delayed or reshaped reversal but did not ensure sustained paired restoration quality",
   "honest_stop_category": "correction_valid_on_unpaired_native_objective_but_not_equivalent_to_psnr",
@@ -7,5 +9,6 @@
   "full_view_started": false,
   "seed_2027_started": false,
   "confirmation20_opened": false,
-  "next_route": "plan gap-aware handoff separately; do not mutate SEARCH-003"
+  "next_route": "continue evidence-routed mathematical operator discovery in SEARCH-005; keep gap-aware handoff separate",
+  "scope_correction": "SCOPE_CORRECTION.json"
 }

@@ -1,0 +1,12 @@
+{
+  "schema": "clean-unsb-search005-generation2-derivation-v1",
+  "candidate_ids": [
+    "G2-HJ-FBCMP",
+    "G2-HNEK-PHRSUP",
+    "G2-DT-BCNRP"
+  ],
+  "revision_trigger": "candidate-specific causal failures: HJ cross-update inconsistency and PHCRP mean-transport distortion",
+  "uses_fixed_window": false,
+  "paired_target_access": false,
+  "confirmation20_opened": false
+}

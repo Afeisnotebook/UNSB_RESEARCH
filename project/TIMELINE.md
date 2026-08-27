@@ -15,7 +15,8 @@
 | T8 生命周期化与新搜索 | 08-26 | 仓库重构；接入 DCUM/LBST/PTQ/AEB 和 SEARCH-001；完成 L0 工程门 | 新机制 `IMPLEMENTED`、搜索 `ENGINEERING_GATE_PASS`，均无效果裁决 | [SEARCH-001](../research/searches/SEARCH-001-clean-directional/README.md)、[L0 gate](../experiments/L0-contract/EXP-L0-SEARCH-001-GATE-20260826/README.md) |
 | T9 本地方向再搜索 | 08-26 | 八 lane、两条合成、完整视图复赛；首名与 plain 等量延长至 12k | HNEK 以最后三点 `+0.006322 dB` 冻结为 `positive_but_fragile`；新机制当前实现关闭 | [L1 完整实验](../experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/README.md)、[本地裁决](../decisions/records/DEC-20260826-SEARCH-001-LOCAL-WINNER.md) |
 | T10 DT/HJ 方向重推导 | 08-27 | 证伪输出空间 LTTR；用独立 discovery70 扩展 HJ 强 checkpoint；实现有限期 HJ→plain handoff | HJ discovery70 `+0.710548 dB`、6/6 域正，handoff 后仍正；finite-horizon HJ 取代 HNEK 成为脆弱第一候选 | [SEARCH-002 实验](../experiments/L1-local/EXP-L1-SEARCH-002-DTHJ-20260827/README.md)、[候选裁决](../decisions/records/DEC-20260827-HJ-FINITE-HORIZON-LOCAL-CANDIDATE.md) |
-| NEXT 4090 验证 | T10 之后 | finite-horizon HJ 与 matched plain，seed=2026，固定 30k/60k/120k；HJ 仅 `[960,4800)` active | 不看中间结果改算法；候选冻结后才打开 confirmation20 | [唯一候选](../experiments/L1-local/EXP-L1-SEARCH-002-DTHJ-20260827/CANDIDATE.json)、[当前门禁](../decisions/CURRENT.md) |
+| T11 反转因果与数学算子发现 | 08-27–08-28 | 修正 SEARCH-003 的 controller 目标漂移；SEARCH-005 运行 6 类 G1 机制、4 次因果修订和独立 2400-step 轨迹 | 正窗口可复现，但没有持续候选；PCOA 仅 weak fallback，full100/多 seed/confirmation20 未启动 | [SEARCH-005](../research/searches/SEARCH-005-long-horizon-operator-discovery/RESULTS.md)、[路线一裁决](../decisions/records/DEC-20260828-SEARCH005-ROUTE1-STOP.md) |
+| NEXT 显式路线选择 | T11 之后 | 二选一：接受 weak-fallback 风险后高算力证伪 PCOA，或另立 route-2 gap-aware handoff | 不允许把 route 2、窗口阈值或 paired 控制偷偷写回 SEARCH-005 | [当前门禁](../decisions/CURRENT.md) |
 
 ## 三条主线如何汇合
 
@@ -28,7 +29,8 @@ T4–T6 plain-only 动机重建 ───────────────→
                          ↓ T7 新 canonical
                          ↓ T8 SEARCH-001 与最后一轮分级探索
                          ↓ T9 HNEK 本地脆弱正向候选
-                         ↓ T10 finite-horizon HJ 取代为当前第一候选
+                         ↓ T10 finite-horizon HJ 形成历史强窗口
+                         ↓ T11 SEARCH-005 路线一无持续候选，PCOA 仅 weak fallback
 ```
 
 “动机成立”不推出“候选有效”；“工程门通过”也不推出“效果成立”。两者都必须在独立冻结实验中连接到决策。

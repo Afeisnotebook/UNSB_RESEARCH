@@ -1,0 +1,47 @@
+{
+  "candidate_id": "G1-HNEK-ELIPRC",
+  "name": "Endpoint-Law-Invariant Physical Residual Coordinate",
+  "candidate_type": "coordinate",
+  "generation": 1,
+  "parent_probes": [
+    "hnek"
+  ],
+  "parent_evidence": [
+    "HNEK-FULL-3000-POS::pulse8=+0.869870::H32=+1.213187::H200=-0.071773",
+    "HNEK-FULL-4000-NEG::pulse8=-0.058180::H200=-0.336928",
+    "HNEK-FULL-3000-POS::GF+moments attribution=+1.641274::6/6",
+    "HNEK-FULL-3000-POS::full-state worst-domain=-2.154811"
+  ],
+  "causal_failure_class": "useful_physical_coordinate_entangled_with_endpoint_law_and_adversarial_costate",
+  "unsb_object": "restricted EROT entropy coordinate on [t,1] with the endpoint transition law held fixed",
+  "mathematical_update": "Keep Y=G_theta(X_t,z) exactly unchanged.  For h=1-t>0 present the entropy critic with R_h=(Y-X_t)/sqrt(h), use the physical entropy coefficient h from the restricted UNSB objective, and leave GAN, PatchNCE, transport cost and rollout/inference endpoint transitions unchanged.",
+  "derivation": [
+    "UNSB Theorem 1 restricts the bridge to [t,1], whose Brownian transition variance scales with the remaining horizon h.",
+    "sqrt(h) is therefore the physical fluctuation scale, while R_h is an invertible coordinate of Y given X_t and h.",
+    "Mutual information is invariant under this conditional bijection, so an ideal entropy critic may use R_h without changing the endpoint conditional law.",
+    "Unlike HNEK-all, the generator forward is never multiplied by h^gamma; training, rollout and inference share the exact same endpoint map.",
+    "The physical coefficient h replaces the code's uniform-index coefficient, correcting the identified nonuniform-time mismatch without a schedule."
+  ],
+  "long_horizon_property": "the endpoint law is exactly identical to plain at every state, while the continuously active entropy coordinate is an invertible physical reparameterization",
+  "identity_condition": "at h=1, R_h=Y-X_t; disabling the coordinate recovers byte-identical plain forward",
+  "self_null_condition": "the method has no endpoint correction to withdraw; generator inference is always plain",
+  "unbiased_or_invariance_property": "conditional endpoint law and inference map are exactly invariant",
+  "paired_target_access": false,
+  "paired_target_proof": "h, X_t and generated Y are native unpaired bridge variables",
+  "uses_fixed_window": false,
+  "uses_whole_state_branch_selection": false,
+  "changes_training_target": true,
+  "changes_gradient_estimator": false,
+  "changes_endpoint_law": false,
+  "expected_valid_states": "all bridge times h>0; no phase-specific activation",
+  "falsification_test": "kill if forward/rollout endpoint identity fails or if a 400/800-step micro run reproduces HNEK-all reversal without improving coordinate conditioning",
+  "compute_cost": "same generator cost as plain; residual-coordinate critic arithmetic only",
+  "memory_cost": "same order as plain UNSB",
+  "allowed_claim": "tests whether HNEK's physical-coordinate signal can be retained without changing the endpoint law",
+  "forbidden_claims": [
+    "exact finite-capacity critic invariance",
+    "proof of PSNR improvement",
+    "time conditioning repair",
+    "route1 is exhausted if this coordinate fails"
+  ]
+}

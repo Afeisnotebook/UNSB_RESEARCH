@@ -1,0 +1,42 @@
+{
+  "schema": "clean-unsb-search005-generation2-gate-v1",
+  "candidate_id": "G2-HNEK-PHRSUP",
+  "passed": true,
+  "network_state_keys_identical": true,
+  "endpoint_forward_byte_identical": true,
+  "forward_rng_bundle_identical": true,
+  "three_training_rollout_histories_complete": true,
+  "zero_intervention_full_update_exact": true,
+  "zero_intervention_components": {
+    "model_and_optimizer": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "full_state_resume_exact": true,
+  "resume_components": {
+    "full_model_optimizer_and_operator": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "projection_constraints_safe": true,
+  "sample_operator_diagnostics": {
+    "active_fraction": 0.0,
+    "mean_log_violation": 0.0,
+    "defect_loss": -0.0,
+    "projection_active": false,
+    "native_defect_alignment": 0.0,
+    "projected_defect_alignment": 0.0,
+    "native_descent_alignment": 43856808.0,
+    "projection_coefficient": 0.0
+  },
+  "installation_status": {
+    "installed": true,
+    "active": true,
+    "changes_endpoint_law": false,
+    "paired_target_access": false
+  },
+  "paired_target_readable_by_candidate": false,
+  "confirmation20_opened": false
+}

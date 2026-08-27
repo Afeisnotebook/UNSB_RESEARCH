@@ -1,0 +1,67 @@
+{
+  "schema": "clean-unsb-search005-generation1-gate-v1",
+  "candidate_id": "G1-GAME-PCOA",
+  "passed": true,
+  "endpoint_forward_byte_identical": true,
+  "network_state_keys_identical": true,
+  "first_active_update_exactly_plain": true,
+  "first_step_components": {
+    "model_and_optimizer": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true,
+    "all_player_predictability_zero": true
+  },
+  "zero_intervention_full_update_exact": true,
+  "zero_intervention_components": {
+    "model_and_optimizer": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "full_state_resume_exact": true,
+  "resume_components": {
+    "full_model_optimizer_and_operator": true,
+    "rng": true,
+    "data_stream_a": true,
+    "data_stream_b": true
+  },
+  "predictability_coefficients_valid": true,
+  "sample_operator_diagnostics": {
+    "G": {
+      "predictability": 0.2250886708498001,
+      "current_native_update_norm": 0.22025930881500244,
+      "previous_native_update_norm": 0.14737924933433533,
+      "innovation_norm": 0.2458793967962265,
+      "optimistic_correction_norm": 0.05534466356039047
+    },
+    "D": {
+      "predictability": 0.22470355033874512,
+      "current_native_update_norm": 0.1445753276348114,
+      "previous_native_update_norm": 0.1693878024816513,
+      "innovation_norm": 0.19157183170318604,
+      "optimistic_correction_norm": 0.043046869337558746
+    },
+    "E": {
+      "predictability": 0.07981152832508087,
+      "current_native_update_norm": 0.1580369770526886,
+      "previous_native_update_norm": 0.17013037204742432,
+      "innovation_norm": 0.22203567624092102,
+      "optimistic_correction_norm": 0.017721006646752357
+    }
+  },
+  "installation_status": {
+    "installed": true,
+    "active": true,
+    "players": [
+      "G",
+      "D",
+      "E"
+    ],
+    "feature_sampler_native": true,
+    "changes_endpoint_law": false,
+    "paired_target_access": false
+  },
+  "paired_target_readable_by_candidate": false,
+  "confirmation20_opened": false
+}
