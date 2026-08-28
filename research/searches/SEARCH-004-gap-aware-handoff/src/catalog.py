@@ -40,6 +40,7 @@ def audit_catalog(runs_root: Path) -> list[HandoffCheckpoint]:
     full = directional / "stage2_full_view"
     search005 = runs / "long_horizon_operator_discovery_20260827"
     search005_small = search005 / "generation1_small_2400"
+    hj_handoff = runs / "dthj_rederivation_20260826" / "hj_finite_handoff"
     rows = [
         HandoffCheckpoint(
             "DT-400", "dt", "dtcov", "small25", 400, 25,
@@ -52,6 +53,13 @@ def audit_catalog(runs_root: Path) -> list[HandoffCheckpoint]:
             small / "plain" / "step_1200.pt",
             small / "hj_anchor" / "step_1200.pt",
             initial_delta=0.8045,
+        ),
+        HandoffCheckpoint(
+            "HJ-HANDOFF-2000", "hj", "hj", "small25", 2000, 25,
+            hj_handoff / "plain" / "step_2000.pt",
+            hj_handoff / "hj_anchor" / "step_2000.pt",
+            source_mode="native_handoff_from_hj1200",
+            initial_delta=3.7900,
         ),
         HandoffCheckpoint(
             "G2HJ-FULL-800", "hj", "hj", "small25", 800, 25,

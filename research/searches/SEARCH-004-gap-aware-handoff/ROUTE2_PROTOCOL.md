@@ -19,6 +19,9 @@
 - DT-400: accumulated positive DT source and natural-handoff counterexample.
 - HJ-1200: accumulated positive HJ source; an external exact hard continuation
   at +400/+800 is retained as a positive control.
+- HJ-HANDOFF-2000: the exact HJ-1200 hard-disable state after 800 native
+  updates, used only to extend the already-established handoff trajectory to
+  total step 3200 without replaying the identical first 800 updates.
 - HNEK-3000 / HNEK-4000: positive/negative full-view sources with strong
   SEARCH-005 G/F+moment attribution.
 - PCOA-1200 / PCOA-1600: route-1 weak fallback before/after its first reversal.
