@@ -19,6 +19,7 @@ CANDIDATE_ARMS = (
     "G_gf_transplant",
     "H_native_moment_projection",
     "K_gf_state_transplant",
+    "L_variance_carried_rebase",
 )
 
 
@@ -114,7 +115,9 @@ def analyze_checkpoint(
             base_defect = plain_relative_component_distance(a_components, p_components, ("G", "F", "D", "E"))
             arm_defect = plain_relative_component_distance(result["final_component_diagnostics"], p_components, ("G", "F", "D", "E"))
             defect_basis = "plain_relative_diagnostic_only"
-        elif arm == "H_native_moment_projection":
+        elif arm in {
+            "H_native_moment_projection", "L_variance_carried_rebase",
+        }:
             record = result.get("transport_record") or {}
             base_defect = float(record.get("target_blind_defect_before", 0.0))
             arm_defect = float(record.get("target_blind_defect_after", base_defect))

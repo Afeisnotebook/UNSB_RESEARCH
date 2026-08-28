@@ -21,7 +21,10 @@ from .search001_compat import modules
 from .search003_compat import load_receding
 from .search005_compat import load_model_operators
 from .statistics import empirical_bernstein_cs
-from .transports import least_change_native_moment_projection
+from .transports import (
+    least_change_native_moment_projection,
+    variance_carried_native_moment_rebase,
+)
 from .state import (
     checkpoint_method_costate,
     cpu_clone,
@@ -251,6 +254,13 @@ class HandoffEngine:
                 protocol.moment_projection_batches
             )
             self._transport_record = least_change_native_moment_projection(
+                self.model, gradients, players=("G", "F")
+            )
+        if arm == "L_variance_carried_rebase":
+            gradients = self._collect_native_mean_gradients(
+                protocol.moment_projection_batches
+            )
+            self._transport_record = variance_carried_native_moment_rebase(
                 self.model, gradients, players=("G", "F")
             )
         return self.capture_state(arm=arm, completed=0)

@@ -72,6 +72,8 @@ ARMS = (
     "D_costate_equilibration",
     "E_combined",
     "F_g_only_transplant",
+    "G_gf_transplant",
     "H_native_moment_projection",
     "K_gf_state_transplant",
+    "L_variance_carried_rebase",
 )

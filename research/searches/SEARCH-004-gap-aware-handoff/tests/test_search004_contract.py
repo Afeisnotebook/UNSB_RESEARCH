@@ -22,7 +22,10 @@ from src.state import (  # noqa: E402
     load_named_optimizers,
 )
 from src.statistics import empirical_bernstein_cs, persistently_incompatible  # noqa: E402
-from src.transports import least_change_native_moment_projection  # noqa: E402
+from src.transports import (  # noqa: E402
+    least_change_native_moment_projection,
+    variance_carried_native_moment_rebase,
+)
 
 
 class DummyModel:
@@ -58,8 +61,10 @@ def test_protocol_is_frozen_and_has_all_core_arms():
         "P_common_plain", "U_uninterrupted", "A_hard_disable",
         "B_gf_zero_moment", "C_local_native_moment", "D0_hold_only",
         "D_costate_equilibration", "E_combined", "F_g_only_transplant",
+        "G_gf_transplant",
         "H_native_moment_projection",
         "K_gf_state_transplant",
+        "L_variance_carried_rebase",
     } == set(ARMS)
 
 
@@ -173,3 +178,45 @@ def test_native_moment_projection_removes_only_conflicting_component():
         for row in record["players"].values()
         if row.get("available")
     )
+
+
+def test_variance_carried_rebase_preserves_second_moment_and_age():
+    model = DummyModel()
+    populate(model)
+    gradients = {}
+    for player in ("G", "F"):
+        optimizer = getattr(model, f"optimizer_{player}")
+        network = getattr(model, f"net{player}")
+        for name, parameter in network.named_parameters():
+            state = optimizer.state[parameter]
+            gradients[f"{player}.{name}"] = -(
+                state["exp_avg"] / (state["exp_avg_sq"].sqrt() + 1e-8)
+            ).detach().clone()
+    before = export_named_optimizers(model)
+    record = variance_carried_native_moment_rebase(model, gradients)
+    after = export_named_optimizers(model)
+    assert record["identity"] is False
+    for player in ("G", "F"):
+        for name, old in before[player]["states"].items():
+            new = after[player]["states"][name]
+            assert torch.count_nonzero(new["exp_avg"]) == 0
+            assert torch.equal(old["exp_avg_sq"], new["exp_avg_sq"])
+            assert torch.equal(old["step"], new["step"])
+
+
+def test_variance_carried_rebase_is_identity_without_conflict():
+    model = DummyModel()
+    populate(model)
+    gradients = {}
+    for player in ("G", "F"):
+        optimizer = getattr(model, f"optimizer_{player}")
+        network = getattr(model, f"net{player}")
+        for name, parameter in network.named_parameters():
+            state = optimizer.state[parameter]
+            gradients[f"{player}.{name}"] = (
+                state["exp_avg"] / (state["exp_avg_sq"].sqrt() + 1e-8)
+            ).detach().clone()
+    before = export_named_optimizers(model)
+    record = variance_carried_native_moment_rebase(model, gradients)
+    assert record["identity"] is True
+    assert exact_equal(before, export_named_optimizers(model))[0]

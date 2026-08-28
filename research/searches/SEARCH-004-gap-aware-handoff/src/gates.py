@@ -216,6 +216,26 @@ def run_engineering_gate(
             h_state,
             engine.capture_state(arm=h_state["arm"], completed=0),
         )
+        l_state = engine.prepare_arm("L_variance_carried_rebase", protocol)
+        l_record = l_state.get("transport_record") or {}
+        variance_rebase_component_safe = (
+            _equal(h_source["model"]["networks"], l_state["model"]["networks"])
+            and _equal(h_source["model"]["schedulers"], l_state["model"]["schedulers"])
+            and _equal(h_source["model"]["optimizers"][1], l_state["model"]["optimizers"][1])
+            and _equal(h_source["model"]["optimizers"][2], l_state["model"]["optimizers"][2])
+            and _equal(h_source["rng"], l_state["rng"])
+            and _equal(h_source["stream_a"], l_state["stream_a"])
+            and _equal(h_source["stream_b"], l_state["stream_b"])
+            and l_record.get("paired_target_access") is False
+            and l_record.get("plain_reference_access") is False
+            and l_record.get("second_moments_changed") is False
+            and l_record.get("optimizer_age_changed") is False
+        )
+        engine.load_state(l_state)
+        variance_rebase_resume_exact = _equal(
+            l_state,
+            engine.capture_state(arm=l_state["arm"], completed=0),
+        )
         parent_immutable = engine.parent_digest == torch_digest(engine.method_payload)
     finally:
         engine.close()
@@ -248,6 +268,8 @@ def run_engineering_gate(
         "costate_equilibration_g_frozen": costate_g_frozen,
         "native_projection_component_safe": native_projection_component_safe,
         "native_projection_resume_exact": native_projection_resume_exact,
+        "variance_rebase_component_safe": variance_rebase_component_safe,
+        "variance_rebase_resume_exact": variance_rebase_resume_exact,
         "parent_immutable": parent_immutable,
         "target_blind_schema_rejects": target_blind_rejects,
         "confirmation20_sealed": True,
