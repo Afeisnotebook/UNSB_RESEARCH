@@ -8,6 +8,7 @@
     {"id":"DEC-20260826-NEW-CANONICAL-ACCEPTANCE","path":"decisions/records/DEC-20260826-NEW-CANONICAL-ACCEPTANCE.md","outcome":"canonical_ready"},
     {"id":"DEC-20260826-SEARCH-001-LOCAL-WINNER","path":"decisions/records/DEC-20260826-SEARCH-001-LOCAL-WINNER.md","outcomes":{"SEARCH-001":"local_complete_candidate_frozen","CAND-003":"development_frozen","CAND-004":"closed_negative"},"classification":"positive_but_fragile"},
     {"id":"DEC-20260827-HJ-FINITE-HORIZON-LOCAL-CANDIDATE","path":"decisions/records/DEC-20260827-HJ-FINITE-HORIZON-LOCAL-CANDIDATE.md","outcomes":{"SEARCH-002":"historical_finite_horizon_subroute_complete","CAND-002":"historical_positive_window","CAND-003":"historical_oscillatory_fallback","CAND-005":"closed_negative"},"classification":"historical_positive_but_fragile"},
-    {"id":"DEC-20260828-SEARCH005-ROUTE1-STOP","path":"decisions/records/DEC-20260828-SEARCH005-ROUTE1-STOP.md","outcomes":{"SEARCH-003":"controller_subroute_complete","SEARCH-005":"route1_complete_no_sustained_candidate","PCOA":"weak_fallback"},"classification":"weak_fallback_no_sustained_route1_candidate"}
+    {"id":"DEC-20260828-SEARCH005-ROUTE1-STOP","path":"decisions/records/DEC-20260828-SEARCH005-ROUTE1-STOP.md","outcomes":{"SEARCH-003":"controller_subroute_complete","SEARCH-005":"route1_complete_no_sustained_candidate","PCOA":"weak_fallback"},"classification":"weak_fallback_no_sustained_route1_candidate"},
+    {"id":"DEC-20260828-SEARCH004-ROUTE2-SUSTAINED-LOCAL","path":"decisions/records/DEC-20260828-SEARCH004-ROUTE2-SUSTAINED-LOCAL.md","outcomes":{"SEARCH-004":"route2_complete_sustained_local","CAND-002":"first_4090_candidate","G1-LCNMP":"closed_current_protocol","G2-VCMR":"closed_current_protocol"},"classification":"route2_sustained_local"}
   ]
 }

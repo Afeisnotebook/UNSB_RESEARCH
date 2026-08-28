@@ -1,0 +1,45 @@
+{
+  "schema": "clean-unsb-search004-route2-adjudication-v1",
+  "decision": "route2_sustained_local",
+  "winner": "HJ1200-NATIVE-HANDOFF",
+  "question_answers": {
+    "are_positive_states_generally_non_inheritable": false,
+    "is_a_new_transition_operator_required_for_the_winner": false,
+    "can_a_transition_defect_be_real_without_explaining_long_term_failure": true,
+    "did_any_new_transport_beat_complete_state_native_handoff": false,
+    "did_the_winner_pass_the_registered_local_long_gate": true,
+    "is_the_winner_a_continuous_self_stabilizing_operator": false,
+    "is_the_winner_ready_for_a_paper_claim": false
+  },
+  "primary_causal_finding": "For HJ, the reached full training state is compatible with native UNSB. Keeping HJ active damages the later trajectory more than removing it, while resetting or transplanting state components damages the inherited advantage.",
+  "negative_causal_finding": "PCOA contains a measurable optimizer transition defect, but repairing it does not restore positive matched benefit. A transition defect is therefore neither necessary nor sufficient to explain reversal.",
+  "closed_algorithms": [
+    {
+      "id": "G1-LCNMP",
+      "status": "closed_current_protocol",
+      "reason": "exact defect reduction without material or sustained lift"
+    },
+    {
+      "id": "G2-VCMR",
+      "status": "closed_current_protocol",
+      "reason": "large rescue over raw PCOA handoff but still negative versus plain"
+    },
+    {
+      "id": "costate-equilibration",
+      "status": "mechanism_falsified_as_general_handoff",
+      "reason": "does not beat the untouched complete method state"
+    },
+    {
+      "id": "plain-component-transplant",
+      "status": "mechanism_falsified_as_general_handoff",
+      "reason": "benefit is not carried by an independently transplantable G or G/F block"
+    }
+  ],
+  "evidence_boundary": {
+    "train_view": "small25 for the winner; full100 only for the HNEK backup",
+    "seeds": [2026],
+    "evaluation": "discovery70",
+    "confirmation20_opened": false,
+    "required_next": "fresh matched full100 run from e0 on 4090; only then add seeds 2027/2028 and finally open confirmation20"
+  }
+}

@@ -6,9 +6,9 @@
 
 1. 新 deterministic canonical 已通过本地真实数据微验证，是后续实验的共同父节点。
 2. 动机已从“固定 Epoch 4–5 过度压缩”修正为：AIO 共享训练伴随域、bridge time、训练阶段和 seed 依赖的路径几何不同步。六域单训练种子实验进一步观察到正的 held-out shared-clock regret；它不是因果伤害或算法有效性证明。
-3. DT/HJ/HNEK 与后续机制都有真实正窗口，但 SEARCH-005 的路线一数学重构没有找到通过 2400-step 持续门禁的算法。
-4. PCOA 是唯一 weak fallback：400/800/1200 为正，1600/2400 反转；NPOOA 的严格范数保持修订在 800 步更差。它们都不是论文结论。
-5. finite-horizon HJ 与 HNEK 降为历史正窗口/震荡递补。当前没有自动进入 4090 的候选；route-2 handoff 必须另行审批。
+3. SEARCH-005 的路线一数学重构没有找到通过 2400-step 持续门禁的算法；PCOA 只是 weak fallback。
+4. SEARCH-004 已独立完成路线二：finite HJ `[240,1200)` 后完整状态交给 native UNSB，到 total step3200 的晚三点平均 `+1.180 dB`，最终 6/6 域正。
+5. `HJ1200-NATIVE-HANDOFF` 是唯一自动进入下一门禁的候选，但仍只有 small25/seed2026；下一步是冻结 full100 4090，不是论文确认或阈值搜索。
 
 完整边界以 [当前科学裁决](./decisions/CURRENT.md) 为准。
 
@@ -19,15 +19,15 @@
 | `project/` | 生命周期、ID、状态和迁移规则 | 研究对象按 MOT→CAND→SEARCH→EXP→DEC→OUTPUT 流转 | T7–T8 固化 | [项目治理](./project/README.md) |
 | `foundation/` | 全候选共享的 canonical 和 harness | 新确定性基座 READY | T5 发现问题，T7 接受新基座 | [Foundation](./foundation/README.md) |
 | `research/motivations/` | 为什么值得继续研究 | 固定窗口关闭；路径几何不同步获有限支持 | T0 原始动机，T4–T6 重建 | [动机索引](./research/motivations/README.md) |
-| `research/candidates/` | DT/HJ/HNEK 与新机制的身份、代码和演进 | 历史候选保留；当前没有持续收益晋级项 | T1–T3、T5、T8–T11 | [候选索引](./research/candidates/README.md) |
-| `research/searches/` | 冻结的筛选/重推导/验证控制器 | SEARCH-005 路线一完成，无持续候选 | T8–T11 | [搜索索引](./research/searches/README.md) |
+| `research/candidates/` | DT/HJ/HNEK 与新机制的身份、代码和演进 | HJ native handoff 为 sustained-local；尚待 full100/多 seed | T1–T3、T5、T8–T12 | [候选索引](./research/candidates/README.md) |
+| `research/searches/` | 冻结的筛选/重推导/验证控制器 | SEARCH-005 路线一无持续候选；SEARCH-004 路线二完成 | T8–T12 | [搜索索引](./research/searches/README.md) |
 | `research/synthesis/` | 跨候选的形成史与叙事综合 | 用于解释思路，不直接改变科学状态 | 覆盖 T0–T5 | [综合说明](./research/synthesis/README.md) |
 | `experiments/` | 不可变协议、运行身份、证据和统计 | 已有 L0–L2；L3/L4 尚未形成新记录 | T4–T8 | [实验路径](./experiments/README.md) |
-| `decisions/` | 当前裁决和不可变决策记录 | 是“能否继续、以何种身份继续”的真源 | 全时段，当前截至 T8 | [决策入口](./decisions/README.md) |
+| `decisions/` | 当前裁决和不可变决策记录 | 是“能否继续、以何种身份继续”的真源 | 全时段，当前截至 T12 | [决策入口](./decisions/README.md) |
 | `outputs/` | 经裁决允许的论文、图、release、handoff | 六域头图已有稳定副本；无最终方法 release | T6 后逐步形成 | [产出索引](./outputs/README.md) |
 | `archive/` | 被取代、证伪或仅供考古的历史 | 可追溯，不参与当前状态计算 | 主要 T0–T4 | [历史边界](./archive/README.md) |
 
-T0–T11 的日期、转折和证据链接见 [项目总时间线](./project/TIMELINE.md)。时间线表示**研究裁决顺序**，不保证与文件提交时间完全相同。
+T0–T12 的日期、转折和证据链接见 [项目总时间线](./project/TIMELINE.md)。时间线表示**研究裁决顺序**，不保证与文件提交时间完全相同。
 
 ## 源码在哪里
 
@@ -39,6 +39,7 @@ T0–T11 的日期、转折和证据链接见 [项目总时间线](./project/TIM
 | HNEK | [CAND-003](./research/candidates/CAND-003-hnek/README.md) | `foundation/canonical/src/models/hnek/` 与 `hnek_search_model.py` |
 | DCUM/LBST/PTQ/AEB | [CAND-004](./research/candidates/CAND-004-search-mechanisms/README.md) | DCUM：`foundation/canonical/src/data/unaligned_dataset.py`；其余三者：`foundation/canonical/src/models/sb_model.py`；控制器：`research/searches/SEARCH-001-clean-directional/` |
 | SEARCH-005 operators | 未晋级的研究算子（含 PCOA/NPOOA） | `research/searches/SEARCH-005-long-horizon-operator-discovery/src/`；权威结果见同目录 `RESULTS.md` |
+| SEARCH-004 handoff audit | 完整状态交接、LCNMP/VCMR 与长程审计 | `research/searches/SEARCH-004-gap-aware-handoff/`；当前候选见 `artifacts/CANDIDATE.json` |
 
 候选目录定义“它是谁、为什么出现、现状如何”；canonical 中的 model 文件定义“当前基座如何执行它”。不要仅凭文件存在判断候选有效。
 

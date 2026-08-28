@@ -16,7 +16,8 @@
 | T9 本地方向再搜索 | 08-26 | 八 lane、两条合成、完整视图复赛；首名与 plain 等量延长至 12k | HNEK 以最后三点 `+0.006322 dB` 冻结为 `positive_but_fragile`；新机制当前实现关闭 | [L1 完整实验](../experiments/L1-local/EXP-L1-SEARCH-001-DIRECTIONAL-20260826/README.md)、[本地裁决](../decisions/records/DEC-20260826-SEARCH-001-LOCAL-WINNER.md) |
 | T10 DT/HJ 方向重推导 | 08-27 | 证伪输出空间 LTTR；用独立 discovery70 扩展 HJ 强 checkpoint；实现有限期 HJ→plain handoff | HJ discovery70 `+0.710548 dB`、6/6 域正，handoff 后仍正；finite-horizon HJ 取代 HNEK 成为脆弱第一候选 | [SEARCH-002 实验](../experiments/L1-local/EXP-L1-SEARCH-002-DTHJ-20260827/README.md)、[候选裁决](../decisions/records/DEC-20260827-HJ-FINITE-HORIZON-LOCAL-CANDIDATE.md) |
 | T11 反转因果与数学算子发现 | 08-27–08-28 | 修正 SEARCH-003 的 controller 目标漂移；SEARCH-005 运行 6 类 G1 机制、4 次因果修订和独立 2400-step 轨迹 | 正窗口可复现，但没有持续候选；PCOA 仅 weak fallback，full100/多 seed/confirmation20 未启动 | [SEARCH-005](../research/searches/SEARCH-005-long-horizon-operator-discovery/RESULTS.md)、[路线一裁决](../decisions/records/DEC-20260828-SEARCH005-ROUTE1-STOP.md) |
-| NEXT 显式路线选择 | T11 之后 | 二选一：接受 weak-fallback 风险后高算力证伪 PCOA，或另立 route-2 gap-aware handoff | 不允许把 route 2、窗口阈值或 paired 控制偷偷写回 SEARCH-005 | [当前门禁](../decisions/CURRENT.md) |
+| T12 路线二状态交接因果审计 | 08-28 | 独立比较 native 接管、持续介入、optimizer/co-state/component transport；推导并证伪 LCNMP/VCMR | HJ 完整状态可由 native UNSB 继承至 total step3200，晚三点 `+1.180 dB`；冻结为唯一 4090 第一候选 | [SEARCH-004](../research/searches/SEARCH-004-gap-aware-handoff/RESULTS.md)、[路线二裁决](../decisions/records/DEC-20260828-SEARCH004-ROUTE2-SUSTAINED-LOCAL.md) |
+| NEXT full100 4090 | T12 之后 | 从 e0 matched 验证 exposure-normalized HJ `[960,4800)`，固定 30k/60k/120k | 不根据中间 paired 指标修改算法；通过后才补 seed 与 confirmation20 | [复现协议](../research/searches/SEARCH-004-gap-aware-handoff/REPRODUCE.md) |
 
 ## 三条主线如何汇合
 
@@ -31,6 +32,7 @@ T4–T6 plain-only 动机重建 ───────────────→
                          ↓ T9 HNEK 本地脆弱正向候选
                          ↓ T10 finite-horizon HJ 形成历史强窗口
                          ↓ T11 SEARCH-005 路线一无持续候选，PCOA 仅 weak fallback
+                         ↓ T12 SEARCH-004 路线二找到 sustained-local HJ native handoff
 ```
 
 “动机成立”不推出“候选有效”；“工程门通过”也不推出“效果成立”。两者都必须在独立冻结实验中连接到决策。

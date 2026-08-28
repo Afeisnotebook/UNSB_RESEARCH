@@ -1,0 +1,12 @@
+{
+  "id": "EXP-L1-SEARCH-004-GAP-HANDOFF-20260828",
+  "level": "L1",
+  "entity": "SEARCH-004",
+  "status": "completed_sustained_local",
+  "source_anchor": "2a7aa68",
+  "external_run_root": "E:\\UNSB_Expl\\runs\\gap_aware_handoff_20260827",
+  "seed": 2026,
+  "winner_train_per_domain": 25,
+  "winner_evaluation_per_domain": 70,
+  "confirmation20_opened": false
+}

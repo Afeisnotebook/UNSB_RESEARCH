@@ -8,6 +8,9 @@
     {"id":"EXP-L1-DT-HJ-CLEAN-CORE-20260824","level":"L1","entity":["CAND-001","CAND-002"],"status":"completed"},
     {"id":"EXP-L2-MOTIVATION-SIXDOMAIN-20260824","level":"L2","entity":"MOT-001","status":"completed_observational"},
     {"id":"EXP-L2-HNEK-SEARCH-E200-20260824","level":"L2","entity":"CAND-003","status":"development_complete"},
-    {"id":"EXP-L1-SEARCH-001-DIRECTIONAL-20260826","level":"L1","entity":"SEARCH-001","status":"completed_development","winner":"CAND-003"}
+    {"id":"EXP-L1-SEARCH-001-DIRECTIONAL-20260826","level":"L1","entity":"SEARCH-001","status":"completed_development","winner":"CAND-003"},
+    {"id":"EXP-L1-SEARCH-002-DTHJ-20260827","level":"L1","entity":"SEARCH-002","status":"completed_development","winner":"CAND-002"},
+    {"id":"EXP-L1-SEARCH-005-OPERATOR-DISCOVERY-20260828","level":"L1","entity":"SEARCH-005","status":"completed_no_sustained_candidate","winner":"G1-GAME-PCOA"},
+    {"id":"EXP-L1-SEARCH-004-GAP-HANDOFF-20260828","level":"L1","entity":"SEARCH-004","status":"completed_sustained_local","winner":"HJ1200-NATIVE-HANDOFF"}
   ]
 }

@@ -1,0 +1,47 @@
+{
+  "schema": "clean-unsb-search004-hypothesis-ledger-v1",
+  "entries": [
+    {
+      "id": "H0-complete-state-native-handoff",
+      "claim": "positive method state can be continued by native UNSB without a transition operator",
+      "status": "SUPPORTED_SOURCE_DEPENDENT",
+      "support": ["DT-400", "HJ-1200", "HNEK-3000 after transient recovery"],
+      "counterexample": ["PCOA-1200"]
+    },
+    {
+      "id": "H1-optimizer-tangent-mismatch",
+      "derived_algorithm": "G1-LCNMP",
+      "claim": "project inherited effective Adam moments into current native descent half-spaces",
+      "status": "CLOSED_CURRENT_PROTOCOL",
+      "evidence": "constraint violation was removed exactly, but lift over hard disable was only +0.032 dB for HJ at h200 and -0.221 dB for HNEK; no sustained promotion"
+    },
+    {
+      "id": "H2-variance-carried-moment-rebase",
+      "derived_algorithm": "G2-VCMR",
+      "claim": "when inherited effective moments oppose native gradients, erase first moments while retaining second moments and optimizer age",
+      "status": "CLOSED_CURRENT_PROTOCOL",
+      "evidence": "PCOA h400 improved +1.626 dB over raw hard disable but remained -0.467 dB versus plain; HNEK h200 worsened by -0.503 dB versus hard"
+    },
+    {
+      "id": "H3-costate-equilibration",
+      "claim": "freeze G while D/E/F equilibrate before native continuation",
+      "status": "MECHANISM_FALSIFIED_AS_GENERAL_HANDOFF",
+      "evidence": "did not beat complete-state hard disable on the positive sources"
+    },
+    {
+      "id": "H4-transferable-generator-carrier",
+      "claim": "method G or G/F can be transplanted onto matched plain D/E control",
+      "status": "MECHANISM_FALSIFIED_AS_GENERAL_HANDOFF",
+      "evidence": "HJ G-only h200 lost 1.462 dB versus hard; HNEK G/F parameter transplant lost 3.04 dB versus plain"
+    },
+    {
+      "id": "H5-native-handoff-sustained-HJ",
+      "claim": "HJ steering in [240,1200), followed by exact native continuation, preserves matched benefit through total step 3200",
+      "status": "SUPPORTED_LOCAL_SINGLE_SEED",
+      "evidence": "late-three mean +1.180 dB, final +0.871 dB, final 6/6 domains positive, SSIM and LPIPS non-degraded, late rollback 0"
+    }
+  ],
+  "revision_budget_obeyed": true,
+  "paired_target_used_by_operator": false,
+  "confirmation20_opened": false
+}

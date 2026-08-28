@@ -1,0 +1,32 @@
+{
+  "schema": "clean-unsb-search004-engineering-gate-summary-v1",
+  "status": "PASS",
+  "checks_passed": 22,
+  "checks": {
+    "plain_twin_exact": true,
+    "full_state_resume_exact": true,
+    "evaluation_repeat_exact": true,
+    "legacy_checkpoint_completeness": true,
+    "named_optimizer_roundtrip_exact": true,
+    "legacy_v2_legacy_roundtrip_exact": true,
+    "hard_disable_nonoperator_exact": true,
+    "gradient_audit_nonpolluting": true,
+    "gradient_audit_defined": true,
+    "shadow_nonpolluting": true,
+    "shadow_resume_exact": true,
+    "common_future_stream_exact": true,
+    "g_only_transplant_exact": true,
+    "gf_state_transplant_exact": true,
+    "costate_equilibration_g_frozen": true,
+    "native_projection_component_safe": true,
+    "native_projection_resume_exact": true,
+    "variance_rebase_component_safe": true,
+    "variance_rebase_resume_exact": true,
+    "parent_immutable": true,
+    "target_blind_schema_rejects": true,
+    "confirmation20_sealed": true
+  },
+  "note": "checks_passed is retained as a human summary; the checks object is authoritative",
+  "external_full_record": "E:/UNSB_Expl/runs/gap_aware_handoff_20260827/ENGINEERING_GATE.json",
+  "confirmation20_opened": false
+}

@@ -1,0 +1,88 @@
+{
+  "schema": "clean-unsb-search004-handoff-causal-matrix-v1",
+  "evaluation_split": "discovery; paired metrics computed only after each branch",
+  "sources": [
+    {
+      "source": "DT-400",
+      "view": "small25",
+      "source_delta_psnr": 0.10917357593990573,
+      "h200": {
+        "hard_disable_delta": 0.5125696924927006,
+        "uninterrupted_delta": 0.24554365369065323
+      },
+      "h800": {
+        "plain_psnr": 14.11214821044865,
+        "hard_disable_psnr": 14.588670593885558,
+        "hard_disable_delta": 0.4765223834369081,
+        "uninterrupted_psnr": 14.868453659259265,
+        "uninterrupted_delta": 0.7563054488106151
+      },
+      "adjudication": "benefit is naturally inheritable; no handoff repair is justified"
+    },
+    {
+      "source": "HJ-1200",
+      "view": "small25",
+      "source_delta_psnr": 0.804543923243358,
+      "h200": {
+        "hard_disable_delta": 1.873500291067863,
+        "uninterrupted_delta": 1.663242969666321,
+        "lcnmp_delta": 1.905874386718322,
+        "lcnmp_lift_over_hard": 0.03237409565045901,
+        "lcnmp_defect_reduction": 1.0
+      },
+      "h800": {
+        "plain_psnr": 11.686737962394995,
+        "hard_disable_psnr": 15.47856821515203,
+        "hard_disable_delta": 3.7918302527570347,
+        "uninterrupted_psnr": 12.815340076886534,
+        "uninterrupted_delta": 1.128602114491539
+      },
+      "adjudication": "complete-state native handoff is both inheritable and better than uninterrupted HJ; LCNMP's short lift is immaterial"
+    },
+    {
+      "source": "HNEK-3000",
+      "view": "full100",
+      "source_delta_psnr": 0.9539973769102481,
+      "h200": {
+        "hard_disable_delta": -0.15200582448992073,
+        "uninterrupted_delta": 0.02039247035769698,
+        "lcnmp_delta": -0.37321124780569903,
+        "lcnmp_lift_over_hard": -0.2212054233157783,
+        "vcmr_delta": -0.6551302280152651,
+        "vcmr_lift_over_hard": -0.5031244035253444
+      },
+      "h800": {
+        "plain_psnr": 13.69395888004879,
+        "plain_ssim": 0.4433589005576713,
+        "plain_lpips": 0.5961554652878217,
+        "hard_disable_psnr": 14.911169666591908,
+        "hard_disable_ssim": 0.433844200911976,
+        "hard_disable_lpips": 0.49908256019864755,
+        "hard_disable_delta": 1.217210786543118,
+        "uninterrupted_psnr": 13.953901922607026,
+        "uninterrupted_delta": 0.2599430425582365
+      },
+      "adjudication": "there is a transient native-handoff shock, but the untouched complete state recovers and outperforms every repair; SSIM remains a backup guardrail failure"
+    },
+    {
+      "source": "PCOA-1200",
+      "view": "small25",
+      "source_delta_psnr": 0.1927,
+      "h200": {
+        "hard_disable_delta": -0.16506291700789788,
+        "uninterrupted_delta": -0.5471279546484542,
+        "vcmr_delta": -0.16701943246973272
+      },
+      "h400": {
+        "hard_disable_delta": -2.0929978043893147,
+        "uninterrupted_delta": -0.48708702296951145,
+        "vcmr_delta": -0.4666920312692806,
+        "vcmr_lift_over_hard": 1.626305773120034,
+        "vcmr_defect_reduction": 1.0
+      },
+      "adjudication": "moment repair removes most of the handoff crash but cannot make the parent mechanism positive; source closed"
+    }
+  ],
+  "causal_conclusion": "the blanket premise that positive intervention states cannot be inherited is false; natural full-state handoff is source-dependent",
+  "confirmation20_opened": false
+}

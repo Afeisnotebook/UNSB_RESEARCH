@@ -1,0 +1,30 @@
+{
+  "schema": "clean-unsb-search004-backups-v1",
+  "backups": [
+    {
+      "rank": 2,
+      "id": "HNEK3000-NATIVE-HANDOFF",
+      "status": "backup_guardrail_failure",
+      "view": "full100",
+      "h800_delta_psnr": 1.217210786543118,
+      "h800_positive_domains": 6,
+      "h800_lpips_delta": -0.09707290508917415,
+      "h800_ssim_delta": -0.009514699645695326,
+      "reason_not_winner": "shorter evidence horizon and SSIM degradation"
+    },
+    {
+      "rank": 3,
+      "id": "DT400-NATIVE-HANDOFF",
+      "status": "backup_short_only",
+      "view": "small25",
+      "h200_delta_psnr": 0.5125696924927006,
+      "h800_delta_psnr": 0.4765223834369081,
+      "reason_not_winner": "positive but not extended to the HJ candidate's 3200-step total horizon"
+    }
+  ],
+  "not_a_backup": {
+    "id": "PCOA1200-VCMR",
+    "reason": "h400 remains -0.467 dB versus plain despite repairing the transition defect"
+  },
+  "confirmation20_opened": false
+}

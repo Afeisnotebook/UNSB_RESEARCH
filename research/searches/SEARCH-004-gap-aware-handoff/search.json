@@ -1,9 +1,13 @@
 {
   "id": "SEARCH-004",
   "name": "gap-aware-handoff",
-  "status": "ACTIVE",
+  "status": "COMPLETE",
   "parent": "SEARCH-005-long-horizon-operator-discovery",
   "route": "route2_gap_aware_handoff",
   "goal_contract": "GOAL_CONTRACT.md",
+  "decision": "route2_sustained_local",
+  "winner": "HJ1200-NATIVE-HANDOFF",
+  "result": "RESULTS.md",
+  "candidate": "artifacts/CANDIDATE.json",
   "confirmation20_opened": false
 }

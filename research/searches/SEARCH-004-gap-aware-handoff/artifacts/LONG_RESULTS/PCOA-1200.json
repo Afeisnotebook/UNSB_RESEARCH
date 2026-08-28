@@ -1,0 +1,37 @@
+{
+  "schema": "clean-unsb-search004-condensed-long-result-v1",
+  "source": {
+    "id": "PCOA-1200",
+    "view": "small25",
+    "seed": 2026,
+    "source_delta_psnr": 0.1927
+  },
+  "arms": [
+    {
+      "arm": "hard_disable",
+      "delta_psnr_h200": -0.16506291700789788,
+      "delta_psnr_h400": -2.0929978043893147,
+      "positive_domains_h400": 0,
+      "passes_long": false
+    },
+    {
+      "arm": "uninterrupted",
+      "delta_psnr_h200": -0.5471279546484542,
+      "delta_psnr_h400": -0.48708702296951145,
+      "positive_domains_h400": 1,
+      "passes_long": false
+    },
+    {
+      "arm": "G2-VCMR",
+      "delta_psnr_h200": -0.16701943246973272,
+      "delta_psnr_h400": -0.4666920312692806,
+      "lift_over_hard_h400": 1.626305773120034,
+      "positive_domains_h400": 1,
+      "target_blind_defect_reduction": 1.0,
+      "passes_long": false
+    }
+  ],
+  "adjudication": "closed: transition repair is real but insufficient because all method-derived continuations remain below matched plain",
+  "external_full_record": "E:/UNSB_Expl/runs/gap_aware_handoff_20260827/long_continuation/PCOA-1200/LONG_ANALYSIS.json",
+  "confirmation20_opened": false
+}

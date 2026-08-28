@@ -1,0 +1,10 @@
+{
+  "schema": "clean-unsb-exp-l1-search004-adjudication-v1",
+  "outcome": "route2_sustained_local",
+  "unique_candidate": "HJ1200-NATIVE-HANDOFF",
+  "promotion_passed": true,
+  "full_view_started_for_winner": false,
+  "additional_seeds_started": false,
+  "confirmation20_opened": false,
+  "decision": "../../../decisions/records/DEC-20260828-SEARCH004-ROUTE2-SUSTAINED-LOCAL.md"
+}

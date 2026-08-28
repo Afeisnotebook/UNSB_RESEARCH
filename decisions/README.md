@@ -5,8 +5,8 @@
 | 问题 | 回答 |
 |---|---|
 | 是什么 | 把实验事实转为“继续、冻结、关闭、确认或修正”的明确裁决，是全仓库状态真源。 |
-| 当前结论 | canonical READY；SEARCH-002 完成；finite-horizon HJ 为 `positive_but_fragile` 第一候选，下一步 4090。 |
-| 时间线位置 | 覆盖 T0–T10；`CURRENT.md` 截止当前，records 保存关键转折。 |
+| 当前结论 | canonical READY；SEARCH-004 完成；HJ exact native handoff 为 `route2_sustained_local` 第一候选，下一步 full100 4090。 |
+| 时间线位置 | 覆盖 T0–T12；`CURRENT.md` 截止当前，records 保存关键转折。 |
 | 先看哪里 | [当前裁决](./CURRENT.md) → [机器账本](./DECISION_LEDGER.json) → [历史 records](./records/README.md)。 |
 
 - [CURRENT.md](./CURRENT.md)：完整当前科学状态。

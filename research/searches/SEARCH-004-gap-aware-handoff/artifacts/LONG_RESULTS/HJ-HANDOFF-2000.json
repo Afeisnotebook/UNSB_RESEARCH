@@ -1,0 +1,67 @@
+{
+  "schema": "clean-unsb-search004-condensed-long-result-v1",
+  "source": {
+    "id": "HJ-HANDOFF-2000",
+    "view": "small25",
+    "seed": 2026,
+    "method": "HJ active on [240,1200), native UNSB thereafter",
+    "source_step": 2000,
+    "source_mode": "exact HJ-1200 state after 800 native updates"
+  },
+  "trajectory": [
+    {
+      "total_step": 2400,
+      "native_updates_after_handoff": 1200,
+      "plain_psnr": 12.038514764904543,
+      "candidate_psnr": 12.574206823797637,
+      "delta_psnr": 0.535692058893094,
+      "positive_domains": 6,
+      "worst_domain_delta": 0.14710981247158372
+    },
+    {
+      "total_step": 2800,
+      "native_updates_after_handoff": 1600,
+      "plain_psnr": 12.243733963129692,
+      "candidate_psnr": 14.377211907044867,
+      "delta_psnr": 2.1334779439151745,
+      "positive_domains": 5,
+      "worst_domain_delta": -0.060477651217272665
+    },
+    {
+      "total_step": 3200,
+      "native_updates_after_handoff": 2000,
+      "plain_psnr": 13.66442633128637,
+      "candidate_psnr": 14.535595938676527,
+      "delta_psnr": 0.8711696073901578,
+      "plain_ssim": 0.44851679642285625,
+      "candidate_ssim": 0.468168941814275,
+      "plain_lpips": 0.595091470863138,
+      "candidate_lpips": 0.5784381447803407,
+      "positive_domains": 6,
+      "worst_domain_delta": 0.26430087129105395,
+      "domain_delta": {
+        "FoggyCityscapes": 0.6364926598963727,
+        "LowLightTrafficData": 0.26430087129105395,
+        "RSCityscapes": 0.9488454388975072,
+        "RainCityscapes": 1.8140262259182123,
+        "RainDS-syn": 1.1164372839390353,
+        "SnowTrafficData": 0.4469151643987779
+      }
+    }
+  ],
+  "late_three_delta_psnr": 1.1801132033994755,
+  "final_delta_psnr": 0.8711696073901578,
+  "late_peak_to_final_rollback": 0.0,
+  "guardrails": {
+    "late_positive": true,
+    "final_positive": true,
+    "at_least_four_domains_positive": true,
+    "worst_domain_above_minus_1db": true,
+    "ssim_non_degraded": true,
+    "lpips_non_degraded": true,
+    "absolute_late_rollback_at_most_0_3db": true
+  },
+  "passes_long": true,
+  "external_full_record": "E:/UNSB_Expl/runs/gap_aware_handoff_20260827/long_continuation/HJ-HANDOFF-2000/LONG_ANALYSIS.json",
+  "confirmation20_opened": false
+}

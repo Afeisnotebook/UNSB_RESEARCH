@@ -3,23 +3,33 @@
 > 更新：2026-08-28
 > 用途：本文是仓库的首要状态入口。当历史文档与本文冲突时，以本文、各模块最新裁决和机器可读 evidence 为准。
 
-## 0. SEARCH-005 最新裁决
+## 0. SEARCH-004 最新裁决
+
+SEARCH-004 已按独立路线二契约完成 gap-aware handoff 因果审计。它没有回写 SEARCH-005、没有拟合 paired-PSNR 退出阈值，也没有让算法输出接近 plain 输出；它分别审计完整状态原生接管、G/F/optimizer/D/E co-state 载体和 target-blind transition transport。
+
+当前唯一第一候选是 `HJ1200-NATIVE-HANDOFF`：small25 上 update `[0,240)` 使用 plain，`[240,1200)` 使用 canonical Layer-0 HJ，step1200 后只关闭 HJ correction，完整保留 G/F/D/E、Adam moments/age、scheduler、sampler 和 RNG，继续 native UNSB。total step 2400/2800/3200 的 discovery70 matched delta 为 `+0.536/+2.133/+0.871 dB`，晚三点平均 `+1.180 dB`；最终 6/6 域正、最差域 `+0.264 dB`，SSIM `+0.01965`、LPIPS `-0.01665`，通过本地长程门禁。
+
+因果结论不是“所有算法都需要更平滑的交接”。DT/HJ 的正状态可自然继承；HNEK 的原生交接冲击在 h800 恢复。PCOA 确有 optimizer transition defect，VCMR 在 h400 相对 raw handoff 修复 `+1.626 dB`，但仍比 plain 低 `-0.467 dB`，说明修复 gap 不足以挽救已经失效的父机制。LCNMP/VCMR 都按当前协议关闭。
+
+该候选分类为 `route2_sustained_local`，不是论文确认：仍只有 small25、seed=2026，且有限介入区间来自开发证据。下一门禁是冻结配置的 full100 seed=2026 4090 from-e0 matched 运行，HJ 按数据曝光归一化到 `[960,4800)`，在 30k/60k/120k 固定评估；不得根据中间结果改算法或区间。confirmation20 继续封存。详见 [SEARCH-004 结果](../research/searches/SEARCH-004-gap-aware-handoff/RESULTS.md) 与 [DEC-20260828-SEARCH004-ROUTE2-SUSTAINED-LOCAL](./records/DEC-20260828-SEARCH004-ROUTE2-SUSTAINED-LOCAL.md)。
+
+## 0.1 SEARCH-005 路线一裁决
 
 SEARCH-005 已按修正后的路线一目标完成：它不搜索退出窗口、paired-PSNR 控制器、whole-state 分支选择或 handoff，而是从 DT/HJ/HNEK 与 plain 的反转证据出发，构造 target-blind、自消隐/不变量明确的 UNSB 数学算子。
 
 六类 Generation-1 机制和四次因果修订均通过工程门禁并完成相应本地筛查。没有候选通过 2400-step 持续收益门禁，也没有启动 full100、第二 seed 或 confirmation20。唯一冻结项 `G1-GAME-PCOA` 仅为 `weak_fallback`：400/800/1200 分别约 `+0.044/+0.075/+0.193 dB`，但 1600/2400 反转为 `−0.570/−0.861 dB`，自身峰值到终点回撤约 `2.10 dB`。其严格保持原生 Adam 步长范数的 G2-NPOOA 在 400 为 `+0.231 dB`，800 已为 `−0.966 dB`，因此 coupled-game 机制按两代上限关闭。
 
-当前权威结论是：**正窗口真实存在，但本轮没有找到可顺畅维持的路线一算法。** PCOA 不是论文算法，也不自动获得 4090 资格；只有在明确接受 weak-fallback 风险时，才可用已冻结 full100 命令作一次高算力证伪。下一步若转向 gap-aware handoff，必须另立路线二计划，不能改写 SEARCH-005 的结论。详见 [SEARCH-005 结果](../research/searches/SEARCH-005-long-horizon-operator-discovery/RESULTS.md) 与 [DEC-20260828-SEARCH005-ROUTE1-STOP](./records/DEC-20260828-SEARCH005-ROUTE1-STOP.md)。
+该路线一权威结论仍是：**正窗口真实存在，但本轮没有找到可顺畅维持的路线一算法。** PCOA 不是论文算法，也不自动获得 4090 资格。后续 gap-aware handoff 已按要求另立 SEARCH-004 并完成；它更新全项目候选排序，但不改写 SEARCH-005 的路线一失败结论。详见 [SEARCH-005 结果](../research/searches/SEARCH-005-long-horizon-operator-discovery/RESULTS.md) 与 [DEC-20260828-SEARCH005-ROUTE1-STOP](./records/DEC-20260828-SEARCH005-ROUTE1-STOP.md)。
 
-## 0.1 SEARCH-002 历史裁决
+## 0.2 SEARCH-002 历史裁决
 
 2026-08-27，SEARCH-002 没有围绕旧 DT/HJ 做超参网格，而是先重推导输出空间 LTTR，再回到实际 HJ backward 方向对象。LTTR tangent、one-epoch pulse、direction barrier 均在 800 步反转，当前实现关闭。
 
 原 HJ 的 SEARCH-001 step1200 checkpoint 在未参与 screen 的 discovery70（420 张）上相对 matched plain 为 `+0.710548 dB`，6/6 域正，SSIM `+0.020316`，LPIPS `-0.034900`，最差域 `+0.174754 dB`。将 HJ 固定为 `[1.6,8.0)` 真实数据 epoch 的有限方向导航并在 step1200 handoff 给 plain 后，step1600 仍为 `+0.660975 dB`。step2000 的 `+3.791830 dB` 主要由 matched plain 坍塌放大，只作为盆地稳定性诊断。
 
-当时 CAND-002 `ITER-007-finite-horizon-handoff` 以 `positive_but_fragile` 冻结为第一候选，HNEK 降为递补一，并预注册了 full-view 4090 门禁。该历史排序现已由上面的 SEARCH-005 裁决覆盖，不再自动执行。详见 [SEARCH-002 报告](../experiments/L1-local/EXP-L1-SEARCH-002-DTHJ-20260827/REPORT.md) 和 [当时决策](./records/DEC-20260827-HJ-FINITE-HORIZON-LOCAL-CANDIDATE.md)。
+当时 CAND-002 `ITER-007-finite-horizon-handoff` 以 `positive_but_fragile` 冻结为第一候选，HNEK 降为递补一，并预注册了 full-view 4090 门禁。该排序曾被 SEARCH-005 路线一覆盖，但 SEARCH-004 的独立路线二长程审计现已重新支持并升级其交接版本；当前身份以上面的 SEARCH-004 裁决为准。详见 [SEARCH-002 报告](../experiments/L1-local/EXP-L1-SEARCH-002-DTHJ-20260827/REPORT.md) 和 [当时决策](./records/DEC-20260827-HJ-FINITE-HORIZON-LOCAL-CANDIDATE.md)。
 
-## 0.2 SEARCH-001 历史裁决
+## 0.3 SEARCH-001 历史裁决
 
 2026-08-26，SEARCH-001 在新的 deterministic canonical 上完成八条初筛 lane、两条合成、完整视图复赛以及总冠军/plain 到 12k updates 的等量延长。`confirmation20_opened=false`。
 
@@ -43,7 +53,7 @@ SEARCH-001 当时选择 HNEK 的裁决保留为历史事实，但已被上述 SE
 | 六域 shared-clock regret | seed=2051 下三个 bridge time 均为正：`0.0201 / 0.0369 / 0.0164` | held-out 图像 cross-fit + bootstrap；不包含训练 seed 不确定性，不等于因果恢复伤害 |
 | `U / U_reg` 是什么 | 方向分歧/空间方向分散程度 | 不是 true posterior covariance，不是 calibrated uncertainty |
 | DT-CovMatch | 早期非确定实现有正数字，但确定性 clean rerun 为 **−0.2677 dB** | 不再作为当前有效方法 |
-| HJ-PatchNCE | 旧 continuous clean rerun仅 **+0.0381 dB**；finite-horizon discovery70 为 **+0.710548 dB** | 历史 `positive_but_fragile` 窗口候选；SEARCH-005 后不再是当前路线一答案 |
+| HJ-PatchNCE | 旧 continuous clean rerun仅 **+0.0381 dB**；finite HJ→native 在 total step 3200 为 **+0.871170 dB** | 当前 `route2_sustained_local` 第一候选；仅 small25/seed2026，待 full100/多 seed |
 | HNEK `gamma=0.25` | 历史 e200 为 **+0.7884 dB**；SEARCH-001 延长的最后三点均值为 **+0.006322 dB** | 递补一，不是已确认算法 |
 
 HNEK 表中的 95% CI `[0.5916, 0.9933]` 是固定 seed=2026 与开发集条件下的配对样本 bootstrap，**不包含训练 seed 之间的不确定性**，也不能抵消 9 个变体搜索与开发集反复使用带来的选择偏差。
@@ -55,8 +65,8 @@ MOT-001 六域结果的完整解释见 [阅读指南](../research/motivations/MO
 ## 2. 当前总裁决
 
 1. 仓库目前**没有一个已经跨 seed、未触碰确认集验证的最终算法**。
-2. DT/HJ/HNEK 的历史正窗口均保留为证据；SEARCH-005 没有给旧名字保护名额，并已把窗口/控制器与数学算子路线明确分开。
-3. 当前没有通过本地持续收益门禁的第一候选。PCOA 只作为路线一 `weak_fallback` 冻结；finite-horizon HJ 与 HNEK 保留为历史递补证据，不自动进入 4090。
+2. DT/HJ/HNEK 的历史正窗口均保留为证据；SEARCH-005 路线一没有持续候选，独立 SEARCH-004 路线二证明“完整状态能否由 native UNSB 继承”是 source-dependent，而不是普遍失败。
+3. 当前唯一通过本地持续收益门禁的第一候选是 `HJ1200-NATIVE-HANDOFF`。PCOA 仍只是路线一 `weak_fallback`；HNEK native handoff 是带 SSIM 风险的递补。
 4. 动机模块支持“共享训练改变条件方向几何，且差异具有阶段/seed/域依赖”；六域扩大实验还支持单训练 seed 下正的 held-out shared-clock regret。它不支持固定窗口、跨 seed 稳定、因果恢复伤害或已知机制靶点。
 5. 最后方法必须对 Schrödinger Bridge 本身形成可辨认贡献；不再把通用 routing、gradient surgery、confidence weighting 或额外网络包装成 SB 贡献。SEARCH-005 没有产生满足这一条件且持续为正的最终方法。
 
@@ -72,21 +82,13 @@ MOT-001 六域结果的完整解释见 [阅读指南](../research/motivations/MO
 
 2026-08-26 的本地真实数据微验证已经通过 sampler 语义、deterministic reflection padding、当前代码自身推理重放和一步完整训练 twin gate；两次一步训练的 G/F/D/E checkpoint 字节完全一致。因此当前仓库已被接受为**新的干净确定性 canonical baseline**。它无需逐字节复刻确定性修复前的完整历史研究树；历史输出差异只保留为 provenance。详见 [canonical acceptance](../foundation/canonical/CANONICAL_BASELINE.md) 和 [L0 real-data micro validation](../experiments/L0-contract/EXP-L0-CANONICAL-MICRO-20260826/REPORT.md)。
 
-### Gate 1：同 seed 跨环境复现
+### Gate 1：同 seed full100 4090 复现
 
-- 先用 seed=2026 复现 plain 与 `hnek_g0.25`。
-- HNEK 必须显式冻结为：
-
-```text
---model hnek_search
---hnek_gamma 0.25
---hnek_coord residual
---hnek_horizon_mode physical
---hnek_partial all
-```
-
-- 不得用 `--model sb --hnek true`；该开关是已失败的 legacy `gamma=0.5` 参照。
+- 先用 seed=2026 从相同 e0 运行 matched plain 与 `HJ1200-NATIVE-HANDOFF`。
+- full100 固定每数据 epoch 600 updates；HJ 只在 `[960,4800)` 激活，之后永久回到 native UNSB。
+- 固定 30k/60k/120k 评估；看到 30k/60k 后不得改算法、超参、激活区间或挑选 checkpoint。
 - 若 plain 或方法无法复现到预注册容差，停止算法解释，先查数据/配置/环境。
+- HNEK 只在 HJ full100 失败后按递补顺序运行；不得同时开网格。
 
 ### Gate 2：训练 seed 级确认
 
@@ -115,7 +117,7 @@ MOT-001 六域结果的完整解释见 [阅读指南](../research/motivations/MO
 当数字或状态冲突时，按以下顺序处理：
 
 1. `evidence/**/*.json` 中的机器可读原始裁决；
-2. 本文与 [DEC-20260824-ALGORITHM-STATUS](./records/DEC-20260824-ALGORITHM-STATUS.md)；
+2. 本文与 [DEC-20260828-SEARCH004-ROUTE2-SUSTAINED-LOCAL](./records/DEC-20260828-SEARCH004-ROUTE2-SUSTAINED-LOCAL.md)；
 3. [WINDOW_FINAL_VOTE_CN.md](../experiments/L1-local/EXP-L1-MOTIVATION-WINDOW-20260824/evidence/WINDOW_FINAL_VOTE_CN.md)；
 4. 两个模块 README；
 5. 其他带日期的历史分析/计划文档。
