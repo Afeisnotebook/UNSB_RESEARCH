@@ -1,0 +1,9 @@
+{
+  "id": "SEARCH-004",
+  "name": "gap-aware-handoff",
+  "status": "ACTIVE",
+  "parent": "SEARCH-005-long-horizon-operator-discovery",
+  "route": "route2_gap_aware_handoff",
+  "goal_contract": "GOAL_CONTRACT.md",
+  "confirmation20_opened": false
+}
