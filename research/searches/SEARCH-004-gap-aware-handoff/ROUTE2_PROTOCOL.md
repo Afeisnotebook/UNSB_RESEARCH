@@ -65,6 +65,8 @@ component-carrier attribution), matched lift over hard disable, trajectory AUC,
 domain coverage and worst-domain protection.  The long continuation additionally
 requires positive late-three and final deltas, at least 4/6 final positive
 domains, worst domain above -1 dB, non-degraded SSIM/LPIPS, and no collapse of
-the candidate's absolute PSNR relative to its source state.
+the candidate's late absolute trajectory (late peak-to-final rollback at most
+0.3 dB).  Source-to-final change remains reported, but is not a gate because a
+non-monotone source checkpoint can precede a recovering late trajectory.
 
 `confirmation20` remains sealed throughout.

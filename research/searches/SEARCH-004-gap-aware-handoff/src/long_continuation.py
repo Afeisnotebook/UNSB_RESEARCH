@@ -47,6 +47,8 @@ def analyze_long(
         final_plain = metric_at(plain, evaluation_horizons[-1])
         late_delta = _late_mean([row["delta_plain"] for row in trajectory])
         late_absolute = _late_mean([row["macro_psnr"] for row in trajectory])
+        late_peak = max(row["macro_psnr"] for row in trajectory[-3:])
+        late_rollback = float(late_peak - final["macro_psnr"])
         transport = result.get("transport_record") or {}
         guardrails = {
             "late_positive": late_delta > 0.0,
@@ -59,10 +61,7 @@ def analyze_long(
                 and final_plain.get("macro_lpips") is not None
                 and float(final_metric["macro_lpips"]) <= float(final_plain["macro_lpips"])
             ),
-            "absolute_not_source_collapse": (
-                float(final["macro_psnr"])
-                >= float(source_method["macro_psnr"]) - 0.30
-            ),
+            "absolute_late_rollback": late_rollback <= 0.30,
         }
         rows.append({
             "checkpoint_id": checkpoint.checkpoint_id,
@@ -77,6 +76,8 @@ def analyze_long(
             "absolute_final_change_from_source": (
                 float(final["macro_psnr"]) - float(source_method["macro_psnr"])
             ),
+            "absolute_late_peak_psnr": float(late_peak),
+            "absolute_peak_to_final_rollback": late_rollback,
             "transport_identity": transport.get("identity"),
             "target_blind_defect_reduction": transport.get(
                 "target_blind_defect_reduction"
